@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Chip-seq_data-analysis - Blog of Dai Zixi</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Chip-seq_data-analysis" />
+<meta property="og:description" content="Chip-seq数据分析 背景知识 ChIP-seq:染色质免疫共沉淀技术，也称作结合位点分析法。用于转录因子结合位点或蛋白特异性修饰位点的研究" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/chip-seq_data-analysis/" /><meta property="og:image" content="http://griedzx.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-15T19:37:58+08:00" />
+<meta property="article:modified_time" content="2023-06-15T19:37:58+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Chip-seq_data-analysis"/>
+<meta name="twitter:description" content="Chip-seq数据分析 背景知识 ChIP-seq:染色质免疫共沉淀技术，也称作结合位点分析法。用于转录因子结合位点或蛋白特异性修饰位点的研究"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/chip-seq_data-analysis/" /><link rel="prev" href="http://griedzx.github.io/first_post/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Chip-seq_data-analysis",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/chip-seq_data-analysis\/"
+        },"genre": "posts","wordcount":  1070 ,
+        "url": "http:\/\/griedzx.github.io\/chip-seq_data-analysis\/","datePublished": "2023-06-15T19:37:58+08:00","dateModified": "2023-06-15T19:37:58+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Dai Zixi"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Dai Zixi"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Chip-seq_data-analysis</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-15">2023-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1070 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景知识">背景知识</a></li>
+    <li><a href="#chip-seq实验顺序">Chip-seq实验顺序</a></li>
+    <li><a href="#chip-seq数据处理过程">Chip-seq数据处理过程</a></li>
+    <li><a href="#软件介绍以及安装">软件介绍以及安装</a>
+      <ul>
+        <li><a href="#conda">conda</a>
+          <ul>
+            <li><a href="#激活刚安装完成的软件"><strong>激活刚安装完成的软件</strong></a></li>
+            <li><a href="#一次性安装所需要的所有软件">一次性安装所需要的所有软件</a></li>
+            <li><a href="#安装中出现的问题">安装中出现的问题</a></li>
+            <li><a href="#macs2deeptools">macs2&amp;deeptools</a></li>
+            <li><a href="#软件功能">软件功能</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="chip-seq数据分析">Chip-seq数据分析</h1>
+<h2 id="背景知识">背景知识</h2>
+<ul>
+<li>ChIP-seq:染色质免疫共沉淀技术，也称作结合位点分析法。用于转录因子结合位点或蛋白特异性修饰位点的研究</li>
+<li>Chip-seq数据分析的使用工具和对应的流程
+1.bowtie aligber   原始数据与比对参考基因组(hg19)比对
+2.picard  tools      pcr数据去重 (pcr duplicating)
+3.MACS2              call peak
+4.deeptools          可视化</li>
+<li>4.homer annotatePeaks.pl   peak注释到对应基因上</li>
+<li>染色质开放区：(OCRs) 基因组DNA不与组蛋白缠绕而形成的区域，可与蛋白分子(TF)直接结合调控下游基因表达。</li>
+</ul>
+<h2 id="chip-seq实验顺序">Chip-seq实验顺序</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/image/Chip-seq_data-analysis/1687001002814.png"
+        data-srcset="/image/Chip-seq_data-analysis/1687001002814.png, /image/Chip-seq_data-analysis/1687001002814.png 1.5x, /image/Chip-seq_data-analysis/1687001002814.png 2x"
+        data-sizes="auto"
+        alt="/image/Chip-seq_data-analysis/1687001002814.png"
+        title="1687001002814" width="995" height="433" /></p>
+<h2 id="chip-seq数据处理过程">Chip-seq数据处理过程</h2>
+<ol>
+<li>Chip-seq原始数据</li>
+<li>（人类）参考基因组:用于建立index</li>
+<li>bowtie2比对：在建库和测序（我认为就是上述实际实验中）后，read之间无位置关系，需要read与参考基因组比较，在参考基因组上定位</li>
+<li>PCR去重复</li>
+<li>call peak:peak意味着有序列，在chip-seq中指对应区域蛋白结合在dna上
+5.1  某些特殊的chip-seq实验可以用rose筛选超级增强子</li>
+<li>下游分析（注释）</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/image/Chip-seq_data-analysis/1687000979344.png"
+        data-srcset="/image/Chip-seq_data-analysis/1687000979344.png, /image/Chip-seq_data-analysis/1687000979344.png 1.5x, /image/Chip-seq_data-analysis/1687000979344.png 2x"
+        data-sizes="auto"
+        alt="/image/Chip-seq_data-analysis/1687000979344.png"
+        title="1687000979344" width="733" height="727" /></p>
+<h2 id="软件介绍以及安装">软件介绍以及安装</h2>
+<h3 id="conda">conda</h3>
+<p>conda 强大的包管理器和环境管理器</p>
+<p>因为在家使用个人云服务器所以从头安装一遍:</p>
+<p><code>wget -c http://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh</code></p>
+<p><code>bash Miniconda3-latest-Linux-x86_64.sh</code></p>
+<h4 id="激活刚安装完成的软件"><strong>激活刚安装完成的软件</strong></h4>
+<p>一般安装软件完成后需要重启，在Linux叫激活，有两种方式，<strong>第一种</strong>是重新登录服务器，<strong>第二种</strong>是输入以下命令：</p>
+<p><code>source ~/.bashrc </code></p>
+<p>使用conda安装相应的软件</p>
+<h4 id="一次性安装所需要的所有软件">一次性安装所需要的所有软件</h4>
+<p><code>conda install -y -c bioconda  bowtie2 samtools picard macs2 deeptools</code></p>
+<p>最好还是逐个安装,不同的软件可能适配的python环境不同，可能需要conda新的虚拟环境</p>
+<p>安装代码出现问题可以上<a href="https://anaconda.org/bioconda" title="安装出错" target="_blank" rel="noopener noreffer ">anaconda.org</a>查询，会有推荐代码</p>
+<h4 id="安装中出现的问题">安装中出现的问题</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/image/Chip-seq_data-analysis/1687000960404.png"
+        data-srcset="/image/Chip-seq_data-analysis/1687000960404.png, /image/Chip-seq_data-analysis/1687000960404.png 1.5x, /image/Chip-seq_data-analysis/1687000960404.png 2x"
+        data-sizes="auto"
+        alt="/image/Chip-seq_data-analysis/1687000960404.png"
+        title="1687000960404" width="1048" height="552" /></p>
+<p>存在两个冲突：</p>
+<p>Python 版本不符合要求：deeptools 要求的 Python 版本是 2.7.x 或 3.x（其中包括了 2.7.x、3.5.x、3.6.x 等），而你的环境中安装的是 python=3.11。这会导致 deeptools 无法与你的 Python 版本兼容。</p>
+<p>glibc 版本不符合要求：deeptools 还依赖于 libgcc-ng，而 libgcc-ng 又依赖于 __glibc[version=&rsquo;&gt;=2.17&rsquo;]。然而，你的系统中安装的 glibc 版本是 2.35，与要求的版本不兼容。</p>
+<p>当使用 conda 创建python=2.7 环境，这两个问题就被解决了。这是因为 Python 2.7 符合 deeptools 对 Python 版本的要求，并且 conda 会自动处理软件包之间的依赖关系，安装适配于 Python 2.7 的 deeptools 版本。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/image/Chip-seq_data-analysis/1687000940528.png"
+        data-srcset="/image/Chip-seq_data-analysis/1687000940528.png, /image/Chip-seq_data-analysis/1687000940528.png 1.5x, /image/Chip-seq_data-analysis/1687000940528.png 2x"
+        data-sizes="auto"
+        alt="/image/Chip-seq_data-analysis/1687000940528.png"
+        title="1687000940528" width="1048" height="552" /></p>
+<p>这个似乎只显示了glibc 版本的不适配，直接更改可能会对系统的稳定性产生影响，因此需要谨慎操作。
+这里似乎可以使用***<a href="https://www.docker.com/" target="_blank" rel="noopener noreffer ">docker</a>***进行折腾，<strong>挖个坑放假来填</strong></p>
+<h4 id="macs2deeptools">macs2&amp;deeptools</h4>
+<p>针对python3.11不适配，和macs一样适配与python2.7，故安装在环境macs2中</p>
+<h4 id="软件功能">软件功能</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/image/Chip-seq_data-analysis/1687028485214.png"
+        data-srcset="/image/Chip-seq_data-analysis/1687028485214.png, /image/Chip-seq_data-analysis/1687028485214.png 1.5x, /image/Chip-seq_data-analysis/1687028485214.png 2x"
+        data-sizes="auto"
+        alt="/image/Chip-seq_data-analysis/1687028485214.png"
+        title="1687028485214" width="1524" height="743" /><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/image/Chip-seq_data-analysis/1687028495430.png"
+        data-srcset="/image/Chip-seq_data-analysis/1687028495430.png, /image/Chip-seq_data-analysis/1687028495430.png 1.5x, /image/Chip-seq_data-analysis/1687028495430.png 2x"
+        data-sizes="auto"
+        alt="/image/Chip-seq_data-analysis/1687028495430.png"
+        title="1687028495430" width="1349" height="696" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-15</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/chip-seq_data-analysis/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/chip-seq_data-analysis/" data-title="Chip-seq_data-analysis" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/chip-seq_data-analysis/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/chip-seq_data-analysis/" data-title="Chip-seq_data-analysis"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://griedzx.github.io/chip-seq_data-analysis/" data-title="Chip-seq_data-analysis"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://griedzx.github.io/chip-seq_data-analysis/" data-title="Chip-seq_data-analysis"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/first_post/" class="prev" rel="prev" title="Intro to My Blog"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Intro to My Blog</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.7">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
