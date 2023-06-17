@@ -4,13 +4,37 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>All Posts | Blog of Dai Zixi</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 15 Jun 2023 19:37:58 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 18 Jun 2023 02:47:43 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo_show_image</title>
+    <link>http://griedzx.github.io/hugo_show_image/</link>
+    <pubDate>Sun, 18 Jun 2023 02:47:43 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/hugo_show_image/</guid>
+    <description><![CDATA[hugo中markdown中图片展示设置 问题展现 解决方法]]></description>
+</item>
+<item>
     <title>Chip-seq_data-analysis</title>
     <link>http://griedzx.github.io/chip-seq_data-analysis/</link>
     <pubDate>Thu, 15 Jun 2023 19:37:58 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/chip-seq_data-analysis/</guid>
     <description><![CDATA[Chip-seq数据分析 背景知识 ChIP-seq:染色质免疫共沉淀技术，也称作结合位点分析法。用于转录因子结合位点或蛋白特异性修饰位点的研究]]></description>
+</item>
+<item>
+    <title>Origin_cluster Plot</title>
+    <link>http://griedzx.github.io/origin_cluster-plot/</link>
+    <pubDate>Fri, 09 Jun 2023 15:38:52 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/origin_cluster-plot/</guid>
+    <description><![CDATA[origin 导入数据 file -&gt; open 读入数据 左侧：apps Heat Map with Dendrogram 选择column&amp;row labels cluster rows clusters method: ward distance type: Pearson correlation number of clusters: 3]]></description>
+</item>
+<item>
+    <title>The Basic Process of Blog Building</title>
+    <link>http://griedzx.github.io/blog-building_process/</link>
+    <pubDate>Thu, 08 Jun 2023 21:16:02 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/blog-building_process/</guid>
+    <description><![CDATA[基于Hugo&amp;Githubpages的博客搭建流程 选择Hugo&amp;Githubpages的原因]]></description>
 </item>
 <item>
     <title>Intro to My Blog</title>
