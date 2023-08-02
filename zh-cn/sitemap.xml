@@ -2,8 +2,29 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>http://griedzx.github.io/tags/str_detect/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://griedzx.github.io/23.7.30_r/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/tags/apply/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/categories/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://griedzx.github.io/en/categories/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://griedzx.github.io/categories/"
+                    /></url><url>
             <loc>http://griedzx.github.io/posts/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/categories/r/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/tags/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://griedzx.github.io/en/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://griedzx.github.io/tags/"
+                    /></url><url>
             <loc>http://griedzx.github.io/</loc><lastmod>2023-07-30T22:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -13,27 +34,17 @@
                     hreflang="zh-cn"
                     href="http://griedzx.github.io/"
                     /></url><url>
-            <loc>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</loc><lastmod>2023-07-30T21:59:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</loc><lastmod>2023-07-30T21:58:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc><lastmod>2023-07-30T21:57:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</loc><lastmod>2023-07-30T21:56:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://griedzx.github.io/first_post/</loc><lastmod>2023-07-30T18:13:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</loc><lastmod>2023-06-18T02:47:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://griedzx.github.io/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://griedzx.github.io/en/categories/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="http://griedzx.github.io/categories/"
-                    /></url><url>
-            <loc>http://griedzx.github.io/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://griedzx.github.io/en/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="http://griedzx.github.io/tags/"
-                    /></url></urlset>
+            <loc>http://griedzx.github.io/tags/hugo/</loc><lastmod>2023-07-30T02:47:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/categories/hugo_blog/</loc><lastmod>2023-07-30T02:47:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</loc><lastmod>2023-07-30T02:47:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/tags/github-pages/</loc><lastmod>2023-07-28T21:57:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc><lastmod>2023-07-28T21:57:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://griedzx.github.io/categories/gokegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</loc><lastmod>2023-07-18T21:59:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://griedzx.github.io/tags/maize_gene_id/</loc><lastmod>2023-07-18T21:59:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</loc><lastmod>2023-07-18T21:59:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://griedzx.github.io/tags/annotationhub/</loc><lastmod>2023-07-17T21:56:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</loc><lastmod>2023-07-17T21:56:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://griedzx.github.io/tags/orgdb/</loc><lastmod>2023-07-17T21:56:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</loc><lastmod>2023-07-16T21:58:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://griedzx.github.io/tags/about-me/</loc><lastmod>2023-06-17T18:13:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://griedzx.github.io/first_post/</loc><lastmod>2023-06-17T18:13:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>

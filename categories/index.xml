@@ -4,5 +4,29 @@
         <link>http://griedzx.github.io/categories/</link>
         <description>Categories - 分类 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><atom:link href="http://griedzx.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 30 Jul 2023 22:51:49 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>R</title>
+    <link>http://griedzx.github.io/categories/r/</link>
+    <pubDate>Sun, 30 Jul 2023 22:51:49 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/categories/r/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>hugo_blog</title>
+    <link>http://griedzx.github.io/categories/hugo_blog/</link>
+    <pubDate>Sun, 30 Jul 2023 02:47:43 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/categories/hugo_blog/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>GO&amp;KEGG富集分析</title>
+    <link>http://griedzx.github.io/categories/gokegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</link>
+    <pubDate>Tue, 18 Jul 2023 21:59:19 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/categories/gokegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>hugo - 标签 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/tags/hugo/</link>
+        <description>hugo - 标签 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 30 Jul 2023 02:47:43 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/hugo/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo_show_image</title>
+    <link>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Sun, 30 Jul 2023 02:47:43 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[hugo中markdown中图片展示设置 问题展现 解决方法 参考资料 【教程】使用Hugo建立静态网站教程（进阶）使用page bundle功能使文]]></description>
+</item>
+<item>
+    <title>搭建博客</title>
+    <link>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+    <pubDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 基于Hugo&amp;Githubpages的博客搭建流程 基本流程 设置的tip]]></description>
+</item>
+</channel>
+</rss>

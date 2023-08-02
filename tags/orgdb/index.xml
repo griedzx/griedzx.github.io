@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>OrgDb - 标签 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/tags/orgdb/</link>
+        <description>OrgDb - 标签 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Mon, 17 Jul 2023 21:56:11 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/orgdb/" rel="self" type="application/rss+xml" /><item>
+    <title>Annotationhub构建orgdb</title>
+    <link>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</link>
+    <pubDate>Mon, 17 Jul 2023 21:56:11 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</guid>
+    <description><![CDATA[AnnotationHub构建OrgDb 要进行GO或者KEGG富集分析，就需要知道每个基因对应什么样的GO/KEGG分类，OrgDb就是存储]]></description>
+</item>
+</channel>
+</rss>

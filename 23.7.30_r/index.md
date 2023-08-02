@@ -9,7 +9,5 @@
     })
     matched_indices <- apply(matched_indices, 1, any)
     matched_terms <- GO@result[matched_indices,]
-
-
 ```
 

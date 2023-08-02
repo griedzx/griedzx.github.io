@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>github pages - 标签 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/tags/github-pages/</link>
+        <description>github pages - 标签 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/github-pages/" rel="self" type="application/rss+xml" /><item>
+    <title>搭建博客</title>
+    <link>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+    <pubDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 基于Hugo&amp;Githubpages的博客搭建流程 基本流程 设置的tip]]></description>
+</item>
+</channel>
+</rss>
