@@ -1,0 +1,66 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/</link>
+        <description>欢迎来到griedzx的空间</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 30 Jul 2023 22:51:49 &#43;0800</lastBuildDate>
+            <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>23.7.30_R</title>
+    <link>http://griedzx.github.io/23.7.30_r/</link>
+    <pubDate>Sun, 30 Jul 2023 22:51:49 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/23.7.30_r/</guid>
+    <description><![CDATA[运用代码 1 2 3 4 5 6 keywords &lt;- c(&#34;calcium&#34;, &#34;calmodulin&#34;) matched_indices &lt;- sapply(keywords, function(keyword){ str_detect(GO@result$Description, fixed(keyword, ignore_case = T)) }) matched_indices &lt;- apply(matched_indices, 1, any) matched_terms &lt;- GO@result[matched_indices,]]]></description>
+</item>
+<item>
+    <title>Maize_gene_id转换</title>
+    <link>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</link>
+    <pubDate>Sun, 30 Jul 2023 21:59:19 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</guid>
+    <description><![CDATA[Maize_geneid转换 问题描述 解决方法 网页在线转换 MaizeGDB gene Search Page MaizeGDB数据库有一个Translate Gene Model IDs工具，可以识别各种类]]></description>
+</item>
+<item>
+    <title>Go_kegg富集分析</title>
+    <link>http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</link>
+    <pubDate>Sun, 30 Jul 2023 21:58:29 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</guid>
+    <description><![CDATA[GO_KEGG富集分析 富集分析 富集分析（ Enrichment Analysis），是一种识别基因集合与已知生物过程、细胞组分和通路之间关联的统计方法。这些工具通]]></description>
+</item>
+<item>
+    <title>搭建博客</title>
+    <link>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+    <pubDate>Sun, 30 Jul 2023 21:57:35 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 基于Hugo&amp;Githubpages的博客搭建流程 基本流程 设置的tip]]></description>
+</item>
+<item>
+    <title>Annotationhub构建orgdb</title>
+    <link>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</link>
+    <pubDate>Sun, 30 Jul 2023 21:56:11 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</guid>
+    <description><![CDATA[AnnotationHub构建OrgDb 要进行GO或者KEGG富集分析，就需要知道每个基因对应什么样的GO/KEGG分类，OrgDb就是存储]]></description>
+</item>
+<item>
+    <title>First_post</title>
+    <link>http://griedzx.github.io/first_post/</link>
+    <pubDate>Sun, 30 Jul 2023 18:13:33 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/first_post/</guid>
+    <description><![CDATA[自我简介 大家好，我是[你的名字]，一名热爱生物信息学的学生。对于生物学和计算机科学的结合产生了浓厚的兴趣，我希望通过写博客来分享我在生物信息]]></description>
+</item>
+<item>
+    <title>Hugo_show_image</title>
+    <link>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Sun, 18 Jun 2023 02:47:43 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[hugo中markdown中图片展示设置 问题展现 解决方法]]></description>
+</item>
+</channel>
+</rss>

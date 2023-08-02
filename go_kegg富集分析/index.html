@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Go_kegg富集分析 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="Go_kegg富集分析" />
+<meta property="og:description" content="GO_KEGG富集分析 富集分析 富集分析（ Enrichment Analysis），是一种识别基因集合与已知生物过程、细胞组分和通路之间关联的统计方法。这些工具通" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" /><meta property="og:image" content="http://griedzx.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-30T21:58:29+08:00" />
+<meta property="article:modified_time" content="2023-07-30T21:58:29+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Go_kegg富集分析"/>
+<meta name="twitter:description" content="GO_KEGG富集分析 富集分析 富集分析（ Enrichment Analysis），是一种识别基因集合与已知生物过程、细胞组分和通路之间关联的统计方法。这些工具通"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" /><link rel="prev" href="http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" /><link rel="next" href="http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Go_kegg富集分析",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90\/"
+        },"genre": "posts","wordcount":  4269 ,
+        "url": "http:\/\/griedzx.github.io\/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90\/","datePublished": "2023-07-30T21:58:29+08:00","dateModified": "2023-07-30T21:58:29+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">👨‍💻</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">👨‍💻</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Go_kegg富集分析</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-30">2023-07-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4269 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#富集分析">富集分析</a>
+      <ul>
+        <li><a href="#富集分析的效果目的">富集分析的效果、目的</a></li>
+        <li><a href="#富集分析的原理">富集分析的原理</a></li>
+        <li><a href="#常用方法">常用方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#go--kegg是什么">GO &amp; KEGG是什么</a>
+      <ul>
+        <li><a href="#go数据库">GO数据库</a></li>
+        <li><a href="#kegg数据库">KEGG数据库</a></li>
+      </ul>
+    </li>
+    <li><a href="#go_kegg_gsea分析">GO_KEGG_GSEA分析</a>
+      <ul>
+        <li><a href="#下载加载需要的包">下载加载需要的包</a>
+          <ul>
+            <li><a href="#下载">下载</a></li>
+            <li><a href="#加载">加载</a></li>
+          </ul>
+        </li>
+        <li><a href="#读取数据将基因id从gene_symbol转换为entrez_id">读取数据，将基因ID从GENE_SYMBOL转换为ENTREZ_ID</a>
+          <ul>
+            <li><a href="#orgdb">OrgDb</a></li>
+          </ul>
+        </li>
+        <li><a href="#go分析">GO分析</a></li>
+        <li><a href="#kegg分析-参数和go差不多">KEGG分析 （参数和GO差不多）</a></li>
+      </ul>
+    </li>
+    <li><a href="#go--kegg结果可视化">GO &amp; KEGG结果可视化</a>
+      <ul>
+        <li><a href="#富集柱状图--点状图">富集柱状图 + 点状图</a></li>
+        <li><a href="#棒棒糖图">棒棒糖图</a></li>
+        <li><a href="#富集基因与所在功能集通路集的关联网络图">富集基因与所在功能集/通路集的关联网络图</a></li>
+        <li><a href="#富集到的功能集通路集之间的关联网络图">富集到的功能集/通路集之间的关联网络图</a></li>
+        <li><a href="#go富集功能网络图">GO富集功能网络图</a></li>
+        <li><a href="#go富集弦图">GO富集弦图</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考文章">参考文章</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="go_kegg富集分析">GO_KEGG富集分析</h1>
+<h2 id="富集分析">富集分析</h2>
+<p>富集分析（ <em><strong>Enrichment Analysis</strong></em>），是一种识别基因集合与已知<em>生物过程</em>、<em>细胞组分</em>和<em>通路</em>之间关联的统计方法。这些工具通过使用数据库中的注释信息来找到对应的基因集合。</p>
+<h3 id="富集分析的效果目的">富集分析的效果、目的</h3>
+<ol>
+<li>把差异基因或者物质根据其功能进行归类，使具有相似功能的基因或者物质就被放在一起</li>
+<li>实现功能和表型相关联</li>
+<li>解读一组基因背后所代表的生物学知识，揭示其在细胞内或细胞外扮演了什么样的角色。</li>
+</ol>
+<h3 id="富集分析的原理">富集分析的原理</h3>
+<p>富集分析通常是分析一组基因在某个功能节点上是否相比于随机水平过于出现(over-presentation)</p>
+<h3 id="常用方法">常用方法</h3>
+<ol>
+<li>目前最常用的方法是基于GO和KEGG的富集分析。 首先通过多种方法得到大量的感兴趣的基因，例如差异表达基因集、共表达基因模块、蛋白质复合物基因簇等，然后寻找这些感兴趣基因集显著富集的GO节点或者KEGG通路，这有助于进一步深入细致的实验研究。</li>
+<li>依据富集分析过程中基因选择、注释数据库的不同，常用的富集分析可以分为以下四种类型：GO term功能富集、KEGG pathway通路富集、MSigDB基因集富集和单基因富集等等</li>
+</ol>
+<h2 id="go--kegg是什么">GO &amp; KEGG是什么</h2>
+<p>对于每个基因而言，其基本的功能基于他们的蛋白结构域以及研究的文献已经可以大致的知道一个基因具有什么样子的功能了。<strong>GO和KEGG就是基于不同的分类思想而储存的基因相关功能的数据库。</strong></p>
+<h3 id="go数据库">GO数据库</h3>
+<p>全称是Gene Ontology(基因本体)，他们把基因的功能分成了三个部分分别是： <strong>细胞组分（cellular component, CC）、分子功能（molecular function, MF）</strong> 、 <strong>生物过程（biological process, BP）</strong> 。利用GO数据库，我们就可以得到我们的目标基因在CC, MF和BP三个层面上，主要和什么有关。</p>
+<h3 id="kegg数据库">KEGG数据库</h3>
+<p>除了对基因本身功能的注释，我们也知道基因会参与人体的各个通路，基于人体通路而形成的数据库就是通路相关的数据库。</p>
+<p>京都基因与基因组百科全书（Kyoto encyclopedia of genes and genomes, KEGG）是系统分析基因功能、基因组信息的数据库，整合了基因组学、生物化学及系统功能组学的信息，有助于研究者把基因及表达信息作为一个整体进行研究。目前KEGG共包含了19个子数据库，富集分析常用在<strong>KEGG Pathway</strong>通路中。</p>
+<h2 id="go_kegg_gsea分析">GO_KEGG_GSEA分析</h2>
+<h3 id="下载加载需要的包">下载加载需要的包</h3>
+<h4 id="下载">下载</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;包名称&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或者</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">biocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;包名称&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><code>BiocManager</code>：是一个 R 包，其中包含了一些用于管理 Bioconductor 包的函数，如 <code>install()</code>、<code>update()</code> 等。使用 <code>::</code> 表示法，你可以指定调用特定包中的函数。通过 BiocManager，你可以轻松地访问和管理 Bioconductor 存储库中的生物信息学和生物统计学相关的软件包。它简化了安装和维护 Bioconductor 包的过程。</li>
+<li><code>Bioconductor</code>：是一个专门用于生物信息学和生物统计学研究的 R 软件包存储库。它是一个巨大的代码资源库，包含了许多用于基因表达数据分析、基因组学、蛋白质组学等生物学领域的软件包。Bioconductor 提供了丰富的分析工具和算法，能够帮助生物学家处理和解释生物学数据。BiocManager 用于访问和安装 Bioconductor 中的软件包。</li>
+<li><code>::</code> 不仅可以用于指定调用的包，还可以在不加载整个包的情况下调用该包中的函数。这样可以在特定代码行中临时使用特定包中的函数，而不需要在整个会话中加载该包。<code>::</code> 只在当前代码行中生效</li>
+</ol>
+<h4 id="加载">加载</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">clusterProfiler</span><span class="p">)</span><span class="c1">#GO&amp;KEGG</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">enrichplot</span><span class="p">)</span><span class="c1">#GO&amp;KEGG</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="c1">#柱状图和点状图</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span><span class="c1">#基因ID转换</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GOplot</span><span class="p">)</span><span class="c1">#弦图，弦表图，系统聚类图</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">DOSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggnewscale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">topGO</span><span class="p">)</span><span class="c1">#绘制通路网络图</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">circlize</span><span class="p">)</span><span class="c1">#绘制富集分析圈图</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ComplexHeatmap</span><span class="p">)</span><span class="c1">#绘制图例</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">forcats</span><span class="p">)</span><span class="c1">#绘图中对因子处理</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="读取数据将基因id从gene_symbol转换为entrez_id">读取数据，将基因ID从GENE_SYMBOL转换为ENTREZ_ID</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#载入数据，只需要基因ID(GO,KEGG,GSEA需要)和log2FOldChange(GSEA(基因集富集分析)需要)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;DEG.csv&#34;</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#指定富集分析的物种库</span>
+</span></span><span class="line"><span class="cl"><span class="n">GO_database</span> <span class="o">&lt;-</span> <span class="s">&#39;org.Hs.eg.db&#39;</span> <span class="c1">#GO分析指定物种</span>
+</span></span><span class="line"><span class="cl"><span class="n">KEGG_database</span> <span class="o">&lt;-</span> <span class="s">&#39;hsa&#39;</span> <span class="c1">#KEGG分析指定物种</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>GO分析指定物种，详见 <a href="http://bioconductor.org/packages/release/BiocViews.html#___OrgDb" target="_blank" rel="noopener noreffer ">GO物种缩写索引表</a></p>
+<p>KEGG分析指定物种，详见 <a href="http://www.genome.jp/kegg/catalog/org_list.html" target="_blank" rel="noopener noreffer ">keggle物种缩写索引表</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#安装注释数据库</span>
+</span></span><span class="line"><span class="cl"><span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">require</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;org.Hs.eg.db&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>有问题参见官网 <a href="https://www.bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html" target="_blank" rel="noopener noreffer ">Bioconductor - org.Hs.eg.db</a></p>
+<h4 id="orgdb">OrgDb</h4>
+<p>org数据库是一个用于存储特定物种的基因和基因注释信息的数据库。每个org数据库专门用于一个特定的生物物种，例如人类、小鼠、大鼠等。org数据库包含了与该物种相关的基因、基因产物以及它们的注释信息，如基因的功能、组织表达、基因本体注释等。在生物学研究中，研究人员经常需要将基因与GO术语相关联，从而了解基因的功能和参与的生物过程。为此，他们需要使用org数据库中的基因注释信息，将基因与GO术语进行映射，以便进行GO富集分析、基因集对比等功能。</p>
+<ol>
+<li>在 <code>http://bioconductor.org/packages/release/BiocViews.html#___OrgDb</code>可以找到对应物种</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#gene ID转换</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene</span> <span class="o">&lt;-</span> <span class="nf">bitr</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span><span class="n">fromType</span> <span class="o">=</span> <span class="s">&#39;SYMBOL&#39;</span><span class="p">,</span> <span class="n">toType</span> <span class="o">=</span> <span class="s">&#39;ENTREZID&#39;</span><span class="p">,</span><span class="n">OrgDb</span> <span class="o">=</span> <span class="n">GO_database</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>如果自己研究的物种不在 <code>http://bioconductor.org/packages/release/BiocViews.html#___OrgDb</code> 之列，很大可能就需要自己构建OrgDb，然后用clusterProfiler分析。非模式生物要想找到自己的注释包，又分成两类：</li>
+</ol>
+<ul>
+<li>一类是在 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fbioconductor.org%2Fpackages%2Frelease%2Fbioc%2Fhtml%2FAnnotationHub.html" target="_blank" rel="noopener noreffer ">AnnotationHub</a> 中存在的，例如玉米</li>
+<li>另一类是在AnnotationHub也不存在相应物种，就需要用 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fbioconductor.org%2Fpackages%2Frelease%2Fbioc%2Fhtml%2FAnnotationForge.html" target="_blank" rel="noopener noreffer ">AnnotationForge</a> 来自己构建</li>
+</ul>
+<p>若出现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">gene</span> <span class="o">&lt;-</span> <span class="nf">bitr</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span><span class="n">fromType</span> <span class="o">=</span> <span class="s">&#39;SYMBOL&#39;</span><span class="p">,</span> <span class="n">toType</span> <span class="o">=</span> <span class="s">&#39;ENTREZID&#39;</span><span class="p">,</span><span class="n">OrgDb</span> <span class="o">=</span> <span class="n">GO_database</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#39;select()&#39;</span> <span class="n">returned</span> <span class="m">1</span><span class="o">:</span><span class="n">many</span> <span class="n">mapping</span> <span class="n">between</span> <span class="n">keys</span> <span class="n">and</span> <span class="n">columns</span>
+</span></span><span class="line"><span class="cl"><span class="n">Warning</span> <span class="n">message</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="nf">bitr</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span> <span class="n">fromType</span> <span class="o">=</span> <span class="s">&#34;SYMBOL&#34;</span><span class="p">,</span> <span class="n">toType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span> <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">GO_database</span><span class="p">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="m">0.7</span>% <span class="n">of</span> <span class="n">input</span> <span class="n">gene</span> <span class="n">IDs</span> <span class="n">are</span> <span class="n">fail</span> <span class="n">to</span> <span class="n">map...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一对多映射：某些基因 ID（SYMBOL）可能对应多个基因 ID（ENTREZID）。这种情况通常是因为一个基因可能有多个变体或不同的数据库中存在多个记录。</p>
+<h3 id="go分析">GO分析</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#GO分析</span>
+</span></span><span class="line"><span class="cl"><span class="n">GO</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">gene</span><span class="o">$</span><span class="n">ENTREZID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">GO_database</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span><span class="c1">#设定读取的gene ID类型</span>
+</span></span><span class="line"><span class="cl">               <span class="n">ont</span> <span class="o">=</span> <span class="s">&#39;ALL&#39;</span><span class="p">,</span> <span class="c1">#ont=all即包括GO数据库中的三个部分CC、MF、BP</span>
+</span></span><span class="line"><span class="cl">               <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">readable</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>readable</code> 参数用于控制 GO 富集分析结果中的基因 ID 是否转换成易读的描述性名称,即ENTREZ_ID -&gt; SYMBOL_ID,默认为 <code>False</code></p>
+<h3 id="kegg分析-参数和go差不多">KEGG分析 （参数和GO差不多）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">KEGG</span> <span class="o">&lt;-</span> <span class="nf">enrichKEGG</span><span class="p">(</span><span class="n">gene</span><span class="o">$</span><span class="n">ENTREZID</span><span class="p">,</span><span class="c1">#KEGG富集分析</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">organism</span> <span class="o">=</span> <span class="n">KEGG_database</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>GO &amp; KEGG 都可以保存为csv文件查看</p>
+<p><code>write.csv(GO,&quot;./result.csv&quot;)</code></p>
+<p><code>GO_result &lt;- GO@result</code> 所得变量存储格式和输出文件格式相同，可以查看选择感兴趣的定制画图</p>
+<h2 id="go--kegg结果可视化">GO &amp; KEGG结果可视化</h2>
+<h3 id="富集柱状图--点状图">富集柱状图 + 点状图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">barplot</span><span class="p">(</span><span class="n">GO</span><span class="p">,</span> <span class="n">split</span> <span class="o">=</span> <span class="s">&#34;ONTOLOGY&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">ONTOLOGY</span><span class="o">~</span><span class="n">.,</span> <span class="n">scale</span> <span class="o">=</span> <span class="s">&#34;free&#34;</span><span class="p">)</span>  <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_y_discrete</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">str_wrap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">100</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">dotplot</span><span class="p">(</span><span class="n">GO</span><span class="p">,</span> <span class="n">split</span> <span class="o">=</span> <span class="s">&#34;ONTOLOGY&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">ONTOLOGY</span><span class="o">~</span><span class="n">.,</span> <span class="n">scale</span> <span class="o">=</span> <span class="s">&#34;free&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>barplot()</code> 函数用于创建柱状图</li>
+<li>参数 <code>split = &quot;ONTOLOGY&quot;</code> 表示按照 &ldquo;ONTOLOGY&rdquo; 列的不同取值（GO_db的三个层面）将数据拆分为不同的柱状图</li>
+<li><code>facet_grid()</code> 函数用于将拆分后的柱状图按照 &ldquo;ONTOLOGY&rdquo; 列的不同取值排列在一个网格中。每一行代表一个 &ldquo;ONTOLOGY&rdquo; 类别</li>
+<li>子图根据数据的分布自动调整高度，即参数 <code>scale = &quot;free&quot;</code>，以便更好地展示数据的差异</li>
+<li><code>barplot(GO, showCategory=20)</code> 参数 showCategory 可以控制展示的数量</li>
+<li>scale_y_discrete(labels=function(x) str_wrap(x, width = 100)) #调整y轴标签长度，使其放在一行</li>
+</ul>
+<h3 id="棒棒糖图">棒棒糖图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">GO</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">       <span class="nf">aes</span><span class="p">(</span><span class="n">GeneRatio</span><span class="p">,</span> <span class="nf">fct_reorder</span><span class="p">(</span><span class="n">Description</span><span class="p">,</span> <span class="n">GeneRatio</span><span class="p">)))</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_segment</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">xend</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">yend</span> <span class="o">=</span> <span class="n">Description</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">p.adjust</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Count</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_color_viridis_c</span><span class="p">(</span><span class="n">guide</span><span class="o">=</span><span class="nf">guide_colorbar</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_size_continuous</span><span class="p">(</span><span class="n">range</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">ylab</span><span class="p">(</span><span class="kc">NULL</span><span class="p">)</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>aes(GeneRatio, fct_reorder(Description, GeneRatio))</code>: 这里设置了图形的&quot;美学映射&quot;（aesthetic mappings）</p>
+<ul>
+<li>GeneRatio 是x轴的变量，fct_reorder(Description, GeneRatio) 是y轴的变量</li>
+<li>fct_reorder() 函数可以根据 GeneRatio 的值对 Description 进行重新排序，这样可以根据 GeneRatio 的大小对y轴的标签进行排列。</li>
+</ul>
+<h3 id="富集基因与所在功能集通路集的关联网络图">富集基因与所在功能集/通路集的关联网络图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">enrichplot</span><span class="o">::</span><span class="nf">cnetplot</span><span class="p">(</span><span class="n">GO</span><span class="p">,</span> <span class="n">circular</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">colorEdge</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>circluar</code>为指定是否环化，基因过多建议设置成 <code>F</code></li>
+</ul>
+<h3 id="富集到的功能集通路集之间的关联网络图">富集到的功能集/通路集之间的关联网络图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GO2 &lt;- pairwise_termsim(GO)
+</span></span><span class="line"><span class="cl">enrichplot::emapplot(GO2,showCategory = 50, color = &#34;p.adjust&#34;, layout = &#34;kk&#34;)#通路间关联网络图
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>热图展现关联关系</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">enrichplot::heatplot(GO,showCategory = 50)#基因-通路关联热图
+</span></span><span class="line"><span class="cl">enrichplot::heatplot(KEGG,showCategory = 50)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="go富集功能网络图">GO富集功能网络图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">GO_BP</span><span class="o">&lt;-</span><span class="nf">enrichGO</span><span class="p">(</span> <span class="n">gene</span><span class="o">$</span><span class="n">ENTREZID</span><span class="p">,</span><span class="c1">#GO富集分析BP模块</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">GO_database</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;BP&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pAdjustMethod</span> <span class="o">=</span> <span class="s">&#34;BH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">minGSSize</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">maxGSSize</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">readable</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">plotGOgraph</span><span class="p">(</span><span class="n">GO_BP</span><span class="p">)</span><span class="c1">#GO-BP功能网络图</span>
+</span></span><span class="line"><span class="cl"><span class="n">GO_CC</span><span class="o">&lt;-</span><span class="nf">enrichGO</span><span class="p">(</span> <span class="n">gene</span><span class="o">$</span><span class="n">ENTREZID</span><span class="p">,</span><span class="c1">#GO富集分析CC模块</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">GO_database</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;CC&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pAdjustMethod</span> <span class="o">=</span> <span class="s">&#34;BH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">minGSSize</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">maxGSSize</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">readable</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">plotGOgraph</span><span class="p">(</span><span class="n">GO_CC</span><span class="p">)</span><span class="c1">#GO-CC功能网络图</span>
+</span></span><span class="line"><span class="cl"><span class="n">GO_MF</span><span class="o">&lt;-</span><span class="nf">enrichGO</span><span class="p">(</span> <span class="n">gene</span><span class="o">$</span><span class="n">ENTREZID</span><span class="p">,</span><span class="c1">#GO富集分析MF模块</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">GO_database</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;MF&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pAdjustMethod</span> <span class="o">=</span> <span class="s">&#34;BH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">minGSSize</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">maxGSSize</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">readable</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">plotGOgraph</span><span class="p">(</span><span class="n">GO_MF</span><span class="p">)</span><span class="c1">#GO-MF功能网络图</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="go富集弦图">GO富集弦图</h3>
+<p>先要将所有GO富集到的基因集所对应的类型写入本地文件从而得到BP/CC/MF各自的起始位置如我的数据里是1，2103，2410.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">genedata</span><span class="o">&lt;-</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">ID</span><span class="o">=</span><span class="n">info</span><span class="o">$</span><span class="n">gene_symbol</span><span class="p">,</span><span class="n">logFC</span><span class="o">=</span><span class="n">info</span><span class="o">$</span><span class="n">log2FoldChange</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">write.table</span><span class="p">(</span><span class="n">GO</span><span class="o">$</span><span class="n">ONTOLOGY</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">&#34;/Users/ZYP/Downloads/KEGG_GO/GO_ONTOLOGYs.txt&#34;</span><span class="p">,</span> <span class="c1">#将所有GO富集到的基因集所对应的类型写入本地文件从而得到BP/CC/MF各自的起始位置如我的数据里是1，2103，2410</span>
+</span></span><span class="line"><span class="cl">            <span class="n">append</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34; &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">eol</span> <span class="o">=</span> <span class="s">&#34;\n&#34;</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="s">&#34;NA&#34;</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">col.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">qmethod</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;escape&#34;</span><span class="p">,</span> <span class="s">&#34;double&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fileEncoding</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">GOplotIn_BP</span><span class="o">&lt;-</span><span class="n">GO[1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">9</span><span class="p">)</span><span class="n">]</span> <span class="c1">#提取GO富集BP的前10行,提取ID,Description,p.adjust,GeneID四列</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_CC</span><span class="o">&lt;-</span><span class="n">GO[2103</span><span class="o">:</span><span class="m">2112</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">9</span><span class="p">)</span><span class="n">]</span><span class="c1">#提取GO富集CC的前10行,提取ID,Description,p.adjust,GeneID四列</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_MF</span><span class="o">&lt;-</span><span class="n">GO[2410</span><span class="o">:</span><span class="m">2419</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">9</span><span class="p">)</span><span class="n">]</span><span class="c1">#提取GO富集MF的前10行,提取ID,Description,p.adjust,GeneID四列</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_BP</span><span class="o">$</span><span class="n">geneID</span> <span class="o">&lt;-</span><span class="nf">str_replace_all</span><span class="p">(</span><span class="n">GOplotIn_BP</span><span class="o">$</span><span class="n">geneID</span><span class="p">,</span><span class="s">&#39;/&#39;</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">)</span> <span class="c1">#把GeneID列中的’/’替换成‘,’</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_CC</span><span class="o">$</span><span class="n">geneID</span> <span class="o">&lt;-</span><span class="nf">str_replace_all</span><span class="p">(</span><span class="n">GOplotIn_CC</span><span class="o">$</span><span class="n">geneID</span><span class="p">,</span><span class="s">&#39;/&#39;</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_MF</span><span class="o">$</span><span class="n">geneID</span> <span class="o">&lt;-</span><span class="nf">str_replace_all</span><span class="p">(</span><span class="n">GOplotIn_MF</span><span class="o">$</span><span class="n">geneID</span><span class="p">,</span><span class="s">&#39;/&#39;</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">GOplotIn_BP</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;ID&#39;</span><span class="p">,</span><span class="s">&#39;Term&#39;</span><span class="p">,</span><span class="s">&#39;adj_pval&#39;</span><span class="p">,</span><span class="s">&#39;Genes&#39;</span><span class="p">)</span><span class="c1">#修改列名,后面弦图绘制的时候需要这样的格式</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">GOplotIn_CC</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;ID&#39;</span><span class="p">,</span><span class="s">&#39;Term&#39;</span><span class="p">,</span><span class="s">&#39;adj_pval&#39;</span><span class="p">,</span><span class="s">&#39;Genes&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">GOplotIn_MF</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;ID&#39;</span><span class="p">,</span><span class="s">&#39;Term&#39;</span><span class="p">,</span><span class="s">&#39;adj_pval&#39;</span><span class="p">,</span><span class="s">&#39;Genes&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_BP</span><span class="o">$</span><span class="n">Category</span> <span class="o">=</span> <span class="s">&#34;BP&#34;</span><span class="c1">#分类信息</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_CC</span><span class="o">$</span><span class="n">Category</span> <span class="o">=</span> <span class="s">&#34;CC&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">GOplotIn_MF</span><span class="o">$</span><span class="n">Category</span> <span class="o">=</span> <span class="s">&#34;MF&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">circ_BP</span><span class="o">&lt;-</span><span class="n">GOplot</span><span class="o">::</span><span class="nf">circle_dat</span><span class="p">(</span><span class="n">GOplotIn_BP</span><span class="p">,</span><span class="n">genedata</span><span class="p">)</span> <span class="c1">#GOplot导入数据格式整理</span>
+</span></span><span class="line"><span class="cl"><span class="n">circ_CC</span><span class="o">&lt;-</span><span class="n">GOplot</span><span class="o">::</span><span class="nf">circle_dat</span><span class="p">(</span><span class="n">GOplotIn_CC</span><span class="p">,</span><span class="n">genedata</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">circ_MF</span><span class="o">&lt;-</span><span class="n">GOplot</span><span class="o">::</span><span class="nf">circle_dat</span><span class="p">(</span><span class="n">GOplotIn_MF</span><span class="p">,</span><span class="n">genedata</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">chord_BP</span><span class="o">&lt;-</span><span class="nf">chord_dat</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">circ_BP</span><span class="p">,</span><span class="n">genes</span> <span class="o">=</span> <span class="n">genedata</span><span class="p">)</span> <span class="c1">#生成含有选定基因的数据框</span>
+</span></span><span class="line"><span class="cl"><span class="n">chord_CC</span><span class="o">&lt;-</span><span class="nf">chord_dat</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">circ_CC</span><span class="p">,</span><span class="n">genes</span> <span class="o">=</span> <span class="n">genedata</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">chord_MF</span><span class="o">&lt;-</span><span class="nf">chord_dat</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">circ_MF</span><span class="p">,</span><span class="n">genes</span> <span class="o">=</span> <span class="n">genedata</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">GOChord</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">chord_BP</span><span class="p">,</span><span class="c1">#弦图</span>
+</span></span><span class="line"><span class="cl">        <span class="n">title</span> <span class="o">=</span> <span class="s">&#39;GO-Biological Process&#39;</span><span class="p">,</span><span class="n">space</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">,</span><span class="c1">#GO Term间距</span>
+</span></span><span class="line"><span class="cl">        <span class="n">limit</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">gene.order</span> <span class="o">=</span> <span class="s">&#39;logFC&#39;</span><span class="p">,</span><span class="n">gene.space</span> <span class="o">=</span> <span class="m">0.25</span><span class="p">,</span><span class="n">gene.size</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lfc.col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">,</span><span class="s">&#39;white&#39;</span><span class="p">,</span><span class="s">&#39;blue&#39;</span><span class="p">),</span> <span class="c1">#上下调基因颜色</span>
+</span></span><span class="line"><span class="cl">        <span class="n">process.label</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span> <span class="c1">#GO Term字体大小</span>
+</span></span><span class="line"><span class="cl"><span class="nf">GOChord</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">chord_CC</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">&#39;GO-Cellular Component&#39;</span><span class="p">,</span><span class="n">space</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">limit</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">gene.order</span> <span class="o">=</span> <span class="s">&#39;logFC&#39;</span><span class="p">,</span><span class="n">gene.space</span> <span class="o">=</span> <span class="m">0.25</span><span class="p">,</span><span class="n">gene.size</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lfc.col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">,</span><span class="s">&#39;white&#39;</span><span class="p">,</span><span class="s">&#39;blue&#39;</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">process.label</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">GOChord</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">chord_MF</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">&#39;GO-Mollecular Function&#39;</span><span class="p">,</span><span class="n">space</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">limit</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">gene.order</span> <span class="o">=</span> <span class="s">&#39;logFC&#39;</span><span class="p">,</span><span class="n">gene.space</span> <span class="o">=</span> <span class="m">0.25</span><span class="p">,</span><span class="n">gene.size</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lfc.col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">,</span><span class="s">&#39;white&#39;</span><span class="p">,</span><span class="s">&#39;blue&#39;</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">process.label</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考文章">参考文章</h2>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/135410211" target="_blank" rel="noopener noreffer ">GO分析和KEGG分析都是啥？ - 知乎 (zhihu.com)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/377356510" target="_blank" rel="noopener noreffer ">最全的GO, KEGG, GSEA分析教程(R),你要的高端可视化都在这啦！[包含富集圈图] - 知乎 (zhihu.com)</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-07-30</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" data-title="Go_kegg富集分析" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" data-title="Go_kegg富集分析"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" data-title="Go_kegg富集分析"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" data-title="Go_kegg富集分析"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="prev" rel="prev" title="搭建博客"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>搭建博客</a>
+            <a href="/maize_gene_id%E8%BD%AC%E6%8D%A2/" class="next" rel="next" title="Maize_gene_id转换">Maize_gene_id转换<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.7">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>My New Hugo Site</title>
+        <link>http://griedzx.github.io/en/</link>
+        <description>欢迎来到griedzx的空间</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster>
+            <atom:link href="http://griedzx.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
+</rss>
