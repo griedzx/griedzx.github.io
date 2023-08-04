@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GWAS - 分类 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/categories/gwas/</link>
+        <description>GWAS - 分类 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Wed, 02 Aug 2023 22:54:13 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/gwas/" rel="self" type="application/rss+xml" /><item>
+    <title>GWAS初体验</title>
+    <link>http://griedzx.github.io/gwas/</link>
+    <pubDate>Wed, 02 Aug 2023 22:54:13 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/gwas/</guid>
+    <description><![CDATA[2023-8-3新开一坑，开始学GWAS GWAS学习可以分为以下几个板块： GWAS的基本概念和原理：了解GWAS的目的、方法、优势和局限性，]]></description>
+</item>
+</channel>
+</rss>
