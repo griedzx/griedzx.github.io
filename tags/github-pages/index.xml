@@ -10,7 +10,7 @@
     <pubDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 基于Hugo&amp;Githubpages的博客搭建流程 基本流程 设置的tip]]></description>
+    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 Hugo是一个用Go语言编写的静态网站生成器，它可以快速地创建和发布博客文章。]]></description>
 </item>
 </channel>
 </rss>

@@ -4,13 +4,13 @@
         <link>http://griedzx.github.io/categories/gokegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</link>
         <description>GO&amp;KEGG富集分析 - 分类 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 18 Jul 2023 21:59:19 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/gokegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" rel="self" type="application/rss+xml" /><item>
-    <title>Maize_gene_id转换</title>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://griedzx.github.io/categories/gokegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" rel="self" type="application/rss+xml" /><item>
+    <title>maize_gene_id转换</title>
     <link>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</link>
-    <pubDate>Tue, 18 Jul 2023 21:59:19 &#43;0800</pubDate>
+    <pubDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</guid>
-    <description><![CDATA[Maize_geneid转换 问题描述 解决方法 网页在线转换 MaizeGDB gene Search Page MaizeGDB数据库有一个Translate Gene Model IDs工具，可以识别各种类]]></description>
+    <description><![CDATA[问题描述 做GO富集分析时，师姐给的数据是Genome assembly B73 RefGen_v4版本的数据 对应基因id没有需要使用的symbol或者entrez_]]></description>
 </item>
 <item>
     <title>Annotationhub构建orgdb</title>

@@ -15,28 +15,20 @@
     <description><![CDATA[运用代码 1 2 3 4 5 6 keywords &lt;- c(&#34;calcium&#34;, &#34;calmodulin&#34;) matched_indices &lt;- sapply(keywords, function(keyword){ str_detect(GO@result$Description, fixed(keyword, ignore_case = T)) }) matched_indices &lt;- apply(matched_indices, 1, any) matched_terms &lt;- GO@result[matched_indices,]]]></description>
 </item>
 <item>
-    <title>Hugo_show_image</title>
-    <link>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
-    <pubDate>Sun, 30 Jul 2023 02:47:43 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
-    <description><![CDATA[hugo中markdown中图片展示设置 问题展现 解决方法 参考资料 【教程】使用Hugo建立静态网站教程（进阶）使用page bundle功能使文]]></description>
-</item>
-<item>
     <title>搭建博客</title>
     <link>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
     <pubDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 基于Hugo&amp;Githubpages的博客搭建流程 基本流程 设置的tip]]></description>
+    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 Hugo是一个用Go语言编写的静态网站生成器，它可以快速地创建和发布博客文章。]]></description>
 </item>
 <item>
-    <title>Maize_gene_id转换</title>
+    <title>maize_gene_id转换</title>
     <link>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</link>
-    <pubDate>Tue, 18 Jul 2023 21:59:19 &#43;0800</pubDate>
+    <pubDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</guid>
-    <description><![CDATA[Maize_geneid转换 问题描述 解决方法 网页在线转换 MaizeGDB gene Search Page MaizeGDB数据库有一个Translate Gene Model IDs工具，可以识别各种类]]></description>
+    <description><![CDATA[问题描述 做GO富集分析时，师姐给的数据是Genome assembly B73 RefGen_v4版本的数据 对应基因id没有需要使用的symbol或者entrez_]]></description>
 </item>
 <item>
     <title>Annotationhub构建orgdb</title>
@@ -53,14 +45,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</guid>
     <description><![CDATA[GO_KEGG富集分析 富集分析 富集分析（ Enrichment Analysis），是一种识别基因集合与已知生物过程、细胞组分和通路之间关联的统计方法。这些工具通]]></description>
-</item>
-<item>
-    <title>First_post</title>
-    <link>http://griedzx.github.io/first_post/</link>
-    <pubDate>Sat, 17 Jun 2023 18:13:33 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/first_post/</guid>
-    <description><![CDATA[自我简介 大家好，我是griedzx，一名大概率喜欢生物信息学的学生，对于生物学和计算机科学的结合产生了浓厚的兴趣，我希望通过写博客来分享我在]]></description>
 </item>
 </channel>
 </rss>
