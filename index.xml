@@ -4,9 +4,17 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Wed, 02 Aug 2023 22:54:13 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 05 Aug 2023 23:46:51 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Gwas_turtorial</title>
+    <link>http://griedzx.github.io/gwas_turtorial/</link>
+    <pubDate>Sat, 05 Aug 2023 23:46:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://griedzx.github.io/gwas_turtorial/</guid>
+    <description><![CDATA[参考 一篇手把手教你做GWAS的Guideline文献解读 - 知乎 (zhihu.com) 全基因组关联分析学习资料（GWAS tutorial） - 知乎 (zhihu.com) easyGWAS - Running GWAS easily over the web]]></description>
+</item>
+<item>
     <title>GWAS初体验</title>
     <link>http://griedzx.github.io/gwas/</link>
     <pubDate>Wed, 02 Aug 2023 22:54:13 &#43;0800</pubDate>
