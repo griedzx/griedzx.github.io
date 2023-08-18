@@ -4,13 +4,21 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 05 Aug 2023 23:46:51 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 19 Aug 2023 00:09:38 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>meme寻找motif&lt;保守序列&gt;</title>
+    <link>http://griedzx.github.io/meme/</link>
+    <pubDate>Sat, 19 Aug 2023 00:09:38 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://griedzx.github.io/meme/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Gwas_turtorial</title>
     <link>http://griedzx.github.io/gwas_turtorial/</link>
     <pubDate>Sat, 05 Aug 2023 23:46:51 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://griedzx.github.io/gwas_turtorial/</guid>
-    <description><![CDATA[参考 一篇手把手教你做GWAS的Guideline文献解读 - 知乎 (zhihu.com) 全基因组关联分析学习资料（GWAS tutorial） - 知乎 (zhihu.com) easyGWAS - Running GWAS easily over the web]]></description>
+    <description><![CDATA[GWAS主要步骤 选择一个感兴趣的性状或疾病，以及一个适当的样本群体，如病例和对照组，或者具有连续性状值的个体。 对样本进行全基因组分型，即测定]]></description>
 </item>
 <item>
     <title>GWAS初体验</title>

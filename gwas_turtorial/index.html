@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Gwas_turtorial - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="Gwas_turtorial" />
-<meta property="og:description" content="参考 一篇手把手教你做GWAS的Guideline文献解读 - 知乎 (zhihu.com) 全基因组关联分析学习资料（GWAS tutorial） - 知乎 (zhihu.com) easyGWAS - Running GWAS easily over the web" />
+        <title>Gwas_turtorial - 欢迎来到我的空间🎈</title><meta name="Description" content="GWAS的数据处理和质量控制：学习如何对基因型数据进行格式转换、质量过滤、正负链翻转、基因型填补等操作，以及如何评估数据质量和避免潜在的偏差"><meta property="og:title" content="Gwas_turtorial" />
+<meta property="og:description" content="GWAS的数据处理和质量控制：学习如何对基因型数据进行格式转换、质量过滤、正负链翻转、基因型填补等操作，以及如何评估数据质量和避免潜在的偏差" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://griedzx.github.io/gwas_turtorial/" /><meta property="og:image" content="http://griedzx.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-08-05T23:46:51+08:00" />
@@ -14,11 +14,11 @@
 <meta name="twitter:image" content="http://griedzx.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Gwas_turtorial"/>
-<meta name="twitter:description" content="参考 一篇手把手教你做GWAS的Guideline文献解读 - 知乎 (zhihu.com) 全基因组关联分析学习资料（GWAS tutorial） - 知乎 (zhihu.com) easyGWAS - Running GWAS easily over the web"/>
+<meta name="twitter:description" content="GWAS的数据处理和质量控制：学习如何对基因型数据进行格式转换、质量过滤、正负链翻转、基因型填补等操作，以及如何评估数据质量和避免潜在的偏差"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/gwas_turtorial/" /><link rel="prev" href="http://griedzx.github.io/gwas/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/gwas_turtorial/" /><link rel="prev" href="http://griedzx.github.io/gwas/" /><link rel="next" href="http://griedzx.github.io/meme/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -29,13 +29,13 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/gwas_turtorial\/"
-        },"genre": "posts","keywords": "turtorial","wordcount":  71 ,
+        },"genre": "posts","keywords": "数据处理, 质量控制","wordcount":  1262 ,
         "url": "http:\/\/griedzx.github.io\/gwas_turtorial\/","datePublished": "2023-08-05T23:46:51+08:00","dateModified": "2023-08-05T23:46:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "griedzx"
-            },"description": ""
+            },"description": "GWAS的数据处理和质量控制：学习如何对基因型数据进行格式转换、质量过滤、正负链翻转、基因型填补等操作，以及如何评估数据质量和避免潜在的偏差"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Gwas_turtorial</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/gwas/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>GWAS</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-05">2023-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 71 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-05">2023-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1262 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -113,10 +113,73 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#gwas主要步骤">GWAS主要步骤</a></li>
+    <li><a href="#gwas分析基本流程及分析思路">GWAS分析基本流程及分析思路</a></li>
+    <li><a href="#gwas的数据qc">GWAS的数据QC</a>
+      <ul>
+        <li><a href="#怎么进行质量控制plink"><strong>怎么进行质量控制（PLINK）</strong></a>
+          <ul>
+            <li><a href="#plink">PLINK</a></li>
+            <li><a href="#样本质量控制">样本质量控制</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#处理群体分层">处理群体分层</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="参考">参考</h2>
+            </div><div class="content" id="content"><h2 id="gwas主要步骤">GWAS主要步骤</h2>
+<ol>
+<li>选择一个感兴趣的性状或疾病，以及一个适当的样本群体，如病例和对照组，或者具有连续性状值的个体。</li>
+<li>对样本进行全基因组分型，即测定数百万个SNP位点的基因型。</li>
+<li>对每个SNP位点进行关联分析，即计算其与性状或疾病的相关性强度和显著性水平，通常使用回归模型或卡方检验等统计方法。</li>
+<li>根据设定的显著性阈值，筛选出具有显著关联信号的SNP位点，并绘制曼哈顿图（manhattan plot）来展示全基因组关联结果。</li>
+<li>对显著关联信号进行进一步的验证和解释，如进行基因型插补（genotype imputation），精细定位（fine-mapping），功能注释（functional annotation），共定位分析（colocalization analysis）等，以确定最可能的因果变异和相关基因。</li>
+</ol>
+<h2 id="gwas分析基本流程及分析思路">GWAS分析基本流程及分析思路</h2>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MDA2MDQzMQ==&amp;mid=2247483663&amp;idx=1&amp;sn=acfacdf0a0ee6df2c003875c0db06476&amp;chksm=ce2d6f6ff95ae67902343fd81768fa0e3cf48949d8ea01e1c3d50f4e09763e779906fda8de54&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">GWAS分析基本流程及分析思路 (qq.com)</a></p>
+<h2 id="gwas的数据qc">GWAS的数据QC</h2>
+<p>qc,(quality  control)质量控制，比起表观学研究，GWAS研究很少有引起偏差的来源，一般来说，一个人的基因型终其一生几乎不会改变的，因此很少存在同时影响表型又影响基因型的变异。但即便这样，我们在做GWAS时也要去除一些可能引起偏差的因素。</p>
+<p>这种因素主要有：群体结构、个体间存在血缘关系、技术性操作。</p>
+<h3 id="怎么进行质量控制plink"><strong>怎么进行质量控制（PLINK）</strong></h3>
+<p>质量控制包括两个方向，一个是样本的质量控制，一个是SNP的质量控制</p>
+<p><strong>必须先进行SNP过滤，才能进行个体过滤 ???</strong></p>
+<h4 id="plink">PLINK</h4>
+<p>对于PLINK来说，它既可以处理文本格式的文件，也可以处理二进制格式的文件。但是大文本的文件处理起来十分消耗计算资源，所以我们一般 <strong>推使用二进制格式的输入文件</strong> 。</p>
+<p>文本格式的PLINK数据包括两份文件 .ped文件 和 .map文件</p>
+<ul>
+<li>ped文件 包含个体信息（例如个体标识符ID，性别等等）以及他们的基因型信息</li>
+<li>map文件 包含遗传标记的信息（染色体号，snp号等等）</li>
+</ul>
+<p><strong>二进制格式的PLINK数据则包括三份文件</strong> ：.bed文件，.fam文件 和 .bim文件</p>
+<ul>
+<li><strong>bed文件</strong> 含有  <em>每个个体的识别符（ID）</em> 和<em>每个个体相对应的基因型</em></li>
+<li><strong>fam文件</strong> 含有  <em>个体信息</em> （例如性别之类的）</li>
+<li><strong>bim文件</strong> 含有  <em>遗传标记的信息</em> （染色体号，snp号等等）</li>
+</ul>
+<p>PLIINK基础使用命令</p>
+<p><code>plink --bfile MY_DATA --assoc --out gwas_results</code></p>
+<p>‐‐file {your_file}输入文本格式文件</p>
+<p><strong>‐‐bfile {your_file} 输入二进制格式文件</strong></p>
+<p><strong>&ndash;assoc 关联分析,这一步会对每个SNP和研究者感兴趣的性状进行卡方检验</strong></p>
+<p><strong>&ndash;out {outfile} 输出文件</strong></p>
+<h4 id="样本质量控制">样本质量控制</h4>
+<p>样本的质量控制包括：缺失率、杂合性、基因型性别和记录的性别是否一致。</p>
+<p>检测缺失率(个体缺失)，一般将样本缺失率大于5%的个体去除</p>
+<p><code>plink --bfile file --mind 0.05 --make-bed --out file_mind</code></p>
+<p>检测杂合性</p>
+<p><code>plink --bfile file --het --make-bed --out file_het</code></p>
+<ul>
+<li>阈值设置：偏差可能表明样品污染，近亲繁殖。我们<strong>建议去除偏离样本的杂合率平均值±3 SD的个体</strong></li>
+</ul>
+<p>检测性别不一致的个体 &ndash;</p>
+<p>受试者信息填写的性别和遗传性别不一致</p>
+<p><code>plink --bfile file --check-sex --make-bed --out file_checksex</code></p>
+<p>将上述筛选出来的不符合的样本去除</p>
+<p><code>plink --bfile file --remove removesample.txt --make-bed --out file_qcsample</code></p>
+<h2 id="处理群体分层">处理群体分层</h2>
+<h2 id="参考">参考</h2>
 <ol>
 <li><a href="https://zhuanlan.zhihu.com/p/148905500" target="_blank" rel="noopener noreffer ">一篇手把手教你做GWAS的Guideline文献解读 - 知乎 (zhihu.com)</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/90414014" target="_blank" rel="noopener noreffer ">全基因组关联分析学习资料（GWAS </a><a href="https://zhuanlan.zhihu.com/p/90414014" target="_blank" rel="noopener noreffer ">tutorial） - 知乎 (zhihu.com)</a></li>
@@ -133,19 +196,20 @@
                             <a class="link-to-markdown" href="/gwas_turtorial/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial" data-via="xxxx" data-hashtags="turtorial"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/gwas_turtorial/" data-hashtag="turtorial"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial" data-via="xxxx" data-hashtags="数据处理,质量控制"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/gwas_turtorial/" data-hashtag="数据处理"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/gwas_turtorial/" data-title="Gwas_turtorial"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/turtorial/">turtorial</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">数据处理</a>,&nbsp;<a href="/tags/%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/">质量控制</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/gwas/" class="prev" rel="prev" title="GWAS初体验"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>GWAS初体验</a></div>
+    <div class="post-nav"><a href="/gwas/" class="prev" rel="prev" title="GWAS初体验"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>GWAS初体验</a>
+            <a href="/meme/" class="next" rel="next" title="meme寻找motif&lt;保守序列&gt;">meme寻找motif<保守序列><i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
