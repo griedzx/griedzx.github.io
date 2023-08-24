@@ -4,15 +4,15 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 19 Aug 2023 00:09:38 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>meme寻找motif&lt;保守序列&gt;</title>
-    <link>http://griedzx.github.io/meme/</link>
-    <pubDate>Sat, 19 Aug 2023 00:09:38 &#43;0800</pubDate>
+    <title>GESA简介</title>
+    <link>http://griedzx.github.io/gesa/</link>
+    <pubDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://griedzx.github.io/meme/</guid>
-    <description><![CDATA[]]></description>
+    <guid>http://griedzx.github.io/gesa/</guid>
+    <description><![CDATA[传统KEGG（通路富集分析）和GO（功能富集）分析时，如果富集到的同一通路下，既有上调差异基因，也有下调差异基因，那么这条通路总体的表现形式]]></description>
 </item>
 <item>
     <title>Gwas_turtorial</title>
