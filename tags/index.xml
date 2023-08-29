@@ -4,7 +4,23 @@
         <link>http://griedzx.github.io/tags/</link>
         <description>Tags - 标签 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>clusterProfiler</title>
+    <link>http://griedzx.github.io/tags/clusterprofiler/</link>
+    <pubDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/tags/clusterprofiler/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>GESA</title>
+    <link>http://griedzx.github.io/tags/gesa/</link>
+    <pubDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/tags/gesa/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>初体验</title>
     <link>http://griedzx.github.io/tags/%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
     <pubDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/tags/github-pages/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>hugo</title>
-    <link>http://griedzx.github.io/tags/hugo/</link>
-    <pubDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/tags/hugo/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>maize_gene_id</title>
-    <link>http://griedzx.github.io/tags/maize_gene_id/</link>
-    <pubDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/tags/maize_gene_id/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

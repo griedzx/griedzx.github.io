@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>clusterProfiler包GSEA富集</title>
+    <link>http://griedzx.github.io/clusterprofiler_gesa/</link>
+    <pubDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/clusterprofiler_gesa/</guid>
+    <description><![CDATA[GESA富集分析可以使用 java 版本的 GSEA软件进行富集。但是这个软件有一个问题就是自带的物种数据库有限（主要是人、小鼠的 PMT 文件、且不支持 KEGG 库）]]></description>
+</item>
+<item>
     <title>GESA简介</title>
     <link>http://griedzx.github.io/gesa/</link>
     <pubDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</pubDate>
