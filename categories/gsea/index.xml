@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>“GSEA&#34; - 分类 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/categories/gsea/</link>
+        <description>“GSEA&#34; - 分类 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 09 Sep 2023 16:14:46 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/gsea/" rel="self" type="application/rss+xml" /><item>
+    <title>GSEA结果理解</title>
+    <link>http://griedzx.github.io/gsea_results/</link>
+    <pubDate>Sat, 09 Sep 2023 16:14:46 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/gsea_results/</guid>
+    <description><![CDATA[GSEA目的 基因集富集分析（Gene Set Enrichment Analysis，GSEA）就可以挖掘不同样品不同状态潜在的分子机制 GSEA判断来自功能注释等预定义]]></description>
+</item>
+<item>
+    <title>GSEA简介</title>
+    <link>http://griedzx.github.io/gesa/</link>
+    <pubDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/gesa/</guid>
+    <description><![CDATA[基因集富集分析 GSEA 传统KEGG（通路富集分析）和GO（功能富集）分析时，如果富集到的同一通路下，既有上调差异基因，也有下调差异基因，那么这条通]]></description>
+</item>
+</channel>
+</rss>
