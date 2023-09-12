@@ -1,6 +1,5 @@
 # clusterProfiler包GSEA富集
 
-
 GESA富集分析可以使用 java 版本的 `GSEA`软件进行富集。但是这个软件有一个问题就是自带的物种数据库有限（主要是人、小鼠的 PMT 文件、且不支持 KEGG 库），如果想要分析一些其他物种，需要上传自己准备的 PMT 文件。
 
 这时候有一个可选的方案就是用 `clusterProfiler`包进行 GSEA 富集分析，该软件提供了两种方式进行富集：
@@ -41,7 +40,6 @@ geneList <- sort(GSEA_input, decreasing = TRUE)
 
 gseGO:GO 本体富集，可以进行GO本体的GSEA富集
 
-
 ```text
 gsea_go <- gseGO(
   gene_list,    # 根据logFC排序的基因集
@@ -55,7 +53,6 @@ gsea_go <- gseGO(
 
 查看分析结果数据和对应列名 `head(gsea_go,2)`
 
-
 * ID ：GO term 或 KEGG 通路
 * Description ：GO term 描述信息
 * setSize ：富集到该 term 的基因个数
@@ -67,7 +64,6 @@ gsea_go <- gseGO(
 * rank ：当 ES 最大时，对应基因所在排序好的基因列表中所处的位置
 * leading_edge：tags 表示核心基因占该通路基因集的百分比；list 表示核心基因占所有基因的百分比；signal，将前 2 项统计值结合在一起计算出的富集信号强度
 * core_enrichment：核心或者 leading 基因列表。
-
 
 ### 上、下调的 GO term 分开展示：
 

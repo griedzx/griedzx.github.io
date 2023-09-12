@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>“GSEA&#34; - 分类 - 欢迎来到我的空间🎈</title>
+        <title>GSEA - 分类 - 欢迎来到我的空间🎈</title>
         <link>http://griedzx.github.io/categories/gsea/</link>
-        <description>“GSEA&#34; - 分类 - 欢迎来到我的空间🎈</description>
+        <description>GSEA - 分类 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
             <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 09 Sep 2023 16:14:46 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/gsea/" rel="self" type="application/rss+xml" /><item>
     <title>GSEA结果理解</title>
@@ -11,6 +11,14 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/gsea_results/</guid>
     <description><![CDATA[GSEA的结果图 GSEA的结果图通常包含三个部分 富集分数（Enrichment Score）的折线图 横轴代表排序后的基因，纵轴为对应的Runn]]></description>
+</item>
+<item>
+    <title>clusterProfiler包GSEA富集</title>
+    <link>http://griedzx.github.io/clusterprofiler_gesa/</link>
+    <pubDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/clusterprofiler_gesa/</guid>
+    <description><![CDATA[GESA富集分析可以使用 java 版本的 GSEA软件进行富集。但是这个软件有一个问题就是自带的物种数据库有限（主要是人、小鼠的 PMT 文件、且不支持 KEGG 库）]]></description>
 </item>
 <item>
     <title>GSEA简介</title>
