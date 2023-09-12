@@ -4,15 +4,23 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 09 Sep 2023 16:14:46 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>deeptools可视化</title>
+    <link>http://griedzx.github.io/deeptools%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+    <pubDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/deeptools%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+    <description><![CDATA[deeptools功能 multiBamSummary ：使用两个或多个BAM文件计算基因组区段reads覆盖度。 multiBigwigSummary ：使用两个或多个bigWig文件计算基因组区段的值。 plotCorrelation ：]]></description>
+</item>
+<item>
     <title>GSEA结果理解</title>
     <link>http://griedzx.github.io/gsea_results/</link>
     <pubDate>Sat, 09 Sep 2023 16:14:46 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/gsea_results/</guid>
-    <description><![CDATA[GSEA目的 基因集富集分析（Gene Set Enrichment Analysis，GSEA）就可以挖掘不同样品不同状态潜在的分子机制 GSEA判断来自功能注释等预定义]]></description>
+    <description><![CDATA[GSEA的结果图 GSEA的结果图通常包含三个部分 富集分数（Enrichment Score）的折线图 横轴代表排序后的基因，纵轴为对应的Runn]]></description>
 </item>
 <item>
     <title>clusterProfiler包GSEA富集</title>
@@ -77,14 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</guid>
     <description><![CDATA[AnnotationHub构建OrgDb 要进行GO或者KEGG富集分析，就需要知道每个基因对应什么样的GO/KEGG分类，OrgDb就是存储]]></description>
-</item>
-<item>
-    <title>Go_kegg富集分析</title>
-    <link>http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</link>
-    <pubDate>Sun, 16 Jul 2023 21:58:29 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/go_kegg%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/</guid>
-    <description><![CDATA[GO_KEGG富集分析 富集分析 富集分析（ Enrichment Analysis），是一种识别基因集合与已知生物过程、细胞组分和通路之间关联的统计方法。这些工具通]]></description>
 </item>
 </channel>
 </rss>

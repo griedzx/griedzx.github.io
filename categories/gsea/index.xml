@@ -10,7 +10,7 @@
     <pubDate>Sat, 09 Sep 2023 16:14:46 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/gsea_results/</guid>
-    <description><![CDATA[GSEA目的 基因集富集分析（Gene Set Enrichment Analysis，GSEA）就可以挖掘不同样品不同状态潜在的分子机制 GSEA判断来自功能注释等预定义]]></description>
+    <description><![CDATA[GSEA的结果图 GSEA的结果图通常包含三个部分 富集分数（Enrichment Score）的折线图 横轴代表排序后的基因，纵轴为对应的Runn]]></description>
 </item>
 <item>
     <title>GSEA简介</title>
