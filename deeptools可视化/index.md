@@ -1,27 +1,36 @@
 # deeptools可视化
 
+## 文件格式
+
+* BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 **储存基因组特征** （genomic features） **或注释信息** 。
+
+  BED格式可用于UCSC的Genome Browser可视化工具中
+* 挖掘生物数据信息时，我们会将未知的序列与已知的reference对比，从而找到未知序列中隐藏的信息。这就是序列比对。常见的序列比对的文件输出格式为sam和bam
+
+  Sequence Alignment Mapping (SAM) 格式包括两部分：1. 注释信息（header section）2. 比对结果（alignment section）
+
+  Binary Alignment/Map (BAM)是SAM格式的二进制压缩格式，这两种格式是序列比对时软件常用的数据格式
+
+![1694860955483](image/index/1694860955483.png)
+
+* sam/bam格式文件，就是把测序reads比对到参考基因组后的文件
+* bam或者bed格式的文件主要是为了追踪我们的reads到底比对到了参加基因组的什么区域
+
 ## deeptools功能
 
-* **multiBamSummary** ：使用两个或多个BAM文件计算基因组区段reads覆盖度。
-* **multiBigwigSummary** ：使用两个或多个bigWig文件计算基因组区段的值。
-* **plotCorrelation** ：可视化bam/multiBigwigSummary输出的Pearson/Spearman相关性。
-* **plotPCA** ：可视化bam/multiBigwigSummary输出的主成分分析。
-* **plotFingerprint** ：评估ChIP样本的富集强度。
-* **computeGCBias** ：计算reads的GC分布。
-* **correctGCBias** ：获取一个根据基因组GC含量分布调整reads的BAM文件。
-* **bamCoverage** ：获取单个BAM文件的标准化读取覆盖率。
-* **bamCompare** ：将两个文件彼此标准化（例如，log2比率，差异）。
-* **computeMatrix** ：计算热图和概要图所需的值。
-* **estimateReadFiltering** ：估计从一个或多个BAM文件中过滤出的reads数量。
-* **alignmentSieve** ：根据一个或多个标准过滤BAM文件。
-* **plotHeatmap** ：可视化基因组区域的读取覆盖率。
-* **plotProfile** ：可视化一组基因组区域上的平均读取覆盖率。
-* **plotCoverage** ：可视化采样基因组位置上的平均读取覆盖率。
-* **bamPEFragmentSize** ：从配对末端获取平均片段长度。
-* **plotEnrichment** ：绘制与给定特征重叠的比对部分的分数。
-* **computeMatrixOperations** ：绘制与给定特征重叠的比对部分的分数。
+![1694859369228](image/index/1694859369228.png "deeptools模块流程图")
+
+## Deeptools 对 ChIP-seq 数据进行图形呈现
+
+### bam文件转换成bw文件格式
+
+将bam文件转换为bigwig文件，这是一种压缩的二进制格式，可以快速加载和显示
+
+`bamCoverage -b <bw> `
 
 ## 参考
+
+[[生信资料 3] 生物信息学常见数据格式，汇总！ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/67402565)
 
 [deepTools 使用指南 - 台部落 (twblogs.net)](https://www.twblogs.net/a/5cc19761bd9eee3aed7895c3)
 

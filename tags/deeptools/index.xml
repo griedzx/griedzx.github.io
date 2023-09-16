@@ -10,7 +10,7 @@
     <pubDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/deeptools%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
-    <description><![CDATA[deeptools功能 multiBamSummary ：使用两个或多个BAM文件计算基因组区段reads覆盖度。 multiBigwigSummary ：使用两个或多个bigWig文件计算基因组区段的值。 plotCorrelation ：]]></description>
+    <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息 。 BED格式可用于UC]]></description>
 </item>
 </channel>
 </rss>
