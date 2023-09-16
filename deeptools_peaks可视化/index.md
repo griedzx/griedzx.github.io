@@ -1,4 +1,4 @@
-# deeptools可视化
+# deeptools_peaks可视化
 
 ## 文件格式
 
