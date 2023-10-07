@@ -31,7 +31,7 @@ bamCoverage -e 170 -bs 10 -b ap2_chip_rep1_2_sorted.bam -o ap2_chip_rep1_2.bw
 #ap2_chip_rep1_2_sorted.bam是前期比对得到的BAM文件
 ```
 
-得到的bw文件就可以送去IGV/Jbrowse进行可视化。 这里的参数仅使用了 `-e/--extendReads`和 `-bs/--binSize`即拓展了原来的read长度，且设置分箱的大小。其他参数还有
+得到的bw文件就可以送去IGV/Jbro wse进行可视化。 这里的参数仅使用了 `-e/--extendReads`和 `-bs/--binSize`即拓展了原来的read长度，且设置分箱的大小。其他参数还有
 
 - `--filterRNAstrand {forward, reverse}`: 仅统计指定正链或负链
 - `--region/-r CHR:START:END`: 选取某个区域统计
@@ -47,6 +47,15 @@ bamCoverage -e 170 -bs 10 -b ap2_chip_rep1_2_sorted.bam -o ap2_chip_rep1_2.bw
 ### computeMatrix
 
 计算每个基因组区域的得分，并生成一个可与 ``plotHeatmap`` 和 ``plotProfiles`` 一起使用的中间文件。
+
+```shell
+Required arguments:
+  --regionsFileName File [File ...], -R File [File ...]
+                        File name or names, in BED or GTF format, containing the regions to plot. If multiple bed files are given, each one is considered a group that can be plotted separately. Also, adding a "#" symbol in the bed file causes all the regions until the previous "#" to be considered one group.(default: None)
+  --scoreFileName File [File ...], -S File [File ...]
+                        bigWig file(s) containing the scores to be plotted. Multiple files should be separated by spaced. BigWig files can be obtained by using the bamCoverage or bamCompare tools. More information about the bigWig file format can be found at http://genome.ucsc.edu/goldenPath/help/bigWig.html(default: None)
+
+```
 
 `computeMatrix` 有两种主要的使用模式/参数
 
@@ -79,15 +88,15 @@ computeMatrix scale-regions \
 plotHeatmap -m matrix1_shoot_all.gz -out shoot_Heatmap.png
 ```
 
+```shell
 
+```
 
 ## 参考
 
 [computeMatrix — deepTools 3.2.1 documentation (test-argparse-readoc.readthedocs.io)](https://test-argparse-readoc.readthedocs.io/en/latest/content/tools/computeMatrix.html)
 
 [[生信资料 3] 生物信息学常见数据格式，汇总！ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/67402565)
-
-[deepTools 使用指南 - 台部落 (twblogs.net)](https://www.twblogs.net/a/5cc19761bd9eee3aed7895c3)
 
 [[软件使用05] 快速使用 Deeptools 对 ChIP-seq 数据画图！ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/166282791)
 

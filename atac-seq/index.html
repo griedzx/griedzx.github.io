@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>ATAC Seq - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="ATAC Seq" />
+<meta property="og:description" content="ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/atac-seq/" /><meta property="og:image" content="http://griedzx.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-07T23:50:18+08:00" />
+<meta property="article:modified_time" content="2023-10-07T23:50:18+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png"/>
+
+<meta name="twitter:title" content="ATAC Seq"/>
+<meta name="twitter:description" content="ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/atac-seq/" /><link rel="prev" href="http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "ATAC Seq",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/atac-seq\/"
+        },"genre": "posts","wordcount":  691 ,
+        "url": "http:\/\/griedzx.github.io\/atac-seq\/","datePublished": "2023-10-07T23:50:18+08:00","dateModified": "2023-10-07T23:50:18+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">👨‍💻</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">👨‍💻</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ATAC Seq</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90%E9%AB%98%E9%80%9A%E9%87%8F%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>处理和分析高通量测序数据</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-10-07">2023-10-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 691 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#atac-seq数据peak-calling">ATAC-seq数据peak calling</a>
+      <ul>
+        <li><a href="#fastq数据trim_galore软件质控">fastq数据trim_galore软件质控</a></li>
+        <li><a href="#bowtie2比对">bowtie2比对</a></li>
+      </ul>
+    </li>
+    <li><a href="#macs2进行call-peak">MACS2进行call peak</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="atac-seq数据peak-calling">ATAC-seq数据peak calling</h2>
+<h3 id="fastq数据trim_galore软件质控">fastq数据trim_galore软件质控</h3>
+<p>对双端测序的左右端结果文件进行处理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
+</span></span><span class="line"><span class="cl">/home/yuanhx/dzx/ATAC_seq/clean
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#shell脚本</span>
+</span></span><span class="line"><span class="cl"><span class="nv">bin_trim_galore</span><span class="o">=</span><span class="s2">&#34;trim_galore&#34;</span>
+</span></span><span class="line"><span class="cl">ls ../raw/*gz <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> -r fq1 <span class="o">&amp;&amp;</span> <span class="nb">read</span> -r fq2<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">$bin_trim_galore</span> -q <span class="m">10</span> --phred33 --length <span class="m">35</span> -e 0.1 --stringency <span class="m">4</span> --paired -o ./ <span class="nv">$fq1</span> <span class="nv">$fq2</span> 
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="bowtie2比对">bowtie2比对</h3>
+<p>用bowtie2进行比对和统计比对率,需要提前下载参考基因组然后使用命令构建索引，或者直接就下载索引文件：</p>
+<p>这里使用下载好的参考基因组构建索引：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
+</span></span><span class="line"><span class="cl">/home/ljx/yuanh/work_data/230926_Wheat_Ref_genome/index
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">bowtie2-build --threads <span class="m">25</span> ../Wheat_Ref_genome.fasta ./Wheat
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>双端测序数据的比对：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /home/yuanhx/dzx/ATAC_seq/align
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">bin_bowtie2</span><span class="o">=</span><span class="s1">&#39;/home/ljx/yuanh/bin/bowtie2&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">bin_samtools</span><span class="o">=</span><span class="s1">&#39;/home/ljx/yuanh/bin/samtools&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">index</span><span class="o">=</span><span class="s2">&#34;/home/ljx/yuanh/work_data/230926_Wheat_Ref_genome/index/Wheat&#34;</span>
+</span></span><span class="line"><span class="cl">ls ../clean/*gz <span class="p">|</span><span class="k">while</span> <span class="nb">read</span> -r fq1 <span class="o">&amp;&amp;</span> <span class="nb">read</span> -r fq2<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl"><span class="nv">sample</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$fq1</span> <span class="p">|</span> cut -d <span class="s1">&#39;_&#39;</span> -f1<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$bin_bowtie2</span> -p <span class="m">10</span> -X <span class="m">1000</span> -x <span class="nv">$index</span> -1 <span class="nv">$fq1</span> -2 <span class="nv">$fq2</span> <span class="p">|</span><span class="nv">$bin_samtools</span> sort -O bam -@ <span class="m">20</span> -o -&gt;<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.bam
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#slurm提交脚本</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -J dzx</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -p GPU-3090-1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -N 1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -o /home/yuanhx/dzx/ATAC_seq/align/out.txt</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -e /home/yuanhx/dzx/ATAC_seq/align/err.txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 记录开始时间</span>
+</span></span><span class="line"><span class="cl"><span class="nv">start_time</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y-%m-%d %H:%M:%S&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Job started at </span><span class="nv">$start_time</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 运行任务</span>
+</span></span><span class="line"><span class="cl">bash run.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 记录结束时间</span>
+</span></span><span class="line"><span class="cl"><span class="nv">end_time</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y-%m-%d %H:%M:%S&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Job finished at </span><span class="nv">$end_time</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算运行时间</span>
+</span></span><span class="line"><span class="cl"><span class="nv">start_seconds</span><span class="o">=</span><span class="k">$(</span>date -d <span class="s2">&#34;</span><span class="nv">$start_time</span><span class="s2">&#34;</span> +%s<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">end_seconds</span><span class="o">=</span><span class="k">$(</span>date -d <span class="s2">&#34;</span><span class="nv">$end_time</span><span class="s2">&#34;</span> +%s<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">runtime</span><span class="o">=</span><span class="k">$((</span>end_seconds <span class="o">-</span> start_seconds<span class="k">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Job took </span><span class="nv">$runtime</span><span class="s2"> seconds to complete&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对bam文件过滤</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir  /home/yuanhx/dzx/ATAC_seq/mark_duplicate<span class="p">;</span> <span class="nb">cd</span> <span class="nv">$_</span>
+</span></span><span class="line"><span class="cl"><span class="nv">picard</span><span class="o">=</span><span class="s1">&#39;/home/ljx/yuanh/bin/picard&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">samtools</span><span class="o">=</span><span class="s1">&#39;/home/ljx/yuanh/bin/samtools&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#去除PCR重复</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$picard</span> MarkDuplicates -I ../align/<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			-O <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.bam -M <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.metric --REMOVE_DUPLICATES <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#去除低质量reads(-q 30)以及未必对到同一条染色体(-f 2)的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$samtools</span> view -h -f <span class="m">2</span> -q <span class="m">30</span> <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.bam <span class="p">|</span> grep -v chrM <span class="p">|</span> <span class="nv">$samtools</span> sort -O bam -@ <span class="m">20</span> -o - &gt;<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bam
+</span></span><span class="line"><span class="cl">bedtools bamtobed -i <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bam &gt;<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bed
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="macs2进行call-peak">MACS2进行call peak</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /home/yuanhx/dzx/ATAC_seq/mark_duplicate
+</span></span><span class="line"><span class="cl">ls *.bed <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> id<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">macs2 callpeak -t <span class="nv">$id</span> -g <span class="m">14300719022</span> --nomodel --shift -100 --extsize <span class="m">200</span> -n <span class="si">${</span><span class="nv">id</span><span class="p">%%.*</span><span class="si">}</span> --outdir ../peaks
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>后续脚本整合</p>
+<p><code>sbatch --dependency=afterok:21520 run.slurm</code></p>
+<p>run.slurm:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#SBATCH -J dzx</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -p GPU-3090-1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -N 1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -o /home/yuanhx/dzx/ATAC_seq/out.txt</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -e /home/yuanhx/dzx/ATAC_seq/err.txt</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH --mail-type=END</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH --mail-user=2719323380@qq.com</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash run.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#run.sh</span>
+</span></span><span class="line"><span class="cl">mkdir  /home/yuanhx/dzx/ATAC_seq/mark_duplicate<span class="p">;</span> <span class="nb">cd</span> <span class="nv">$_</span>
+</span></span><span class="line"><span class="cl"><span class="nv">picard</span><span class="o">=</span><span class="s1">&#39;/home/ljx/yuanh/bin/picard&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">samtools</span><span class="o">=</span><span class="s1">&#39;/home/ljx/yuanh/bin/samtools&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#去除PCR重复</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$picard</span> MarkDuplicates -I ../align/<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			-O <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.bam -M <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.metric --REMOVE_DUPLICATES <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#去除低质量reads(-q 30)以及未必对到同一条染色体(-f 2)的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$samtools</span> view -h -f <span class="m">2</span> -q <span class="m">30</span> <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.bam <span class="p">|</span> grep -v chrM <span class="p">|</span> <span class="nv">$samtools</span> sort -O bam -@ <span class="m">20</span> -o - &gt;<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bam
+</span></span><span class="line"><span class="cl">bedtools bamtobed -i <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bam &gt;<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home/yuanhx/dzx/ATAC_seq/mark_duplicate
+</span></span><span class="line"><span class="cl">ls *.bed <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> id<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">macs2 callpeak -t <span class="nv">$id</span> -g <span class="m">14300719022</span> --nomodel --shift -100 --extsize <span class="m">200</span> -n <span class="si">${</span><span class="nv">id</span><span class="p">%%.*</span><span class="si">}</span> --outdir ../peaks
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-10-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/atac-seq/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/atac-seq/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/perl_%E6%AD%A3%E5%88%99/" class="prev" rel="prev" title="perl中正则表达式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>perl中正则表达式</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

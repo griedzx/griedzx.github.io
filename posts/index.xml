@@ -4,7 +4,23 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>ATAC Seq</title>
+    <link>http://griedzx.github.io/atac-seq/</link>
+    <pubDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/atac-seq/</guid>
+    <description><![CDATA[ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel]]></description>
+</item>
+<item>
+    <title>perl中正则表达式</title>
+    <link>http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/</link>
+    <pubDate>Tue, 19 Sep 2023 18:57:20 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/</guid>
+    <description><![CDATA[运用实例 1 2 3 4 5 6 7 8 9 10 11 12 =pod 下列是一条蛋白质序列，请统计该序列长度、丙氨酸（A）的个数及所占的比例； MNAPERQPQPDGGDAPGHEPGGSPQDELDFSILFDYEYLNPNEEEPNAHKVASPPSGPAYPDDVLDYGLKPYSPLASLSGEPPGRFGEPDRVGPQKFLSAAKPAGASGLSPRIEITPSHELIQAVGPLRMRDAGLLVEQPPLAGVAASPRFTLPVPGFEGYREPLCLSPASSGSSASFISDTFSPYTSPCVSPNNGGPDDLCPQFQNIPAHYSPRTSPIMSPRTSLAEDSCLGRHSPVPRPASRSSSPGAKRRHSCAEALVALPPGASPQRSRSPSPQPSSHVAPQDHGSPAGYPPVAGSAVIMDALNSLATDSPCGIPPKMWKTSP =cut $protein_sequence = &#34;MNAPERQPQPDGGDAPGHEPGGSPQDELDFSILFDYEYLNPNEEEPNAHKVASPPSGPAYPDDVLDYGLKPYSPLASLSGEPPGRFGEPDRVGPQKFLSAAKPAGASGLSPRIEITPSHELIQAVGPLRMRDAGLLVEQPPLAGVAASPRFTLPVPGFEGYREPLCLSPASSGSSASFISDTFSPYTSPCVSPNNGGPDDLCPQFQNIPAHYSPRTSPIMSPRTSLAEDSCLGRHSPVPRPASRSSSPGAKRRHSCAEALVALPPGASPQRSRSPSPQPSSHVAPQDHGSPAGYPPVAGSAVIMDALNSLATDSPCGIPPKMWKTSP&#34;; $len = length($protein_sequence); $A_count = $protein_sequence =~ s/A/A/g; $A_per = ($A_count/$len)*100; print]]></description>
+</item>
+<item>
     <title>deeptools_peaks可视化</title>
     <link>http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
     <pubDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
     <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 Hugo是一个用Go语言编写的静态网站生成器，它可以快速地创建和发布博客文章。]]></description>
-</item>
-<item>
-    <title>maize_gene_id转换</title>
-    <link>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</link>
-    <pubDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/maize_gene_id%E8%BD%AC%E6%8D%A2/</guid>
-    <description><![CDATA[问题描述 做GO富集分析时，师姐给的数据是Genome assembly B73 RefGen_v4版本的数据 对应基因id没有需要使用的symbol或者entrez_]]></description>
-</item>
-<item>
-    <title>Annotationhub构建orgdb</title>
-    <link>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</link>
-    <pubDate>Mon, 17 Jul 2023 21:56:11 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/annotationhub%E6%9E%84%E5%BB%BAorgdb/</guid>
-    <description><![CDATA[AnnotationHub构建OrgDb 要进行GO或者KEGG富集分析，就需要知道每个基因对应什么样的GO/KEGG分类，OrgDb就是存储]]></description>
 </item>
 </channel>
 </rss>

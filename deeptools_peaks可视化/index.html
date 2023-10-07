@@ -18,7 +18,7 @@
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/" /><link rel="prev" href="http://griedzx.github.io/gsea_results/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/" /><link rel="prev" href="http://griedzx.github.io/gsea_results/" /><link rel="next" href="http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96\/"
-        },"genre": "posts","keywords": "deeptools","wordcount":  1037 ,
+        },"genre": "posts","keywords": "deeptools","wordcount":  1144 ,
         "url": "http:\/\/griedzx.github.io\/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96\/","datePublished": "2023-09-12T23:36:49+08:00","dateModified": "2023-09-12T23:36:49+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">deeptools_peaks可视化</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90%E9%AB%98%E9%80%9A%E9%87%8F%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>处理和分析高通量测序数据</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-12">2023-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1037 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-12">2023-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1144 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -177,7 +177,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">#ap2_chip_rep1_2_sorted.bam是前期比对得到的BAM文件</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>得到的bw文件就可以送去IGV/Jbrowse进行可视化。 这里的参数仅使用了 <code>-e/--extendReads</code>和 <code>-bs/--binSize</code>即拓展了原来的read长度，且设置分箱的大小。其他参数还有</p>
+</div><p>得到的bw文件就可以送去IGV/Jbro wse进行可视化。 这里的参数仅使用了 <code>-e/--extendReads</code>和 <code>-bs/--binSize</code>即拓展了原来的read长度，且设置分箱的大小。其他参数还有</p>
 <ul>
 <li><code>--filterRNAstrand {forward, reverse}</code>: 仅统计指定正链或负链</li>
 <li><code>--region/-r CHR:START:END</code>: 选取某个区域统计</li>
@@ -192,7 +192,23 @@
 </ul>
 <h3 id="computematrix">computeMatrix</h3>
 <p>计算每个基因组区域的得分，并生成一个可与 <code>plotHeatmap</code> 和 <code>plotProfiles</code> 一起使用的中间文件。</p>
-<p><code>computeMatrix</code> 有两种主要的使用模式/参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Required arguments:
+</span></span><span class="line"><span class="cl">  --regionsFileName File <span class="o">[</span>File ...<span class="o">]</span>, -R File <span class="o">[</span>File ...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">                        File name or names, in BED or GTF format, containing the regions to plot. If multiple bed files are given, each one is considered a group that can be plotted separately. Also, adding a <span class="s2">&#34;#&#34;</span> symbol in the bed file causes all the regions <span class="k">until</span> the previous <span class="s2">&#34;#&#34;</span> to be considered one group.<span class="o">(</span>default: None<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  --scoreFileName File <span class="o">[</span>File ...<span class="o">]</span>, -S File <span class="o">[</span>File ...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">                        bigWig file<span class="o">(</span>s<span class="o">)</span> containing the scores to be plotted. Multiple files should be separated by spaced. BigWig files can be obtained by using the bamCoverage or bamCompare tools. More information about the bigWig file format can be found at http://genome.ucsc.edu/goldenPath/help/bigWig.html<span class="o">(</span>default: None<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>computeMatrix</code> 有两种主要的使用模式/参数</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -237,10 +253,15 @@
 </span></span><span class="line"><span class="cl">plotHeatmap -m matrix1_shoot_all.gz -out shoot_Heatmap.png
 </span></span></code></pre></td></tr></table>
 </div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"></code></pre></td></tr></table>
+</div>
 </div><h2 id="参考">参考</h2>
 <p><a href="https://test-argparse-readoc.readthedocs.io/en/latest/content/tools/computeMatrix.html" target="_blank" rel="noopener noreffer ">computeMatrix — deepTools 3.2.1 documentation (test-argparse-readoc.readthedocs.io)</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/67402565" target="_blank" rel="noopener noreffer ">[生信资料 3] 生物信息学常见数据格式，汇总！ - 知乎 (zhihu.com)</a></p>
-<p><a href="https://www.twblogs.net/a/5cc19761bd9eee3aed7895c3" target="_blank" rel="noopener noreffer ">deepTools 使用指南 - 台部落 (twblogs.net)</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/166282791" target="_blank" rel="noopener noreffer ">[软件使用05] 快速使用 Deeptools 对 ChIP-seq 数据画图！ - 知乎 (zhihu.com)</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/434546334" target="_blank" rel="noopener noreffer ">ATAC-seq-TSS富集图-deeptools-学习笔记 - 知乎 (zhihu.com)</a></p>
 </div><div class="post-footer" id="post-footer">
@@ -266,7 +287,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/gsea_results/" class="prev" rel="prev" title="GSEA结果理解"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>GSEA结果理解</a></div>
+    <div class="post-nav"><a href="/gsea_results/" class="prev" rel="prev" title="GSEA结果理解"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>GSEA结果理解</a>
+            <a href="/perl_%E6%AD%A3%E5%88%99/" class="next" rel="next" title="perl中正则表达式">perl中正则表达式<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
