@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>ATAC Seq - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="ATAC Seq" />
+        <title>ATAC-Seq数据处理 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="ATAC-Seq数据处理" />
 <meta property="og:description" content="ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://griedzx.github.io/atac-seq/" /><meta property="og:image" content="http://griedzx.github.io/logo.png"/><meta property="article:section" content="posts" />
@@ -13,23 +13,23 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://griedzx.github.io/logo.png"/>
 
-<meta name="twitter:title" content="ATAC Seq"/>
+<meta name="twitter:title" content="ATAC-Seq数据处理"/>
 <meta name="twitter:description" content="ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/atac-seq/" /><link rel="prev" href="http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/atac-seq/" /><link rel="prev" href="http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/" /><link rel="next" href="http://griedzx.github.io/r%E5%8C%85peak%E6%B3%A8%E9%87%8A/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "ATAC Seq",
+        "headline": "ATAC-Seq数据处理",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/atac-seq\/"
-        },"genre": "posts","wordcount":  691 ,
+        },"genre": "posts","keywords": "ATAC-Seq","wordcount":  691 ,
         "url": "http:\/\/griedzx.github.io\/atac-seq\/","datePublished": "2023-10-07T23:50:18+08:00","dateModified": "2023-10-07T23:50:18+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,7 +102,7 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ATAC Seq</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ATAC-Seq数据处理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90%E9%AB%98%E9%80%9A%E9%87%8F%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>处理和分析高通量测序数据</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-10-07">2023-10-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 691 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
@@ -379,19 +379,20 @@
                             <a class="link-to-markdown" href="/atac-seq/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/atac-seq/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC Seq"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC-Seq数据处理" data-via="xxxx" data-hashtags="ATAC-Seq"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/atac-seq/" data-hashtag="ATAC-Seq"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC-Seq数据处理"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC-Seq数据处理"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/atac-seq/" data-title="ATAC-Seq数据处理"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/atac-seq/">ATAC-Seq</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/perl_%E6%AD%A3%E5%88%99/" class="prev" rel="prev" title="perl中正则表达式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>perl中正则表达式</a></div>
+    <div class="post-nav"><a href="/perl_%E6%AD%A3%E5%88%99/" class="prev" rel="prev" title="perl中正则表达式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>perl中正则表达式</a>
+            <a href="/r%E5%8C%85peak%E6%B3%A8%E9%87%8A/" class="next" rel="next" title="R包peak注释">R包peak注释<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">

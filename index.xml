@@ -4,10 +4,18 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 08 Oct 2023 11:59:25 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>ATAC Seq</title>
+    <title>R包peak注释</title>
+    <link>http://griedzx.github.io/r%E5%8C%85peak%E6%B3%A8%E9%87%8A/</link>
+    <pubDate>Sun, 08 Oct 2023 11:59:25 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/r%E5%8C%85peak%E6%B3%A8%E9%87%8A/</guid>
+    <description><![CDATA[利用ChIPseeker R包对peak进行注释 经过前期的处理拿到了BED文件，利用这些文件和ChIPSeeker可以进一步对peak注释、可]]></description>
+</item>
+<item>
+    <title>ATAC-Seq数据处理</title>
     <link>http://griedzx.github.io/atac-seq/</link>
     <pubDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</pubDate>
     <author>griedzx</author>
@@ -77,14 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/23.7.30_r/</guid>
     <description><![CDATA[运用代码 1 2 3 4 5 6 keywords &lt;- c(&#34;calcium&#34;, &#34;calmodulin&#34;) matched_indices &lt;- sapply(keywords, function(keyword){ str_detect(GO@result$Description, fixed(keyword, ignore_case = T)) }) matched_indices &lt;- apply(matched_indices, 1, any) matched_terms &lt;- GO@result[matched_indices,]]]></description>
-</item>
-<item>
-    <title>搭建博客</title>
-    <link>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
-    <pubDate>Fri, 28 Jul 2023 21:57:35 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[搭建博客记录 选择Hugo&amp;Githubpages的原因 Hugo是一个用Go语言编写的静态网站生成器，它可以快速地创建和发布博客文章。]]></description>
 </item>
 </channel>
 </rss>

@@ -1,4 +1,4 @@
-# ATAC Seq
+# ATAC-Seq数据处理
 
 ## ATAC-seq数据peak calling
 

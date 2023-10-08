@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/tags/</link>
         <description>Tags - 标签 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 19 Sep 2023 18:57:20 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ATAC-Seq</title>
+    <link>http://griedzx.github.io/tags/atac-seq/</link>
+    <pubDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/tags/atac-seq/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Perl</title>
     <link>http://griedzx.github.io/tags/perl/</link>
     <pubDate>Tue, 19 Sep 2023 18:57:20 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
     <pubDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/tags/%E5%AE%9A%E4%B9%89/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>数据处理</title>
-    <link>http://griedzx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
-    <pubDate>Sat, 05 Aug 2023 23:46:51 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

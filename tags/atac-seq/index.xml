@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ATAC-Seq - 标签 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/tags/atac-seq/</link>
+        <description>ATAC-Seq - 标签 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/atac-seq/" rel="self" type="application/rss+xml" /><item>
+    <title>ATAC-Seq数据处理</title>
+    <link>http://griedzx.github.io/atac-seq/</link>
+    <pubDate>Sat, 07 Oct 2023 23:50:18 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/atac-seq/</guid>
+    <description><![CDATA[ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel]]></description>
+</item>
+</channel>
+</rss>
