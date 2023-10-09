@@ -28,13 +28,13 @@ GSEA的结果图通常包含三个部分
 
 具体来说，信噪比的计算方法如下：
 
-![1694369146844](https://file+.vscode-resource.vscode-cdn.net/e%3A/my_website/content/posts/gsea_results/image/index/1694369146844.png)
+![1694369146844](image\index\1694369146844.png "信噪比的计算方法")
 
 1. 首先，对所有基因按照它们在两种样品中的差异表达程度（如logFC）或者表型相关度进行排序。
 2. 然后，对于每一个基因，计算它在样品A中的平均表达量和样品B中的平均表达量的差值。这个差值就是该基因的信噪比。
 3. 在GSEA的结果展示图中，每个基因对应的信噪比以灰色面积图显示。灰色阴影的面积比，可以从整体上反映组间的Signal2Noise的大小。
 
-![GSEA图](https://file+.vscode-resource.vscode-cdn.net/e%3A/my_website/content/posts/gsea_results/image/index/1694247458744.png "GSEA图")
+![GSEA图](image/index/1694247458744.png "GSEA图")
 
 在上图中，我们一般关注ES值，峰出现在排序基因集的前端还是后端（ES值大于0在前端，小于0在后端）以及 `Leading edge subset`（即对富集贡献最大的部分，领头亚集）；在ES图中出现领头亚集的形状，表明这个功能基因集在某处理条件下具有更显著的生物学意义。
 
