@@ -82,15 +82,19 @@ echo "Job took $runtime seconds to complete"
 
 ```shell
 mkdir  /home/yuanhx/dzx/ATAC_seq/mark_duplicate; cd $_
-picard='/home/ljx/yuanh/bin/picard'
-samtools='/home/ljx/yuanh/bin/samtools'
+bin_picard='/home/ljx/yuanh/bin/picard'
+bin_samtools='/home/ljx/yuanh/bin/samtools'
 #去除PCR重复
-$picard MarkDuplicates -I ../align/${sample}.bam \
+ls ../clean/*gz |while read -r fq1 && read -r fq2;
+do
+sample=$(basename $fq1 | cut -d '_' -f1)
+java -jar /home/ljx/yuanh/software/picard.jar MarkDuplicates -I ../align/${sample}.bam \
 			-O ${sample}.rmdup.bam -M ${sample}.rmdup.metric --REMOVE_DUPLICATES true
 
 #去除低质量reads(-q 30)以及未必对到同一条染色体(-f 2)的数据
 $samtools view -h -f 2 -q 30 ${sample}.rmdup.bam | grep -v chrM | $samtools sort -O bam -@ 20 -o - >${sample}.last.bam
 bedtools bamtobed -i ${sample}.last.bam >${sample}.last.bed
+done
 ```
 
 ## MACS2进行call peak

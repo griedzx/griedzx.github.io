@@ -26,7 +26,7 @@
     <pubDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
-    <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息 。 BED格式可用于UC]]></description>
+    <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息(*.summits.]]></description>
 </item>
 </channel>
 </rss>

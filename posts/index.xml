@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Mon, 09 Oct 2023 20:58:33 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>TF-IDF</title>
+    <link>http://griedzx.github.io/tf-idf/</link>
+    <pubDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/tf-idf/</guid>
+    <description><![CDATA[TF-IDF简要介绍 TF-IDF(term frequency–inverse document frequency)，一种常用于挖掘文章中关键词的加权技术。某个词在文章（一篇文章]]></description>
+</item>
+<item>
     <title>R语言笔记2</title>
     <link>http://griedzx.github.io/r%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B02/</link>
     <pubDate>Mon, 09 Oct 2023 20:58:33 &#43;0800</pubDate>
@@ -42,7 +50,7 @@
     <pubDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
-    <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息 。 BED格式可用于UC]]></description>
+    <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息(*.summits.]]></description>
 </item>
 <item>
     <title>GSEA结果理解</title>
@@ -75,14 +83,6 @@
     <author>作者</author>
     <guid>http://griedzx.github.io/gwas_turtorial/</guid>
     <description><![CDATA[GWAS主要步骤 选择一个感兴趣的性状或疾病，以及一个适当的样本群体，如病例和对照组，或者具有连续性状值的个体。 对样本进行全基因组分型，即测定]]></description>
-</item>
-<item>
-    <title>GWAS初体验</title>
-    <link>http://griedzx.github.io/gwas/</link>
-    <pubDate>Wed, 02 Aug 2023 22:54:13 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/gwas/</guid>
-    <description><![CDATA[2023-8-3新开一坑，开始学GWAS GWAS学习可以分为以下几个板块： GWAS的基本概念和原理：了解GWAS的目的、方法、优势和局限性，]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>生物文本挖掘 - 分类 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/categories/%E7%94%9F%E7%89%A9%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/</link>
+        <description>生物文本挖掘 - 分类 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/%E7%94%9F%E7%89%A9%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/" rel="self" type="application/rss+xml" /><item>
+    <title>TF-IDF</title>
+    <link>http://griedzx.github.io/tf-idf/</link>
+    <pubDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/tf-idf/</guid>
+    <description><![CDATA[TF-IDF简要介绍 TF-IDF(term frequency–inverse document frequency)，一种常用于挖掘文章中关键词的加权技术。某个词在文章（一篇文章]]></description>
+</item>
+</channel>
+</rss>
