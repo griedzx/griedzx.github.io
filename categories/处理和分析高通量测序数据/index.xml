@@ -21,11 +21,11 @@
     <description><![CDATA[ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel]]></description>
 </item>
 <item>
-    <title>deeptools_peaks可视化</title>
-    <link>http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+    <title>deeptools_computeMatrix使用介绍</title>
+    <link>http://griedzx.github.io/deeptools_computematrix%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</link>
     <pubDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</pubDate>
     <author>griedzx</author>
-    <guid>http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+    <guid>http://griedzx.github.io/deeptools_computematrix%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</guid>
     <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息(*.summits.]]></description>
 </item>
 </channel>

@@ -47,11 +47,11 @@
     <description><![CDATA[运用实例 1 2 3 4 5 6 7 8 9 10 11 12 =pod 下列是一条蛋白质序列，请统计该序列长度、丙氨酸（A）的个数及所占的比例； MNAPERQPQPDGGDAPGHEPGGSPQDELDFSILFDYEYLNPNEEEPNAHKVASPPSGPAYPDDVLDYGLKPYSPLASLSGEPPGRFGEPDRVGPQKFLSAAKPAGASGLSPRIEITPSHELIQAVGPLRMRDAGLLVEQPPLAGVAASPRFTLPVPGFEGYREPLCLSPASSGSSASFISDTFSPYTSPCVSPNNGGPDDLCPQFQNIPAHYSPRTSPIMSPRTSLAEDSCLGRHSPVPRPASRSSSPGAKRRHSCAEALVALPPGASPQRSRSPSPQPSSHVAPQDHGSPAGYPPVAGSAVIMDALNSLATDSPCGIPPKMWKTSP =cut $protein_sequence = &#34;MNAPERQPQPDGGDAPGHEPGGSPQDELDFSILFDYEYLNPNEEEPNAHKVASPPSGPAYPDDVLDYGLKPYSPLASLSGEPPGRFGEPDRVGPQKFLSAAKPAGASGLSPRIEITPSHELIQAVGPLRMRDAGLLVEQPPLAGVAASPRFTLPVPGFEGYREPLCLSPASSGSSASFISDTFSPYTSPCVSPNNGGPDDLCPQFQNIPAHYSPRTSPIMSPRTSLAEDSCLGRHSPVPRPASRSSSPGAKRRHSCAEALVALPPGASPQRSRSPSPQPSSHVAPQDHGSPAGYPPVAGSAVIMDALNSLATDSPCGIPPKMWKTSP&#34;; $len = length($protein_sequence); $A_count = $protein_sequence =~ s/A/A/g; $A_per = ($A_count/$len)*100; print]]></description>
 </item>
 <item>
-    <title>deeptools_peaks可视化</title>
-    <link>http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+    <title>deeptools_computeMatrix使用介绍</title>
+    <link>http://griedzx.github.io/deeptools_computematrix%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</link>
     <pubDate>Tue, 12 Sep 2023 23:36:49 &#43;0800</pubDate>
     <author>griedzx</author>
-    <guid>http://griedzx.github.io/deeptools_peaks%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+    <guid>http://griedzx.github.io/deeptools_computematrix%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</guid>
     <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息(*.summits.]]></description>
 </item>
 <item>

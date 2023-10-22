@@ -1,4 +1,4 @@
-# deeptools_peaks可视化
+# deeptools_computeMatrix使用介绍
 
 ## 文件格式
 
