@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>peak注释 - 标签 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/tags/peak%E6%B3%A8%E9%87%8A/</link>
+        <description>peak注释 - 标签 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 08 Oct 2023 11:59:25 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/peak%E6%B3%A8%E9%87%8A/" rel="self" type="application/rss+xml" /><item>
+    <title>R包peak注释</title>
+    <link>http://griedzx.github.io/r%E5%8C%85peak%E6%B3%A8%E9%87%8A/</link>
+    <pubDate>Sun, 08 Oct 2023 11:59:25 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/r%E5%8C%85peak%E6%B3%A8%E9%87%8A/</guid>
+    <description><![CDATA[利用ChIPseeker R包对peak进行注释 经过前期的处理拿到了BED文件，利用这些文件和ChIPSeeker可以进一步对peak注释、可]]></description>
+</item>
+</channel>
+</rss>

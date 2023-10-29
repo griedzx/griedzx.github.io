@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 28 Oct 2023 21:44:06 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Github_network_err</title>
+    <link>http://griedzx.github.io/github_network_err/</link>
+    <pubDate>Sat, 28 Oct 2023 21:44:06 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/github_network_err/</guid>
+    <description><![CDATA[解决github打不开的方法（亲测有效） - 知乎 (zhihu.com) IP/服务器github.com的信息 - 站长工具 (chinaz.com) IP/服务器github.global.s]]></description>
+</item>
+<item>
     <title>TF-IDF</title>
     <link>http://griedzx.github.io/tf-idf/</link>
     <pubDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/gesa/</guid>
     <description><![CDATA[基因集富集分析 GSEA 传统KEGG（通路富集分析）和GO（功能富集）分析时，如果富集到的同一通路下，既有上调差异基因，也有下调差异基因，那么这条通]]></description>
-</item>
-<item>
-    <title>Gwas_turtorial</title>
-    <link>http://griedzx.github.io/gwas_turtorial/</link>
-    <pubDate>Sat, 05 Aug 2023 23:46:51 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://griedzx.github.io/gwas_turtorial/</guid>
-    <description><![CDATA[GWAS主要步骤 选择一个感兴趣的性状或疾病，以及一个适当的样本群体，如病例和对照组，或者具有连续性状值的个体。 对样本进行全基因组分型，即测定]]></description>
 </item>
 </channel>
 </rss>
