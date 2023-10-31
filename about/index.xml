@@ -8,15 +8,14 @@
     <language>zh-CN</language>
     <managingEditor>2719323380@qq.com (griedzx)</managingEditor>
     <webMaster>2719323380@qq.com (griedzx)</webMaster>
-    <lastBuildDate>Sat, 17 Jun 2023 18:13:33 +0800</lastBuildDate><atom:link href="http://griedzx.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jun 2023 18:13:33 +0800</lastBuildDate>
+    <atom:link href="http://griedzx.github.io/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>http://griedzx.github.io/about/first_post/</link>
-      <pubDate>Sat, 17 Jun 2023 18:13:33 +0800</pubDate>
-      <author>2719323380@qq.com (griedzx)</author>
+      <pubDate>Sat, 17 Jun 2023 18:13:33 +0800</pubDate><author>2719323380@qq.com (griedzx)</author>
       <guid>http://griedzx.github.io/about/first_post/</guid>
       <description>自我简介 大家好，我是griedzx，一名大概率喜欢生物信息学的学生，对于生物学和计算机科学的结合产生了浓厚的兴趣，我希望通过写博客来分享我在</description>
     </item>
-    
   </channel>
 </rss>

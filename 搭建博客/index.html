@@ -10,11 +10,13 @@
 <meta property="og:url" content="http://griedzx.github.io/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" /><meta property="og:image" content="http://griedzx.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-07-28T21:57:35+08:00" />
 <meta property="article:modified_time" content="2023-07-28T21:57:35+08:00" /><meta property="og:site_name" content="我的网站" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://griedzx.github.io/logo.png"/>
 
 <meta name="twitter:title" content="搭建博客"/>
 <meta name="twitter:description" content="搭建博客记录 选择Hugo&amp;Githubpages的原因 Hugo是一个用Go语言编写的静态网站生成器，它可以快速地创建和发布博客文章。"/>
+<meta name="twitter:site" content="@xxxx"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -211,27 +213,27 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">title: Base Templates and Blocks
-</span></span><span class="line"><span class="cl">linktitle:
-</span></span><span class="line"><span class="cl">description: The base and block constructs ...
-</span></span><span class="line"><span class="cl">godocref: https://golang.org/pkg/text/template/#example_Template_block
-</span></span><span class="line"><span class="cl">date: 2017-02-01
-</span></span><span class="line"><span class="cl">publishdate: 2017-02-01
-</span></span><span class="line"><span class="cl">lastmod: 2017-02-01
-</span></span><span class="line"><span class="cl">categories: [templates,fundamentals]
-</span></span><span class="line"><span class="cl">keywords: [blocks,base]
-</span></span><span class="line"><span class="cl">menu:
-</span></span><span class="line"><span class="cl">  docs:
-</span></span><span class="line"><span class="cl">    parent: &#34;templates&#34;
-</span></span><span class="line"><span class="cl">    weight: 20
-</span></span><span class="line"><span class="cl">weight: 20
-</span></span><span class="line"><span class="cl">sections_weight: 20
-</span></span><span class="line"><span class="cl">draft: false
-</span></span><span class="line"><span class="cl">aliases: [/templates/blocks/,/templates/base-templates-and-blocks/]
-</span></span><span class="line"><span class="cl">toc: true
-</span></span><span class="line"><span class="cl">---
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="n">title</span><span class="p">:</span> <span class="n">Base</span> <span class="n">Templates</span> <span class="ow">and</span> <span class="n">Blocks</span>
+</span></span><span class="line"><span class="cl"><span class="n">linktitle</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">description</span><span class="p">:</span> <span class="n">The</span> <span class="n">base</span> <span class="ow">and</span> <span class="n">block</span> <span class="n">constructs</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">godocref</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">golang</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pkg</span><span class="o">/</span><span class="n">text</span><span class="o">/</span><span class="n">template</span><span class="o">/</span><span class="c1">#example_Template_block</span>
+</span></span><span class="line"><span class="cl"><span class="n">date</span><span class="p">:</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>
+</span></span><span class="line"><span class="cl"><span class="n">publishdate</span><span class="p">:</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>
+</span></span><span class="line"><span class="cl"><span class="n">lastmod</span><span class="p">:</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>
+</span></span><span class="line"><span class="cl"><span class="n">categories</span><span class="p">:</span> <span class="p">[</span><span class="n">templates</span><span class="p">,</span><span class="n">fundamentals</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">keywords</span><span class="p">:</span> <span class="p">[</span><span class="n">blocks</span><span class="p">,</span><span class="n">base</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">menu</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">docs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="p">:</span> <span class="s2">&#34;templates&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">weight</span><span class="p">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">weight</span><span class="p">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">sections_weight</span><span class="p">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">draft</span><span class="p">:</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl"><span class="n">aliases</span><span class="p">:</span> <span class="p">[</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">blocks</span><span class="o">/</span><span class="p">,</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">base</span><span class="o">-</span><span class="n">templates</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">blocks</span><span class="o">/</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span><span class="p">:</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="多语言模式">多语言模式</h4>
@@ -277,7 +279,7 @@
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.120.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
 
