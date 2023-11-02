@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/tags/</link>
         <description>Tags - 标签 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 08 Oct 2023 11:59:25 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 20 Oct 2023 01:31:11 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>computeMatrix</title>
+    <link>http://griedzx.github.io/tags/computematrix/</link>
+    <pubDate>Fri, 20 Oct 2023 01:31:11 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/tags/computematrix/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>peak注释</title>
     <link>http://griedzx.github.io/tags/peak%E6%B3%A8%E9%87%8A/</link>
     <pubDate>Sun, 08 Oct 2023 11:59:25 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
     <pubDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/tags/clusterprofiler/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>GESA</title>
-    <link>http://griedzx.github.io/tags/gesa/</link>
-    <pubDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/tags/gesa/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>甲基化&#43;组蛋白测序heatmap&#43;profile绘制 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="甲基化&#43;组蛋白测序heatmap&#43;profile绘制" />
+<meta property="og:description" content="使用deeptools的 computeMatrix &#43; (plotHeatmap or plotProfile)可以针对某些特定类型的区域如TTS、TES的指定区域范围进行信号富集程度的可视化 computeMatrix&rsquo;s parameters" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/" /><meta property="og:image" content="http://griedzx.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-20T01:31:11+08:00" />
+<meta property="article:modified_time" content="2023-10-20T01:31:11+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png"/>
+
+<meta name="twitter:title" content="甲基化&#43;组蛋白测序heatmap&#43;profile绘制"/>
+<meta name="twitter:description" content="使用deeptools的 computeMatrix &#43; (plotHeatmap or plotProfile)可以针对某些特定类型的区域如TTS、TES的指定区域范围进行信号富集程度的可视化 computeMatrix&rsquo;s parameters"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/" /><link rel="prev" href="http://griedzx.github.io/tf-idf/" /><link rel="next" href="http://griedzx.github.io/github_network_err/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "甲基化+组蛋白测序heatmap+profile绘制",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6\/"
+        },"genre": "posts","keywords": "computeMatrix","wordcount":  1426 ,
+        "url": "http:\/\/griedzx.github.io\/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6\/","datePublished": "2023-10-20T01:31:11+08:00","dateModified": "2023-10-20T01:31:11+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">👨‍💻</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">👨‍💻</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">甲基化+组蛋白测序heatmap+profile绘制</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%A1%A8%E8%A7%82%E7%BB%84%E5%AD%A6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>表观组学</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-10-20">2023-10-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1426 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#computematrixs-parameters">computeMatrix&rsquo;s parameters</a></li>
+    <li><a href="#对不同组蛋白_chip-seq测序数据画图">对不同组蛋白_ChIP-seq测序数据画图</a></li>
+    <li><a href="#对甲基化测序数据画图">对甲基化测序数据画图</a></li>
+    <li><a href="#分表达水平高低绘制信号富集谱图">分表达水平高低绘制信号富集谱图</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>使用deeptools的 <code>computeMatrix</code> + (<code>plotHeatmap</code> or <code>plotProfile</code>)可以针对某些特定类型的区域如TTS、TES的指定区域范围进行信号富集程度的可视化</p>
+<h2 id="computematrixs-parameters">computeMatrix&rsquo;s parameters</h2>
+<p>computeMatrix提供两个不同参数（parameters）以指定不同的参考系</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Commands:
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    scale-regions  In the scale-regions mode, all regions in the BED file are
+</span></span><span class="line"><span class="cl">                   stretched or shrunken to the length <span class="o">(</span>in bases<span class="o">)</span> indicated by
+</span></span><span class="line"><span class="cl">                   the user.
+</span></span><span class="line"><span class="cl">    reference-point
+</span></span><span class="line"><span class="cl">                   Reference-point refers to a position within a BED region
+</span></span><span class="line"><span class="cl">                   <span class="o">(</span>e.g., the starting point<span class="o">)</span>. In this mode, only those
+</span></span><span class="line"><span class="cl">                   genomicpositions before <span class="o">(</span>upstream<span class="o">)</span> and/or after <span class="o">(</span>downstream<span class="o">)</span>
+</span></span><span class="line"><span class="cl">                   of the reference point will be plotted.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对于reference-point，只指定一个参考点(TTS,TES,center),因此对于基因组区域文件 <code>&lt;bed file(s)&gt;</code>,不会对不同基因均一化，直接使用指定上游或者下游一段距离</p>
+<p>对应scale-region,会均一化基因长度,使得不同基因TSS至TES之间区域长度一致。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  --regionBodyLength REGIONBODYLENGTH, -m REGIONBODYLENGTH
+</span></span><span class="line"><span class="cl">                        Distance in bases to which all regions will be fit. <span class="o">(</span>Default:
+</span></span><span class="line"><span class="cl">                        1000<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  --binSize BINSIZE, -bs BINSIZE
+</span></span><span class="line"><span class="cl">                        Length, in bases, of the non-overlapping bins <span class="k">for</span> averaging the
+</span></span><span class="line"><span class="cl">                        score over the regions length. <span class="o">(</span>Default: 10<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在众多参数中，computeMatrix通过 <code>regionBodyLength</code>和 <code>binSize</code>来确定将不同基因分成相同分数的bin长度，使得基因长度均一化。</p>
+<p>默认参数中 <code>regionBodyLength=1000</code> <code>binSize=10</code>，因此份数为1000/10=100，也就是将不同的基因统一切成100块，每一块参数对应一段bin内所有信号加和除以bin长度的平均值。</p>
+<h2 id="对不同组蛋白_chip-seq测序数据画图">对不同组蛋白_ChIP-seq测序数据画图</h2>
+<p>针对与不同的目的蛋白结合的 DNA 片段进行测序数据，我们可以一次性输入多个对应的bigwig文件画成一张图。</p>
+<p>具体代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">bed</span><span class="o">=</span>/home/ljx/yuanh/work_data/Ref_genome/220721_Maize_B73_V4/Maize_gene_1-10_chr.bed
+</span></span><span class="line"><span class="cl"><span class="k">for</span> org_path in /home/yuanhx/dzx/230612_encher_data/0*<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">org</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$org_path</span> <span class="p">|</span> sed <span class="s1">&#39;s/^...//&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">bw_files</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> bw_id in <span class="nv">$org_path</span>/result/0*/bam/*bigwig<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">bw_files</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$bw_files</span><span class="s2"> </span><span class="nv">$bw_id</span><span class="s2">&#34;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl">    computeMatrix scale-regions -p <span class="m">10</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -b <span class="m">2000</span> -a <span class="m">2000</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -R <span class="nv">$bed</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -S <span class="nv">$bw_files</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        --missingDataAsZero <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        --skipZeros -o <span class="nv">$org_path</span>/result/matrix_<span class="si">${</span><span class="nv">org</span><span class="si">}</span>_2K.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    plotHeatmap -m <span class="nv">$org_path</span>/result/matrix_<span class="si">${</span><span class="nv">org</span><span class="si">}</span>_2K.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -out /home/yuanhx/dzx/230612_encher_data/<span class="si">${</span><span class="nv">org</span><span class="si">}</span>_Heatmap_2K.png 
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597014422.png"
+        data-srcset="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597014422.png, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597014422.png 1.5x, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597014422.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597014422.png"
+        title="1698597014422" width="1105" height="2288" /></p>
+<h2 id="对甲基化测序数据画图">对甲基化测序数据画图</h2>
+<p>初始数据处理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ head -100 output-prefix.bsmap.mkdup_CHG.bedGraph
+</span></span><span class="line"><span class="cl">track <span class="nv">type</span><span class="o">=</span><span class="s2">&#34;bedGraph&#34;</span> <span class="nv">description</span><span class="o">=</span><span class="s2">&#34;output-prefix.bsmap.mkdup CHG methylation levels&#34;</span>
+</span></span><span class="line"><span class="cl">1	1472	1473	100	9	<span class="m">0</span>
+</span></span><span class="line"><span class="cl">1	1474	1475	90	311	<span class="m">34</span>
+</span></span><span class="line"><span class="cl">1	1533	1534	75	6	<span class="m">2</span>
+</span></span><span class="line"><span class="cl">1	1535	1536	69	99	<span class="m">43</span>
+</span></span><span class="line"><span class="cl">1	1562	1563	33	3	<span class="m">6</span>
+</span></span><span class="line"><span class="cl">1	1581	1582	37	3	<span class="m">5</span>
+</span></span><span class="line"><span class="cl">1	1654	1655	50	2	<span class="m">2</span>
+</span></span><span class="line"><span class="cl">1	1712	1713	75	9	<span class="m">3</span>
+</span></span><span class="line"><span class="cl">1	1714	1715	100	3	<span class="m">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>直接使用原始bedGraph数据通过 <strong>bedGraphToBigwig</strong> 转换成bigwig文件画图，missingdata过多，热图黑色部分贼多</p>
+<p>人工分bin，将1号染色体的最开始片段位置初始化0，按照100bp分段，对应的四列数据百分比处理</p>
+<p>最后处理后的格式如下：</p>
+<p>画图代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">bed</span><span class="o">=</span><span class="s2">&#34;/home/ljx/yuanh/work_data/Ref_genome/220721_Maize_B73_V4/Maize_gene_1-10_chr.bed&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> id in /home/yh/dzx/work/231017_methylation/methylation_bigwig_data/*<span class="p">;</span><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">org</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$id</span> <span class="p">|</span> cut -d <span class="s1">&#39;/&#39;</span> -f 8<span class="sb">`</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;org:</span><span class="nv">$org</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">bigwig_files</span><span class="o">=</span><span class="sb">`</span>ls <span class="nv">$id</span>/*.bigwig<span class="sb">`</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -e <span class="s2">&#34;bigwig_files:\n</span><span class="nv">$bigwig_files</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    computeMatrix scale-regions -p <span class="m">10</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -b <span class="m">2000</span> -a <span class="m">2000</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -R <span class="nv">$bed</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -S <span class="nv">$bigwig_files</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        --missingDataAsZero <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        --skipZeros -o /home/yh/dzx/work/231017_methylation/matrix/<span class="nv">$org</span>/matrix.gz
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$org</span><span class="s2"> matrix.gz done&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    plotHeatmap -m /home/yh/dzx/work/231017_methylation/matrix/<span class="nv">$org</span>/matrix.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -out /home/yh/dzx/work/231017_methylation/plotHeatmap/<span class="nv">$org</span>/<span class="si">${</span><span class="nv">org</span><span class="si">}</span>_Heatmap_2K.pdf
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$org</span><span class="s2"> heatmap done&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597143255.png" title="1698597143255" data-thumbnail="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597143255.png" data-sub-html="<h2>甲基化热图</h2><p>1698597143255</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597143255.png"
+            data-srcset="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597143255.png, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597143255.png 1.5x, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597143255.png 2x"
+            data-sizes="auto"
+            alt="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698597143255.png" width="382" height="677" />
+    </a><figcaption class="image-caption">甲基化热图</figcaption>
+    </figure></p>
+<h2 id="分表达水平高低绘制信号富集谱图">分表达水平高低绘制信号富集谱图</h2>
+<p>给基因区域bed文件赋值基因表达数据,将表达数据赋值至最后一列</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">gene_bed</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;gene_length.bed&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exp_data_1</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;/home/yuanhx/dzx/work_data/exp_data/lai_py_expressed.csv&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exp_data_2</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;/home/yuanhx/dzx/work_data/exp_data/yang_ear_tassel.csv&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gene_bed</span><span class="o">$</span><span class="n">V6</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;ID=gene:&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">gene_bed</span><span class="o">$</span><span class="n">V6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exp_data_1</span><span class="o">$</span><span class="n">tracking_id</span> <span class="o">&lt;-</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">exp_data_1</span><span class="o">$</span><span class="n">tracking_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exp_data_2</span><span class="o">$</span><span class="n">tracking_id</span> <span class="o">&lt;-</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">exp_data_2</span><span class="o">$</span><span class="n">tracking_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">orgs</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;ear_1&#34;</span><span class="p">,</span> <span class="s">&#34;ear_2&#34;</span><span class="p">,</span> <span class="s">&#34;shoot_1&#34;</span><span class="p">,</span> <span class="s">&#34;shoot_2&#34;</span><span class="p">,</span> <span class="s">&#34;tassel&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">org</span> <span class="kr">in</span> <span class="n">orgs</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">gene_bed</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span><span class="p">(</span><span class="n">org</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;ear_1&#34;</span><span class="p">,</span> <span class="s">&#34;shoot_1&#34;</span><span class="p">,</span><span class="s">&#34;shoot_2&#34;</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">if</span><span class="p">(</span><span class="n">gene_bed</span><span class="o">$</span><span class="n">V6[i]</span> <span class="o">%in%</span> <span class="n">exp_data_1</span><span class="o">$</span><span class="n">tracking_id</span> <span class="o">==</span> <span class="bp">F</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">gene_bed</span><span class="o">$</span><span class="n">V8[i]</span> <span class="o">&lt;-</span> <span class="s">&#34;not_found&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="kr">next</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">if</span><span class="p">(</span><span class="n">org</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;ear_1&#34;</span><span class="p">,</span> <span class="s">&#34;shoot_1&#34;</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">gene_bed</span><span class="o">$</span><span class="n">V8[i]</span> <span class="o">&lt;-</span> <span class="n">exp_data_1</span><span class="nf">[which</span><span class="p">(</span><span class="n">exp_data_1</span><span class="o">$</span><span class="n">tracking_id</span> <span class="o">==</span> <span class="n">gene_bed</span><span class="o">$</span><span class="n">V6[i]</span><span class="p">),</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;average.&#34;</span><span class="p">,</span><span class="nf">sub</span><span class="p">(</span><span class="s">&#34;..$&#34;</span><span class="p">,</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">org</span><span class="p">))</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">else</span> <span class="kr">if</span><span class="p">(</span><span class="n">org</span> <span class="o">==</span> <span class="s">&#34;shoot_2&#34;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">gene_bed</span><span class="o">$</span><span class="n">V8[i]</span> <span class="o">&lt;-</span> <span class="n">exp_data_1</span><span class="nf">[which</span><span class="p">(</span><span class="n">exp_data_1</span><span class="o">$</span><span class="n">tracking_id</span> <span class="o">==</span> <span class="n">gene_bed</span><span class="o">$</span><span class="n">V6[i]</span><span class="p">),</span> <span class="nf">paste0</span><span class="p">(</span><span class="nf">sub</span><span class="p">(</span><span class="s">&#34;..$&#34;</span><span class="p">,</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">org</span><span class="p">),</span><span class="s">&#34;.average&#34;</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">if</span><span class="p">(</span><span class="n">gene_bed</span><span class="o">$</span><span class="n">V6[i]</span> <span class="o">%in%</span> <span class="n">exp_data_2</span><span class="o">$</span><span class="n">tracking_id</span> <span class="o">==</span> <span class="bp">F</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">gene_bed</span><span class="o">$</span><span class="n">V8[i]</span> <span class="o">&lt;-</span> <span class="s">&#34;not_found&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="kr">next</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">if</span><span class="p">(</span><span class="n">org</span> <span class="o">==</span> <span class="s">&#34;ear_2&#34;</span><span class="p">)</span> <span class="n">org</span> <span class="o">=</span> <span class="s">&#34;ear&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">gene_bed</span><span class="o">$</span><span class="n">V8[i]</span> <span class="o">&lt;-</span> <span class="n">exp_data_2</span><span class="nf">[which</span><span class="p">(</span><span class="n">exp_data_2</span><span class="o">$</span><span class="n">tracking_id</span> <span class="o">==</span> <span class="n">gene_bed</span><span class="o">$</span><span class="n">V6[i]</span><span class="p">),</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;average.&#34;</span><span class="p">,</span><span class="n">org</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">	    <span class="n">org</span> <span class="o">=</span> <span class="s">&#34;ear_2&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">write.table</span><span class="p">(</span><span class="n">gene_bed</span><span class="p">,</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">org</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">org</span><span class="p">,</span> <span class="s">&#34;_gene_exp&#34;</span><span class="p">,</span><span class="s">&#34;.bed&#34;</span><span class="p">)),</span> <span class="n">row.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>做实验的提供的表达量数据格式真的是个无敌复杂，而且总是多次用到，应该找个时间优化一下格式</p>
+<p>根据表达量切分bed文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nv">data_dir</span><span class="o">=</span><span class="s2">&#34;/home/yuanhx/dzx/org_gene_bed/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> subdir in ear_1 ear_2 shoot_1 shoot_2 tassel<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;处理子目录: </span><span class="nv">$subdir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$data_dir$subdir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">gene_exp_file</span><span class="o">=</span>*gene_exp.bed
+</span></span><span class="line"><span class="cl">    <span class="c1"># 对文件按照表达量排序</span>
+</span></span><span class="line"><span class="cl">    sort -k 8,8n <span class="nv">$gene_exp_file</span> &gt; sorted_gene_exp.bed
+</span></span><span class="line"><span class="cl">    split -d -n l/7 sorted_gene_exp.bed split_
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>0<span class="p">;</span> i&lt;7<span class="p">;</span> i++<span class="o">))</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">      mv <span class="s2">&#34;split_0</span><span class="nv">$i</span><span class="s2">&#34;</span> <span class="s2">&#34;part</span><span class="nv">$i</span><span class="s2">.bed&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;处理完成: </span><span class="nv">$gene_exp_file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$data_dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>处理后文件存放格式如此</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598281509.png"
+        data-srcset="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598281509.png, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598281509.png 1.5x, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598281509.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598281509.png"
+        title="1698598281509" width="861" height="287" /></p>
+<p>画图</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">for</span> id in /home/yuanhx/dzx/230612_encher_data/0*/result/0*/bam/*bigwig<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">org</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$id</span> <span class="p">|</span> awk -F<span class="s1">&#39;/&#39;</span> <span class="s1">&#39;{print $6}&#39;</span> <span class="p">|</span> cut -c4-<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">bed_files</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> bed_id in /home/yuanhx/dzx/org_gene_bed/<span class="nv">$org</span>/part*.bed<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">bed_files</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$bed_files</span><span class="s2"> </span><span class="nv">$bed_id</span><span class="s2">&#34;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">out_path</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$id</span> <span class="p">|</span> cut -d<span class="s1">&#39;/&#39;</span> -f1-8<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">seq_name</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$id</span> <span class="p">|</span> cut -d<span class="s1">&#39;.&#39;</span> -f1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    computeMatrix scale-regions -p <span class="m">11</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -b <span class="m">2000</span> -a <span class="m">2000</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -R <span class="nv">$bed_files</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -S <span class="nv">$id</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        --missingDataAsZero <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        --skipZeros -o <span class="nv">$out_path</span>/matrix/<span class="si">${</span><span class="nv">seq_name</span><span class="si">}</span>_2k.gz
+</span></span><span class="line"><span class="cl">    plotProfile -m <span class="nv">$out_path</span>/matrix/<span class="si">${</span><span class="nv">seq_name</span><span class="si">}</span>_2k.gz  -out <span class="nv">$out_path</span>/matrix/<span class="si">${</span><span class="nv">seq_name</span><span class="si">}</span>_Profile_2K.png
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598460929.png"
+        data-srcset="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598460929.png, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598460929.png 1.5x, /%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598460929.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/image/index/1698598460929.png"
+        title="1698598460929" width="2160" height="1787" /></p>
+<p>-S bigwig文件 -R bed文件可以分别传入多个</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-10-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/" data-title="甲基化&#43;组蛋白测序heatmap&#43;profile绘制" data-via="xxxx" data-hashtags="computeMatrix"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/" data-hashtag="computeMatrix"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/" data-title="甲基化&#43;组蛋白测序heatmap&#43;profile绘制"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/" data-title="甲基化&#43;组蛋白测序heatmap&#43;profile绘制"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/" data-title="甲基化&#43;组蛋白测序heatmap&#43;profile绘制"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/computematrix/">computeMatrix</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/tf-idf/" class="prev" rel="prev" title="TF-IDF"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>TF-IDF</a>
+            <a href="/github_network_err/" class="next" rel="next" title="Github_network_err">Github_network_err<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.120.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

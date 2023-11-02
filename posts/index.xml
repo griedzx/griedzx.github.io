@@ -13,6 +13,14 @@
     <description><![CDATA[解决github打不开的方法（亲测有效） - 知乎 (zhihu.com) IP/服务器github.com的信息 - 站长工具 (chinaz.com) IP/服务器github.global.s]]></description>
 </item>
 <item>
+    <title>甲基化&#43;组蛋白测序heatmap&#43;profile绘制</title>
+    <link>http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/</link>
+    <pubDate>Fri, 20 Oct 2023 01:31:11 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/</guid>
+    <description><![CDATA[使用deeptools的 computeMatrix + (plotHeatmap or plotProfile)可以针对某些特定类型的区域如TTS、TES的指定区域范围进行信号富集程度的可视化 computeMatrix&rsquo;s parameters]]></description>
+</item>
+<item>
     <title>TF-IDF</title>
     <link>http://griedzx.github.io/tf-idf/</link>
     <pubDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/clusterprofiler_gesa/</guid>
     <description><![CDATA[GESA富集分析可以使用 java 版本的 GSEA软件进行富集。但是这个软件有一个问题就是自带的物种数据库有限（主要是人、小鼠的 PMT 文件、且不支持 KEGG 库）]]></description>
-</item>
-<item>
-    <title>GSEA简介</title>
-    <link>http://griedzx.github.io/gesa/</link>
-    <pubDate>Thu, 24 Aug 2023 23:41:33 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/gesa/</guid>
-    <description><![CDATA[基因集富集分析 GSEA 传统KEGG（通路富集分析）和GO（功能富集）分析时，如果富集到的同一通路下，既有上调差异基因，也有下调差异基因，那么这条通]]></description>
 </item>
 </channel>
 </rss>
