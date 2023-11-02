@@ -17,7 +17,6 @@ Commands:
                    (e.g., the starting point). In this mode, only those
                    genomicpositions before (upstream) and/or after (downstream)
                    of the reference point will be plotted.
-
 ```
 
 对于reference-point，只指定一个参考点(TTS,TES,center),因此对于基因组区域文件 `<bed file(s)>`,不会对不同基因均一化，直接使用指定上游或者下游一段距离
