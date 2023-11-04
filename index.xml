@@ -4,9 +4,17 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 28 Oct 2023 21:44:06 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 03 Nov 2023 23:42:17 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>项目育人初体验</title>
+    <link>http://griedzx.github.io/%E9%A1%B9%E7%9B%AE%E8%82%B2%E4%BA%BA%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+    <pubDate>Fri, 03 Nov 2023 23:42:17 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E9%A1%B9%E7%9B%AE%E8%82%B2%E4%BA%BA%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+    <description><![CDATA[项目介绍 植物的自交不亲和性有许多原因，其中本项目所关注的异型花柱是其中之一，这种花的多态性结构至少出现在28个被子植物科中，准备搜集研究其中]]></description>
+</item>
+<item>
     <title>Github_network_err</title>
     <link>http://griedzx.github.io/github_network_err/</link>
     <pubDate>Sat, 28 Oct 2023 21:44:06 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/gsea_results/</guid>
     <description><![CDATA[GSEA的结果图 GSEA的结果图通常包含三个部分 富集分数（Enrichment Score）的折线图 横轴代表排序后的基因，纵轴为对应的Runn]]></description>
-</item>
-<item>
-    <title>clusterProfiler包GSEA富集</title>
-    <link>http://griedzx.github.io/clusterprofiler_gesa/</link>
-    <pubDate>Tue, 29 Aug 2023 22:39:45 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/clusterprofiler_gesa/</guid>
-    <description><![CDATA[GESA富集分析可以使用 java 版本的 GSEA软件进行富集。但是这个软件有一个问题就是自带的物种数据库有限（主要是人、小鼠的 PMT 文件、且不支持 KEGG 库）]]></description>
 </item>
 </channel>
 </rss>
