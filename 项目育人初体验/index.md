@@ -4,10 +4,8 @@
 
 植物的自交不亲和性有许多原因，其中本项目所关注的异型花柱是其中之一，这种花的多态性结构至少出现在28个被子植物科中，准备搜集研究其中公共数据库中已有相关植物的基因组，对这些植物的基因组进行比较分析、共线性分析等，其中特别关注比较s位点上的超基因，去研究这些植物自交不亲和的差异以及相似性，帮助理解这些植物基因组的演化关系，以及s位点上的超基因的演化动态。
 
-
-
-1. [ **基因组比较** ：接下来，你可以使用synteny、mcscan、mummer等软件工具，对这些植物的基因组进行比较分析](https://www.jianshu.com/p/2e184e5c15b7)。你可以通过比较s位点上的超基因，来研究这些植物自交不亲和性的差异和相似性。
-2. [ **共线性分析** ：在基因组比较的基础上，你还可以进行共线性分析](https://baijiahao.baidu.com/s?id=1715591836205248994)[^3^](https://bing.com/search?q=%E6%A4%8D%E7%89%A9%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%85%B1%E7%BA%BF%E6%80%A7%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95)[。这将帮助你理解这些植物基因组的演化关系，以及s位点上超基因的演化动态](https://zhuanlan.zhihu.com/p/621752664)。
+1. [ **基因组比较** ：接下来，可以使用synteny、mcscan、mummer等软件工具，对这些植物的基因组进行比较分析](https://www.jianshu.com/p/2e184e5c15b7)。可以通过比较s位点上的超基因，来研究这些植物自交不亲和性的差异和相似性。
+2. [ **共线性分析** ：在基因组比较的基础上，还可以进行共线性分析](https://baijiahao.baidu.com/s?id=1715591836205248994)[。这将帮助你理解这些植物基因组的演化关系，以及s位点上超基因的演化动态](https://zhuanlan.zhihu.com/p/621752664)。
 
 ### 自交不亲和性（SI）Self-incompatibility
 
@@ -19,7 +17,7 @@
 
 陆地生物占地球生物总数的85%，其多样性与被子植物的起源和扩张密切相关。被子植物约有20多万种，是植物界最大的类群，但其形成和扩张的原因仍为未解之谜。现存被子植物中，约40%具有自交不亲和性 (Self-incompatibility, SI)。**SI是一种正常可育的雌雄同花被子植物自花授粉后不能产生合子的现象**，对于促进其异交并增加其多样性至关重要。
 
-### 异型花柱
+### 异型花柱(heterostyly)
 
 根据[推文：武汉植物园在植物异型花柱分子遗传调控机制研究中取得新进展](https://mp.weixin.qq.com/s/PSVMjaIelvQ2C-UFYTYPxg)所说
 
@@ -29,7 +27,7 @@
 
 #### 概念
 
-**异型花柱是著名的花的多态性现象之一，表现为雌蕊与雄蕊的高度交互匹配，即交互式雌雄异位。雌蕊（花的雌性部分）和雄蕊（花的雄性部分）的长度和位置能够精确地匹配，以便在传粉过程中，雄蕊能够将花粉准确地传递到雌蕊上。 ？？**
+**异型花柱是著名的花的多态性现象之一，表现为雌蕊与雄蕊的高度交互匹配，即交互式雌雄异位。雌蕊（花的雌性部分）和雄蕊（花的雄性部分）的长度和位置能够精确地匹配，以便在传粉过程中，雄蕊能够将花粉准确地传递到雌蕊上。** 
 
 插一个很有意思的科普推文  [上下三百年：“花柱异长”是怎么被发现的？| 果壳 科技有意思 (guokr.com)](https://www.guokr.com/article/440597)
 
@@ -45,7 +43,9 @@
 
 **研究发现，植物花柱异长独立演化超过了20次，这个复杂的多态现象已经成为了趋同进化的经典案例。**
 
-对于趋同进化，最符合我们常识的是，植物界中，很多亲缘关系甚远的物种会在自然选择作用下表现出趋同进化现象，例如生活在干旱沙漠环境中的植物往往叶片退化成针状，高山植物大多矮化成垫状等。在异型花柱这个性状中，自然环境带来的压力（想要成功繁殖，不同花型的植株之间需要匹配的花型以接收相同高度的繁殖器官之间的花粉流），使得一种花型的雄性和互补花型的雌性适合度得到增强，这样一来，选择压力会使得花柱异长的植物性别专化。
+对于趋同进化，最符合我们常识的是，植物界中，很多亲缘关系甚远的物种会在自然选择作用下表现出趋同进化现象，例如生活在干旱沙漠环境中的植物往往叶片退化成针状，高山植物大多矮化成垫状等。
+
+在异型花柱这个性状中，自然环境带来的压力（想要成功繁殖，不同花型的植株之间需要匹配的花型以接收相同高度的繁殖器官之间的花粉流），使得一种花型的雄性和互补花型的雌性适合度得到增强，这样一来，选择压力会使得花柱异长的植物性别专化。
 
 我们要研究是在目前发现的**异型花柱的形态趋同进化的背后是否隐藏着分子水平的趋同进化**。
 
@@ -55,8 +55,60 @@
 
 #### 概念
 
-据现有研究表明异型花柱多态性是一种由**超基因(S-locus supergen)**控制的花形态结构的多样性,其表现在群体中有两种或者三种雌雄蕊相互异位的花。这种花的多态性结构至少出现在28个被子植物科中，主要是为促进异交授粉、提高花粉传递精确性。
+s位点是一种遗传位点，通常由单一复等位且包含紧密连锁的雌性和雄性S基因的S位点控制。
 
+其中，1类S位点常包含一个S-核酸酶和多个SLF，分别编码雌性和雄性自交不亲和决定因子
+
+* 雌性*S*基因编码一个T2类核酸酶即S-核酸酶
+* 雄性*S*基因则编码多个C端为FBK或FBA结构域的F-box蛋白SLF
+
+异交授粉时，由于多个SLF可协同识别并解除异己S-核酸酶的细胞毒性，因而产生异交亲和反应；而在自交授粉时，自己S-核酸酶的毒性由于无法被抑制，最终产生自交不亲和反应。 即我自己的柱头不承认我自己的花粉，落上来也不理睬它，不允许它正常发育
+
+
+超基因是由多个基因组成的一个遗传单元，这些基因通常紧密连锁在一起，以便在遗传上一起传递。异型花柱是一种由超基因控制的花形态结构的多样性，
+
+
+## [武汉植物园在植物异型花柱分子遗传调控机制研究中取得新进展](https://mp.weixin.qq.com/s/PSVMjaIelvQ2C-UFYTYPxg) 推文解读
+
+* **异型花柱的研究对象** ：水生植物 **金银莲花** （Nymphoides indica），具有**长、短柱花**两种形态，由**S位点**决定。
+* [ **基因组测序和关联分析** ：](https://edgeservices.bing.com/edgesvc/chat?udsframed=1&form=SHORUN&clientscopes=chat,noheader,udsedgeshop,channelstable,&shellsig=c9319c1362f174328caba0ccd86eeb602e77691b&setlang=zh-CN&darkschemeovr=1#sjevt%7CDiscover.Chat.SydneyClickPageCitation%7Cadpclick%7C0%7C243f6e35-ebcf-4a08-b365-3c5411119c0a%7C%7B%22sourceAttributions%22%3A%7B%22providerDisplayName%22%3A%22%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E5%9C%A8%E9%81%97%E4%BC%A0%E4%B8%8A%E6%98%AF%E7%94%B1...%22%2C%22pageType%22%3A%22html%22%2C%22pageIndex%22%3A1%2C%22relatedPageUrl%22%3A%22https%253A%252F%252Fmp.weixin.qq.com%252Fs%252FPSVMjaIelvQ2C-UFYTYPxg%22%2C%22lineIndex%22%3A6%2C%22highlightText%22%3A%22%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E5%9C%A8%E9%81%97%E4%BC%A0%E4%B8%8A%E6%98%AF%E7%94%B1S%E4%BD%8D%E7%82%B9%E5%86%B3%E5%AE%9A%E7%9A%84%EF%BC%8CS%E4%BD%8D%E7%82%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E8%B6%85%E5%9F%BA%E5%9B%A0%EF%BC%8C%E7%94%B1%E5%A4%9A%E4%B8%AA%E7%B4%A7%E5%AF%86%E8%BF%9E%E9%94%81%E7%9A%84%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%88%90%EF%BC%8C%E8%BF%99%E4%BA%9B%E5%9F%BA%E5%9B%A0%E5%88%86%E5%88%AB%E6%8E%A7%E5%88%B6%E8%8A%B1%E6%9F%B1%E9%95%BF%E5%BA%A6%E6%88%96%E9%9B%84%E8%95%8A%E9%AB%98%E5%BA%A6%E7%AD%89%E7%89%B9%E5%BE%81%E3%80%82%22%2C%22snippets%22%3A%5B%5D%7D%7D)构建了高质量的 **单倍型基因组** ，并通过**全基因组关联分析**发现了控制金银莲花异型花柱的 **S位点超基因** ，鉴定并解析了金银莲花中S位点**超基因**的演化和功能，发现了三个S位点**候选基因** - NinBAS1、NinKHZ2、NinS1。
+* **S位点基因的功能和演化** ：研究团队探讨了S位点基因及其调控网络的潜在功能，以及**转座元件**和**逐步基因复制**对异型花柱超基因演化可能起到的作用。研究结果表明，**油菜素内酯**和**PIF分子调控网络**在金银莲花异型花柱的发育过程中具有重要的作用，为分子层面上异型花柱的趋同演化提供了进一步的证据。
+
+
+## 花柱异型的科名录
+
+|    | 科 Family                  | 基因组 |
+| -- | :------------------------- | ------ |
+| 1  | 报春花科                   |        |
+| 2  | 茜草科                     |        |
+| 3  | 紫草科                     |        |
+| 4  | 木樨科                     |        |
+| 5  | 白花丹科（蓝雪科）         |        |
+| 6  | 龙胆科                     |        |
+| 7  | 豆科                       |        |
+| 8  | 蓼科                       |        |
+| 9  | 马鞭草科                   |        |
+| 10 | 破布木科                   |        |
+| 11 | 唇形科                     |        |
+| 12 | 爵床科                     |        |
+| 13 | 藤黄科(金丝桃科，山竹子科) |        |
+| 14 | 鸢尾科                     |        |
+| 15 | 时钟花科                   |        |
+| 16 | 马钱科                     |        |
+| 17 | 瑞香科                     |        |
+| 18 | 檀香科                     |        |
+| 19 | 花荵科                     |        |
+| 20 | 虎耳草科                   |        |
+| 21 | 瑞香科                     |        |
+| 22 | *莕*菜科（睡菜科）       |        |
+| 23 | 梧桐科                     |        |
+| 24 | 千屈菜科                   |        |
+| 25 | 酢浆草科                   |        |
+| 26 | 雨久花科                   |        |
+| 27 | 石蒜科                     |        |
+| 28 | 牛栓藤科                   |        |
+| 29 | 亚麻科                     |        |
+| 30 | 古柯科                     |        |
 
 ## 参考
 
@@ -72,10 +124,9 @@
 
 [科学驿站｜最新研究：基因水平的趋同进化推动植物形态上的趋同进化_腾讯新闻 (qq.com)](https://new.qq.com/rain/a/20221113A03S3T00)
 
+[中科院薛勇彪研究组合作揭示金鱼草基因组S位点超基因的动态演化机制 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/621752664)
 
-This document talks about:
+[遗传发育所等揭示被子植物自交不亲和性起源、丢失和重获的高度动态进化机制----中国科学院 (cas.cn)](https://www.cas.cn/syky/202111/t20211108_4813129.shtml)
 
-* **异型花柱的研究进展** ：中国科学院武汉植物园和多伦多大学的研究团队合作，以**金银莲花**为模式植物，揭示了**异型花柱**的分子遗传调控机制，为理解植物性状多样性和演化提供了新的视角。
-* [ **基因组测序和关联分析** ：研究团队构建了高质量的 **单倍型基因组** ，并通过**全基因组关联分析**发现了控制金银莲花异型花柱的 **S位点超基因** ，该超基因由三个紧密连锁的基因组成，分别控制花柱长度或雄蕊高度等特征。](https://edgeservices.bing.com/edgesvc/chat?udsframed=1&form=SHORUN&clientscopes=chat,noheader,udsedgeshop,channelstable,&shellsig=c9319c1362f174328caba0ccd86eeb602e77691b&setlang=zh-CN&darkschemeovr=1#sjevt%7CDiscover.Chat.SydneyClickPageCitation%7Cadpclick%7C0%7C243f6e35-ebcf-4a08-b365-3c5411119c0a%7C%7B%22sourceAttributions%22%3A%7B%22providerDisplayName%22%3A%22%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E5%9C%A8%E9%81%97%E4%BC%A0%E4%B8%8A%E6%98%AF%E7%94%B1...%22%2C%22pageType%22%3A%22html%22%2C%22pageIndex%22%3A1%2C%22relatedPageUrl%22%3A%22https%253A%252F%252Fmp.weixin.qq.com%252Fs%252FPSVMjaIelvQ2C-UFYTYPxg%22%2C%22lineIndex%22%3A6%2C%22highlightText%22%3A%22%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E5%9C%A8%E9%81%97%E4%BC%A0%E4%B8%8A%E6%98%AF%E7%94%B1S%E4%BD%8D%E7%82%B9%E5%86%B3%E5%AE%9A%E7%9A%84%EF%BC%8CS%E4%BD%8D%E7%82%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E8%B6%85%E5%9F%BA%E5%9B%A0%EF%BC%8C%E7%94%B1%E5%A4%9A%E4%B8%AA%E7%B4%A7%E5%AF%86%E8%BF%9E%E9%94%81%E7%9A%84%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%88%90%EF%BC%8C%E8%BF%99%E4%BA%9B%E5%9F%BA%E5%9B%A0%E5%88%86%E5%88%AB%E6%8E%A7%E5%88%B6%E8%8A%B1%E6%9F%B1%E9%95%BF%E5%BA%A6%E6%88%96%E9%9B%84%E8%95%8A%E9%AB%98%E5%BA%A6%E7%AD%89%E7%89%B9%E5%BE%81%E3%80%82%22%2C%22snippets%22%3A%5B%5D%7D%7D)[^1^](https://edgeservices.bing.com/edgesvc/chat?udsframed=1&form=SHORUN&clientscopes=chat,noheader,udsedgeshop,channelstable,&shellsig=c9319c1362f174328caba0ccd86eeb602e77691b&setlang=zh-CN&darkschemeovr=1#sjevt%7CDiscover.Chat.SydneyClickPageCitation%7Cadpclick%7C0%7C243f6e35-ebcf-4a08-b365-3c5411119c0a%7C%7B%22sourceAttributions%22%3A%7B%22providerDisplayName%22%3A%22%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E5%9C%A8%E9%81%97%E4%BC%A0%E4%B8%8A%E6%98%AF%E7%94%B1...%22%2C%22pageType%22%3A%22html%22%2C%22pageIndex%22%3A1%2C%22relatedPageUrl%22%3A%22https%253A%252F%252Fmp.weixin.qq.com%252Fs%252FPSVMjaIelvQ2C-UFYTYPxg%22%2C%22lineIndex%22%3A6%2C%22highlightText%22%3A%22%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E5%9C%A8%E9%81%97%E4%BC%A0%E4%B8%8A%E6%98%AF%E7%94%B1S%E4%BD%8D%E7%82%B9%E5%86%B3%E5%AE%9A%E7%9A%84%EF%BC%8CS%E4%BD%8D%E7%82%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E8%B6%85%E5%9F%BA%E5%9B%A0%EF%BC%8C%E7%94%B1%E5%A4%9A%E4%B8%AA%E7%B4%A7%E5%AF%86%E8%BF%9E%E9%94%81%E7%9A%84%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%88%90%EF%BC%8C%E8%BF%99%E4%BA%9B%E5%9F%BA%E5%9B%A0%E5%88%86%E5%88%AB%E6%8E%A7%E5%88%B6%E8%8A%B1%E6%9F%B1%E9%95%BF%E5%BA%A6%E6%88%96%E9%9B%84%E8%95%8A%E9%AB%98%E5%BA%A6%E7%AD%89%E7%89%B9%E5%BE%81%E3%80%82%22%2C%22snippets%22%3A%5B%5D%7D%7D)
-* [ **S位点基因的功能和演化** ：研究团队探讨了S位点基因及其调控网络的潜在功能，以及**转座元件**和**逐步基因复制**对异型花柱超基因演化可能起到的作用。](https://edgeservices.bing.com/edgesvc/chat?udsframed=1&form=SHORUN&clientscopes=chat,noheader,udsedgeshop,channelstable,&shellsig=c9319c1362f174328caba0ccd86eeb602e77691b&setlang=zh-CN&darkschemeovr=1#sjevt%7CDiscover.Chat.SydneyClickPageCitation%7Cadpclick%7C1%7C243f6e35-ebcf-4a08-b365-3c5411119c0a%7C%7B%22sourceAttributions%22%3A%7B%22providerDisplayName%22%3A%22%E8%AF%A5%E7%A0%94%E7%A9%B6%E8%BF%98%E6%8E%A2%E8%AE%A8%E4%BA%86S%E4%BD%8D%E7%82%B9...%22%2C%22pageType%22%3A%22html%22%2C%22pageIndex%22%3A1%2C%22relatedPageUrl%22%3A%22https%253A%252F%252Fmp.weixin.qq.com%252Fs%252FPSVMjaIelvQ2C-UFYTYPxg%22%2C%22lineIndex%22%3A12%2C%22highlightText%22%3A%22%E8%AF%A5%E7%A0%94%E7%A9%B6%E8%BF%98%E6%8E%A2%E8%AE%A8%E4%BA%86S%E4%BD%8D%E7%82%B9%E5%9F%BA%E5%9B%A0%E5%8F%8A%E5%85%B6%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C%E7%9A%84%E6%BD%9C%E5%9C%A8%E5%8A%9F%E8%83%BD%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%BD%AC%E5%BA%A7%E5%85%83%E4%BB%B6%E5%92%8C%E9%80%90%E6%AD%A5%E5%9F%BA%E5%9B%A0%E5%A4%8D%E5%88%B6%E5%AF%B9%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E8%B6%85%E5%9F%BA%E5%9B%A0%E6%BC%94%E5%8C%96%E5%8F%AF%E8%83%BD%E8%B5%B7%E5%88%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E3%80%82%22%2C%22snippets%22%3A%5B%5D%7D%7D)[^2^](https://edgeservices.bing.com/edgesvc/chat?udsframed=1&form=SHORUN&clientscopes=chat,noheader,udsedgeshop,channelstable,&shellsig=c9319c1362f174328caba0ccd86eeb602e77691b&setlang=zh-CN&darkschemeovr=1#sjevt%7CDiscover.Chat.SydneyClickPageCitation%7Cadpclick%7C1%7C243f6e35-ebcf-4a08-b365-3c5411119c0a%7C%7B%22sourceAttributions%22%3A%7B%22providerDisplayName%22%3A%22%E8%AF%A5%E7%A0%94%E7%A9%B6%E8%BF%98%E6%8E%A2%E8%AE%A8%E4%BA%86S%E4%BD%8D%E7%82%B9...%22%2C%22pageType%22%3A%22html%22%2C%22pageIndex%22%3A1%2C%22relatedPageUrl%22%3A%22https%253A%252F%252Fmp.weixin.qq.com%252Fs%252FPSVMjaIelvQ2C-UFYTYPxg%22%2C%22lineIndex%22%3A12%2C%22highlightText%22%3A%22%E8%AF%A5%E7%A0%94%E7%A9%B6%E8%BF%98%E6%8E%A2%E8%AE%A8%E4%BA%86S%E4%BD%8D%E7%82%B9%E5%9F%BA%E5%9B%A0%E5%8F%8A%E5%85%B6%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C%E7%9A%84%E6%BD%9C%E5%9C%A8%E5%8A%9F%E8%83%BD%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%BD%AC%E5%BA%A7%E5%85%83%E4%BB%B6%E5%92%8C%E9%80%90%E6%AD%A5%E5%9F%BA%E5%9B%A0%E5%A4%8D%E5%88%B6%E5%AF%B9%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E8%B6%85%E5%9F%BA%E5%9B%A0%E6%BC%94%E5%8C%96%E5%8F%AF%E8%83%BD%E8%B5%B7%E5%88%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E3%80%82%22%2C%22snippets%22%3A%5B%5D%7D%7D)[研究结果表明，**油菜素内酯**和**PIF分子调控网络**在金银莲花异型花柱的发育过程中具有重要的作用，为分子层面上异型花柱的趋同演化提供了进一步的证据。](https://edgeservices.bing.com/edgesvc/chat?udsframed=1&form=SHORUN&clientscopes=chat,noheader,udsedgeshop,channelstable,&shellsig=c9319c1362f174328caba0ccd86eeb602e77691b&setlang=zh-CN&darkschemeovr=1#sjevt%7CDiscover.Chat.SydneyClickPageCitation%7Cadpclick%7C2%7C243f6e35-ebcf-4a08-b365-3c5411119c0a%7C%7B%22sourceAttributions%22%3A%7B%22providerDisplayName%22%3A%22%E5%90%8C%E6%97%B6%EF%BC%8C%E7%A0%94%E7%A9%B6%E5%8F%91%E7%8E%B0%E6%B2%B9%E8%8F%9C%E7%B4%A0...%22%2C%22pageType%22%3A%22html%22%2C%22pageIndex%22%3A1%2C%22relatedPageUrl%22%3A%22https%253A%252F%252Fmp.weixin.qq.com%252Fs%252FPSVMjaIelvQ2C-UFYTYPxg%22%2C%22lineIndex%22%3A12%2C%22highlightText%22%3A%22%E5%90%8C%E6%97%B6%EF%BC%8C%E7%A0%94%E7%A9%B6%E5%8F%91%E7%8E%B0%E6%B2%B9%E8%8F%9C%E7%B4%A0%E5%86%85%E9%85%AF%E5%9C%A8%E9%87%91%E9%93%B6%E8%8E%B2%E8%8A%B1%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E7%9A%84%E5%8F%91%E8%82%B2%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%85%B7%E6%9C%89%E9%87%8D%E8%A6%81%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%8C%E5%B9%B6%E4%B8%94PIF%20%EF%BC%88phytochrome-interacting%20factor%EF%BC%8C%E5%85%89%E6%95%8F%E8%89%B2%E7%B4%A0%E4%BA%92%E4%BD%9C%E5%9B%A0%E5%AD%90%EF%BC%89%E5%88%86%E5%AD%90%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C%E5%9C%A8%E9%9B%84%E8%95%8A%E4%B8%AD%E6%98%BE%E8%91%97%E5%AF%8C%E9%9B%86%EF%BC%8C%E4%B8%BA%E5%88%86%E5%AD%90%E5%B1%82%E9%9D%A2%E4%B8%8A%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E7%9A%84%E8%B6%8B%E5%90%8C%E6%BC%94%E5%8C%96%E6%8F%90%E4%BE%9B%E4%BA%86%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E8%AF%81%E6%8D%AE%EF%BC%88%E5%9B%BE4%EF%BC%89%E3%80%82%22%2C%22snippets%22%3A%5B%5D%7D%7D)[^3^](https://edgeservices.bing.com/edgesvc/chat?udsframed=1&form=SHORUN&clientscopes=chat,noheader,udsedgeshop,channelstable,&shellsig=c9319c1362f174328caba0ccd86eeb602e77691b&setlang=zh-CN&darkschemeovr=1#sjevt%7CDiscover.Chat.SydneyClickPageCitation%7Cadpclick%7C2%7C243f6e35-ebcf-4a08-b365-3c5411119c0a%7C%7B%22sourceAttributions%22%3A%7B%22providerDisplayName%22%3A%22%E5%90%8C%E6%97%B6%EF%BC%8C%E7%A0%94%E7%A9%B6%E5%8F%91%E7%8E%B0%E6%B2%B9%E8%8F%9C%E7%B4%A0...%22%2C%22pageType%22%3A%22html%22%2C%22pageIndex%22%3A1%2C%22relatedPageUrl%22%3A%22https%253A%252F%252Fmp.weixin.qq.com%252Fs%252FPSVMjaIelvQ2C-UFYTYPxg%22%2C%22lineIndex%22%3A12%2C%22highlightText%22%3A%22%E5%90%8C%E6%97%B6%EF%BC%8C%E7%A0%94%E7%A9%B6%E5%8F%91%E7%8E%B0%E6%B2%B9%E8%8F%9C%E7%B4%A0%E5%86%85%E9%85%AF%E5%9C%A8%E9%87%91%E9%93%B6%E8%8E%B2%E8%8A%B1%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E7%9A%84%E5%8F%91%E8%82%B2%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%85%B7%E6%9C%89%E9%87%8D%E8%A6%81%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%8C%E5%B9%B6%E4%B8%94PIF%20%EF%BC%88phytochrome-interacting%20factor%EF%BC%8C%E5%85%89%E6%95%8F%E8%89%B2%E7%B4%A0%E4%BA%92%E4%BD%9C%E5%9B%A0%E5%AD%90%EF%BC%89%E5%88%86%E5%AD%90%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C%E5%9C%A8%E9%9B%84%E8%95%8A%E4%B8%AD%E6%98%BE%E8%91%97%E5%AF%8C%E9%9B%86%EF%BC%8C%E4%B8%BA%E5%88%86%E5%AD%90%E5%B1%82%E9%9D%A2%E4%B8%8A%E5%BC%82%E5%9E%8B%E8%8A%B1%E6%9F%B1%E7%9A%84%E8%B6%8B%E5%90%8C%E6%BC%94%E5%8C%96%E6%8F%90%E4%BE%9B%E4%BA%86%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E8%AF%81%E6%8D%AE%EF%BC%88%E5%9B%BE4%EF%BC%89%E3%80%82%22%2C%22snippets%22%3A%5B%5D%7D%7D)
+[花柱异型研究进展.pdf (book118.com)](https://max.book118.com/html/2017/0627/118334414.shtm)
 
