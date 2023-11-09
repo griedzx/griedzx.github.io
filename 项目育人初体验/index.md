@@ -74,41 +74,23 @@ s位点是一种遗传位点，通常由单一复等位且包含紧密连锁的�
 
 ## 花柱异型的科名录
 
-[Ensembl Plants](http://plants.ensembl.org/index.html)
+[Ensembl Plants](http://plants.ensembl.org/index.html) Ensembl植物数据库
 
-|    | 科 Family                  | 基因组 |
-| -- | :------------------------- | ------ |
-| 1  | 报春花科                   |        |
-| 2  | 茜草科                     |        |
-| 3  | 紫草科                     |        |
-| 4  | 木樨科                     |        |
-| 5  | 白花丹科（蓝雪科）         |        |
-| 6  | 龙胆科                     |        |
-| 7  | 豆科                       |        |
-| 8  | 蓼科                       |        |
-| 9  | 马鞭草科                   |        |
-| 10 | 破布木科                   |        |
-| 11 | 唇形科                     |        |
-| 12 | 爵床科                     |        |
-| 13 | 藤黄科(金丝桃科，山竹子科) |        |
-| 14 | 鸢尾科                     |        |
-| 15 | 时钟花科                   |        |
-| 16 | 马钱科                     |        |
-| 17 | 瑞香科                     |        |
-| 18 | 檀香科                     |        |
-| 19 | 花荵科                     |        |
-| 20 | 虎耳草科                   |        |
-| 21 | 瑞香科                     |        |
-| 22 | *莕*菜科（睡菜科）       |        |
-| 23 | 梧桐科                     |        |
-| 24 | 千屈菜科                   |        |
-| 25 | 酢浆草科                   |        |
-| 26 | 雨久花科                   |        |
-| 27 | 石蒜科                     |        |
-| 28 | 牛栓藤科                   |        |
-| 29 | 亚麻科                     |        |
-| 30 | 古柯科                     |        |
+[花柱异型研究进展.pdf (book118.com)](https://max.book118.com/html/2017/0627/118334414.shtm) 在这篇2010年有关异型花柱的中文综述中提及为30多种
 
+![1699527245046](image/index/1699527245046.png)
+
+[Comparative Genomics Elucidates the Origin of a Supergene Controlling Floral Heteromorphism - PubMed (nih.gov)](https://pubmed.ncbi.nlm.nih.gov/35143659/)
+
+A classic example of supergene is the S locus controlling heterostyly, a floral heteromorphism occurring in **28 angiosperm families.**
+
+In Primula, heterostyly is characterized by the cooccurrence of two complementary, self-incompatible floral morphs and is **controlled by five genes clustered in the hemizygous, ca. 300-kb S locus.**
+
+在这篇22年文章中
+
+[‘A most complex marriage arrangement’: recent advances on heterostyly and unresolved questions (wiley.com)](https://nph.onlinelibrary.wiley.com/doi/epdf/10.1111/nph.16026)
+
+针对下载的基因组
 
 **通过GFF/GTF文件评估基因组注释完整性**
 
@@ -116,7 +98,7 @@ GFF（Generic Feature Format）, 描述了基因组上各种特征的区间信�
 
 检查GFF文件，若显示有exon和CDS信息，则基因组注释相对完全，可用于分析。如果既没有exon信息，也没有CDS信息，则基因组注释信息缺失，需要等注释信息完善后才可以用于有参转录组分析的参考基因组。
 
-![1699501500951](image/index/1699501500951.png)
+![1699526748416](image/index/1699526748416.png)
 
 ## 参考
 
