@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 03 Nov 2023 23:42:17 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 10 Nov 2023 23:54:43 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Dairy</title>
+    <link>http://griedzx.github.io/dairy/</link>
+    <pubDate>Fri, 10 Nov 2023 23:54:43 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/dairy/</guid>
+    <description><![CDATA[2023.11.10 好多事压得喘不过气，以致于感叹时间不够用，希望一个良好的睡眠可以解决一些些压力🙏]]></description>
+</item>
+<item>
     <title>项目育人初体验</title>
     <link>http://griedzx.github.io/%E9%A1%B9%E7%9B%AE%E8%82%B2%E4%BA%BA%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
     <pubDate>Fri, 03 Nov 2023 23:42:17 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/deeptools_computematrix%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</guid>
     <description><![CDATA[文件格式 BED (Browser Extensible Data),一种灵活的储存数据的格式，主要用来 储存基因组特征 （genomic features） 或注释信息(*.summits.]]></description>
-</item>
-<item>
-    <title>GSEA结果理解</title>
-    <link>http://griedzx.github.io/gsea_results/</link>
-    <pubDate>Sat, 09 Sep 2023 16:14:46 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/gsea_results/</guid>
-    <description><![CDATA[GSEA的结果图 GSEA的结果图通常包含三个部分 富集分数（Enrichment Score）的折线图 横轴代表排序后的基因，纵轴为对应的Runn]]></description>
 </item>
 </channel>
 </rss>
