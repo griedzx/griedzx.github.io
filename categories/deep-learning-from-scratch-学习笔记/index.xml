@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Deep Learning from Scratch 学习笔记 - 分类 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/categories/deep-learning-from-scratch-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <description>Deep Learning from Scratch 学习笔记 - 分类 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Tue, 28 Nov 2023 15:38:25 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/deep-learning-from-scratch-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>学习记录(1)</title>
+    <link>http://griedzx.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</link>
+    <pubDate>Tue, 28 Nov 2023 15:38:25 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
+    <description><![CDATA[感知机 x是输入信号，y是输出信号，w(weight)是权重 输入信号分别乘以固定的权重(w*x)，传输至下一个神经元，超过某一个阈值(thet]]></description>
+</item>
+</channel>
+</rss>
