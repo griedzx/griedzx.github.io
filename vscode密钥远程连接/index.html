@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Vscode密钥远程连接 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="Vscode密钥远程连接" />
+<meta property="og:description" content="通过vscode的remote-ssh插件可以在vscode上远程登陆服务器，登录和打开工作文件夹时都需要输入密码，可以通过配置ssh免密登" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" /><meta property="og:image" content="http://griedzx.github.io/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-20T19:58:51+08:00" />
+<meta property="article:modified_time" content="2023-11-20T19:58:51+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png" /><meta name="twitter:title" content="Vscode密钥远程连接"/>
+<meta name="twitter:description" content="通过vscode的remote-ssh插件可以在vscode上远程登陆服务器，登录和打开工作文件夹时都需要输入密码，可以通过配置ssh免密登"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" /><link rel="prev" href="http://griedzx.github.io/dairy/" /><link rel="next" href="http://griedzx.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Vscode密钥远程连接",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5\/"
+        },"genre": "posts","wordcount":  843 ,
+        "url": "http:\/\/griedzx.github.io\/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5\/","datePublished": "2023-11-20T19:58:51+08:00","dateModified": "2023-11-20T19:58:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vscode密钥远程连接</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/vscode%E9%85%8D%E7%BD%AE/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>vscode配置</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-20">2023-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 843 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#必要软件安装">必要软件安装</a></li>
+    <li><a href="#ssh-keygen配置密钥对">ssh-keygen配置密钥对</a></li>
+    <li><a href="#公钥传输至服务器">公钥传输至服务器</a>
+      <ul>
+        <li><a href="#代码传输">代码传输</a></li>
+        <li><a href="#简单粗暴的方法">简单粗暴的方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改homesshconfig">修改$home/.ssh/config</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>通过vscode的remote-ssh插件可以在vscode上远程登陆服务器，登录和打开工作文件夹时都需要输入密码，可以通过配置ssh免密登录，使登录和使用更加丝滑</p>
+<h2 id="必要软件安装">必要软件安装</h2>
+<p><code>ssh-keygen</code> 和 <code>ssh-copy-id</code> 安装，window电脑powershell中这两个命令已内置</p>
+<h2 id="ssh-keygen配置密钥对">ssh-keygen配置密钥对</h2>
+<p>配置密钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">griedzx</span><span class="p">&gt;</span> <span class="nb">ssh-keygen</span>
+</span></span><span class="line"><span class="cl"><span class="n">Generating</span> <span class="n">public</span><span class="p">/</span><span class="n">private</span> <span class="n">rsa</span> <span class="n">key</span> <span class="n">pair</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Enter</span> <span class="n">file</span> <span class="k">in</span> <span class="n">which</span> <span class="n">to</span> <span class="n">save</span> <span class="n">the</span> <span class="n">key</span> <span class="p">(</span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">griedzx</span><span class="p">/.</span><span class="n">ssh</span><span class="p">/</span><span class="n">id_rsa</span><span class="p">)</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Enter</span> <span class="n">passphrase</span> <span class="p">(</span><span class="n">empty</span> <span class="k">for</span> <span class="n">no</span> <span class="n">passphrase</span><span class="p">)</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Enter</span> <span class="n">same</span> <span class="n">passphrase</span> <span class="n">again</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Your</span> <span class="n">identification</span> <span class="n">has</span> <span class="n">been</span> <span class="n">saved</span> <span class="k">in</span> <span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">griedzx</span><span class="p">/.</span><span class="n">ssh</span><span class="p">/</span><span class="n">id_rsa</span>
+</span></span><span class="line"><span class="cl"><span class="n">Your</span> <span class="n">public</span> <span class="n">key</span> <span class="n">has</span> <span class="n">been</span> <span class="n">saved</span> <span class="k">in</span> <span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">griedzx</span><span class="p">/.</span><span class="n">ssh</span><span class="p">/</span><span class="n">id_rsa</span><span class="p">.</span><span class="py">pub</span>
+</span></span><span class="line"><span class="cl"><span class="n">The</span> <span class="n">key</span> <span class="n">fingerprint</span> <span class="n">is</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">SHA256</span><span class="err">:</span><span class="n">sYURFrXR</span><span class="p">+/</span><span class="n">Xffdy</span><span class="p">+</span><span class="n">HmOSu1yxPCH8WbXcoKNvSZF4RDQ</span> <span class="n">griedzx</span><span class="nv">@dzx_pc</span>
+</span></span><span class="line"><span class="cl"><span class="n">The</span> <span class="n">key</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">randomart</span> <span class="n">image</span> <span class="n">is</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">+---[</span><span class="no">RSA 3072</span><span class="p">]----+</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>        <span class="p">=+</span><span class="n">o</span><span class="p">+</span><span class="n">E</span>    <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>       <span class="p">.</span> <span class="n">o</span> <span class="n">oo</span><span class="p">.</span>   <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>        <span class="n">o</span> <span class="n">oo</span> <span class="n">o</span><span class="p">.</span> <span class="p">.|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>         <span class="p">+.</span> <span class="p">*...=|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>        <span class="n">S</span>  <span class="p">.</span><span class="n">o</span><span class="p">=</span> <span class="p">*+|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>           <span class="p">...*</span> <span class="n">B</span><span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>          <span class="p">..</span> <span class="p">+</span> <span class="p">%=|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>           <span class="p">.+</span> <span class="p">=</span> <span class="p">@|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>           <span class="p">..+</span><span class="n">o</span><span class="p">++|</span>
+</span></span><span class="line"><span class="cl"><span class="p">+----[</span><span class="no">SHA256</span><span class="p">]-----+</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意 <code>Enter passphrase (empty for no passphrase):</code> 不输入密码，直接回车继续，否则之前对应输入服务器用户密码的地方变成了密钥对的密码</p>
+<p>ssh-keygen常用参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">ssh-keygen
+</span></span><span class="line"><span class="cl">-t: 密钥类型, 可以选择 dsa | ecdsa | ed25519 | rsa;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-f: 密钥目录位置, 默认为当前用户home路径下的.ssh隐藏目录, 也就是~/.ssh/, 同时默认密钥文件名以id_rsa开头. 如果是root用户, 则在/root/.ssh/id_rsa, 若为其他用户, 则在/home/username/.ssh/id_rsa;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-C: 指定此密钥的备注信息, 需要配置多个免密登录时, 建议携带;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-N: 指定此密钥对的密码, 如果指定此参数, 则命令执行过程中就不会出现交互确认密码的信息了.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设定目录下会出现密钥对文件：id_rsa.pub是公钥 id_rsa是私钥</p>
+<h2 id="公钥传输至服务器">公钥传输至服务器</h2>
+<p>公钥放server(远程主机)上，私钥放本机上</p>
+<h3 id="代码传输">代码传输</h3>
+<p>公钥配置至服务器上（Window -&gt; Linux）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$USER_AT_HOST</span> <span class="p">=</span> <span class="s2">&#34;yh@760755rf68.imdo.co&#34;</span> <span class="c">#id@ip</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$PUBKEYPATH</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.ssh/id_rsa.pub&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$pubKey</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-Content</span> <span class="s2">&#34;</span><span class="nv">$PUBKEYPATH</span><span class="s2">&#34;</span><span class="p">|</span><span class="nb">Out-string</span><span class="p">);</span> <span class="n">ssh</span> <span class="n">-p</span> <span class="mf">37763</span> <span class="s2">&#34;</span><span class="nv">$USER_AT_HOST</span><span class="s2">&#34;</span> <span class="s2">&#34;echo &#39;</span><span class="nv">${pubKey}</span><span class="s2">&#39; &gt;&gt; ~/.ssh/authorized_keys&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="简单粗暴的方法">简单粗暴的方法</h3>
+<p>建议直接cat 本地的id_rsa.pub</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">griedzx</span><span class="p">\.</span><span class="n">ssh</span><span class="p">&gt;</span> <span class="nb">cat </span><span class="n">id_rsa</span><span class="p">.</span><span class="py">pub</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后复制内容到服务器的~/.ssh/authorized_keys中新增一行</p>
+<p>#服务器端</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> yh@localhost 21:21:38 ~/.ssh
+</span></span><span class="line"><span class="cl">$ vim authorized_keys
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改homesshconfig">修改$home/.ssh/config</h2>
+<p>修改.ssh/config文件：加入IdentityFile的路径（也就是私钥在本机的所在位置）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">Host</span> <span class="n">yh_xw</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HostName</span> <span class="n">760755rf68</span><span class="p">.</span><span class="py">imdo</span><span class="p">.</span><span class="py">co</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Port</span> <span class="mf">37763</span>
+</span></span><span class="line"><span class="cl">  <span class="n">User</span> <span class="n">yh</span>
+</span></span><span class="line"><span class="cl">  <span class="n">IdentityFile</span> <span class="s2">&#34;C:\Users\griedzx\.ssh\id_rsa&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>vscode登录server就不用输入密码了</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-11-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" data-title="Vscode密钥远程连接" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" data-title="Vscode密钥远程连接"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" data-title="Vscode密钥远程连接"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" data-title="Vscode密钥远程连接"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/dairy/" class="prev" rel="prev" title="Dairy"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Dairy</a>
+            <a href="/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="next" rel="next" title="学习记录(1)">学习记录(1)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

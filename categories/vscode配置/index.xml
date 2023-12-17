@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>vscode配置 - 分类 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/categories/vscode%E9%85%8D%E7%BD%AE/</link>
+        <description>vscode配置 - 分类 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Mon, 20 Nov 2023 19:58:51 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/vscode%E9%85%8D%E7%BD%AE/" rel="self" type="application/rss+xml" /><item>
+    <title>Vscode密钥远程连接</title>
+    <link>http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
+    <pubDate>Mon, 20 Nov 2023 19:58:51 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
+    <description><![CDATA[通过vscode的remote-ssh插件可以在vscode上远程登陆服务器，登录和打开工作文件夹时都需要输入密码，可以通过配置ssh免密登]]></description>
+</item>
+</channel>
+</rss>

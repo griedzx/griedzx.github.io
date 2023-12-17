@@ -13,6 +13,14 @@
     <description><![CDATA[感知机 x是输入信号，y是输出信号，w(weight)是权重 输入信号分别乘以固定的权重(w*x)，传输至下一个神经元，超过某一个阈值(thet]]></description>
 </item>
 <item>
+    <title>Vscode密钥远程连接</title>
+    <link>http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
+    <pubDate>Mon, 20 Nov 2023 19:58:51 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
+    <description><![CDATA[通过vscode的remote-ssh插件可以在vscode上远程登陆服务器，登录和打开工作文件夹时都需要输入密码，可以通过配置ssh免密登]]></description>
+</item>
+<item>
     <title>Dairy</title>
     <link>http://griedzx.github.io/dairy/</link>
     <pubDate>Fri, 10 Nov 2023 23:54:43 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/atac-seq/</guid>
     <description><![CDATA[ATAC-seq数据peak calling fastq数据trim_galore软件质控 对双端测序的左右端结果文件进行处理 1 2 $ pwd /home/yuanhx/dzx/ATAC_seq/clean 1 2 3 4 5 6 #shel]]></description>
-</item>
-<item>
-    <title>perl中正则表达式</title>
-    <link>http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/</link>
-    <pubDate>Tue, 19 Sep 2023 18:57:20 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/perl_%E6%AD%A3%E5%88%99/</guid>
-    <description><![CDATA[运用实例 1 2 3 4 5 6 7 8 9 10 11 12 =pod 下列是一条蛋白质序列，请统计该序列长度、丙氨酸（A）的个数及所占的比例； MNAPERQPQPDGGDAPGHEPGGSPQDELDFSILFDYEYLNPNEEEPNAHKVASPPSGPAYPDDVLDYGLKPYSPLASLSGEPPGRFGEPDRVGPQKFLSAAKPAGASGLSPRIEITPSHELIQAVGPLRMRDAGLLVEQPPLAGVAASPRFTLPVPGFEGYREPLCLSPASSGSSASFISDTFSPYTSPCVSPNNGGPDDLCPQFQNIPAHYSPRTSPIMSPRTSLAEDSCLGRHSPVPRPASRSSSPGAKRRHSCAEALVALPPGASPQRSRSPSPQPSSHVAPQDHGSPAGYPPVAGSAVIMDALNSLATDSPCGIPPKMWKTSP =cut $protein_sequence = &#34;MNAPERQPQPDGGDAPGHEPGGSPQDELDFSILFDYEYLNPNEEEPNAHKVASPPSGPAYPDDVLDYGLKPYSPLASLSGEPPGRFGEPDRVGPQKFLSAAKPAGASGLSPRIEITPSHELIQAVGPLRMRDAGLLVEQPPLAGVAASPRFTLPVPGFEGYREPLCLSPASSGSSASFISDTFSPYTSPCVSPNNGGPDDLCPQFQNIPAHYSPRTSPIMSPRTSLAEDSCLGRHSPVPRPASRSSSPGAKRRHSCAEALVALPPGASPQRSRSPSPQPSSHVAPQDHGSPAGYPPVAGSAVIMDALNSLATDSPCGIPPKMWKTSP&#34;; $len = length($protein_sequence); $A_count = $protein_sequence =~ s/A/A/g; $A_per = ($A_count/$len)*100; print]]></description>
 </item>
 </channel>
 </rss>
