@@ -12,5 +12,13 @@
     <guid>http://griedzx.github.io/tf-idf/</guid>
     <description><![CDATA[TF-IDF简要介绍 TF-IDF(term frequency–inverse document frequency)，一种常用于挖掘文章中关键词的加权技术。某个词在文章（一篇文章]]></description>
 </item>
+<item>
+    <title>PubTator</title>
+    <link>http://griedzx.github.io/pubtator/</link>
+    <pubDate>Tue, 17 Oct 2023 00:25:14 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/pubtator/</guid>
+    <description><![CDATA[API调用 1 2 3 4 5 6 7 8 9 10 11 12 13 #! /bin/bash id_list=&#39;/home/yh/dzx/work/BioNLP/EntityAnnotation/pmid.txt&#39; #读取id时跳过pmid.txt第一行列名 while read line do if [ $line != &#39;pmid&#39; ] then curl https://www.ncbi.nlm.nih.gov/research/pubtator-api/publications/export/pubtator?pmids=$line &gt;&gt; /home/yh/dzx/work/BioNLP/EntityAnnotation/abstract_pubtator.txt echo &gt;&gt; /home/yh/dzx/work/BioNLP/EntityAnnotation/abstract_pubtator.txt fi sleep 2 done &lt; $id_list 1 cat abstract_pubtator.txt|grep -v]]></description>
+</item>
 </channel>
 </rss>

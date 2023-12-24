@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>基因预测和基因结构分析 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="基因预测和基因结构分析" />
+<meta property="og:description" content="生物信息软件综合实践实验报告 实验题目 ：基因预测和基因结构分析 实验日期：2023年12月5日 星期二 实验者：生物信息2102代子希 实验目的： 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" /><meta property="og:image" content="http://griedzx.github.io/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-24T17:09:12+08:00" />
+<meta property="article:modified_time" content="2023-12-24T17:09:12+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png" /><meta name="twitter:title" content="基因预测和基因结构分析"/>
+<meta name="twitter:description" content="生物信息软件综合实践实验报告 实验题目 ：基因预测和基因结构分析 实验日期：2023年12月5日 星期二 实验者：生物信息2102代子希 实验目的： 1."/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" /><link rel="prev" href="http://griedzx.github.io/mamba/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "基因预测和基因结构分析",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90\/"
+        },"genre": "posts","wordcount":  3505 ,
+        "url": "http:\/\/griedzx.github.io\/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90\/","datePublished": "2023-12-24T17:09:12+08:00","dateModified": "2023-12-24T17:09:12+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">基因预测和基因结构分析</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-24">2023-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3505 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#实验题目-基因预测和基因结构分析"><strong>实验题目</strong> ：基因预测和基因结构分析</a></li>
+    <li><a href="#实验目的"><strong>实验目的：</strong></a></li>
+    <li><a href="#实验内容"><strong>实验内容：</strong></a></li>
+    <li><a href="#实验流程和结果">实验流程和结果</a>
+      <ul>
+        <li><a href="#prodigal文件夹下结果">prodigal文件夹下结果</a></li>
+        <li><a href="#augustus文件夹下结果">augustus文件夹下结果</a>
+          <ul>
+            <li><a href="#部分预测结果">部分预测结果</a></li>
+          </ul>
+        </li>
+        <li><a href="#prodigal文件夹下结果-1">prodigal文件夹下结果</a>
+          <ul>
+            <li><a href="#部分预测结果-1">部分预测结果</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#思考与讨论">思考与讨论</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="生物信息软件综合实践实验报告"><strong>生物信息软件综合实践实验报告</strong></h1>
+<h2 id="实验题目-基因预测和基因结构分析"><strong>实验题目</strong> ：基因预测和基因结构分析</h2>
+<p>实验日期：2023年12月5日 星期二</p>
+<p>实验者：生物信息2102代子希</p>
+<h2 id="实验目的"><strong>实验目的：</strong></h2>
+<p>1.掌握常用基因从头预测软件的使用和结果解读</p>
+<p>2.熟悉文件格式GFF3的基本信息</p>
+<p>3.熟悉至少一种基因组浏览器的使用</p>
+<p>4.了解基因结构和非编码基因预测等分析</p>
+<h2 id="实验内容"><strong>实验内容：</strong></h2>
+<p>1.使用软件Prodigal预测大肠杆菌Escherichia coli K12基因组的基因，并对预测结果进行总结</p>
+<p>2.至少使用两种基因从头预测软件预测拟南芥基因组（部分序列）的基因，并对预测结果进行总结和差异比较。</p>
+<p>3.使用IGV查看拟南芥重要基因的注释结果</p>
+<h2 id="实验流程和结果">实验流程和结果</h2>
+<p>问题1</p>
+<p>1.使用Prodigal对组装的大肠杆菌的序列（其中1Mb序列，已提供，见文件ecoli.hifi.fa）进行基因预测，统计预测得到的基因的数量</p>
+<p><strong>步骤1</strong>：使用prodigal命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir prodigal
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> prodigal
+</span></span><span class="line"><span class="cl">prodigal -a ref.pep -d ref.cds -f gff -g <span class="m">11</span> -o ref.gff -p single -s ref.stat -i ../../data/ch06/ecoli.hifi.fa <span class="p">&amp;</span> &gt;prodigal.log <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782343341.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782343341.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782343341.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782343341.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782343341.png"
+        title="1701782343341" width="1280" height="577" /></p>
+<p>ref.cds 输出的预测基因的序列文件</p>
+<p>ref.gff 输出的基因的位置信息gff文件</p>
+<p>ref.pep 输出的预测序列的氨基酸文件</p>
+<h3 id="prodigal文件夹下结果">prodigal文件夹下结果</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353260405.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353260405.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353260405.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353260405.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353260405.png"
+        title="1702353260405" width="654" height="250" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353325707.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353325707.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353325707.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353325707.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353325707.png"
+        title="1702353325707" width="1890" height="365" /></p>
+<p><strong>步骤2</strong>：统计预测得到的基因的数量</p>
+<p>①使用awk命令对gff文件进行统计</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk <span class="s1">&#39;/^#/ {next} {if ($3 == &#34;CDS&#34;) count++} END {print count}&#39;</span> ref.gff
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>②使用grep命令对ref.cds文件进行统计</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> grep -c <span class="s2">&#34;&gt;&#34;</span> ref.cds
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782766073.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782766073.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782766073.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782766073.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701782766073.png"
+        title="1701782766073" width="822" height="86" /></p>
+<p>问题2</p>
+<p>2.从给定的拟南芥基因组（TAIR10版本）的某段序列（二号染色体7.5-8.5Mb,文件名：Ath.1mb.fa），完成以下任务：</p>
+<ol>
+<li>使用GenScan、Augustus、GlimmerHMM等软件（至少两种软件）预测该序列所包含的蛋白质编码基因。统计不同软件组装得到的基因和外显子（exon）的数量，并选用适当的图表（如直方图）将统计结果进行展示。</li>
+<li>从TAIR10网站下载该区间的基因注释信息（已下载到服务器，见文件tair10.ch2_7.5-8.5Mb.genes.gff3），作为标准参考集，试评估第1）题中使用的不同软件预测结果的准确率和召回率等。（可以考虑从基因、exon、CDS等水平上进行比较，比如：对于某个基因，augustus预测的跟tair10的基因重叠区域超过各自注释区间的90%，则认为两者一致，其他exon、CDS的比较，可采用相同标准）</li>
+<li>试列举1-2个基因在不同软件和TAIR10中的注释差异情况（结合IGV展示不同软件的注释结果）。可参考的基因：WUS、PHYTOCHROMEB</li>
+</ol>
+<p>问题2.1</p>
+<p><strong>步骤1</strong>：使用Augustus预测</p>
+<p>对需要使用的数据创建软连接，使用Augustus预测</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> augustus
+</span></span><span class="line"><span class="cl">ln -sf /home/uu02/data/ch06/Ath.1mb.fa ./
+</span></span><span class="line"><span class="cl">augustus --species<span class="o">=</span>arabidopsis Ath.1mb.fa 1&gt;augustus.out 2&gt;log.txt <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701783240586.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701783240586.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701783240586.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701783240586.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701783240586.png"
+        title="1701783240586" width="792" height="346" /></p>
+<p>步骤2：对组装结果augustus.out统计得到基因和外显子的数量</p>
+<p>Augusuts预测结束后得到了 <code>augustus.out</code>文件，这个文件本质是一个gff格式的文件，文件前半部分是一些 <code>#</code>开头的注释</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 统计基因的数量</span>
+</span></span><span class="line"><span class="cl"><span class="nv">gene_count</span><span class="o">=</span><span class="k">$(</span>awk -F <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39;$3==&#34;gene&#34;&#39;</span> augustus.out <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 统计外显子的数量</span>
+</span></span><span class="line"><span class="cl"><span class="nv">exon_count</span><span class="o">=</span><span class="k">$(</span>awk -F <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39;$3==&#34;exon&#34;&#39;</span> augustus.out <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 打印结果</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;基因的数量: </span><span class="nv">$gene_count</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;外显子的数量: </span><span class="nv">$exon_count</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701853450887.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701853450887.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701853450887.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701853450887.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701853450887.png"
+        title="1701853450887" width="762" height="205" /></p>
+<p>**步骤3：**使用GlimmerHMM预测</p>
+<p>对需要使用的数据创建软连接，使用GlimmerHMM预测</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> glimmerhmm
+</span></span><span class="line"><span class="cl">ln -sf /home/uu02/data/ch06/Ath.1mb.fa ./
+</span></span><span class="line"><span class="cl">glimmerhmm Ath.1mb.fa -d /home/uu02/software/07_GlimmerHMM/GlimmerHMM/trained_dir/arabidopsis -g -n <span class="m">1</span> 1&gt;ref.gff 2&gt;log.txt <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701852967448.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701852967448.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701852967448.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701852967448.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701852967448.png"
+        title="1701852967448" width="894" height="293" /></p>
+<p>**步骤4：**对组装结果ref.gff统计得到基因和外显子的数量</p>
+<p>组装结果也是gff文件，观察发现GlimmerHMM 的预测结果将 gene 和 exon 信息写在了 &ldquo;Note&rdquo; 属性中,并且 gene 信息在 &ldquo;mRNA&rdquo; 类型的行中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 统计基因的数量</span>
+</span></span><span class="line"><span class="cl"><span class="nv">gene_count</span><span class="o">=</span><span class="k">$(</span>awk -F <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39;$3==&#34;mRNA&#34;&#39;</span> ref.gff <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 统计外显子的数量</span>
+</span></span><span class="line"><span class="cl"><span class="nv">exon_count</span><span class="o">=</span><span class="k">$(</span>awk -F <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39;$9 ~ /exon/&#39;</span> ref.gff <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 打印结果</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;基因的数量: </span><span class="nv">$gene_count</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;外显子的数量: </span><span class="nv">$exon_count</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854032684.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854032684.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854032684.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854032684.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854032684.png"
+        title="1701854032684" width="748" height="195" /></p>
+<p>**步骤5：**选用适当的图表（如直方图）将统计结果进行展示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置gene和extron的count</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;augustus&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;gene&#39;</span><span class="p">:</span> <span class="mi">228</span><span class="p">,</span> <span class="s1">&#39;extron&#39;</span><span class="p">:</span> <span class="mi">1360</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="s1">&#39;glimmerHMM&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;gene&#39;</span><span class="p">:</span> <span class="mi">234</span><span class="p">,</span> <span class="s1">&#39;extron&#39;</span><span class="p">:</span> <span class="mi">1245</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建堆叠的直方图</span>
+</span></span><span class="line"><span class="cl"><span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">counts</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="s1">&#39;gene&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">exon_counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">counts</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="s1">&#39;extron&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>  <span class="c1"># the label locations</span>
+</span></span><span class="line"><span class="cl"><span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>  <span class="c1"># the width of the bars</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rects1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">gene_counts</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gene&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rects2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">exon_counts</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;extron&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#加上具体的数值</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">rects1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">height</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">height</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span><span class="o">+</span><span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>  <span class="c1"># 3 points vertical offset</span>
+</span></span><span class="line"><span class="cl">                <span class="n">textcoords</span><span class="o">=</span><span class="s2">&#34;offset points&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">rects2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">height</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">height</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span><span class="o">+</span><span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>  <span class="c1"># 3 points vertical offset</span>
+</span></span><span class="line"><span class="cl">                <span class="n">textcoords</span><span class="o">=</span><span class="s2">&#34;offset points&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;gene &amp; extron count&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#图例放在表格外面</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854902409.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854902409.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854902409.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854902409.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1701854902409.png"
+        title="1701854902409" width="944" height="710" /></p>
+<h3 id="augustus文件夹下结果">augustus文件夹下结果</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353416291.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353416291.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353416291.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353416291.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353416291.png"
+        title="1702353416291" width="896" height="222" /></p>
+<h4 id="部分预测结果">部分预测结果</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353490974.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353490974.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353490974.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353490974.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353490974.png"
+        title="1702353490974" width="1089" height="507" /></p>
+<h3 id="prodigal文件夹下结果-1">prodigal文件夹下结果</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353555424.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353555424.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353555424.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353555424.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353555424.png"
+        title="1702353555424" width="573" height="231" /></p>
+<h4 id="部分预测结果-1">部分预测结果</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353588664.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353588664.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353588664.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353588664.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702353588664.png"
+        title="1702353588664" width="1896" height="362" /></p>
+<p>问题2.2 不同软件预测结果的准确率和召回率</p>
+<p>**步骤1：**使用bedtools intersectbed模块获取重叠部分符合要求的结果</p>
+<ul>
+<li>
+<p>-a -b  指定输入文件</p>
+</li>
+<li>
+<p>-f 0.9 指定重叠部分最少所占比列</p>
+</li>
+<li>
+<p>-r 指定重叠部分所占比例在 a 与 b中同时满足 &gt; 0.9</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702352651093.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702352651093.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702352651093.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702352651093.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702352651093.png"
+        title="1702352651093" width="248" height="48" /></p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">augustus</span><span class="o">=</span><span class="s1">&#39;/home/uu02/02_dzx/augustus/augustus.out&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">glimmerHMM</span><span class="o">=</span><span class="s1">&#39;/home/uu02/02_dzx/glimmerhmm/ref.gff&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ref_data</span><span class="o">=</span><span class="s1">&#39;/home/uu02/data/ch06/tair10.ch2_7.5-8.5Mb.genes.gff3&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> file in <span class="nv">$augustus</span> <span class="nv">$glimmerHMM</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">dir</span><span class="o">=</span><span class="k">$(</span>basename <span class="k">$(</span>dirname <span class="nv">$file</span><span class="k">))</span>
+</span></span><span class="line"><span class="cl">    intersectBed -a <span class="nv">$ref_data</span> -b <span class="nv">$file</span> -f 0.9 -r -wao &gt; <span class="nv">$dir</span>.intersect
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>步骤2：</strong> 文件导入本地，用python统计召回率 ：实际为正的样本中被预测为正样本的概率</p>
+<p>召回率=TP/(TP+FN)</p>
+<p>实际为正的样本数为 ref_data 参考数据中注释为gene / exon的行</p>
+<p>实际为正 统计为真的样本，根据不同软件预测结果格式筛选</p>
+<p>augustus: 	gene: <code>data[(data[11] == 'gene') &amp; (data[2] == 'gene')]</code> 		exon: <code> (data[11] == 'exon') &amp; (data[2] == 'exon')]</code></p>
+<p>gil mmerhmm:	gene: <code>data[(data[11] == 'mRNA') &amp; (data[2] == 'gene')]</code>		exon: <code>data[(data[2] == 'exon') &amp; (data[17].str.contains('exon'))]</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#分别从gene、exon水平通过召回率评估不同软件预测结果</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;F:/生物信息软件综合实践/05_data/augustus.intersect&#39;</span><span class="p">,</span> <span class="s1">&#39;F:/生物信息软件综合实践/05_data/glimmerhmm.intersect&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ref_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;F:/生物信息软件综合实践/05_data/tair10.ch2_7.5-8.5Mb.genes.gff3&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ref_data_gene</span> <span class="o">=</span> <span class="n">ref_data</span><span class="p">[</span><span class="n">ref_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ref_data_exon</span> <span class="o">=</span> <span class="n">ref_data</span><span class="p">[</span><span class="n">ref_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;exon&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="n">software</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">#gene</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g_p_e</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_data_gene</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">e_p_e</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_data_exon</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">software</span> <span class="o">==</span> <span class="s1">&#39;augustus&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g_tp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g_recall</span> <span class="o">=</span> <span class="n">g_tp</span> <span class="o">/</span> <span class="n">g_p_e</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="n">e_tp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;exon&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;exon&#39;</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">e_recall</span> <span class="o">=</span> <span class="n">e_tp</span> <span class="o">/</span> <span class="n">e_p_e</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;augustus gene recall: </span><span class="si">%s</span><span class="s1">, and turn to percentage: </span><span class="si">%s</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">g_recall</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">g_recall</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;.2f&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;augustus exon recall: </span><span class="si">%s</span><span class="s1">, and turn to percentage: </span><span class="si">%s</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e_recall</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">e_recall</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;.2f&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#转换成百分比 </span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">software</span> <span class="o">==</span> <span class="s1">&#39;glimmerhmm&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g_tp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mRNA&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g_recall</span> <span class="o">=</span> <span class="n">g_tp</span> <span class="o">/</span> <span class="n">g_p_e</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="n">e_tp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;exon&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;exon&#39;</span><span class="p">))])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">e_recall</span> <span class="o">=</span> <span class="n">e_tp</span> <span class="o">/</span> <span class="n">e_p_e</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;glimmerhmm gene recall: </span><span class="si">%s</span><span class="s1">, and turn to percentage: </span><span class="si">%s</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">g_recall</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">g_recall</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;.2f&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;glimmerhmm exon recall: </span><span class="si">%s</span><span class="s1">, and turn to percentage: </span><span class="si">%s</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e_recall</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">e_recall</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;.2f&#39;</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702297552585.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702297552585.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702297552585.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702297552585.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702297552585.png"
+        title="1702297552585" width="881" height="87" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">recall(召回率)</th>
+<th>gene</th>
+<th style="text-align:center">exon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">glimmerhmm</td>
+<td>12.75%</td>
+<td style="text-align:center">58.35%</td>
+</tr>
+<tr>
+<td style="text-align:center">augustus</td>
+<td>46.61%</td>
+<td style="text-align:center">68.29%</td>
+</tr>
+</tbody>
+</table>
+<p>问题2.3</p>
+<p>列举1-2个基因在不同软件和TAIR10中的注释差异情况（结合IGV展示不同软件的注释结果）。可参考的基因：WUS、PHYTOCHROMEB</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314413419.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314413419.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314413419.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314413419.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314413419.png"
+        title="1702314413419" width="2560" height="1373" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314539617.png"
+        data-srcset="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314539617.png, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314539617.png 1.5x, /%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314539617.png 2x"
+        data-sizes="auto"
+        alt="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/image/5_report/1702314539617.png"
+        title="1702314539617" width="2516" height="1352" /></p>
+<h2 id="思考与讨论">思考与讨论</h2>
+<p>1.原核生物的基因结构（组成单元、长度、GC含量等）和真核生物的基因结构有哪些差异？（结合大肠杆菌和拟南芥的注释进行分析讨论）</p>
+<p>2.不如软件的基因预测结果，有哪些差异？为什么会有这些差异？相比于标准集，哪个软件的预测结果可能相对最好？试结合算法原理，进行讨论</p>
+<p>1.原核生物和真核生物的基因结构差异：</p>
+<ul>
+<li>原核生物（以大肠杆菌为例），原核生物基因没有内含子,一个基因对应一个连续的mRNA和蛋白质，大肠杆菌基因主要由连续的开放阅读框（ORF）组成，其中包含了编码蛋白质的基因。这些基因通常没有被包裹在真正的细胞核中，而是在细胞质中存在。原核生物基因整体较短,大多数大肠杆菌基因长度小于1000bp，典型的蛋白编码基因长度约为几百到几千个碱基对，原核生物基因前的启动子区域保守,存在信号序列如-10和-35元件</li>
+<li>真核生物（以拟南芥为例），真核生物基因由外显子和内含子组成，外显子为编码蛋白质的区域，而内含子则是非编码序列。这些基因通常位于真正的细胞核中，即真核生物基因含有内含子,需要剪接处理长度：。真核生物基因通常较长，其中包含有复杂的调控元件和结构。蛋白编码基因的长度可能达到数千到数万个碱基对，拟南芥等真核生物基因往往很长,部分基因可达几十万bp。拟南芥等高等真核生物基因区GC含量差异较大。真核生物启动子区域结构较复杂,需多个转录因子互作才能启动转录，真核生物同属基因序列保守性差异大,难以仅依靠序列相关性预测基因</li>
+</ul>
+<p>2.基因预测软件结果与实际差异的原因以及算法比较：</p>
+<ul>
+<li>算法原理:augustus使用生成式隐马尔可夫模型,genscan和glimmerhmm使用隐马尔可夫模型</li>
+<li>预测内容:augustus可以预测外显子-内含子结构,genscan和glimmerhmm仅预测外显子</li>
+</ul>
+<p>因此:</p>
+<ul>
+<li>augustus利用了更丰富的外部信息,理论上预测精度应最高</li>
+<li>genscan和glimmerhmm仅依靠序列本身,难免会漏预测真实基因或者错误预测假基因</li>
+<li>对于拟南芥这类有丰富注释的数据,以augustus训练得到的模型进行预测效果应最好</li>
+<li>对于基因组注释不全的物种,三者效果相对,Glimmerhmm可能效果最好</li>
+</ul>
+<p>从本次实验计算的召回率以及上述分析，总体来说,利用外部信息(如注释)训练模型进行预测的augustus,在条件允许的情况下,它的预测结果可靠性应最高。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" data-title="基因预测和基因结构分析" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" data-title="基因预测和基因结构分析"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" data-title="基因预测和基因结构分析"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" data-title="基因预测和基因结构分析"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/mamba/" class="prev" rel="prev" title="Mamba"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Mamba</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
