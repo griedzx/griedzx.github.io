@@ -7,6 +7,14 @@
             <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 24 Dec 2023 17:09:12 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>表达谱分析</title>
+    <link>http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+    <pubDate>Sun, 24 Dec 2023 17:09:12 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+    <description><![CDATA[生物信息软件综合实践实验报告 实验题目 ：表达谱基本分析及查询 实验日期：2023年12月19日 星期二 实验者：生物信息2102 代子希 实验目的： 熟悉]]></description>
+</item>
+<item>
     <title>基因预测和基因结构分析</title>
     <link>http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</link>
     <pubDate>Sun, 24 Dec 2023 17:09:12 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/</guid>
     <description><![CDATA[使用deeptools的 computeMatrix + (plotHeatmap or plotProfile)可以针对某些特定类型的区域如TTS、TES的指定区域范围进行信号富集程度的可视化 computeMatrix&rsquo;s parameters]]></description>
-</item>
-<item>
-    <title>TF-IDF</title>
-    <link>http://griedzx.github.io/tf-idf/</link>
-    <pubDate>Wed, 18 Oct 2023 12:44:12 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/tf-idf/</guid>
-    <description><![CDATA[TF-IDF简要介绍 TF-IDF(term frequency–inverse document frequency)，一种常用于挖掘文章中关键词的加权技术。某个词在文章（一篇文章]]></description>
 </item>
 </channel>
 </rss>

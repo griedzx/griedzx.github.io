@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>表达谱分析 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="表达谱分析" />
+<meta property="og:description" content="生物信息软件综合实践实验报告 实验题目 ：表达谱基本分析及查询 实验日期：2023年12月19日 星期二 实验者：生物信息2102 代子希 实验目的： 熟悉" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" /><meta property="og:image" content="http://griedzx.github.io/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-24T17:09:12+08:00" />
+<meta property="article:modified_time" content="2023-12-24T17:09:12+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png" /><meta name="twitter:title" content="表达谱分析"/>
+<meta name="twitter:description" content="生物信息软件综合实践实验报告 实验题目 ：表达谱基本分析及查询 实验日期：2023年12月19日 星期二 实验者：生物信息2102 代子希 实验目的： 熟悉"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" /><link rel="prev" href="http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "表达谱分析",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90\/"
+        },"genre": "posts","wordcount":  4059 ,
+        "url": "http:\/\/griedzx.github.io\/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90\/","datePublished": "2023-12-24T17:09:12+08:00","dateModified": "2023-12-24T17:09:12+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">表达谱分析</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E8%BD%AF%E4%BB%B6%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>生物信息软件综合实践</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-24">2023-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4059 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#实验题目-表达谱基本分析及查询"><strong>实验题目</strong> ：表达谱基本分析及查询</a></li>
+    <li><a href="#实验目的"><strong>实验目的：</strong></a></li>
+    <li><a href="#实验内容"><strong>实验内容：</strong></a></li>
+    <li><a href="#实验流程和结果">实验流程和结果</a>
+      <ul>
+        <li><a href="#数据预处理">数据预处理</a></li>
+        <li><a href="#探针过滤">探针过滤</a></li>
+        <li><a href="#探针注释">探针注释</a></li>
+        <li><a href="#limma差异分析">limma差异分析</a></li>
+        <li><a href="#差异表达分析结果可视化">差异表达分析结果可视化</a></li>
+      </ul>
+    </li>
+    <li><a href="#思考与讨论">思考与讨论</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="生物信息软件综合实践实验报告"><strong>生物信息软件综合实践实验报告</strong></h1>
+<h2 id="实验题目-表达谱基本分析及查询"><strong>实验题目</strong> ：表达谱基本分析及查询</h2>
+<p>实验日期：2023年12月19日 星期二</p>
+<p>实验者：生物信息2102 代子希</p>
+<h2 id="实验目的"><strong>实验目的：</strong></h2>
+<ol>
+<li>熟悉表达谱数据库的查询和数据下载</li>
+<li>熟悉芯片表达谱数据分析的一般流程</li>
+<li>掌握表达差异分析和基因富集分析的方法</li>
+<li>了解常用的数据可视化方法</li>
+</ol>
+<h2 id="实验内容"><strong>实验内容：</strong></h2>
+<ol>
+<li>GEO数据库查询和数据下载</li>
+<li>使用R包limma进行差异表达分析</li>
+<li>使用R包clusterProfiler进行基因富集分析</li>
+<li>使用gplots、ggpubr、pheatmap等R包对差异表达和富集分析进行结果可视化</li>
+</ol>
+<h2 id="实验流程和结果">实验流程和结果</h2>
+<p>以 GSE46456为例，该实验使用的芯片平台为GPL198，拟南芥样本基因型包括：野生型、BRI1 单突变型、GUL2单突变型、BRI和GUL 双突变型，每种基因型设置三种重复。研究三种突变型样本与WT野生型样本哪些基因存在显著的差异表达。根据所提供的演示代码和相关文件，请完成以下任务：</p>
+<ol>
+<li>对获得的芯片数据进行<strong>数据标准化</strong>、<strong>探针过滤</strong>、<strong>limma差异分析</strong>，写明每一步骤的代码、目的以及中间结果。</li>
+<li>运用limma获得突变体和野生型的差异表达基因集，并<strong>阐述差异分析结果的各列含义</strong>。</li>
+<li>对所有基因做GSEA富集分析；并对三组<strong>上调的差异表达基因</strong>（bri1-WT、gul2-WT、bri1_gul2-WT）做GO富集分析，并解释富集结果，如有图片请注明图注信息。</li>
+</ol>
+<p>安装、加载包以及相关依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># R ≥ 3.5.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="n">version</span> <span class="o">=</span> <span class="s">&#34;3.13&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">BiocManager</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;cluster&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;kohonen&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;gplots&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;ggpubr&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;ggthemes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;pheatmap&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;GEOquery&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;RankProd&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;affy&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;affyPLM&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;limma&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;genefilter&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;org.At.tair.db&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;Mfuzz&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;clusterProfiler&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">RankProd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">kohonen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">gplots</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">RankProd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">affy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">affyPLM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">packageurl</span> <span class="o">&lt;-</span> <span class="s">&#34;https://bioconductor.org/packages//2.7/bioc/src/contrib/simpleaffy_2.64.0.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="n">packageurl</span><span class="p">,</span> <span class="n">repos</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&#34;source&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">genefilter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">gcrma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">options</span><span class="p">(</span><span class="n">BioC_mirror</span><span class="o">=</span><span class="s">&#34;https://mirrors.tuna.tsinghua.edu.cn/bioconductor&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;https://github.com/SiYangming/simpleaffy/releases/download/v2.64.0/simpleaffy_2.64.0.tar.gz&#34;</span><span class="p">,</span> <span class="n">repos</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&#34;source&#34;</span><span class="p">,</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">simpleaffy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">limma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">pheatmap</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Mfuzz</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">clusterProfiler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">enrichplot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;org.At.tair.db&#34;</span><span class="p">,</span><span class="n">character.only</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中simpleaffy</p>
+<p>使用源代码安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">packageurl &lt;- &#34;https://bioconductor.org/packages/3.8/bioc/src/contrib/simpleaffy_2.58.0.tar.gz&#34;
+</span></span><span class="line"><span class="cl">install.packages(packageurl, repos=NULL, type=&#34;source&#34;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>下载数据</p>
+<p>用 <code>GEOquery</code> 中 <code>getGEOSuppFiles()</code> 函数直接下载，指定下载路径</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GEOquery</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">getGEOSuppFiles</span><span class="p">(</span><span class="s">&#34;GSE46456&#34;</span><span class="p">,</span> <span class="n">baseDir</span> <span class="o">=</span> <span class="s">&#34;F:/tmp_data&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>报错</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">Error</span> <span class="kr">in</span> <span class="nf">getGEOSuppFiles</span><span class="p">(</span><span class="s">&#34;GSE46456&#34;</span><span class="p">,</span> <span class="n">baseDir</span> <span class="o">=</span> <span class="s">&#34;F:/tmp_data&#34;</span><span class="p">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Failed</span> <span class="n">to</span> <span class="n">download</span> <span class="bp">F</span><span class="o">:/</span><span class="n">tmp_data</span><span class="o">/</span><span class="n">GSE46456</span><span class="o">/</span><span class="n">GSE46456_RAW.tar</span><span class="o">!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>也许是网络原因，命令行使用代理也不行，直接到GEO数据库网页端下载芯片数据，在本地解压</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1702987927723.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1702987927723.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1702987927723.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1702987927723.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1702987927723.png"
+        title="1702987927723" width="1920" height="1010" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#生成文件列表，以便批量导入文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">cels</span> <span class="o">=</span> <span class="nf">list.files</span><span class="p">(</span><span class="s">&#34;./data/GSE46456/&#34;</span><span class="p">,</span><span class="n">pattern</span><span class="o">=</span><span class="s">&#34;*.gz&#34;</span><span class="p">,</span><span class="n">full.names</span> <span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取CEL文件，将其处理成AffyBatch对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">celfiles</span> <span class="o">&lt;-</span> <span class="nf">ReadAffy</span><span class="p">(</span><span class="n">filenames</span><span class="o">=</span><span class="n">cels</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数据预处理">数据预处理</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 将AffyBatch对象转换为ExpressionSet对象,对数据进行标准化</span>
+</span></span><span class="line"><span class="cl"><span class="n">celfiles.rma</span> <span class="o">&lt;-</span> <span class="nf">rma</span><span class="p">(</span><span class="n">celfiles</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Error</span> <span class="kr">in</span> <span class="nf">getCdfInfo</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">:</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">Could</span> <span class="n">not</span> <span class="n">obtain</span> <span class="n">CDF</span> <span class="n">environment</span><span class="p">,</span> <span class="n">problems</span> <span class="n">encountered</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Specified</span> <span class="n">environment</span> <span class="n">does</span> <span class="n">not</span> <span class="n">contain</span> <span class="n">ATH1</span><span class="m">-121501</span>
+</span></span><span class="line"><span class="cl"><span class="n">Library</span> <span class="o">-</span> <span class="n">package</span> <span class="n">ath1121501cdf</span> <span class="n">not</span> <span class="n">installed</span>
+</span></span><span class="line"><span class="cl"><span class="n">Bioconductor</span> <span class="o">-</span> <span class="n">could</span> <span class="n">not</span> <span class="n">connect</span>
+</span></span><span class="line"><span class="cl">此外<span class="o">:</span> <span class="n">Warning</span> <span class="n">message</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="nf">readLines</span><span class="p">(</span><span class="n">biocURL</span><span class="p">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">URL</span> <span class="s">&#39;https://master.bioconductor.org/&#39;</span><span class="o">:</span> <span class="n">status</span> <span class="n">was</span> <span class="s">&#39;SSL connect error&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据报错安装相关包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;ath1121501cdf&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 将AffyBatch对象转换为ExpressionSet对象,对数据进行标准化</span>
+</span></span><span class="line"><span class="cl"><span class="n">celfiles.rma</span> <span class="o">&lt;-</span> <span class="nf">rma</span><span class="p">(</span><span class="n">celfiles</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#?rma</span>
+</span></span><span class="line"><span class="cl"><span class="n">cols</span> <span class="o">&lt;-</span> <span class="nf">brewer.pal</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="s">&#34;Set1&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">?</span><span class="n">rma</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rma</span> <span class="p">{</span><span class="n">affy</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">Robust</span> <span class="n">Multi</span><span class="o">-</span><span class="n">Array</span> <span class="n">Average</span> <span class="n">expression</span> <span class="n">measure</span>
+</span></span><span class="line"><span class="cl"><span class="n">Description</span>
+</span></span><span class="line"><span class="cl"><span class="n">This</span> <span class="kr">function</span> <span class="n">converts</span> <span class="n">an</span> <span class="n">AffyBatch</span> <span class="n">object</span> <span class="n">into</span> <span class="n">an</span> <span class="n">ExpressionSet</span> <span class="n">object</span> <span class="n">using</span> <span class="n">the</span> <span class="n">robust</span> <span class="n">multi</span><span class="o">-</span><span class="n">array</span> <span class="nf">average </span><span class="p">(</span><span class="n">RMA</span><span class="p">)</span> <span class="n">expression</span> <span class="n">measure.</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;./png/boxplot_celfiles.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">boxplot</span><span class="p">(</span><span class="n">celfiles</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;./png/boxplot_celfiles_rma.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">boxplot</span><span class="p">(</span><span class="n">celfiles.rma</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#放在一张图上,对比</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;./png/boxplot_celfiles_celfiles_rma.pdf&#34;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">boxplot</span><span class="p">(</span><span class="n">celfiles</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&#34;Raw Data&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">boxplot</span><span class="p">(</span><span class="n">celfiles.rma</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&#34;RMA Data&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#密度和对数强度直方图</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;./png/hist_celfiles.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">hist</span><span class="p">(</span><span class="n">celfiles</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;./png/hist_celfiles_rma.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">hist</span><span class="p">(</span><span class="n">celfiles.rma</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497676970.png" title="1703497676970" data-thumbnail="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497676970.png" data-sub-html="<h2>对比箱线图</h2><p>1703497676970</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497676970.png"
+            data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497676970.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497676970.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497676970.png 2x"
+            data-sizes="auto"
+            alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497676970.png" width="2388" height="589" />
+    </a><figcaption class="image-caption">对比箱线图</figcaption>
+    </figure></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497975634.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497975634.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497975634.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497975634.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703497975634.png"
+        title="1703497975634" width="1702" height="562" /></p>
+<p>对比标准化前后的数据，经过标准化后12个样本的数据分布更趋同</p>
+<h3 id="探针过滤">探针过滤</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#对ExpressionSet的探针进行过滤（过滤掉表达量低的探针），返回一个list</span>
+</span></span><span class="line"><span class="cl"><span class="n">celfiles.filtered</span> <span class="o">&lt;-</span> <span class="nf">nsFilter</span><span class="p">(</span><span class="n">celfiles.rma</span><span class="p">,</span> <span class="n">require.entrez</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">remove.dupEntrez</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#list中的eset为过滤后的ExpressionSet，filter.log为每一步过滤到多少探针的记录</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">celfiles.filtered</span><span class="o">$</span><span class="n">filter.log</span>
+</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">numLowVar</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">11373</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">feature.exclude</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">celfiles.filtered</span><span class="o">$</span><span class="n">eset</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ExpressionSet </span><span class="p">(</span><span class="n">storageMode</span><span class="o">:</span> <span class="n">lockedEnvironment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">assayData</span><span class="o">:</span> <span class="m">11373</span> <span class="n">features</span><span class="p">,</span> <span class="m">12</span> <span class="n">samples</span>
+</span></span><span class="line"><span class="cl">  <span class="n">element</span> <span class="n">names</span><span class="o">:</span> <span class="n">exprs</span>
+</span></span><span class="line"><span class="cl"><span class="n">protocolData</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sampleNames</span><span class="o">:</span> <span class="n">GSM1130596_Ws</span><span class="m">-2-1</span><span class="n">.CEL.gz</span> <span class="n">GSM1130597_Ws</span><span class="m">-2-2</span><span class="n">.CEL.gz</span> <span class="kc">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GSM1130607_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-3</span><span class="nf">.CEL.gz </span><span class="p">(</span><span class="m">12</span> <span class="n">total</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">varLabels</span><span class="o">:</span> <span class="n">ScanDate</span>
+</span></span><span class="line"><span class="cl">  <span class="n">varMetadata</span><span class="o">:</span> <span class="n">labelDescription</span>
+</span></span><span class="line"><span class="cl"><span class="n">phenoData</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sampleNames</span><span class="o">:</span> <span class="n">GSM1130596_Ws</span><span class="m">-2-1</span><span class="n">.CEL.gz</span> <span class="n">GSM1130597_Ws</span><span class="m">-2-2</span><span class="n">.CEL.gz</span> <span class="kc">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GSM1130607_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-3</span><span class="nf">.CEL.gz </span><span class="p">(</span><span class="m">12</span> <span class="n">total</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">varLabels</span><span class="o">:</span> <span class="n">sample</span>
+</span></span><span class="line"><span class="cl">  <span class="n">varMetadata</span><span class="o">:</span> <span class="n">labelDescription</span>
+</span></span><span class="line"><span class="cl"><span class="n">featureData</span><span class="o">:</span> <span class="n">none</span>
+</span></span><span class="line"><span class="cl"><span class="n">experimentData</span><span class="o">:</span> <span class="n">use</span> <span class="s">&#39;experimentData(object)&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Annotation</span><span class="o">:</span> <span class="n">ath1121501</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#获得过滤后的表达矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="n">eset</span> <span class="o">&lt;-</span> <span class="nf">exprs</span><span class="p">(</span><span class="n">celfiles.filtered</span><span class="o">$</span><span class="n">eset</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>表达量矩阵，每一行表示一个探针(基因)，每一列为一个样本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="n">GSM1130596_Ws</span><span class="m">-2-1</span><span class="n">.CEL.gz</span> <span class="n">GSM1130597_Ws</span><span class="m">-2-2</span><span class="n">.CEL.gz</span>
+</span></span><span class="line"><span class="cl"><span class="m">244901</span><span class="n">_at</span>                 <span class="m">5.224648</span>                 <span class="m">5.428151</span>
+</span></span><span class="line"><span class="cl"><span class="m">244902</span><span class="n">_at</span>                 <span class="m">5.149407</span>                 <span class="m">5.187442</span>
+</span></span><span class="line"><span class="cl"><span class="m">244903</span><span class="n">_at</span>                 <span class="m">5.592680</span>                 <span class="m">5.436074</span>
+</span></span><span class="line"><span class="cl"><span class="m">244904</span><span class="n">_at</span>                 <span class="m">4.985820</span>                 <span class="m">5.072172</span>
+</span></span><span class="line"><span class="cl"><span class="m">244906</span><span class="n">_at</span>                 <span class="m">5.727308</span>                 <span class="m">5.889640</span>
+</span></span><span class="line"><span class="cl"><span class="m">244912</span><span class="n">_at</span>                 <span class="m">6.465566</span>                 <span class="m">6.586064</span>
+</span></span><span class="line"><span class="cl">          <span class="n">GSM1130598_Ws</span><span class="m">-2-3</span><span class="n">.CEL.gz</span> <span class="n">GSM1130599_bri1</span><span class="m">-5-1</span><span class="n">.CEL.gz</span>
+</span></span><span class="line"><span class="cl"><span class="m">244901</span><span class="n">_at</span>                 <span class="m">5.546510</span>                   <span class="m">4.683135</span>
+</span></span><span class="line"><span class="cl"><span class="m">244902</span><span class="n">_at</span>                 <span class="m">4.886097</span>                   <span class="m">4.672779</span>
+</span></span><span class="line"><span class="cl"><span class="m">244903</span><span class="n">_at</span>                 <span class="m">5.638751</span>                   <span class="m">5.562216</span>
+</span></span><span class="line"><span class="cl"><span class="m">244904</span><span class="n">_at</span>                 <span class="m">5.262937</span>                   <span class="m">5.016912</span>
+</span></span><span class="line"><span class="cl"><span class="m">244906</span><span class="n">_at</span>                 <span class="m">5.323069</span>                   <span class="m">5.381804</span>
+</span></span><span class="line"><span class="cl"><span class="m">244912</span><span class="n">_at</span>                 <span class="m">6.814510</span>                   <span class="m">7.653073</span>
+</span></span><span class="line"><span class="cl">          <span class="n">GSM1130600_bri1</span><span class="m">-5-2</span><span class="n">.CEL.gz</span> <span class="n">GSM1130601_bri1</span><span class="m">-5-3</span><span class="n">.CEL.gz</span>
+</span></span><span class="line"><span class="cl"><span class="m">244901</span><span class="n">_at</span>                   <span class="m">4.753393</span>                   <span class="m">4.463033</span>
+</span></span><span class="line"><span class="cl"><span class="m">244902</span><span class="n">_at</span>                   <span class="m">4.805556</span>                   <span class="m">4.794880</span>
+</span></span><span class="line"><span class="cl"><span class="m">244903</span><span class="n">_at</span>                   <span class="m">5.622267</span>                   <span class="m">5.224591</span>
+</span></span><span class="line"><span class="cl"><span class="m">244904</span><span class="n">_at</span>                   <span class="m">5.446725</span>                   <span class="m">5.482161</span>
+</span></span><span class="line"><span class="cl"><span class="m">244906</span><span class="n">_at</span>                   <span class="m">5.609199</span>                   <span class="m">5.514687</span>
+</span></span><span class="line"><span class="cl"><span class="m">244912</span><span class="n">_at</span>                   <span class="m">7.871753</span>                   <span class="m">8.260488</span>
+</span></span><span class="line"><span class="cl">          <span class="n">GSM1130602_gul2</span><span class="m">-1-1</span><span class="n">.CEL.gz</span> <span class="n">GSM1130603_gul2</span><span class="m">-1-2</span><span class="n">.CEL.gz</span>
+</span></span><span class="line"><span class="cl"><span class="m">244901</span><span class="n">_at</span>                   <span class="m">6.087000</span>                   <span class="m">5.868863</span>
+</span></span><span class="line"><span class="cl"><span class="m">244902</span><span class="n">_at</span>                   <span class="m">5.527636</span>                   <span class="m">5.592619</span>
+</span></span><span class="line"><span class="cl"><span class="m">244903</span><span class="n">_at</span>                   <span class="m">6.605356</span>                   <span class="m">6.062327</span>
+</span></span><span class="line"><span class="cl"><span class="m">244904</span><span class="n">_at</span>                   <span class="m">5.366306</span>                   <span class="m">5.495490</span>
+</span></span><span class="line"><span class="cl"><span class="m">244906</span><span class="n">_at</span>                   <span class="m">6.348055</span>                   <span class="m">6.080350</span>
+</span></span><span class="line"><span class="cl"><span class="m">244912</span><span class="n">_at</span>                   <span class="m">8.052288</span>                   <span class="m">7.970124</span>
+</span></span><span class="line"><span class="cl">          <span class="n">GSM1130604_gul2</span><span class="m">-1-3</span><span class="n">.CEL.gz</span> <span class="n">GSM1130605_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-1</span><span class="n">.CEL.gz</span>
+</span></span><span class="line"><span class="cl"><span class="m">244901</span><span class="n">_at</span>                   <span class="m">5.386404</span>                         <span class="m">5.490967</span>
+</span></span><span class="line"><span class="cl"><span class="m">244902</span><span class="n">_at</span>                   <span class="m">5.927320</span>                         <span class="m">5.302640</span>
+</span></span><span class="line"><span class="cl"><span class="m">244903</span><span class="n">_at</span>                   <span class="m">5.597098</span>                         <span class="m">6.694592</span>
+</span></span><span class="line"><span class="cl"><span class="m">244904</span><span class="n">_at</span>                   <span class="m">5.026725</span>                         <span class="m">5.257816</span>
+</span></span><span class="line"><span class="cl"><span class="m">244906</span><span class="n">_at</span>                   <span class="m">6.218219</span>                         <span class="m">6.613726</span>
+</span></span><span class="line"><span class="cl"><span class="m">244912</span><span class="n">_at</span>                   <span class="m">7.871955</span>                         <span class="m">7.620157</span>
+</span></span><span class="line"><span class="cl">          <span class="n">GSM1130606_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-2</span><span class="n">.CEL.gz</span> <span class="n">GSM1130607_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-3</span><span class="n">.CEL.gz</span>
+</span></span><span class="line"><span class="cl"><span class="m">244901</span><span class="n">_at</span>                         <span class="m">5.671008</span>                         <span class="m">5.305481</span>
+</span></span><span class="line"><span class="cl"><span class="m">244902</span><span class="n">_at</span>                         <span class="m">5.524203</span>                         <span class="m">5.494279</span>
+</span></span><span class="line"><span class="cl"><span class="m">244903</span><span class="n">_at</span>                         <span class="m">6.661931</span>                         <span class="m">6.565135</span>
+</span></span><span class="line"><span class="cl"><span class="m">244904</span><span class="n">_at</span>                         <span class="m">5.356717</span>                         <span class="m">5.228070</span>
+</span></span><span class="line"><span class="cl"><span class="m">244906</span><span class="n">_at</span>                         <span class="m">6.537190</span>                         <span class="m">6.425924</span>
+</span></span><span class="line"><span class="cl"><span class="m">244912</span><span class="n">_at</span>                         <span class="m">7.387385</span>                         <span class="m">7.555005</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="n">[1]</span> <span class="s">&#34;GSM1130596_Ws-2-1.CEL.gz&#34;</span>         <span class="s">&#34;GSM1130597_Ws-2-2.CEL.gz&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="n">[3]</span> <span class="s">&#34;GSM1130598_Ws-2-3.CEL.gz&#34;</span>         <span class="s">&#34;GSM1130599_bri1-5-1.CEL.gz&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="n">[5]</span> <span class="s">&#34;GSM1130600_bri1-5-2.CEL.gz&#34;</span>       <span class="s">&#34;GSM1130601_bri1-5-3.CEL.gz&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="n">[7]</span> <span class="s">&#34;GSM1130602_gul2-1-1.CEL.gz&#34;</span>       <span class="s">&#34;GSM1130603_gul2-1-2.CEL.gz&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="n">[9]</span> <span class="s">&#34;GSM1130604_gul2-1-3.CEL.gz&#34;</span>       <span class="s">&#34;GSM1130605_gul2-1bri1-5-1.CEL.gz&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[11]</span> <span class="s">&#34;GSM1130606_gul2-1bri1-5-2.CEL.gz&#34;</span> <span class="s">&#34;GSM1130607_gul2-1bri1-5-3.CEL.gz&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="探针注释">探针注释</h3>
+<p>注释探针: 防止非特异性结合造成的干扰(会有多个探针检测同一个基因的表达)。</p>
+<p>先对探针进行注释，确定每个探针对应检测哪个基因的表达，然后再合并重复探针</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">ara_anno</span> <span class="o">&lt;-</span> <span class="nf">read.delim</span><span class="p">(</span><span class="s">&#34;./data/affy_ATH1_array_elements-2010-12-20.txt&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ids</span> <span class="o">&lt;-</span> <span class="nf">match</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">eset</span><span class="p">),</span> <span class="n">ara_anno</span><span class="o">$</span><span class="n">array_element_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">ara_anno</span><span class="o">$</span><span class="n">locus[ids]</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;.CEL.gz&#34;</span><span class="p">,</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="nf">colnames</span><span class="p">(</span><span class="n">eset</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>规范矩阵的行名和列名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">GSM1130596_Ws</span><span class="m">-2-1</span> <span class="n">GSM1130597_Ws</span><span class="m">-2-2</span> <span class="n">GSM1130598_Ws</span><span class="m">-2-3</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00640</span>                    <span class="m">5.224648</span>          <span class="m">5.428151</span>          <span class="m">5.546510</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00650</span>                    <span class="m">5.149407</span>          <span class="m">5.187442</span>          <span class="m">4.886097</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00660</span>                    <span class="m">5.592680</span>          <span class="m">5.436074</span>          <span class="m">5.638751</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00670</span>                    <span class="m">4.985820</span>          <span class="m">5.072172</span>          <span class="m">5.262937</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00690</span>                    <span class="m">5.727308</span>          <span class="m">5.889640</span>          <span class="m">5.323069</span>
+</span></span><span class="line"><span class="cl"><span class="n">AT2G07783</span><span class="p">;</span><span class="n">ATMG00830</span>          <span class="m">6.465566</span>          <span class="m">6.586064</span>          <span class="m">6.814510</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">GSM1130599_bri1</span><span class="m">-5-1</span> <span class="n">GSM1130600_bri1</span><span class="m">-5-2</span> <span class="n">GSM1130601_bri1</span><span class="m">-5-3</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00640</span>                      <span class="m">4.683135</span>            <span class="m">4.753393</span>            <span class="m">4.463033</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00650</span>                      <span class="m">4.672779</span>            <span class="m">4.805556</span>            <span class="m">4.794880</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00660</span>                      <span class="m">5.562216</span>            <span class="m">5.622267</span>            <span class="m">5.224591</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00670</span>                      <span class="m">5.016912</span>            <span class="m">5.446725</span>            <span class="m">5.482161</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00690</span>                      <span class="m">5.381804</span>            <span class="m">5.609199</span>            <span class="m">5.514687</span>
+</span></span><span class="line"><span class="cl"><span class="n">AT2G07783</span><span class="p">;</span><span class="n">ATMG00830</span>            <span class="m">7.653073</span>            <span class="m">7.871753</span>            <span class="m">8.260488</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">GSM1130602_gul2</span><span class="m">-1-1</span> <span class="n">GSM1130603_gul2</span><span class="m">-1-2</span> <span class="n">GSM1130604_gul2</span><span class="m">-1-3</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00640</span>                      <span class="m">6.087000</span>            <span class="m">5.868863</span>            <span class="m">5.386404</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00650</span>                      <span class="m">5.527636</span>            <span class="m">5.592619</span>            <span class="m">5.927320</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00660</span>                      <span class="m">6.605356</span>            <span class="m">6.062327</span>            <span class="m">5.597098</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00670</span>                      <span class="m">5.366306</span>            <span class="m">5.495490</span>            <span class="m">5.026725</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00690</span>                      <span class="m">6.348055</span>            <span class="m">6.080350</span>            <span class="m">6.218219</span>
+</span></span><span class="line"><span class="cl"><span class="n">AT2G07783</span><span class="p">;</span><span class="n">ATMG00830</span>            <span class="m">8.052288</span>            <span class="m">7.970124</span>            <span class="m">7.871955</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">GSM1130605_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-1</span> <span class="n">GSM1130606_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-2</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00640</span>                            <span class="m">5.490967</span>                  <span class="m">5.671008</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00650</span>                            <span class="m">5.302640</span>                  <span class="m">5.524203</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00660</span>                            <span class="m">6.694592</span>                  <span class="m">6.661931</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00670</span>                            <span class="m">5.257816</span>                  <span class="m">5.356717</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00690</span>                            <span class="m">6.613726</span>                  <span class="m">6.537190</span>
+</span></span><span class="line"><span class="cl"><span class="n">AT2G07783</span><span class="p">;</span><span class="n">ATMG00830</span>                  <span class="m">7.620157</span>                  <span class="m">7.387385</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">GSM1130607_gul2</span><span class="m">-1</span><span class="n">bri1</span><span class="m">-5-3</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00640</span>                            <span class="m">5.305481</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00650</span>                            <span class="m">5.494279</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00660</span>                            <span class="m">6.565135</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00670</span>                            <span class="m">5.228070</span>
+</span></span><span class="line"><span class="cl"><span class="n">ATMG00690</span>                            <span class="m">6.425924</span>
+</span></span><span class="line"><span class="cl"><span class="n">AT2G07783</span><span class="p">;</span><span class="n">ATMG00830</span>                  <span class="m">7.555005</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="limma差异分析">limma差异分析</h3>
+<p>构建分组矩阵</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">group_list</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&#34;wt&#34;</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#34;bri1&#34;</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#34;gul2&#34;</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#34;gul_bri&#34;</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">design</span> <span class="o">&lt;-</span> <span class="nf">model.matrix</span><span class="p">(</span><span class="o">~</span><span class="m">0</span><span class="o">+</span><span class="nf">factor</span><span class="p">(</span><span class="n">group_list</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">design</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">levels</span><span class="p">(</span><span class="nf">factor</span><span class="p">(</span><span class="n">group_list</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">design</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>构建分组矩阵，和野生型作比较</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">contrast.matrix</span><span class="o">&lt;-</span> <span class="nf">makeContrasts</span><span class="p">(</span><span class="n">bri1</span><span class="o">-</span><span class="n">wt</span><span class="p">,</span> <span class="n">gul2</span><span class="o">-</span><span class="n">wt</span><span class="p">,</span> <span class="n">gul_bri</span><span class="o">-</span><span class="n">wt</span><span class="p">,</span><span class="n">levels</span> <span class="o">=</span><span class="n">design</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">contrast.matrix</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>limma三部曲：线性模型拟合  根据对比模型进行差值计算 贝叶斯检验</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#limma&#34;三部曲&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit1</span> <span class="o">&lt;-</span> <span class="nf">lmFit</span><span class="p">(</span><span class="n">eset</span><span class="p">,</span><span class="n">design</span><span class="p">)</span><span class="c1">#线性模型拟合</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit2</span> <span class="o">&lt;-</span> <span class="nf">contrasts.fit</span><span class="p">(</span><span class="n">fit1</span><span class="p">,</span><span class="n">contrast.matrix</span><span class="p">)</span><span class="c1">#根据对比模型进行差值计算</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit2</span> <span class="o">&lt;-</span> <span class="nf">eBayes</span><span class="p">(</span><span class="n">fit2</span><span class="p">)</span><span class="c1">#贝叶斯检验</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出差异表达基因</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#利用toptable 导出DEG结果</span>
+</span></span><span class="line"><span class="cl"><span class="n">limma_results</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">contrast.matrix</span><span class="p">),</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="nf">topTable</span><span class="p">(</span><span class="n">fit2</span><span class="p">,</span><span class="n">coef</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">adjust</span><span class="o">=</span><span class="s">&#34;fdr&#34;</span><span class="p">,</span><span class="n">sort.by</span><span class="o">=</span><span class="s">&#34;logFC&#34;</span><span class="p">,</span><span class="n">number</span><span class="o">=</span><span class="kc">Inf</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">limma_results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">limma_results</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">contrast.matrix</span><span class="p">)</span> <span class="c1">#对导出的结果标记title信息</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">limma_results[[1]]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">save</span><span class="p">(</span><span class="n">limma_results</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="s">&#34;./data/limma_compare_res.RData&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#对每对比较的样本对DEG结果单独导出DEG信息6</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">n</span> <span class="kr">in</span> <span class="nf">names</span><span class="p">(</span><span class="n">limma_results</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">write.table</span><span class="p">(</span><span class="n">limma_results[[n]]</span><span class="p">,</span><span class="n">file</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%s.tsv&#34;</span><span class="p">,</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;./data/&#34;</span><span class="p">,</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">,</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">n</span><span class="p">))),</span><span class="n">row.names</span> <span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&#34;\t&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nf">save</span><span class="p">(</span><span class="n">eset</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="s">&#34;./data/eset.RData&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>差异分析结果解释</p>
+<p>一共有三组结果，去循环最后一个文件查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">n</span>   
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;gul_bri - wt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">limma_results[[n]]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;ID&#34;</span>        <span class="s">&#34;logFC&#34;</span>     <span class="s">&#34;AveExpr&#34;</span>   <span class="s">&#34;t&#34;</span>         <span class="s">&#34;P.Value&#34;</span>   <span class="s">&#34;adj.P.Val&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[7]</span> <span class="s">&#34;B&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">limma_results[[n]]</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">ID</span>    <span class="n">logFC</span>   <span class="n">AveExpr</span>        <span class="n">t</span>      <span class="n">P.Value</span>    <span class="n">adj.P.Val</span>        <span class="n">B</span>
+</span></span><span class="line"><span class="cl"><span class="m">2773</span> <span class="n">AT5G12030</span> <span class="m">4.279782</span>  <span class="m">8.119452</span> <span class="m">41.36505</span> <span class="m">1.465057e-20</span> <span class="m">1.666210e-16</span> <span class="m">37.01501</span>
+</span></span><span class="line"><span class="cl"><span class="m">9250</span> <span class="n">AT2G40170</span> <span class="m">4.106650</span>  <span class="m">7.424729</span> <span class="m">39.00006</span> <span class="m">4.589678e-20</span> <span class="m">2.609920e-16</span> <span class="m">35.95876</span>
+</span></span><span class="line"><span class="cl"><span class="m">1669</span> <span class="n">AT5G54190</span> <span class="m">3.931407</span>  <span class="m">8.501771</span> <span class="m">35.62676</span> <span class="m">2.644989e-19</span> <span class="m">5.013576e-16</span> <span class="m">34.31203</span>
+</span></span><span class="line"><span class="cl"><span class="m">6603</span> <span class="n">AT3G15670</span> <span class="m">3.917131</span>  <span class="m">7.540334</span> <span class="m">35.89093</span> <span class="m">2.292873e-19</span> <span class="m">5.013576e-16</span> <span class="m">34.44747</span>
+</span></span><span class="line"><span class="cl"><span class="m">9416</span> <span class="n">AT2G21490</span> <span class="m">3.909309</span>  <span class="m">6.788934</span> <span class="m">31.58778</span> <span class="m">2.697592e-18</span> <span class="m">2.045314e-15</span> <span class="m">32.08537</span>
+</span></span><span class="line"><span class="cl"><span class="m">46</span>   <span class="n">ATCG00790</span> <span class="m">3.901580</span> <span class="m">10.302096</span> <span class="m">34.51467</span> <span class="m">4.882151e-19</span> <span class="m">7.932100e-16</span> <span class="m">33.72882</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>ID</strong> : Gene ID</li>
+<li><strong>logFC</strong> : 两组表达值之间以2为底对数化的变化倍数（Fold change, FC），由于基因表达矩阵本身已经取了对数，这里是两组基因表达值均值之差</li>
+<li><strong>AveExpr</strong> ：该探针组所在所有样品中的平均表达值</li>
+<li><strong>t</strong> ：贝叶斯调整后的两组表达值间 T 检验中的 t 统计量</li>
+<li><strong>P.Value</strong> : 检验P值</li>
+<li><strong>adj.P.Val</strong> ：调整后的 P 值（多重检验BH等方法）</li>
+<li><strong>B</strong> ：是经验贝叶斯得到的标准差的对数化值</li>
+</ul>
+<h3 id="差异表达分析结果可视化">差异表达分析结果可视化</h3>
+<p>热图</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;./png/heatmap.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pheatmap</span><span class="p">(</span><span class="n">eset</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="nf">colorRampPalette</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s">&#34;Blues&#34;</span><span class="p">)</span><span class="n">[7</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">)(</span><span class="m">100</span><span class="p">),</span><span class="nf">colorRampPalette</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s">&#34;Reds&#34;</span><span class="p">)</span><span class="n">[2</span><span class="o">:</span><span class="m">7</span><span class="n">]</span><span class="p">)(</span><span class="m">100</span><span class="p">)),</span><span class="n">border_color</span><span class="o">=</span><span class="kc">NA</span><span class="p">,</span><span class="n">cluster_rows</span><span class="o">=</span><span class="bp">T</span><span class="p">,</span><span class="n">cluster_cols</span><span class="o">=</span><span class="bp">T</span><span class="p">,</span><span class="n">show_rownames</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span><span class="n">show_colnames</span><span class="o">=</span><span class="bp">T</span><span class="p">,</span><span class="n">angle_col</span><span class="o">=</span><span class="m">315</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="m">13</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&#34;expression&#34;</span><span class="p">,</span><span class="n">display_numbers</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>颜色的深浅来反映数值的高低，聚类反映不同基因和不同样本之间的表达量相似性</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703508803343.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703508803343.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703508803343.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703508803343.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703508803343.png"
+        title="1703508803343" width="6000" height="4500" /></p>
+<p>火山图</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">library(ggpubr)
+</span></span><span class="line"><span class="cl">library(ggthemes)
+</span></span><span class="line"><span class="cl">for (n in names(limma_results)){
+</span></span><span class="line"><span class="cl">    file_name = sprintf(&#34;%s.tsv&#34;,paste0(&#34;./data/&#34;, gsub(&#34; &#34;,&#34;&#34;,n)))
+</span></span><span class="line"><span class="cl">    deg.data &lt;- read.table(file_name,header=T, sep=&#34;\t&#34;)
+</span></span><span class="line"><span class="cl">    deg.data$logP &lt;- -log10(deg.data$adj.P.Val)
+</span></span><span class="line"><span class="cl">    deg.data$Group = &#34;not-significant&#34; #定义Group列
+</span></span><span class="line"><span class="cl">    deg.data$Group[which ((deg.data$adj.P.Val &lt; 0.05) &amp; (deg.data$logFC &gt; 2))] = &#34;up-regulated&#34; #定义DEG标准
+</span></span><span class="line"><span class="cl">    deg.data$Group[which ((deg.data$adj.P.Val &lt; 0.05) &amp; (deg.data$logFC &lt; -2))] = &#34;down-regulated&#34; #定义DEG标准
+</span></span><span class="line"><span class="cl">    table(deg.data$Group)
+</span></span><span class="line"><span class="cl">    pdf(sprintf(&#34;./png/%s.pdf&#34;,paste0(gsub(&#34; &#34;,&#34;&#34;,n))))
+</span></span><span class="line"><span class="cl">    ggscatter(deg.data, x=&#34;logFC&#34;,y = &#34;logP&#34;,color = &#34;Group&#34;)  + theme_base() + labs(title = n)
+</span></span><span class="line"><span class="cl">    dev.off()
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510329824.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510329824.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510329824.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510329824.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510329824.png"
+        title="1703510329824" width="747" height="755" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#新加一列lable</span>
+</span></span><span class="line"><span class="cl"><span class="n">deg.data</span><span class="o">$</span><span class="n">Lable</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">#对差异表达基因P值从小到大排序</span>
+</span></span><span class="line"><span class="cl"><span class="n">deg.data</span> <span class="o">&lt;-</span> <span class="n">deg.data</span><span class="nf">[order</span><span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">adj.P.Val</span><span class="p">),</span><span class="n">]</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">#从高表达基因中选取adj.P.Val最显著的10个基因</span>
+</span></span><span class="line"><span class="cl"><span class="n">up.genes</span> <span class="o">&lt;-</span> <span class="nf">head</span><span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">ID</span><span class="nf">[which</span><span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">Group</span> <span class="o">==</span> <span class="s">&#34;up-regulated&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#从低表达基因中选取adj.P.Val最显著的10个基因</span>
+</span></span><span class="line"><span class="cl"><span class="n">down.genes</span> <span class="o">&lt;-</span> <span class="nf">head</span><span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">ID</span><span class="nf">[which</span><span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">Group</span> <span class="o">==</span> <span class="s">&#34;down-regulated&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 讲上两步选取的显著基因合并并加入到lable中</span>
+</span></span><span class="line"><span class="cl"><span class="n">deg.top10.genes</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">up.genes</span><span class="p">),</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">down.genes</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">deg.data</span><span class="o">$</span><span class="n">Lable</span><span class="nf">[match</span><span class="p">(</span><span class="n">deg.top10.genes</span><span class="p">,</span> <span class="n">deg.data</span><span class="o">$</span><span class="n">ID</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="n">deg.top10.genes</span>
+</span></span><span class="line"><span class="cl"><span class="nf">png</span><span class="p">(</span><span class="s">&#34;./png/plot2.png&#34;</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="m">300</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="s">&#34;in&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggscatter</span><span class="p">(</span><span class="n">deg.data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">&#34;logFC&#34;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&#34;logP&#34;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;Group&#34;</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;#2f5688&#34;</span><span class="p">,</span> <span class="s">&#34;#BBBBBB&#34;</span><span class="p">,</span> <span class="s">&#34;#CC0000&#34;</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">deg.data</span><span class="o">$</span><span class="n">Lable</span><span class="p">,</span> <span class="n">font.label</span> <span class="o">=</span> <span class="m">8</span><span class="p">,</span> <span class="n">repel</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&#34;Log2FoldChange&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;-Log10(Adjust P-value)&#34;</span><span class="p">,)</span> <span class="o">+</span> <span class="nf">theme_base</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_hline</span><span class="p">(</span><span class="n">yintercept</span> <span class="o">=</span> <span class="m">1.30</span><span class="p">,</span> <span class="n">linetype</span><span class="o">=</span><span class="s">&#34;dashed&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">2</span><span class="p">),</span> <span class="n">linetype</span><span class="o">=</span><span class="s">&#34;dashed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510542112.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510542112.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510542112.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510542112.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703510542112.png"
+        title="1703510542112" width="3000" height="3000" /></p>
+<p>富集分析</p>
+<p>首先进行GSEA</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">n</span> <span class="kr">in</span> <span class="nf">names</span><span class="p">(</span><span class="n">limma_results</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">file_name</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#39;%s.tsv&#39;</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;./data/&#34;</span><span class="p">,</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GSEA_data</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GSEA_gene_lists</span> <span class="o">&lt;-</span> <span class="n">GSEA_data</span><span class="o">$</span><span class="n">logFC</span> <span class="c1">#提取表达量变化值</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">names</span><span class="p">(</span><span class="n">GSEA_gene_lists</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">GSEA_data</span><span class="o">$</span><span class="n">ID</span> <span class="c1">#给提取出来的值赋予ID</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GSEA_gene_lists</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="n">GSEA_gene_lists</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="c1">#降序排列</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">organisms</span> <span class="o">&lt;-</span> <span class="nf">get</span><span class="p">(</span><span class="s">&#34;org.At.tair.db&#34;</span><span class="p">)</span> <span class="c1">#获取拟南芥数据库信息</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#GSEA富集分析</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GSEA_GO_Result</span> <span class="o">&lt;-</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">gseGO</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="n">geneList</span> <span class="o">=</span> <span class="n">GSEA_gene_lists</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;ALL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;TAIR&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">nPerm</span> <span class="o">=</span> <span class="m">10000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">minGSSize</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">maxGSSize</span> <span class="o">=</span> <span class="m">800</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">verbose</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">organisms</span> <span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">pAdjustMethod</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Sort_GO_result</span> <span class="o">&lt;-</span> <span class="n">GSEA_GO_Result</span><span class="nf">[order</span><span class="p">(</span><span class="n">GSEA_GO_Result</span><span class="o">$</span><span class="n">enrichmentScore</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">write.table</span><span class="p">(</span><span class="n">Sort_GO_result</span><span class="p">,</span><span class="nf">paste</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="s">&#39;GSEA_GO_Result.txt&#39;</span><span class="p">,</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;_&#39;</span><span class="p">),</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span><span class="n">quote</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span><span class="n">col.names</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span><span class="n">row.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">GSEA_GO_Result_plot</span> <span class="o">&lt;-</span> <span class="nf">gseaplot2</span><span class="p">(</span><span class="n">GSEA_GO_Result</span><span class="p">,</span> <span class="nf">row.names</span><span class="p">(</span><span class="n">Sort_GO_result</span><span class="p">)</span><span class="n">[1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">png</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="s">&#39;GSEA_GO_Result.png&#39;</span><span class="p">,</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;_&#39;</span><span class="p">),</span><span class="n">width</span> <span class="o">=</span> <span class="m">3580</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="m">2200</span><span class="p">,</span><span class="n">res</span> <span class="o">=</span> <span class="m">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="n">GSEA_GO_Result_plot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GSEA_GO_Result_plot2</span> <span class="o">&lt;-</span> <span class="nf">gseaplot</span><span class="p">(</span><span class="n">GSEA_GO_Result</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&#34;all&#34;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="n">GSEA_GO_Result</span><span class="o">$</span><span class="n">Description[1]</span><span class="p">,</span><span class="n">geneSetID</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">png</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="s">&#39;GSEA_GO_Result2.png&#39;</span><span class="p">,</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;_&#39;</span><span class="p">),</span><span class="n">width</span> <span class="o">=</span> <span class="m">3580</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="m">2200</span><span class="p">,</span><span class="n">res</span> <span class="o">=</span> <span class="m">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="n">GSEA_GO_Result_plot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过 <code>row.names(Sort_GO_result)[1:4]</code>指定每一组中富集分数最高的四个term画富集条码图</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580552852.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580552852.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580552852.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580552852.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580552852.png"
+        title="1703580552852" width="3580" height="2200" /><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581209510.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581209510.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581209510.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581209510.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581209510.png"
+        title="1703581209510" width="3580" height="2200" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580891432.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580891432.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580891432.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580891432.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580891432.png"
+        title="1703580891432" width="3580" height="2200" /><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581236134.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581236134.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581236134.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581236134.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581236134.png"
+        title="1703581236134" width="3580" height="2200" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580912709.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580912709.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580912709.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580912709.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703580912709.png"
+        title="1703580912709" width="3580" height="2200" /><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581258442.png"
+        data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581258442.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581258442.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581258442.png 2x"
+        data-sizes="auto"
+        alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581258442.png"
+        title="1703581258442" width="3580" height="2200" /></p>
+<p>对三组上调的差异表达基因（bri1-WT、gul2-WT、bri1_gul2-WT）做GO富集分析</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">n</span> <span class="kr">in</span> <span class="nf">names</span><span class="p">(</span><span class="n">limma_results</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">file_name</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#39;%s.tsv&#39;</span><span class="p">,</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;./data/&#34;</span><span class="p">,</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">deg.data</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">deg.data</span><span class="o">$</span><span class="n">logP</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="nf">log10</span><span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">adj.P.Val</span><span class="p">)</span> <span class="c1">#-log10值转换</span>
+</span></span><span class="line"><span class="cl">  <span class="n">deg.data</span><span class="o">$</span><span class="n">Group</span> <span class="o">=</span> <span class="s">&#34;not-significant&#34;</span> <span class="c1">#定义Group列</span>
+</span></span><span class="line"><span class="cl">  <span class="n">deg.data</span><span class="o">$</span><span class="n">Group</span><span class="nf">[which </span><span class="p">((</span><span class="n">deg.data</span><span class="o">$</span><span class="n">adj.P.Val</span> <span class="o">&lt;</span> <span class="m">0.05</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">logFC</span> <span class="o">&gt;</span> <span class="m">2</span><span class="p">))</span><span class="n">]</span> <span class="o">=</span> <span class="s">&#34;up-regulated&#34;</span> <span class="c1">#定义DEG标准</span>
+</span></span><span class="line"><span class="cl">  <span class="n">deg.data</span><span class="o">$</span><span class="n">Group</span><span class="nf">[which </span><span class="p">((</span><span class="n">deg.data</span><span class="o">$</span><span class="n">adj.P.Val</span> <span class="o">&lt;</span> <span class="m">0.05</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">deg.data</span><span class="o">$</span><span class="n">logFC</span> <span class="o">&lt;</span> <span class="m">-2</span><span class="p">))</span><span class="n">]</span> <span class="o">=</span> <span class="s">&#34;down-regulated&#34;</span> <span class="c1">#定义DEG标准</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data</span><span class="o">&lt;-</span> <span class="n">deg.data[deg.data</span><span class="o">$</span><span class="n">Group</span><span class="o">==</span><span class="s">&#34;up-regulated&#34;</span><span class="p">,</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ego</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="n">data</span><span class="o">$</span><span class="n">ID</span><span class="p">,</span><span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;TAIR&#34;</span><span class="p">,</span><span class="n">OrgDb</span><span class="o">=</span><span class="n">organisms</span><span class="p">,</span><span class="n">ont</span><span class="o">=</span><span class="s">&#34;ALL&#34;</span><span class="p">,</span><span class="n">pAdjustMethod</span><span class="o">=</span><span class="s">&#34;BH&#34;</span><span class="p">,</span><span class="n">qvalueCutoff</span><span class="o">=</span><span class="m">0.05</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">png</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="s">&#39;GO_dot.png&#39;</span><span class="p">,</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;_&#39;</span><span class="p">),</span><span class="n">bg</span><span class="o">=</span><span class="s">&#34;transparent&#34;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="m">1000</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="m">800</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GO_dot</span> <span class="o">&lt;-</span> <span class="nf">dotplot</span><span class="p">(</span><span class="n">ego</span><span class="p">,</span><span class="n">showCategory</span><span class="o">=</span><span class="m">10</span><span class="p">)</span><span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="n">GO_dot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581324456.png" title="1703581324456" data-thumbnail="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581324456.png" data-sub-html="<h2>bri1-WT GO富集分析</h2><p>1703581324456</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581324456.png"
+            data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581324456.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581324456.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581324456.png 2x"
+            data-sizes="auto"
+            alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581324456.png" width="1000" height="800" />
+    </a><figcaption class="image-caption">bri1-WT GO富集分析</figcaption>
+    </figure><figure><a class="lightgallery" href="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581345796.png" title="1703581345796" data-thumbnail="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581345796.png" data-sub-html="<h2>gul2-WT GO富集</h2><p>1703581345796</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581345796.png"
+            data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581345796.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581345796.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581345796.png 2x"
+            data-sizes="auto"
+            alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581345796.png" width="1000" height="800" />
+    </a><figcaption class="image-caption">gul2-WT GO富集</figcaption>
+    </figure><figure><a class="lightgallery" href="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581359611.png" title="1703581359611" data-thumbnail="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581359611.png" data-sub-html="<h2>bri1_gul2-WT GO富集</h2><p>1703581359611</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581359611.png"
+            data-srcset="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581359611.png, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581359611.png 1.5x, /%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581359611.png 2x"
+            data-sizes="auto"
+            alt="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/image/seventh_report/1703581359611.png" width="1000" height="800" />
+    </a><figcaption class="image-caption">bri1_gul2-WT GO富集</figcaption>
+    </figure></p>
+<h2 id="思考与讨论">思考与讨论</h2>
+<p>1.为什么要对探针信号或基因表达量取对数？为什么是log2不是log10或lg?</p>
+<ul>
+<li>在芯片数据分析中，对探针信号或基因表达量取对数是为了减小数据的离散程度，使得数据更加符合正态分布。取对数后，数据的性质和相对关系不会受到影响。</li>
+<li>用log2，因为基因表达量增加1倍被认为就可以造成生物学上的一些变化，而且如果前面是对表达量取log2，后面计算fold-chage就可以直接相减。</li>
+</ul>
+<p>2.为什么要设置生物学重复？</p>
+<p>由于遗传和环境等因素的影响会引起有机体的个体差异，因此需要采用生物重复的实验设计方法来消除该差异。对同一个处理组中独立来源的多个样本分别进行独立测定分析，是整个实验的完全重复。设计生物重复可以：</p>
+<ul>
+<li>能够消除组内误差：生物学重复可以测量变异程度；</li>
+<li>增强结果的可靠性：测序的样本数越多，越能够降低背景差异；</li>
+<li>检测离群样本：异常样本的存在，会严重影响测序结果的准确性，通过计算样本间的相关性可以发现异常样本，将其排除。</li>
+</ul>
+<p>3.芯片数据差异表达分析和富集分析中，分别需要用到哪些算法、统计模型和检验？</p>
+<p>在芯片数据差异表达分析中，常用的算法和统计模型包括：</p>
+<ul>
+<li>倍数分析方法：倍数变换fold change，单纯的case与control组表达值相比较，对没有重复实验样本的芯片数据，或者双通道数据采用这种方法。</li>
+<li>参数法分析（t检验）：当t超过根据可信度选择的标准时, 比较的两样本被认为存在着差异。但小样本基因芯片实验会导致不可信的变异估计，此时采用调节性T检验。</li>
+<li>非参数分析：由于微阵列数据存在“噪声”干扰而且不满足正态分布假设，用t检验有风险。非参数检验并不要求数据满足特殊</li>
+</ul>
+<p>在富集分析中，常用的统计方法包括累计超几何分布和Fisher精确检验。由于在进行富集分析时通常需要同时进行大量检验（多重检验），所以需要采用多重检验校正的方法对检验结果进行校正，常用的校正方法包括Bonferroni校正和Benjiamini false discovery rate校正。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" data-title="表达谱分析" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" data-title="表达谱分析"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" data-title="表达谱分析"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" data-title="表达谱分析"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="基因预测和基因结构分析"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>基因预测和基因结构分析</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
