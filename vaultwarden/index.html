@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>密码管理器vaultwarden - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="密码管理器vaultwarden" />
+<meta property="og:description" content="安装Docker和Nginx Proxy Manager 添加swap虚拟内存 VPS 的内存如果过小，建议设置一下 SWAP，一般为内存的 1-1.5 倍即可，可以让系统运行更流畅！ 1 wget" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/vaultwarden/" /><meta property="og:image" content="http://griedzx.github.io/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-27T18:25:16+08:00" />
+<meta property="article:modified_time" content="2023-12-27T18:25:16+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png" /><meta name="twitter:title" content="密码管理器vaultwarden"/>
+<meta name="twitter:description" content="安装Docker和Nginx Proxy Manager 添加swap虚拟内存 VPS 的内存如果过小，建议设置一下 SWAP，一般为内存的 1-1.5 倍即可，可以让系统运行更流畅！ 1 wget"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/vaultwarden/" /><link rel="prev" href="http://griedzx.github.io/azure_vps/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "密码管理器vaultwarden",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/vaultwarden\/"
+        },"genre": "posts","wordcount":  1990 ,
+        "url": "http:\/\/griedzx.github.io\/vaultwarden\/","datePublished": "2023-12-27T18:25:16+08:00","dateModified": "2023-12-27T18:25:16+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">密码管理器vaultwarden</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/azure-vps/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Azure VPS</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-27">2023-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1990 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装docker和nginx-proxy-manager">安装Docker和Nginx Proxy Manager</a>
+      <ul>
+        <li><a href="#添加swap虚拟内存">添加swap虚拟内存</a></li>
+        <li><a href="#升级packages">升级packages</a></li>
+        <li><a href="#安装docker环境">安装Docker环境</a>
+          <ul>
+            <li><a href="#安装docker-境外vps">安装Docker (境外VPS)</a></li>
+            <li><a href="#安装docker-compose">安装docker-compose</a></li>
+            <li><a href="#修改docker配置">修改Docker配置</a></li>
+          </ul>
+        </li>
+        <li><a href="#nginx-proxy-manager">Nginx Proxy Manager</a>
+          <ul>
+            <li><a href="#安装nginx-proxy-manager">安装Nginx Proxy Manager</a></li>
+            <li><a href="#运行访问nginx-proxy-manage">运行访问Nginx Proxy Manage</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#创建vaultwarden安装目录">创建vaultwarden安装目录</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="安装docker和nginx-proxy-manager">安装Docker和Nginx Proxy Manager</h2>
+<h3 id="添加swap虚拟内存">添加swap虚拟内存</h3>
+<pre><code>VPS 的内存如果过小，建议设置一下 SWAP，一般为内存的 1-1.5 倍即可，可以让系统运行更流畅！
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh <span class="o">&amp;&amp;</span> chmod +x box.sh <span class="o">&amp;&amp;</span> clear <span class="o">&amp;&amp;</span> ./box.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">1. wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh： 使用wget工具从给定的URL下载一个文件，并将其保存为box.sh。-O box.sh参数指定了输出文件的名称。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2. chmod +x box.sh：这个命令改变了box.sh文件的权限，使其变为可执行。+x表示添加执行（x）权限。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3. clear：清空终端的屏幕
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4. ./box.sh：这个命令执行了box.sh脚本。./表示当前目录，所以./box.sh就是执行当前目录下的box.sh文件。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">5. 使用&amp;&amp;连接，当且仅当前一个命令成功执行后才执行后面的命令
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/vaultwarden/image/index/1703674284924.png"
+        data-srcset="/vaultwarden/image/index/1703674284924.png, /vaultwarden/image/index/1703674284924.png 1.5x, /vaultwarden/image/index/1703674284924.png 2x"
+        data-sizes="auto"
+        alt="/vaultwarden/image/index/1703674284924.png"
+        title="1703674284924" width="774" height="622" /></p>
+<p>输入数字18，选择设置SWAP</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/vaultwarden/image/index/1703674499897.png"
+        data-srcset="/vaultwarden/image/index/1703674499897.png, /vaultwarden/image/index/1703674499897.png 1.5x, /vaultwarden/image/index/1703674499897.png 2x"
+        data-sizes="auto"
+        alt="/vaultwarden/image/index/1703674499897.png"
+        title="1703674499897" width="1636" height="966" /></p>
+<p>设置swap数值，并使用 <code>free -h</code>查看内存设置情况</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/vaultwarden/image/index/1703674571103.png"
+        data-srcset="/vaultwarden/image/index/1703674571103.png, /vaultwarden/image/index/1703674571103.png 1.5x, /vaultwarden/image/index/1703674571103.png 2x"
+        data-sizes="auto"
+        alt="/vaultwarden/image/index/1703674571103.png"
+        title="1703674571103" width="587" height="229" /></p>
+<h3 id="升级packages">升级packages</h3>
+<p>因为密码管理器是我新服务器下第一个项目，先升级安装常用的软件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo -i <span class="c1">#切换至root用户</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Debian或者Ubuntu都是基于Debian的linux发行版，常用apt作为包管理器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">apt update -y 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apt install wget curl sudo vim git -y
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我因为手边有一本鸟叔的Linux工具书，选择了和书中一致的CentOS,应该使用yum或者dnf作为包管理器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yum update -y
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">yum install wget curl sudo vim git -y
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装docker环境">安装Docker环境</h3>
+<h4 id="安装docker-境外vps">安装Docker (境外VPS)</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wget -qO- get.docker.com | bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>-q 下载过程中静默下载，不输出下载信息</p>
+<p>-O- 下载内容输出值stdout,直接给后面bash命令执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker -v <span class="c1">#查看docker版本，判断是否安装成功</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker <span class="c1">#设置成开机自启动</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="安装docker-compose">安装docker-compose</h4>
+<p>Linux 上我们可以从 Github 上下载它的二进制包来使用，最新发行的版本地址：<a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener noreffer ">https://github.com/docker/compose/releases</a></p>
+<p>运行以下命令以下载 Docker Compose 的当前稳定版本：(尝试v2.2.2没有报错，最新版v2.4报错)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /usr/local/bin/docker-compose
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将可执行权限应用于二进制文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/docker-compose
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建软链：（<code>/usr/bin</code>通常在系统的PATH环境变量中，使 <code>docker-compose</code>可以全局运行）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>测试是否安装成功：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@dzx bin<span class="o">]</span><span class="c1"># docker-compose version</span>
+</span></span><span class="line"><span class="cl">Docker Compose version v2.2.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="修改docker配置">修改Docker配置</h4>
+<ul>
+<li>增加一段自定义内网 IPv6 地址</li>
+<li>开启容器的 IPv6 功能</li>
+<li>限制日志文件大小，防止 Docker 日志塞满硬盘
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; /etc/docker/daemon.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;log-driver&#34;: &#34;json-file&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;log-opts&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">        &#34;max-size&#34;: &#34;20m&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">        &#34;max-file&#34;: &#34;3&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">    },
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;ipv6&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;fixed-cidr-v6&#34;: &#34;fd00:dead:beef:c0::/80&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;experimental&#34;:true,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;ip6tables&#34;:true
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>重启Docker服务:<code>systemctl restart docker</code></p>
+<h3 id="nginx-proxy-manager">Nginx Proxy Manager</h3>
+<h4 id="安装nginx-proxy-manager">安装Nginx Proxy Manager</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo -i
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p /root/data/docker_data/npm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /root/data/docker_data/npm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>直接使用docker安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; docker-compose.yml <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">version: &#39;3&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">services:
+</span></span></span><span class="line"><span class="cl"><span class="s">  app:
+</span></span></span><span class="line"><span class="cl"><span class="s">    image: &#39;jc21/nginx-proxy-manager:latest&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">    restart: unless-stopped
+</span></span></span><span class="line"><span class="cl"><span class="s">    ports:
+</span></span></span><span class="line"><span class="cl"><span class="s">      - &#39;80:80&#39;  # 保持默认即可，不建议修改左侧的80
+</span></span></span><span class="line"><span class="cl"><span class="s">      - &#39;81:81&#39;  # 冒号左边可以改成自己服务器未被占用的端口
+</span></span></span><span class="line"><span class="cl"><span class="s">      - &#39;443:443&#39; # 保持默认即可，不建议修改左侧的443
+</span></span></span><span class="line"><span class="cl"><span class="s">    volumes:
+</span></span></span><span class="line"><span class="cl"><span class="s">      - ./data:/data # 冒号左边可以改路径，现在是表示把数据存放在在当前文件夹下的 data 文件夹中
+</span></span></span><span class="line"><span class="cl"><span class="s">      - ./letsencrypt:/etc/letsencrypt  # 冒号左边可以改路径，现在是表示把数据存放在在当前文件夹下的 letsencrypt 文件夹中
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="运行访问nginx-proxy-manage">运行访问Nginx Proxy Manage</h4>
+<p>直接 <code>http://ip:81</code> 访问，我这里就是 <code>http://20.222.58.183:81/</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/vaultwarden/image/index/1703698090396.png"
+        data-srcset="/vaultwarden/image/index/1703698090396.png, /vaultwarden/image/index/1703698090396.png 1.5x, /vaultwarden/image/index/1703698090396.png 2x"
+        data-sizes="auto"
+        alt="/vaultwarden/image/index/1703698090396.png"
+        title="1703698090396" width="1853" height="953" /></p>
+<pre><code>不知道服务器 IP，可以直接在命令行输入：`curl ip.sb`，会显示当前服务器的 IP
+</code></pre>
+<h2 id="创建vaultwarden安装目录">创建vaultwarden安装目录</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo -i
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p /root/data/docker_data/vaultwarden
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /root/data/docker_data/vaultwarden
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vim docker-compose.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>写入以下设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">version: <span class="s1">&#39;3&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  vaultwarden:
+</span></span><span class="line"><span class="cl">    container_name: vaultwarden
+</span></span><span class="line"><span class="cl">    image: vaultwarden/server:latest
+</span></span><span class="line"><span class="cl">    restart: unless-stopped
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - ./data/:/data/
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - 8080:80
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">DOMAIN</span><span class="o">=</span>https://subdomain.yourdomain.com <span class="c1"># 这是您希望与您的Vaultwarden实例关联的域名。</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">LOGIN_RATELIMIT_MAX_BURST</span><span class="o">=</span><span class="m">10</span> <span class="c1"># 允许在一阵登录/两步验证尝试中的最大请求次数。</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">LOGIN_RATELIMIT_SECONDS</span><span class="o">=</span><span class="m">60</span> <span class="c1"># 这是来自同一IP的登录请求之间的平均秒数，在Vaultwarden限制登录次数之前。</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">ADMIN_RATELIMIT_MAX_BURST</span><span class="o">=</span><span class="m">10</span> <span class="c1"># 这与LOGIN_RATELIMIT_MAX_BURST相同，只争对admin面板。</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">ADMIN_RATELIMIT_SECONDS</span><span class="o">=</span><span class="m">60</span> <span class="c1"># 这与LOGIN_RATELIMIT_SECONDS相同</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">ADMIN_SESSION_LIFETIME</span><span class="o">=</span><span class="m">20</span> <span class="c1"># 会话持续时间</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">ADMIN_TOKEN</span><span class="o">=</span>YourReallyStrongAdminTokenHere <span class="c1"># 此值是Vaultwarden管理员面板的令牌（一种密码）。为了安全起见，这应该是一个长的随机字符串。如果未设置此值，则管理员面板将被禁用。建议openssl rand -base64 48 生成ADMIN_TOKEN确保安全</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">SENDS_ALLOWED</span><span class="o">=</span><span class="nb">true</span>  <span class="c1"># 此设置决定是否允许用户创建Bitwarden发送 - 一种凭证共享形式。</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">EMERGENCY_ACCESS_ALLOWED</span><span class="o">=</span><span class="nb">true</span> <span class="c1"># 此设置控制用户是否可以启用紧急访问其账户的权限。例如，这样做可以在用户去世后，配偶可以访问密码库以获取账户凭证。可能的值：true / false。</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">WEB_VAULT_ENABLED</span><span class="o">=</span><span class="nb">true</span> <span class="c1"># 此设置决定了网络保险库是否可访问。一旦您配置了您的账户和客户端，停止您的容器，然后将此值切换为false并重启Vaultwarden，可以用来防止未授权访问。可能的值：true/false。</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">SIGNUPS_ALLOWED</span><span class="o">=</span><span class="nb">true</span> <span class="c1"># 此设置控制新用户是否可以在没有邀请的情况下注册账户。可能的值：true / false。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://blog.csdn.net/Bob__yuan/article/details/106317490" target="_blank" rel="noopener noreffer ">CSDN markdown 格式博文，插入图片空行太大_为什么markdown中插入图片前后有很大空间空格-CSDN博客</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-27</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/vaultwarden/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/vaultwarden/" data-title="密码管理器vaultwarden" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/vaultwarden/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/vaultwarden/" data-title="密码管理器vaultwarden"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/vaultwarden/" data-title="密码管理器vaultwarden"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/vaultwarden/" data-title="密码管理器vaultwarden"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/azure_vps/" class="prev" rel="prev" title="Azure_VPS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Azure_VPS</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -4,9 +4,25 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sun, 24 Dec 2023 17:09:12 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Wed, 27 Dec 2023 18:25:16 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>密码管理器vaultwarden</title>
+    <link>http://griedzx.github.io/vaultwarden/</link>
+    <pubDate>Wed, 27 Dec 2023 18:25:16 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/vaultwarden/</guid>
+    <description><![CDATA[安装Docker和Nginx Proxy Manager 添加swap虚拟内存 VPS 的内存如果过小，建议设置一下 SWAP，一般为内存的 1-1.5 倍即可，可以让系统运行更流畅！ 1 wget]]></description>
+</item>
+<item>
+    <title>Azure_VPS</title>
+    <link>http://griedzx.github.io/azure_vps/</link>
+    <pubDate>Wed, 27 Dec 2023 00:41:11 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/azure_vps/</guid>
+    <description><![CDATA[整Azure教育优惠，为期一年的超级自制VPS之旅 开整！！！ 创建linux虚拟机 区域是服务器所在的数据中心位置，这个选项会影响连接服务器的延]]></description>
+</item>
+<item>
     <title>表达谱分析</title>
     <link>http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
     <pubDate>Sun, 24 Dec 2023 17:09:12 &#43;0800</pubDate>
@@ -69,22 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E9%A1%B9%E7%9B%AE%E8%82%B2%E4%BA%BA%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
     <description><![CDATA[项目介绍 植物的自交不亲和性有许多原因，其中本项目所关注的异型花柱是其中之一，这种花的多态性结构至少出现在28个被子植物科中，准备搜集研究其中]]></description>
-</item>
-<item>
-    <title>Github_network_err</title>
-    <link>http://griedzx.github.io/github_network_err/</link>
-    <pubDate>Sat, 28 Oct 2023 21:44:06 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/github_network_err/</guid>
-    <description><![CDATA[解决github打不开的方法（亲测有效） - 知乎 (zhihu.com) IP/服务器github.com的信息 - 站长工具 (chinaz.com) IP/服务器github.global.s]]></description>
-</item>
-<item>
-    <title>甲基化&#43;组蛋白测序heatmap&#43;profile绘制</title>
-    <link>http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/</link>
-    <pubDate>Fri, 20 Oct 2023 01:31:11 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/%E7%94%B2%E5%9F%BA%E5%8C%96-%E7%BB%84%E8%9B%8B%E7%99%BD%E6%B5%8B%E5%BA%8Fheatmap-profile%E7%BB%98%E5%88%B6/</guid>
-    <description><![CDATA[使用deeptools的 computeMatrix + (plotHeatmap or plotProfile)可以针对某些特定类型的区域如TTS、TES的指定区域范围进行信号富集程度的可视化 computeMatrix&rsquo;s parameters]]></description>
 </item>
 </channel>
 </rss>
