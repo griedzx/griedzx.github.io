@@ -13,12 +13,12 @@
     <description><![CDATA[安装Docker和Nginx Proxy Manager 添加swap虚拟内存 VPS 的内存如果过小，建议设置一下 SWAP，一般为内存的 1-1.5 倍即可，可以让系统运行更流畅！ 1 wget]]></description>
 </item>
 <item>
-    <title>Azure_VPS</title>
+    <title>新建Azure&#39;s VPS</title>
     <link>http://griedzx.github.io/azure_vps/</link>
     <pubDate>Wed, 27 Dec 2023 00:41:11 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/azure_vps/</guid>
-    <description><![CDATA[整Azure教育优惠，为期一年的超级自制VPS之旅 开整！！！ 创建linux虚拟机 区域是服务器所在的数据中心位置，这个选项会影响连接服务器的延]]></description>
+    <description><![CDATA[整Azure教育优惠，为期一年的超级自制VPS之旅 开整！！！ 创建Azure实例 创建linux虚拟机 区域是服务器所在的数据中心位置，这个选项会]]></description>
 </item>
 </channel>
 </rss>
