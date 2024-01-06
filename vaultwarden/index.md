@@ -22,15 +22,15 @@ wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &
 5. 使用&&连接，当且仅当前一个命令成功执行后才执行后面的命令
 ```
 
-![1703674284924](image/index/1703674284924.png)
+<div align=center><img src="image/index/1703674284924.png#pic_center" width="100%"></div>
 
 输入数字18，选择设置SWAP
 
-![1703674499897](image/index/1703674499897.png)
+<div align=center><img src="image/index/1703674499897.png#pic_center" width="80%"></div>
 
 设置swap数值，并使用 `free -h`查看内存设置情况
 
-![1703674571103](image/index/1703674571103.png)
+<div align=center><img src="image/index/1703674571103.png#pic_center" width="100%"></div>
 
 ### 升级packages
 
@@ -163,10 +163,9 @@ EOF
 
 直接 `http://ip:81` 访问，我这里就是 `http://20.222.58.183:81/`
 
-![1703698090396](image/index/1703698090396.png)
+<div align=center><img src="image/index/1703698090396.png#pic_center"></div>
 
     不知道服务器 IP，可以直接在命令行输入：`curl ip.sb`，会显示当前服务器的 IP
-
 
 ## 创建vaultwarden安装目录
 
@@ -207,6 +206,8 @@ services:
       - WEB_VAULT_ENABLED=true # 此设置决定了网络保险库是否可访问。一旦您配置了您的账户和客户端，停止您的容器，然后将此值切换为false并重启Vaultwarden，可以用来防止未授权访问。可能的值：true/false。
       - SIGNUPS_ALLOWED=true # 此设置控制新用户是否可以在没有邀请的情况下注册账户。可能的值：true / false。
 ```
+
+<div align=center><img src="image/index/1704380497680.png" width="95%"></div>
 
 [CSDN markdown 格式博文，插入图片空行太大_为什么markdown中插入图片前后有很大空间空格-CSDN博客](https://blog.csdn.net/Bob__yuan/article/details/106317490)
 

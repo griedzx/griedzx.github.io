@@ -4,9 +4,17 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Wed, 27 Dec 2023 18:25:16 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>python基础知识复习</title>
+    <link>http://griedzx.github.io/python/</link>
+    <pubDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/python/</guid>
+    <description><![CDATA[python常用知识点复习 数字与序列 数据类型 数值类型： 整数 分数 浮点数 复数 布尔型 字符串 序列类型： 字符串 列表(list) 元组(tuple) 映射和]]></description>
+</item>
+<item>
     <title>密码管理器vaultwarden</title>
     <link>http://griedzx.github.io/vaultwarden/</link>
     <pubDate>Wed, 27 Dec 2023 18:25:16 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/dairy/</guid>
     <description><![CDATA[2023.11.10 好多事压得喘不过气，以致于感叹时间不够用，希望一个良好的睡眠可以解决一些些压力🙏]]></description>
-</item>
-<item>
-    <title>项目育人初体验</title>
-    <link>http://griedzx.github.io/%E9%A1%B9%E7%9B%AE%E8%82%B2%E4%BA%BA%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
-    <pubDate>Fri, 03 Nov 2023 23:42:17 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/%E9%A1%B9%E7%9B%AE%E8%82%B2%E4%BA%BA%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
-    <description><![CDATA[项目介绍 植物的自交不亲和性有许多原因，其中本项目所关注的异型花柱是其中之一，这种花的多态性结构至少出现在28个被子植物科中，准备搜集研究其中]]></description>
 </item>
 </channel>
 </rss>
