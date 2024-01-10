@@ -372,19 +372,17 @@ print(queue)  # 输出：deque(['b', 'c'])
 
 ## 流程控制、字典与集合
 
-### 流程控制
-
-条件语句
+### 条件语句
 
 * `if...else` `if...elif...`语句
 * 布尔表达式 -- 逻辑操作符 `and` `or` `not`
 
-循环语句
+### 循环语句
 
 * `while` 循环
 * `for` 循环，遍历序列元素
 
-控制流程
+### 控制流程
 
 * `continue` 跳过循环剩余语句，继续下一轮循环
 * `break` 终止循环语句
@@ -393,15 +391,315 @@ print(queue)  # 输出：deque(['b', 'c'])
 
 ### 字典
 
+#### 赋值
+
+```python
+a = {}; a = dict() #定义空字典
+b = {'x':3, 'y':4}
+c = dict(uid=105, login='Lumberjack', name='Michael Palin')
+```
+
+#### 操作
+
+* 根据索引读取 `u = c['uid']`
+* 重定义 `c['shell'] = '/bin/sh'`
+* 拷贝 `Copy = c.copy()`
+* 清空字典 `c.clear()`
+* 合并操作 `|`（py3.9 不做要求）
+
 ### 集合
+
+#### 赋值
+
+* 定义可变集合 `aset = {1,2,3}`  `bset = set([2,5,8])` `cset = set('anc')`
+
+  ```python
+  >>> cset
+  {'c', 'n', 'a'}
+  ```
+* 定义冻结结合，可哈希 `dset = frozenset('abc')`
+
+#### 操作
+
+* 集合没有顺序索引  `aset[0]`这种操作不存在
+* `1 in aset`       `in`
+* 添加元素  `aset.add(4)`
+* 去除元素 `aset.remove(3)`
+* 集合交集 `aset & bset`  `&`
+* 集合并集 `aset | bset`  `|`   返回aset类型，aset为可变集合或者冻结集合
+* 集合差集 `aset - bset` 在a不在b中的元素
+* 集合对称差 `aset ^ bset`  两集合并集与交集的差集
 
 ## 文件读写
 
+文件对象，既可以是普通磁盘文件也可以是抽象文件：如内存区域、网页等
+
+### 文件对象
+
+#### 创建方法
+
+`file_object = open(file_name, access_mode = 'r', buffering = -1)`
+
+access_mode: 'r' 读		'w' 写	'a' 追加	'+' 可读可写 	'b' 二进制
+
+buffering:访问文件的缓冲方式
+
+* 0，不缓冲
+* 1，缓冲一行
+* n,缓冲n行
+* 负值，系统默认的缓冲模式
+
+#### 操作方法
+
+```python
+#输入
+read(size)
+readline(size)
+readlines()
+
+for eachline in file:
+    print (eachline)
+
+
+#输出,写入文件
+write(astr)
+writelines(str_list)
+```
+
+### 标准文件
+
+`import sys`
+
+`sys`模块提供了对一些用于与Python解释器交互的变量和函数的访问
+
+1. `sys.argv`：这是一个列表，包含了从命令行传递给Python脚本的参数。`sys.argv[0]`是脚本的名称。
+2. `sys.exit()`：这个函数可以使你的脚本退出，可选地向调用者返回一个状态码。
+3. `sys.path`：这是一个字符串列表，包含了Python解释器查找模块的路径。你可以修改这个列表来影响模块的查找和加载。
+4. `sys.stdin`、`sys.stdout`和 `sys.stderr`：这些是标准的输入、输出和错误流的文件对象。你可以重定向这些流，或者向它们写入或读取数据。
+5. `sys.getsizeof(object)`：返回对象的大小（以字节为单位）。
+6. `sys.version`：这是一个字符串，包含了当前Python解释器的版本信息。
+
+### 文件系统访问
+
+`import os`
+
+### 练习：统计DNA核苷酸频率
+
+```python
+A_num = C_num = G_num = T_num = 0
+
+for i in range(len(DNAstr)):
+    if DNAstr[i]=='A':
+        A_num = A_num + 1
+    elif DNAstr[i]=='C':
+        C_num = C_num + 1
+    elif DNAstr[i]=='G':
+        G_num += 1 #another way
+    elif DNAstr[i]=='T':
+        T_num += 1 #another way
+    
+print("A_num =", A_num)
+print("C_num =", C_num)
+print("G_num =", G_num)
+print("T_num =", T_num)
+
+total_num = len(DNAstr)
+print("A_frq =", A_num/total_num)
+print("C_frq =", C_num/total_num)
+print("G_frq =", G_num/total_num)
+print("T_frq =", T_num/total_num)
+
+dna_dic = {'A': 0, 'C': 0, 'G': 0, 'T': 0} #the dict for DNA numbers
+for n in DNAstr:
+    dna_dic[n] += 1
+print(dna_dic) #print out the DNA numbers in a dict format
+
+dna_frq_dic = {}
+DNAs = 'ACGT' #the 4 kinds of nucleiotides
+for d in DNAs: #calculate the frequencies
+    dna_frq_dic[d] = dna_dic[d]/total_num
+print(dna_frq_dic) #print out the DNA frequencies in a dict format
+
+output_file_name = 'D:/frq.txt'
+output_file = open(output_file_name, 'wt') #open file in a writing and text model
+output_string = '\t'.join(DNAs)
+output_file.write(output_string + '\n')
+output_string = ''
+for d in DNAs:
+    output_string += str(dna_dic[d]) + '\t'
+output_string = output_string.strip()
+output_string += '\n'
+output_file.write(output_string)
+olst = [] #create a list for DNA frequencies
+for d in DNAs:
+    olst.append(str(dna_frq_dic[d]))
+output_string = '\t'.join(olst) + '\n'
+output_file.write(output_string)
+output_file.close() #please check the file D:\frq.txt to see what you got
+```
+
+### with语句读取DNA序列
+
+* with语句和文件上下文管理器（file context manager）读写文件
+* f-string格式化浮点数（频率）输出
+
+```python
+#This is a demo script for "with" and "file" context manager.
+
+with open('DNAseq.txt','rt') as ifl:
+    DNAstr = ifl.read()
+
+DNAlen = len(DNAstr) - 1
+
+A_frq = DNAstr.count('A')/DNAlen
+C_frq = DNAstr.count('C')/DNAlen
+G_frq = DNAstr.count('G')/DNAlen
+T_frq = DNAstr.count('T')/DNAlen
+
+print('A_frq =', A_frq)
+print('C_frq =', C_frq)
+print('G_frq =', G_frq)
+print('T_frq =', T_frq)
+
+with open('DNAfrq.txt', 'wt') as ofl:
+    ofl.write('\t'.join(['A', 'C', 'G', 'T'])+'\n')
+    #using f-string to format output
+    ofl.write(f'{A_frq: .3f}\t{C_frq: .3f}\t{G_frq: .3f}\t{T_frq: .3f}\n')
+
+print('done! (^_^)')
+
+
+
+
+
+```
+
+### 文件操作
+
+1. 序列每十个字符放在一行输出至文件中
+
+   ```
+   pass
+   ```
+2. 将生成文件每行拆分成一个文件，以数字命名
+
+   ```
+   pass
+   ```
+3. 将拆分的文件合并
+
 ## 函数定义
 
-## 对象编程
+pass
+
+## 面对对象编程(OOP)
+
+一切皆对象，每个对象有属性（数据）、方法（行为）
+
+三个核心概念：封装、继承、多态
+
+1. 封装：封装是将对象的状态（属性）和行为（方法）包装在一起的过程。这可以隐藏对象的内部实现细节，并防止外部代码直接访问对象的内部数据。
+2. 继承：继承是一种使得一个类（子类）可以使用另一个类（父类）的属性和方法的机制。子类可以继承父类的属性和方法，也可以添加新的属性和方法，或者覆盖父类的属性和方法。
+3. 多态：多态是指允许一个接口（父类或者接口）有多种实现形式（子类的实现）。在运行时，可以根据实际类型来执行相应的方法，这使得我们可以在设计更高层的代码时，只需要关心接口而不是具体的类。
 
 ### 类定义、封装与组合
+
+#### 定义
+
+类定义需要指定构造方法 __init__()
+
+```python
+class Dog:
+    def __init__(self):
+        self.mouth = "big"
+    def bark(self):
+        print("Woof!")
+```
+
+* 执行 wangcai =Dog() 时实际上是执行了 Dog.__init__(wangcai) 这个方法(函数)
+* 无法通过类名直接调用实例方法,如 `Dog.bark()`  错误的
+
+  ```
+  >>> wangcai = Dog()
+  >>> wangcai.bark()
+  Woof!
+  >>> Dog.bark()
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  TypeError: Dog.bark() missing 1 required positional argument: 'self'
+  >>> Dog.bark(wangcai)#传递一个实例作为参数
+  Woof!
+  ```
+* 类定义中可选定义 析构方法,当一个对象即将被系统回收时，`__del__()`方法会被自动调用
+
+  ```python
+  class Dog:
+      def __init__(self):
+          self.mouth = "big"
+
+      def bark(self):
+          print("Woof!")
+
+      def __del__(self):
+          print("A dog object has been deleted.")
+  ```
+
+  当 `Dog`类的一个实例被删除时，`__del__()`方法会被调用，输出："A dog object has been deleted."
+
+##### 练习
+
+```python
+>>> print(Dog.mouth) 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: type object 'Dog' has no attribute 'mouth'
+>>> print(wangcai.mouth) 
+big
+>>> print(Dog.bark)    
+<function Dog.bark at 0x000002644983EE60>
+>>> print(wangcai.bark) 
+<bound method Dog.bark of <__main__.Dog object at 0x000002644981B130>>
+```
+
+
+
+1. `print(Dog.mouth)`：试图访问类 `Dog`的属性 `mouth`，但是 `mouth`是定义在 `Dog`类的实例上的，而不是类本身，所以会报 `AttributeError`。
+2. `print(wangcai.mouth)`：访问的是 `Dog`类的一个实例 `wangcai`的 `mouth`属性，这是正确的。
+3. `print(Dog.bark)`：访问的是类 `Dog`的方法 `bark`，它返回的是一个函数对象，所以你看到的是一个函数的内存地址。
+4. `print(wangcai.bark)`：访问的是 `Dog`类的一个实例 `wangcai`的 `bark`方法，它返回的是一个绑定方法对象，这个方法已经绑定到了实例 `wangcai`上。
+
+##### 类的属性
+
+访问一个属性时，Python首先会在实例的属性中查找，如果找不到，就会去类的属性中查找
+
+```python
+class Dog:
+    jaw = ["sharp", 32]
+    paw = ["cute", 4]
+    def __init__(self):
+        self.mouth = "big"
+      
+print(Dog.jaw)
+xiaobai = Dog()
+print(xiaobai.paw)
+```
+
+特殊属性和方法
+
+* `Dog.__doc__`:类的文档字符串
+* `Dog.__dict__`: 类的所有属性
+* `Dog.__module__`: 类所在模块
+* `Dog.__class__`: 所属的类型
+* `xiaohei.__sizeof__()`: 对象内存大小  实例方法
+
+  ```python
+  >>> print(Dog.__doc__)
+  None
+  >>> print(Dog.__class__) 
+  <class 'type'>
+  >>> print(Dog.__dict__)  
+  {'__module__': '__main__', 'jaw': ['sharp', 32], 'paw': ['cute', 4], '__init__': <function Dog.__init__ at 0x000002644983F010>, '__dict__': <attribute '__dict__' of 'Dog' objects>, '__weakref__': <attribute '__weakref__' of 'Dog' objects>, '__doc__': None}
+  ```
 
 ### 继承、多态
 

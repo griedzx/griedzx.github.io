@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/python\/"
-        },"genre": "posts","wordcount":  2917 ,
+        },"genre": "posts","wordcount":  5165 ,
         "url": "http:\/\/griedzx.github.io\/python\/","datePublished": "2023-12-29T22:53:14+08:00","dateModified": "2023-12-29T22:53:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">python基础知识复习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2917 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5165 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -151,16 +151,51 @@
     </li>
     <li><a href="#流程控制字典与集合">流程控制、字典与集合</a>
       <ul>
-        <li><a href="#流程控制">流程控制</a></li>
-        <li><a href="#字典">字典</a></li>
-        <li><a href="#集合">集合</a></li>
+        <li><a href="#条件语句">条件语句</a></li>
+        <li><a href="#循环语句">循环语句</a></li>
+        <li><a href="#控制流程">控制流程</a></li>
+        <li><a href="#字典">字典</a>
+          <ul>
+            <li><a href="#赋值">赋值</a></li>
+            <li><a href="#操作">操作</a></li>
+          </ul>
+        </li>
+        <li><a href="#集合">集合</a>
+          <ul>
+            <li><a href="#赋值-1">赋值</a></li>
+            <li><a href="#操作-1">操作</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#文件读写">文件读写</a></li>
-    <li><a href="#函数定义">函数定义</a></li>
-    <li><a href="#对象编程">对象编程</a>
+    <li><a href="#文件读写">文件读写</a>
       <ul>
-        <li><a href="#类定义封装与组合">类定义、封装与组合</a></li>
+        <li><a href="#文件对象">文件对象</a>
+          <ul>
+            <li><a href="#创建方法">创建方法</a></li>
+            <li><a href="#操作方法">操作方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#标准文件">标准文件</a></li>
+        <li><a href="#文件系统访问">文件系统访问</a></li>
+        <li><a href="#练习统计dna核苷酸频率">练习：统计DNA核苷酸频率</a></li>
+        <li><a href="#with语句读取dna序列">with语句读取DNA序列</a></li>
+        <li><a href="#文件操作">文件操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#函数定义">函数定义</a></li>
+    <li><a href="#面对对象编程oop">面对对象编程(OOP)</a>
+      <ul>
+        <li><a href="#类定义封装与组合">类定义、封装与组合</a>
+          <ul>
+            <li><a href="#定义">定义</a>
+              <ul>
+                <li><a href="#练习-1">练习</a></li>
+                <li><a href="#类的属性">类的属性</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#继承多态">继承、多态</a></li>
       </ul>
     </li>
@@ -781,18 +816,17 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="流程控制字典与集合">流程控制、字典与集合</h2>
-<h3 id="流程控制">流程控制</h3>
-<p>条件语句</p>
+<h3 id="条件语句">条件语句</h3>
 <ul>
 <li><code>if...else</code> <code>if...elif...</code>语句</li>
 <li>布尔表达式 &ndash; 逻辑操作符 <code>and</code> <code>or</code> <code>not</code></li>
 </ul>
-<p>循环语句</p>
+<h3 id="循环语句">循环语句</h3>
 <ul>
 <li><code>while</code> 循环</li>
 <li><code>for</code> 循环，遍历序列元素</li>
 </ul>
-<p>控制流程</p>
+<h3 id="控制流程">控制流程</h3>
 <ul>
 <li><code>continue</code> 跳过循环剩余语句，继续下一轮循环</li>
 <li><code>break</code> 终止循环语句</li>
@@ -800,11 +834,491 @@
 <li><code>match-case</code> (python 3.10,不做要求)</li>
 </ul>
 <h3 id="字典">字典</h3>
+<h4 id="赋值">赋值</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">{};</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> <span class="c1">#定义空字典</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="mi">105</span><span class="p">,</span> <span class="n">login</span><span class="o">=</span><span class="s1">&#39;Lumberjack&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Michael Palin&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="操作">操作</h4>
+<ul>
+<li>根据索引读取 <code>u = c['uid']</code></li>
+<li>重定义 <code>c['shell'] = '/bin/sh'</code></li>
+<li>拷贝 <code>Copy = c.copy()</code></li>
+<li>清空字典 <code>c.clear()</code></li>
+<li>合并操作 <code>|</code>（py3.9 不做要求）</li>
+</ul>
 <h3 id="集合">集合</h3>
+<h4 id="赋值-1">赋值</h4>
+<ul>
+<li>
+<p>定义可变集合 <code>aset = {1,2,3}</code>  <code>bset = set([2,5,8])</code> <code>cset = set('anc')</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">cset</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>定义冻结结合，可哈希 <code>dset = frozenset('abc')</code></p>
+</li>
+</ul>
+<h4 id="操作-1">操作</h4>
+<ul>
+<li>集合没有顺序索引  <code>aset[0]</code>这种操作不存在</li>
+<li><code>1 in aset</code>       <code>in</code></li>
+<li>添加元素  <code>aset.add(4)</code></li>
+<li>去除元素 <code>aset.remove(3)</code></li>
+<li>集合交集 <code>aset &amp; bset</code>  <code>&amp;</code></li>
+<li>集合并集 <code>aset | bset</code>  <code>|</code>   返回aset类型，aset为可变集合或者冻结集合</li>
+<li>集合差集 <code>aset - bset</code> 在a不在b中的元素</li>
+<li>集合对称差 <code>aset ^ bset</code>  两集合并集与交集的差集</li>
+</ul>
 <h2 id="文件读写">文件读写</h2>
+<p>文件对象，既可以是普通磁盘文件也可以是抽象文件：如内存区域、网页等</p>
+<h3 id="文件对象">文件对象</h3>
+<h4 id="创建方法">创建方法</h4>
+<p><code>file_object = open(file_name, access_mode = 'r', buffering = -1)</code></p>
+<p>access_mode: &lsquo;r&rsquo; 读		&lsquo;w&rsquo; 写	&lsquo;a&rsquo; 追加	&lsquo;+&rsquo; 可读可写 	&lsquo;b&rsquo; 二进制</p>
+<p>buffering:访问文件的缓冲方式</p>
+<ul>
+<li>0，不缓冲</li>
+<li>1，缓冲一行</li>
+<li>n,缓冲n行</li>
+<li>负值，系统默认的缓冲模式</li>
+</ul>
+<h4 id="操作方法">操作方法</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#输入</span>
+</span></span><span class="line"><span class="cl"><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">readline</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">eachline</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="p">(</span><span class="n">eachline</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#输出,写入文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">write</span><span class="p">(</span><span class="n">astr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">writelines</span><span class="p">(</span><span class="n">str_list</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="标准文件">标准文件</h3>
+<p><code>import sys</code></p>
+<p><code>sys</code>模块提供了对一些用于与Python解释器交互的变量和函数的访问</p>
+<ol>
+<li><code>sys.argv</code>：这是一个列表，包含了从命令行传递给Python脚本的参数。<code>sys.argv[0]</code>是脚本的名称。</li>
+<li><code>sys.exit()</code>：这个函数可以使你的脚本退出，可选地向调用者返回一个状态码。</li>
+<li><code>sys.path</code>：这是一个字符串列表，包含了Python解释器查找模块的路径。你可以修改这个列表来影响模块的查找和加载。</li>
+<li><code>sys.stdin</code>、<code>sys.stdout</code>和 <code>sys.stderr</code>：这些是标准的输入、输出和错误流的文件对象。你可以重定向这些流，或者向它们写入或读取数据。</li>
+<li><code>sys.getsizeof(object)</code>：返回对象的大小（以字节为单位）。</li>
+<li><code>sys.version</code>：这是一个字符串，包含了当前Python解释器的版本信息。</li>
+</ol>
+<h3 id="文件系统访问">文件系统访问</h3>
+<p><code>import os</code></p>
+<h3 id="练习统计dna核苷酸频率">练习：统计DNA核苷酸频率</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">A_num</span> <span class="o">=</span> <span class="n">C_num</span> <span class="o">=</span> <span class="n">G_num</span> <span class="o">=</span> <span class="n">T_num</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">DNAstr</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">DNAstr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A_num</span> <span class="o">=</span> <span class="n">A_num</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">DNAstr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;C&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">C_num</span> <span class="o">=</span> <span class="n">C_num</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">DNAstr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;G&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">G_num</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#another way</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">DNAstr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;T&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">T_num</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#another way</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A_num =&#34;</span><span class="p">,</span> <span class="n">A_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;C_num =&#34;</span><span class="p">,</span> <span class="n">C_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;G_num =&#34;</span><span class="p">,</span> <span class="n">G_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;T_num =&#34;</span><span class="p">,</span> <span class="n">T_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">total_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">DNAstr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A_frq =&#34;</span><span class="p">,</span> <span class="n">A_num</span><span class="o">/</span><span class="n">total_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;C_frq =&#34;</span><span class="p">,</span> <span class="n">C_num</span><span class="o">/</span><span class="n">total_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;G_frq =&#34;</span><span class="p">,</span> <span class="n">G_num</span><span class="o">/</span><span class="n">total_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;T_frq =&#34;</span><span class="p">,</span> <span class="n">T_num</span><span class="o">/</span><span class="n">total_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dna_dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span> <span class="c1">#the dict for DNA numbers</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">DNAstr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dna_dic</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dna_dic</span><span class="p">)</span> <span class="c1">#print out the DNA numbers in a dict format</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dna_frq_dic</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">DNAs</span> <span class="o">=</span> <span class="s1">&#39;ACGT&#39;</span> <span class="c1">#the 4 kinds of nucleiotides</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">DNAs</span><span class="p">:</span> <span class="c1">#calculate the frequencies</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dna_frq_dic</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">dna_dic</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">/</span><span class="n">total_num</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dna_frq_dic</span><span class="p">)</span> <span class="c1">#print out the DNA frequencies in a dict format</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">output_file_name</span> <span class="o">=</span> <span class="s1">&#39;D:/frq.txt&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_name</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">)</span> <span class="c1">#open file in a writing and text model</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DNAs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_string</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">DNAs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output_string</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">dna_dic</span><span class="p">[</span><span class="n">d</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_string</span> <span class="o">=</span> <span class="n">output_string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_string</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">olst</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#create a list for DNA frequencies</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">DNAs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">olst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dna_frq_dic</span><span class="p">[</span><span class="n">d</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">olst</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1">#please check the file D:\frq.txt to see what you got</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="with语句读取dna序列">with语句读取DNA序列</h3>
+<ul>
+<li>with语句和文件上下文管理器（file context manager）读写文件</li>
+<li>f-string格式化浮点数（频率）输出</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#This is a demo script for &#34;with&#34; and &#34;file&#34; context manager.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;DNAseq.txt&#39;</span><span class="p">,</span><span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ifl</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DNAstr</span> <span class="o">=</span> <span class="n">ifl</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">DNAlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">DNAstr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">A_frq</span> <span class="o">=</span> <span class="n">DNAstr</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">DNAlen</span>
+</span></span><span class="line"><span class="cl"><span class="n">C_frq</span> <span class="o">=</span> <span class="n">DNAstr</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">DNAlen</span>
+</span></span><span class="line"><span class="cl"><span class="n">G_frq</span> <span class="o">=</span> <span class="n">DNAstr</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">DNAlen</span>
+</span></span><span class="line"><span class="cl"><span class="n">T_frq</span> <span class="o">=</span> <span class="n">DNAstr</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">DNAlen</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A_frq =&#39;</span><span class="p">,</span> <span class="n">A_frq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C_frq =&#39;</span><span class="p">,</span> <span class="n">C_frq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;G_frq =&#39;</span><span class="p">,</span> <span class="n">G_frq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T_frq =&#39;</span><span class="p">,</span> <span class="n">T_frq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;DNAfrq.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ofl</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ofl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#using f-string to format output</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ofl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">A_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">C_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">G_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">T_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done! (^_^)&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="文件操作">文件操作</h3>
+<ol>
+<li>
+<p>序列每十个字符放在一行输出至文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pass
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>将生成文件每行拆分成一个文件，以数字命名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pass
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>将拆分的文件合并</p>
+</li>
+</ol>
 <h2 id="函数定义">函数定义</h2>
-<h2 id="对象编程">对象编程</h2>
+<p>pass</p>
+<h2 id="面对对象编程oop">面对对象编程(OOP)</h2>
+<p>一切皆对象，每个对象有属性（数据）、方法（行为）</p>
+<p>三个核心概念：封装、继承、多态</p>
+<ol>
+<li>封装：封装是将对象的状态（属性）和行为（方法）包装在一起的过程。这可以隐藏对象的内部实现细节，并防止外部代码直接访问对象的内部数据。</li>
+<li>继承：继承是一种使得一个类（子类）可以使用另一个类（父类）的属性和方法的机制。子类可以继承父类的属性和方法，也可以添加新的属性和方法，或者覆盖父类的属性和方法。</li>
+<li>多态：多态是指允许一个接口（父类或者接口）有多种实现形式（子类的实现）。在运行时，可以根据实际类型来执行相应的方法，这使得我们可以在设计更高层的代码时，只需要关心接口而不是具体的类。</li>
+</ol>
 <h3 id="类定义封装与组合">类定义、封装与组合</h3>
+<h4 id="定义">定义</h4>
+<p>类定义需要指定构造方法 <strong>init</strong>()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mouth</span> <span class="o">=</span> <span class="s2">&#34;big&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Woof!&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>执行 wangcai =Dog() 时实际上是执行了 Dog.<strong>init</strong>(wangcai) 这个方法(函数)</p>
+</li>
+<li>
+<p>无法通过类名直接调用实例方法,如 <code>Dog.bark()</code>  错误的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt;&gt;&gt; wangcai = Dog()
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; wangcai.bark()
+</span></span><span class="line"><span class="cl">Woof!
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; Dog.bark()
+</span></span><span class="line"><span class="cl">Traceback (most recent call last):
+</span></span><span class="line"><span class="cl">  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+</span></span><span class="line"><span class="cl">TypeError: Dog.bark() missing 1 required positional argument: &#39;self&#39;
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; Dog.bark(wangcai)#传递一个实例作为参数
+</span></span><span class="line"><span class="cl">Woof!
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>类定义中可选定义 析构方法,当一个对象即将被系统回收时，<code>__del__()</code>方法会被自动调用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mouth</span> <span class="o">=</span> <span class="s2">&#34;big&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Woof!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A dog object has been deleted.&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当 <code>Dog</code>类的一个实例被删除时，<code>__del__()</code>方法会被调用，输出：&ldquo;A dog object has been deleted.&rdquo;</p>
+</li>
+</ul>
+<h5 id="练习-1">练习</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="n">mouth</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">AttributeError</span><span class="p">:</span> <span class="nb">type</span> <span class="nb">object</span> <span class="s1">&#39;Dog&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;mouth&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">wangcai</span><span class="o">.</span><span class="n">mouth</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">big</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="n">bark</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">function</span> <span class="n">Dog</span><span class="o">.</span><span class="n">bark</span> <span class="n">at</span> <span class="mh">0x000002644983EE60</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">wangcai</span><span class="o">.</span><span class="n">bark</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">bound</span> <span class="n">method</span> <span class="n">Dog</span><span class="o">.</span><span class="n">bark</span> <span class="n">of</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Dog</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000002644981B130</span><span class="o">&gt;&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><code>print(Dog.mouth)</code>：试图访问类 <code>Dog</code>的属性 <code>mouth</code>，但是 <code>mouth</code>是定义在 <code>Dog</code>类的实例上的，而不是类本身，所以会报 <code>AttributeError</code>。</li>
+<li><code>print(wangcai.mouth)</code>：访问的是 <code>Dog</code>类的一个实例 <code>wangcai</code>的 <code>mouth</code>属性，这是正确的。</li>
+<li><code>print(Dog.bark)</code>：访问的是类 <code>Dog</code>的方法 <code>bark</code>，它返回的是一个函数对象，所以你看到的是一个函数的内存地址。</li>
+<li><code>print(wangcai.bark)</code>：访问的是 <code>Dog</code>类的一个实例 <code>wangcai</code>的 <code>bark</code>方法，它返回的是一个绑定方法对象，这个方法已经绑定到了实例 <code>wangcai</code>上。</li>
+</ol>
+<h5 id="类的属性">类的属性</h5>
+<p>访问一个属性时，Python首先会在实例的属性中查找，如果找不到，就会去类的属性中查找</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jaw</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;sharp&#34;</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">paw</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;cute&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mouth</span> <span class="o">=</span> <span class="s2">&#34;big&#34;</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="n">jaw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">xiaobai</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">xiaobai</span><span class="o">.</span><span class="n">paw</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>特殊属性和方法</p>
+<ul>
+<li>
+<p><code>Dog.__doc__</code>:类的文档字符串</p>
+</li>
+<li>
+<p><code>Dog.__dict__</code>: 类的所有属性</p>
+</li>
+<li>
+<p><code>Dog.__module__</code>: 类所在模块</p>
+</li>
+<li>
+<p><code>Dog.__class__</code>: 所属的类型</p>
+</li>
+<li>
+<p><code>xiaohei.__sizeof__()</code>: 对象内存大小  实例方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">type</span><span class="s1">&#39;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;__module__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="s1">&#39;jaw&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sharp&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span> <span class="s1">&#39;paw&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cute&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Dog</span><span class="o">.</span><span class="fm">__init__</span> <span class="n">at</span> <span class="mh">0x000002644983F010</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">attribute</span> <span class="s1">&#39;__dict__&#39;</span> <span class="n">of</span> <span class="s1">&#39;Dog&#39;</span> <span class="n">objects</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;__weakref__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">attribute</span> <span class="s1">&#39;__weakref__&#39;</span> <span class="n">of</span> <span class="s1">&#39;Dog&#39;</span> <span class="n">objects</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
 <h3 id="继承多态">继承、多态</h3>
 <h2 id="泛函编程迭代器生成器">泛函编程、迭代器、生成器</h2>
 <h2 id="动态语法异常处理">动态语法、异常处理</h2>
