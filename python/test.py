@@ -106,3 +106,18 @@ class Dog:
 print(Dog.jaw)
 xiaobai = Dog()
 print(xiaobai.paw)
+
+class example:
+    def foo():
+        print("This is a static method.")    
+    foo = staticmethod(foo)
+
+
+class example:
+    @staticmethod
+    def foo():
+        print("This is a static method.")
+        
+type(object)
+
+eval("(abs(x) for x in [-1,2,-3,4])").__next__()

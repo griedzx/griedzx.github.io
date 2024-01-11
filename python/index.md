@@ -497,7 +497,7 @@ for i in range(len(DNAstr)):
         G_num += 1 #another way
     elif DNAstr[i]=='T':
         T_num += 1 #another way
-    
+  
 print("A_num =", A_num)
 print("C_num =", C_num)
 print("G_num =", G_num)
@@ -655,13 +655,11 @@ Traceback (most recent call last):
 AttributeError: type object 'Dog' has no attribute 'mouth'
 >>> print(wangcai.mouth) 
 big
->>> print(Dog.bark)    
+>>> print(Dog.bark)  
 <function Dog.bark at 0x000002644983EE60>
 >>> print(wangcai.bark) 
 <bound method Dog.bark of <__main__.Dog object at 0x000002644981B130>>
 ```
-
-
 
 1. `print(Dog.mouth)`：试图访问类 `Dog`的属性 `mouth`，但是 `mouth`是定义在 `Dog`类的实例上的，而不是类本身，所以会报 `AttributeError`。
 2. `print(wangcai.mouth)`：访问的是 `Dog`类的一个实例 `wangcai`的 `mouth`属性，这是正确的。
@@ -678,7 +676,7 @@ class Dog:
     paw = ["cute", 4]
     def __init__(self):
         self.mouth = "big"
-      
+  
 print(Dog.jaw)
 xiaobai = Dog()
 print(xiaobai.paw)
@@ -690,6 +688,7 @@ print(xiaobai.paw)
 * `Dog.__dict__`: 类的所有属性
 * `Dog.__module__`: 类所在模块
 * `Dog.__class__`: 所属的类型
+* 
 * `xiaohei.__sizeof__()`: 对象内存大小  实例方法
 
   ```python
@@ -701,13 +700,161 @@ print(xiaobai.paw)
   {'__module__': '__main__', 'jaw': ['sharp', 32], 'paw': ['cute', 4], '__init__': <function Dog.__init__ at 0x000002644983F010>, '__dict__': <attribute '__dict__' of 'Dog' objects>, '__weakref__': <attribute '__weakref__' of 'Dog' objects>, '__doc__': None}
   ```
 
+##### 类的方法
+
+方法定义中不用self
+
+可以通过类直接调用，也可以通过实例调用
+
+###### 静态方法
+
+在Python中，静态方法是一种特殊的方法，可以使用 `@staticmethod`装饰器或 `staticmethod()`函数将一个方法定义为静态方法
+
+```python
+class example:
+    def foo():
+        print("This is a static method.")  
+    foo = staticmethod(foo)
+```
+
+```python
+class example:
+    @staticmethod
+    def foo():
+        print("This is a static method."）
+```
+
+###### 类方法
+
+`classmethod()`
+
+###### 函数修饰符@
+
+`@staticmethod`      `@classmethod`      如上
+
+##### 型与类
+
+```python
+class Dog:
+    head = 1
+    tail = 3
+  
+    @classmethod
+    def show_head(cls):
+            print('The head is ', cls.head)
+    #show_head = classmethod(show_head)
+  
+    @staticmethod
+    def show_tail():
+            print('The tail is', Dog.tail)
+    #show_tail = staticmethod(show_tail)
+  
+    def __init__(self):
+        self.jaw = 'strong'
+  
+    def show_jaw(self):
+        print('The jaw is', self.jaw)
+
+    def show_head_2(self): 
+        print('The head is', Dog.head) 
+  
+    @classmethod 
+    def show_jaw_2(cls):
+        print('The jaw is', self.jaw) 
+
+    @staticmethod 
+    def show_jaw_3():
+        print('The jaw is', self.jaw)
+
+
+Dog.show_head() 
+Dog.show_tail() 
+Dog.show_jaw()  
+Dog.show_jaw_2()
+Dog.show_jaw_3()
+
+adog = Dog() 
+adog.show_head() 
+adog.show_head_2() 
+adog.show_tail() 
+adog.show_jaw() 
+```
+
 ### 继承、多态
+
+#### 继承
+
+定义子类
+
+`super()`函数是用来调用父类（超类）的一个方法，即可以在不关心对象具体类型的情况下编写代码，只需要关心对象是否有你需要的方法或属性
+
+#### 多态
+
+多态是指不同的对象可以响应相同的方法调用
+
+Python中，可以在两个不相干的类中定义同样的方法接口，从而实现多态
+
+## 动态语法、异常处理
+
+### 求值函数eval()
+
+* `eval("{}.fromkeys(range(2))")`：计算表达式 `{}.fromkeys(range(2))`，输出结果为 `{0: None, 1: None}`，这是一个字典，它的键是 `range(2)`生成的数字，值都是 `None`。
+* `eval("list(map(lambda x: x**2, range(3)))")`：计算表达式 `list(map(lambda x: x**2, range(3)))`，输出结果为 `[0, 1, 4]`，这是一个列表，它的元素是 `range(3)`生成的数字的平方。
+* `eval("[pow(i,0.5) for i in range(3)]")`：计算表达式 `[pow(i,0.5) for i in range(3)]`，输出结果为 `[0.0, 1.0, 1.4142135623730951]`，这是一个列表，它的元素是 `range(3)`生成的数字的平方根。
+* `eval("(abs(x) for x in [-1,2,-3,4])").__next__()`：计算表达式 `(abs(x) for x in [-1,2,-3,4])`，这是一个生成器，它的元素是列表 `[-1,2,-3,4]`的元素的绝对值。`__next__()`方法获取生成器的下一个元素，输出结果为1。
+* `astr = "x**y"; a_scope = {'x': 3, 'y': 4}; eval(astr, a_scope)`：计算表达式 `x**y`，在这个表达式中，`x`和 `y`的值是在 `a_scope`字典中定义的。输出结果为81，这是3的4次方。
+
+### 执行函数
 
 ## 泛函编程、迭代器、生成器
 
-## 动态语法、异常处理
+### 迭代器、生成器
+
+__`__next__()`__
+
+```python
+>>> a = eval("(abs(x) for x in [-1,2,-3,4])")  
+>>> a.__next__()
+1
+>>> a.__next__()
+2
+```
 
 ## 模块与程序库
 
 ## 正则表达式
+
+
+`re`模块提供了正则表达式匹配操作，正则表达式是一种强大的字符串处理工具，可以用来进行字符串的匹配、替换和分割等操作。
+
+以下是 `re`模块的一些主要函数：
+
+* `re.match(pattern, string)`：从字符串的开始位置匹配模式，如果在开始位置匹配成功，返回一个匹配对象，否则返回None。
+* `re.search(pattern, string)`：搜索整个字符串，找到第一个匹配的位置，返回一个匹配对象，如果没有找到匹配，返回None。
+* `re.findall(pattern, string)`：返回一个列表，包含字符串中所有匹配的子串。
+* `re.sub(pattern, repl, string)`：将字符串中匹配模式的部分替换为repl，返回替换后的字符串。
+
+  ```python
+  import re
+
+  # 匹配字符串中的数字
+  result = re.findall(r'\d+', 'hello 123 world 456')
+  print(result)  # 输出 ['123', '456']
+
+  # 替换字符串中的数字为'num'
+  result = re.sub(r'\d+', 'num', 'hello 123 world 456')
+  print(result)  # 输出 'hello num world num'
+  ```
+
+
+  在正则表达式中，有一些特殊的字符和序列，例如：
+
+  * `\d`：匹配任何数字，等价于 `[0-9]`。
+  * `\D`：匹配任何非数字字符，等价于 `[^0-9]`。
+  * `\s`：匹配任何空白字符，等价于 `[\t\n\r\f\v]`。
+  * `\S`：匹配任何非空白字符，等价于 `[^\t\n\r\f\v]`。
+  * `\w`：匹配任何字母数字字符，等价于 `[a-zA-Z0-9_]`。
+  * `\W`：匹配任何非字母数字字符，等价于 `[^a-zA-Z0-9_]`。
+
+## Biopython使用实例
 

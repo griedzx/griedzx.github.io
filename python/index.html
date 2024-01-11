@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/python\/"
-        },"genre": "posts","wordcount":  5165 ,
+        },"genre": "posts","wordcount":  6626 ,
         "url": "http:\/\/griedzx.github.io\/python\/","datePublished": "2023-12-29T22:53:14+08:00","dateModified": "2023-12-29T22:53:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">python基础知识复习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5165 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6626 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -192,17 +192,40 @@
               <ul>
                 <li><a href="#练习-1">练习</a></li>
                 <li><a href="#类的属性">类的属性</a></li>
+                <li><a href="#类的方法">类的方法</a>
+                  <ul>
+                    <li><a href="#静态方法">静态方法</a></li>
+                    <li><a href="#类方法">类方法</a></li>
+                    <li><a href="#函数修饰符">函数修饰符@</a></li>
+                  </ul>
+                </li>
+                <li><a href="#型与类">型与类</a></li>
               </ul>
             </li>
           </ul>
         </li>
-        <li><a href="#继承多态">继承、多态</a></li>
+        <li><a href="#继承多态">继承、多态</a>
+          <ul>
+            <li><a href="#继承">继承</a></li>
+            <li><a href="#多态">多态</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#泛函编程迭代器生成器">泛函编程、迭代器、生成器</a></li>
-    <li><a href="#动态语法异常处理">动态语法、异常处理</a></li>
+    <li><a href="#动态语法异常处理">动态语法、异常处理</a>
+      <ul>
+        <li><a href="#求值函数eval">求值函数eval()</a></li>
+        <li><a href="#执行函数">执行函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#泛函编程迭代器生成器">泛函编程、迭代器、生成器</a>
+      <ul>
+        <li><a href="#迭代器生成器">迭代器、生成器</a></li>
+      </ul>
+    </li>
     <li><a href="#模块与程序库">模块与程序库</a></li>
     <li><a href="#正则表达式">正则表达式</a></li>
+    <li><a href="#biopython使用实例">Biopython使用实例</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>python常用知识点复习</p>
@@ -1009,7 +1032,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">G_num</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#another way</span>
 </span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">DNAstr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;T&#39;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">T_num</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#another way</span>
-</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A_num =&#34;</span><span class="p">,</span> <span class="n">A_num</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;C_num =&#34;</span><span class="p">,</span> <span class="n">C_num</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;G_num =&#34;</span><span class="p">,</span> <span class="n">G_num</span><span class="p">)</span>
@@ -1245,7 +1268,7 @@
 </span></span><span class="line"><span class="cl"><span class="ne">AttributeError</span><span class="p">:</span> <span class="nb">type</span> <span class="nb">object</span> <span class="s1">&#39;Dog&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;mouth&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">wangcai</span><span class="o">.</span><span class="n">mouth</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl"><span class="n">big</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="n">bark</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="n">bark</span><span class="p">)</span>  
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">function</span> <span class="n">Dog</span><span class="o">.</span><span class="n">bark</span> <span class="n">at</span> <span class="mh">0x000002644983EE60</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">wangcai</span><span class="o">.</span><span class="n">bark</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">bound</span> <span class="n">method</span> <span class="n">Dog</span><span class="o">.</span><span class="n">bark</span> <span class="n">of</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Dog</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000002644981B130</span><span class="o">&gt;&gt;</span>
@@ -1277,7 +1300,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">paw</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;cute&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mouth</span> <span class="o">=</span> <span class="s2">&#34;big&#34;</span>
-</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="n">jaw</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">xiaobai</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">xiaobai</span><span class="o">.</span><span class="n">paw</span><span class="p">)</span>
@@ -1297,6 +1320,7 @@
 <li>
 <p><code>Dog.__class__</code>: 所属的类型</p>
 </li>
+<li></li>
 <li>
 <p><code>xiaohei.__sizeof__()</code>: 对象内存大小  实例方法</p>
 <div class="highlight"><div class="chroma">
@@ -1319,11 +1343,224 @@
 </div>
 </div></li>
 </ul>
-<h3 id="继承多态">继承、多态</h3>
-<h2 id="泛函编程迭代器生成器">泛函编程、迭代器、生成器</h2>
+<h5 id="类的方法">类的方法</h5>
+<p>方法定义中不用self</p>
+<p>可以通过类直接调用，也可以通过实例调用</p>
+<h6 id="静态方法">静态方法</h6>
+<p>在Python中，静态方法是一种特殊的方法，可以使用 <code>@staticmethod</code>装饰器或 <code>staticmethod()</code>函数将一个方法定义为静态方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">example</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;This is a static method.&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">foo</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">example</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@staticmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;This is a static method.&#34;</span><span class="err">）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="类方法">类方法</h6>
+<p><code>classmethod()</code></p>
+<h6 id="函数修饰符">函数修饰符@</h6>
+<p><code>@staticmethod</code>      <code>@classmethod</code>      如上</p>
+<h5 id="型与类">型与类</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">head</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tail</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_head</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The head is &#39;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">head</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#show_head = classmethod(show_head)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nd">@staticmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_tail</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The tail is&#39;</span><span class="p">,</span> <span class="n">Dog</span><span class="o">.</span><span class="n">tail</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#show_tail = staticmethod(show_tail)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">jaw</span> <span class="o">=</span> <span class="s1">&#39;strong&#39;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_jaw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The jaw is&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jaw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_head_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The head is&#39;</span><span class="p">,</span> <span class="n">Dog</span><span class="o">.</span><span class="n">head</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_jaw_2</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The jaw is&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jaw</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@staticmethod</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_jaw_3</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The jaw is&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jaw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Dog</span><span class="o">.</span><span class="n">show_head</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Dog</span><span class="o">.</span><span class="n">show_tail</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Dog</span><span class="o">.</span><span class="n">show_jaw</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="n">Dog</span><span class="o">.</span><span class="n">show_jaw_2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Dog</span><span class="o">.</span><span class="n">show_jaw_3</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">adog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">adog</span><span class="o">.</span><span class="n">show_head</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">adog</span><span class="o">.</span><span class="n">show_head_2</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">adog</span><span class="o">.</span><span class="n">show_tail</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">adog</span><span class="o">.</span><span class="n">show_jaw</span><span class="p">()</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="继承多态">继承、多态</h3>
+<h4 id="继承">继承</h4>
+<p>定义子类</p>
+<p><code>super()</code>函数是用来调用父类（超类）的一个方法，即可以在不关心对象具体类型的情况下编写代码，只需要关心对象是否有你需要的方法或属性</p>
+<h4 id="多态">多态</h4>
+<p>多态是指不同的对象可以响应相同的方法调用</p>
+<p>Python中，可以在两个不相干的类中定义同样的方法接口，从而实现多态</p>
 <h2 id="动态语法异常处理">动态语法、异常处理</h2>
-<h2 id="模块与程序库">模块与程序库</h2>
+<h3 id="求值函数eval">求值函数eval()</h3>
+<ul>
+<li><code>eval(&quot;{}.fromkeys(range(2))&quot;)</code>：计算表达式 <code>{}.fromkeys(range(2))</code>，输出结果为 <code>{0: None, 1: None}</code>，这是一个字典，它的键是 <code>range(2)</code>生成的数字，值都是 <code>None</code>。</li>
+<li><code>eval(&quot;list(map(lambda x: x**2, range(3)))&quot;)</code>：计算表达式 <code>list(map(lambda x: x**2, range(3)))</code>，输出结果为 <code>[0, 1, 4]</code>，这是一个列表，它的元素是 <code>range(3)</code>生成的数字的平方。</li>
+<li><code>eval(&quot;[pow(i,0.5) for i in range(3)]&quot;)</code>：计算表达式 <code>[pow(i,0.5) for i in range(3)]</code>，输出结果为 <code>[0.0, 1.0, 1.4142135623730951]</code>，这是一个列表，它的元素是 <code>range(3)</code>生成的数字的平方根。</li>
+<li><code>eval(&quot;(abs(x) for x in [-1,2,-3,4])&quot;).__next__()</code>：计算表达式 <code>(abs(x) for x in [-1,2,-3,4])</code>，这是一个生成器，它的元素是列表 <code>[-1,2,-3,4]</code>的元素的绝对值。<code>__next__()</code>方法获取生成器的下一个元素，输出结果为1。</li>
+<li><code>astr = &quot;x**y&quot;; a_scope = {'x': 3, 'y': 4}; eval(astr, a_scope)</code>：计算表达式 <code>x**y</code>，在这个表达式中，<code>x</code>和 <code>y</code>的值是在 <code>a_scope</code>字典中定义的。输出结果为81，这是3的4次方。</li>
+</ul>
+<h3 id="执行函数">执行函数</h3>
+<h2 id="泛函编程迭代器生成器">泛函编程、迭代器、生成器</h2>
+<h3 id="迭代器生成器">迭代器、生成器</h3>
+<p><strong><code>__next__()</code></strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&#34;(abs(x) for x in [-1,2,-3,4])&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="模块与程序库">模块与程序库</h2>
 <h2 id="正则表达式">正则表达式</h2>
+<p><code>re</code>模块提供了正则表达式匹配操作，正则表达式是一种强大的字符串处理工具，可以用来进行字符串的匹配、替换和分割等操作。</p>
+<p>以下是 <code>re</code>模块的一些主要函数：</p>
+<ul>
+<li>
+<p><code>re.match(pattern, string)</code>：从字符串的开始位置匹配模式，如果在开始位置匹配成功，返回一个匹配对象，否则返回None。</p>
+</li>
+<li>
+<p><code>re.search(pattern, string)</code>：搜索整个字符串，找到第一个匹配的位置，返回一个匹配对象，如果没有找到匹配，返回None。</p>
+</li>
+<li>
+<p><code>re.findall(pattern, string)</code>：返回一个列表，包含字符串中所有匹配的子串。</p>
+</li>
+<li>
+<p><code>re.sub(pattern, repl, string)</code>：将字符串中匹配模式的部分替换为repl，返回替换后的字符串。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 匹配字符串中的数字</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;hello 123 world 456&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 输出 [&#39;123&#39;, &#39;456&#39;]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 替换字符串中的数字为&#39;num&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="s1">&#39;hello 123 world 456&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 输出 &#39;hello num world num&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在正则表达式中，有一些特殊的字符和序列，例如：</p>
+<ul>
+<li><code>\d</code>：匹配任何数字，等价于 <code>[0-9]</code>。</li>
+<li><code>\D</code>：匹配任何非数字字符，等价于 <code>[^0-9]</code>。</li>
+<li><code>\s</code>：匹配任何空白字符，等价于 <code>[\t\n\r\f\v]</code>。</li>
+<li><code>\S</code>：匹配任何非空白字符，等价于 <code>[^\t\n\r\f\v]</code>。</li>
+<li><code>\w</code>：匹配任何字母数字字符，等价于 <code>[a-zA-Z0-9_]</code>。</li>
+<li><code>\W</code>：匹配任何非字母数字字符，等价于 <code>[^a-zA-Z0-9_]</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="biopython使用实例">Biopython使用实例</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
