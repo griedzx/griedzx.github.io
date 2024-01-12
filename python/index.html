@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/python\/"
-        },"genre": "posts","wordcount":  6626 ,
+        },"genre": "posts","wordcount":  7322 ,
         "url": "http:\/\/griedzx.github.io\/python\/","datePublished": "2023-12-29T22:53:14+08:00","dateModified": "2023-12-29T22:53:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">python基础知识复习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6626 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7322 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -220,12 +220,22 @@
     </li>
     <li><a href="#泛函编程迭代器生成器">泛函编程、迭代器、生成器</a>
       <ul>
+        <li><a href="#泛函编程">泛函编程</a></li>
         <li><a href="#迭代器生成器">迭代器、生成器</a></li>
       </ul>
     </li>
     <li><a href="#模块与程序库">模块与程序库</a></li>
-    <li><a href="#正则表达式">正则表达式</a></li>
-    <li><a href="#biopython使用实例">Biopython使用实例</a></li>
+    <li><a href="#正则表达式">正则表达式</a>
+      <ul>
+        <li><a href="#模式匹配符">模式匹配符</a></li>
+        <li><a href="#类别匹配符">类别匹配符</a></li>
+      </ul>
+    </li>
+    <li><a href="#biopython使用实例">Biopython使用实例</a>
+      <ul>
+        <li><a href="#pdb模块">PDB模块</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>python常用知识点复习</p>
@@ -1491,7 +1501,24 @@
 </ul>
 <h3 id="执行函数">执行函数</h3>
 <h2 id="泛函编程迭代器生成器">泛函编程、迭代器、生成器</h2>
-<h3 id="迭代器生成器">迭代器、生成器</h3>
+<h3 id="泛函编程">泛函编程</h3>
+<p>泛函编程是一种编程范式，强调使用函数和避免改变状态。在Python中，你可以使用高阶函数（如 <code>map()</code>、<code>filter()</code>和 <code>reduce()</code>），以及lambda函数来进行泛函编程。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 使用map和lambda函数来对列表中的每个元素加1</span>
+</span></span><span class="line"><span class="cl"><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">nums_plus_one</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nums_plus_one</span><span class="p">))</span>  <span class="c1"># 输出 [2, 3, 4, 5, 6]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="迭代器生成器">迭代器、生成器</h3>
+<p><strong>迭代器</strong> ：迭代器是一个可以记住遍历的位置的对象。迭代器对象必须实现两个方法，<code>__iter__()</code>和 <code>__next__()</code>。你可以使用 <code>next()</code>函数来获取迭代器的下一个元素。例如：</p>
 <p><strong><code>__next__()</code></strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1509,10 +1536,12 @@
 </span></span><span class="line"><span class="cl"><span class="mi">2</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="模块与程序库">模块与程序库</h2>
+</div><p><strong>生成器</strong> ：生成器是一种特殊的迭代器，可以使用 <code>yield</code>语句来生成值。生成器是一种惰性计算的方式，只有在需要下一个值时才会计算。</p>
+<h2 id="模块与程序库">模块与程序库</h2>
 <h2 id="正则表达式">正则表达式</h2>
 <p><code>re</code>模块提供了正则表达式匹配操作，正则表达式是一种强大的字符串处理工具，可以用来进行字符串的匹配、替换和分割等操作。</p>
 <p>以下是 <code>re</code>模块的一些主要函数：</p>
+<div align=center><img src="image/index/1705040979750.png" width="95%"></div>
 <ul>
 <li>
 <p><code>re.match(pattern, string)</code>：从字符串的开始位置匹配模式，如果在开始位置匹配成功，返回一个匹配对象，否则返回None。</p>
@@ -1549,19 +1578,160 @@
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 输出 &#39;hello num world num&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在正则表达式中，有一些特殊的字符和序列，例如：</p>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">some_text</span> <span class="o">=</span> <span class="s2">&#34;alpha.beta....gamma delta&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pat</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;.a&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">match</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">some_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="k">match</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">some_text</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl"><span class="kc">None</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">some_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="k">match</span><span class="o">=</span><span class="s1">&#39;ha&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ha&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">split</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;a.&#39;</span><span class="p">),</span> <span class="n">some_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;ph&#39;</span><span class="p">,</span> <span class="s1">&#39;bet&#39;</span><span class="p">,</span> <span class="s1">&#39;...g&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;delta&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">split</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;a .&#39;</span><span class="p">),</span> <span class="n">some_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;alpha.beta....gamm&#39;</span><span class="p">,</span> <span class="s1">&#39;elta&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">sub</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">some_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;alpb.beb....bmb delb&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="模式匹配符">模式匹配符</h3>
 <ul>
-<li><code>\d</code>：匹配任何数字，等价于 <code>[0-9]</code>。</li>
-<li><code>\D</code>：匹配任何非数字字符，等价于 <code>[^0-9]</code>。</li>
-<li><code>\s</code>：匹配任何空白字符，等价于 <code>[\t\n\r\f\v]</code>。</li>
-<li><code>\S</code>：匹配任何非空白字符，等价于 <code>[^\t\n\r\f\v]</code>。</li>
-<li><code>\w</code>：匹配任何字母数字字符，等价于 <code>[a-zA-Z0-9_]</code>。</li>
-<li><code>\W</code>：匹配任何非字母数字字符，等价于 <code>[^a-zA-Z0-9_]</code>。</li>
+<li><code>.</code>：匹配任何字符（除了换行符）。</li>
+<li><code>^</code>：匹配字符串的开始。</li>
+<li><code>$</code>：匹配字符串的结束。</li>
+<li><code>*</code>：匹配前面的子表达式零次或多次。</li>
+<li><code>+</code>：匹配前面的子表达式一次或多次。</li>
+<li><code>?</code>：匹配前面的子表达式零次或一次。</li>
+<li><code>{n}</code>：匹配前面的子表达式n次。</li>
+<li><code>{n,}</code>：匹配前面的子表达式n次或更多次。</li>
+<li><code>{n,m}</code>：匹配前面的子表达式至少n次，但不超过m次。</li>
 </ul>
-</li>
-</ul>
+<h3 id="类别匹配符">类别匹配符</h3>
+<p><code>\d</code>：匹配任何数字，等价于 <code>[0-9]</code>。</p>
+<p><code>\D</code>：匹配任何非数字字符，等价于 <code>[^0-9]</code>。</p>
+<p><code>\s</code>：匹配任何空白字符，等价于 <code>[\t\n\r\f\v]</code>。</p>
+<p><code>\S</code>：匹配任何非空白字符，等价于 <code>[^\t\n\r\f\v]</code>。</p>
+<p><code>\w</code>：匹配任何字母数字字符，等价于 <code>[a-zA-Z0-9_]</code>。</p>
+<p><code>\W</code>：匹配任何非字母数字字符，等价于 <code>[^a-zA-Z0-9_]</code>。</p>
 <h2 id="biopython使用实例">Biopython使用实例</h2>
-</div><div class="post-footer" id="post-footer">
+<h3 id="pdb模块">PDB模块</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">Bio.PDB</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#查看当前环境中定义了哪些变量、函数和类</span>
+</span></span><span class="line"><span class="cl"><span class="nb">dir</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pdbflname</span> <span class="o">=</span> <span class="s1">&#39;pdb4xb7.ent&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#调用PDBParser()类，创建一个PDBParser对象，解析PDB文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span> <span class="o">=</span> <span class="n">PDBParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">struct</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="n">pdbflname</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">       <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">           <span class="k">for</span> <span class="n">residue</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">               <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">residue</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">                   <span class="nb">print</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                 
+</span></span><span class="line"><span class="cl"><span class="n">atomcord</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span> <span class="n">atomnum</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">       <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">           <span class="k">for</span> <span class="n">residue</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">               <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">residue</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">atomcord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">atom</span><span class="o">.</span><span class="n">get_coord</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">atomcord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">atom</span><span class="o">.</span><span class="n">get_coord</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">atomcord</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">atom</span><span class="o">.</span><span class="n">get_coord</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">                    <span class="n">atomnum</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                                 
+</span></span><span class="line"><span class="cl"><span class="n">geomcenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">atomcord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">atomnum</span><span class="p">,</span> <span class="n">atomcord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">atomnum</span><span class="p">,</span> <span class="n">atomcord</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">atomnum</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;geometric center is:&#39;</span><span class="p">,</span> <span class="n">geomcenter</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

@@ -121,3 +121,55 @@ class example:
 type(object)
 
 eval("(abs(x) for x in [-1,2,-3,4])").__next__()
+
+from re import *
+
+some_text = "alpha.beta....gamma delta"
+
+pat = compile('.a')
+match(pat, some_text)
+
+result = search(pat, some_text);print(result)
+
+result.group()
+
+findall(pat, some_text)
+
+split(compile('a.'), some_text)
+split(compile('a .'), some_text)
+
+sub(pat, 'b', some_text)
+
+
+from Bio.PDB import *
+#查看当前环境中定义了哪些变量、函数和类
+dir()
+
+pdbflname = 'pdb4xb7.ent'
+
+#调用PDBParser()类，创建一个PDBParser对象，解析PDB文件
+parser = PDBParser()
+struct = parser.get_structure('s1', pdbflname)
+
+for model in struct.get_iterator():
+   for chain in model.get_iterator():
+       for chain in model.get_iterator():
+           for residue in chain.get_iterator():
+               for atom in residue.get_iterator():
+                   print(atom)
+                   
+atomcord = [0, 0, 0]; atomnum = 0
+
+for model in struct.get_iterator():
+   for chain in model.get_iterator():
+       for chain in model.get_iterator():
+           for residue in chain.get_iterator():
+               for atom in residue.get_iterator():
+                    atomcord[0] += atom.get_coord()[0]
+                    atomcord[1] += atom.get_coord()[1]
+                    atomcord[2] += atom.get_coord()[2] 
+                    atomnum += 1
+                                   
+geomcenter = (atomcord[0]/atomnum, atomcord[1]/atomnum, atomcord[2]/atomnum)
+
+print('geometric center is:', geomcenter)
