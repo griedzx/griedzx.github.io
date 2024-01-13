@@ -804,7 +804,112 @@ Python中，可以在两个不相干的类中定义同样的方法接口，从�
 * `eval("(abs(x) for x in [-1,2,-3,4])").__next__()`：计算表达式 `(abs(x) for x in [-1,2,-3,4])`，这是一个生成器，它的元素是列表 `[-1,2,-3,4]`的元素的绝对值。`__next__()`方法获取生成器的下一个元素，输出结果为1。
 * `astr = "x**y"; a_scope = {'x': 3, 'y': 4}; eval(astr, a_scope)`：计算表达式 `x**y`，在这个表达式中，`x`和 `y`的值是在 `a_scope`字典中定义的。输出结果为81，这是3的4次方。
 
-### 执行函数
+### 执行函数exec()
+
+`exec(source, [globals, [locals]])`函数可以执行以字符串形式或代码对象给定的Python语句，表达式需要是语句
+
+```python
+>>> exec("print({}.fromkeys(range(2)))") #输出{0: None, 1: None}
+>>> exec("f = lambda x: x**2"); f(3)
+9
+>>> exec("def func(x): return x**2"); func(3)
+9
+>>> astr = "print(x**y)"
+>>> a_scope = {'x': 3, 'y': 4}
+>>> exec(astr, a_scope)
+81
+```
+
+### 代码对象
+
+`compile(source, filename, mode, […])`
+
+* `source`：要编译的源代码。它可以是一个字符串，也可以是一个AST对象。
+* `filename`：源代码的文件名。如果源代码没有来自文件，你可以传递一些可以识别源代码的字符串。
+* `mode`：指定编译代码的模式。它必须是 `'exec'`、`'eval'`或 `'single'`之一。需要搭配 `eval()` `exec()`函数使用
+  * `'exec'`：如果源代码由一系列语句组成，python模块或者文件
+  * `'eval'`：源代码由一个表达式组成
+  * `'single'`：源代码由单个交互式语句组成
+
+```python
+>>> eval_code = compile( '3+4', '', 'eval') #可求值表达式
+>>> eval_code
+<code object <module> at 0000000002C59630, file "", line 1>
+>>> eval(eval_code)
+7
+>>> callable(eval_code) #code对象可执行，但不可调用
+False
+>>> single_code = compile("print('hello world!')",'','single')
+>>> exec(single_code)
+hello world!
+```
+
+```python
+>>> exec_code = compile('', '', 'exec')
+#三引号（'''或"""）定义多行字符
+>>> exec_code = compile('''n = 
+input('Count how many numbers?')
+for i in range(int(n)):
+print(i)
+''', '', 'exec')
+>>> exec(exec_code)
+Count how many numbers?5
+0
+1
+2
+3
+4
+```
+
+### 异常处理
+
+异常是一个事件，表示在程序执行过程中发生了错误。当Python解释器遇到错误时，它会引发一个异常。如果这个异常没有被捕获和处理，程序就会终止。
+
+可以使用 `try/except`语句来捕获和处理异常。`try`块包含可能引发异常的代码，`except`块包含处理异常的代码。例如：
+
+```python
+try:
+    x = 1 / 0  # 这将引发一个ZeroDivisionError
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+```
+
+可以使用 `raise`语句来引发一个异常。可以引发一个内置的异常，也可以定义一个新的异常类并引发它
+
+```python
+class MyException(Exception):
+    pass
+
+try:
+    raise MyException("This is a custom exception")
+except MyException as e:
+    print(e)
+```
+
+`MyException`是一个新的异常类，它继承自内置的 `Exception`类。`raise`语句引发了一个 `MyException`实例，然后 `except`块捕获了这个异常并打印了它的消息。
+
+```python
+#You may copy this line into the console.
+ProSeq = 'MNAPERQPQPDGBBGDAPGHEPGGSPQDELDFSILFDYEYLNPNEEEPNAHKVASPPSOOGPAYPDDVLDYGLKPYSPLASLSGEPPGRFGEPDBRVGPQKFLSAAKPAGASGLSPRIEITPSHELIQAVGPLRMRDAGLLVEQPPLAGVAASPRFTLPVPGFEGYREPLCLSPAXSSGSSASFISDTFSPYTSPCVSPNNGGPUDDLCPQFQNIPAHYSPRTSPIMSPRTSLAEDSCLGRHSPVPRPASRSSSPGAXXXKRRHSCAEALVALPPGASPQRSRSPSPQPSSHVAPQDHGSPAGYPPVAGSAVIMDALNSLATDXSPCGIPPKMWKTXSP'
+
+#The 20 normal amino acids
+AA20 = 'ACDEFGHIKLMNPQRSTVWY'
+
+#### The dict for amino acid numbers ####
+aa_dic = {}
+for a in AA20:
+    aa_dic[a] = 0
+
+#### The try-except clauses ####
+for a in ProSeq:
+    try:
+        aa_dic[a] += 1
+    except KeyError: # or # except:
+        print('Find an abnormal amino acid:', a)
+
+
+print(aa_dic)
+```
 
 ## 泛函编程、迭代器、生成器
 
@@ -821,7 +926,25 @@ print(list(nums_plus_one))  # 输出 [2, 3, 4, 5, 6]
 
 ### 迭代器、生成器
 
-**迭代器** ：迭代器是一个可以记住遍历的位置的对象。迭代器对象必须实现两个方法，`__iter__()`和 `__next__()`。你可以使用 `next()`函数来获取迭代器的下一个元素。例如：
+**迭代器** ：迭代器是一个可以记住遍历的位置的对象。迭代器对象必须实现两个方法，`__iter__()`和 `__next__()`。
+
+```python
+class TestIterator:
+	value = 0
+	def __next__(self):
+		self.value += 1
+		if self.value > 10: 
+			raise StopIteration
+			return self.value
+	def __iter__(self):
+		return self
+ti = TestIterator()
+list(ti)#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+
+
+可以使用 `next()`函数来获取迭代器的下一个元素。例如：
 
 __`__next__()`__
 
@@ -835,7 +958,58 @@ __`__next__()`__
 
 **生成器** ：生成器是一种特殊的迭代器，可以使用 `yield`语句来生成值。生成器是一种惰性计算的方式，只有在需要下一个值时才会计算。
 
+```python
+>>> nested = [[1,2], [3,4], [5]]
+>>> def flatten(nested):
+	for sublist in nested:
+		for element in sublist:
+			yield element
+			#print(element)
+>>> for num in flatten(nested): #逐行输出各个数字
+	print(num)
+>>> list(flatten(nested)) #返回数字列表 [1, 2, 3, 4, 5]
+```
+
 ## 模块与程序库
+
+在Python中，模块和包是用来组织代码的两种主要方式。
+
+**模块** ：模块是一个包含Python代码的.py文件。你可以在一个模块中定义函数、类和变量，然后在其他模块中使用 `import`语句来导入这个模块，使用这些函数、类和变量。例如，如果你有一个名为 `mymodule.py`的文件，你可以使用 `import mymodule`来导入这个模块。
+
+**包** ：包是一个包含多个模块的目录，这个目录必须包含一个 `__init__.py`文件（在Python 3.3及以后的版本中，这个文件可以为空）。你可以使用 `.`来导入包中的模块。例如，如果你有一个名为 `mypackage`的包，这个包中有一个名为 `mymodule`的模块，你可以使用 `import mypackage.mymodule`来导入这个模块。
+
+    ➢`__init__.py`文件中的内容，主要是定义一些全局对象（包括变量、函数、类等），检测系统的运行环境，包括操作系统环境和Python安装程序的版本等信息。
+	➢ __init__.py文件在包被第一次导入时，会被编译成.pyc文件；之后，若无改动，则不再编译，否则，		重新编译。
+
+    使用模块和包可以帮助你组织代码，使代码更易于理解和维护。你可以将相关的代码放在同一个模块中，将相关的模块放在同一个包中。
+
+### 模块
+
+模块的搜索路径可以通过sys.path列表进行查看和修改
+
+```python
+>>> import sys
+>>> print(sys.path)
+['', 'E:\\coding\\Miniforge3\\envs\\dzx\\python310.zip', 'E:\\coding\\Miniforge3\\envs\\dzx\\DLLs', 'E:\\coding\\Miniforge3\\envs\\dzx\\lib', 'E:\\coding\\Miniforge3\\envs\\dzx', 'E:\\coding\\Miniforge3\\envs\\dzx\\lib\\site-packages', 'E:\\coding\\Miniforge3\\envs\\dzx\\lib\\site-packages\\win32', 'E:\\coding\\Miniforge3\\envs\\dzx\\lib\\site-packages\\win32\\lib', 'E:\\coding\\Miniforge3\\envs\\dzx\\lib\\site-packages\\Pythonwin']
+```
+
+可以使用 `sys.path.append("path")`增加模块的搜索路径
+
+### 包 package
+
+程序包，简称“包”，是以文件系统的目录形式组织的***模块的集合***。模块文件所在的目录就是包，前提是包含初始化文件，即名为 `__init__.py`的文件。
+
+### 程序包分类
+
+* Python自带的程序包，也叫标准库（Standard Library），在Python的安装目录下，模块文件分于libs、Lib目录及其子目录中。
+* 第三方写的程序包，即，别人写的、用户可以拿来用的程序包，一般存放在：Python安装目录/Lib/site-packages目录下。
+* 用户自己写的程序包，一般放在当前目录下，或用户目录下，或其他搜索路径可以找到的目录下，比如，Python安装目录/Lib/site-packages目录下。
+
+### 练习
+
+#### time模块
+
+#### random模块
 
 ## 正则表达式
 
@@ -918,9 +1092,64 @@ __`__next__()`__
 
 `\W`：匹配任何非字母数字字符，等价于 `[^a-zA-Z0-9_]`。
 
-
 ## Biopython使用实例
 
+### Bio.Seq
+
+```python
+#从Biopython中引入序列类
+from Bio.Seq import Seq
+
+#生成一个含有A、C、G、T的字符串
+astr = 'ATGAAACGCATTAGCACCACCATTACCACCACCATCACCATTACCACAGGTAACGGTGCGGGCTGA'
+
+#生成一条DNA序列，即，Seq类的一个实例
+dna_seq = Seq(astr)
+
+#查看序列对象
+dna_seq
+print(dna_seq)
+
+#查看DNA序列的第一个字符、最后一个字符、前10个字符
+dna_seq[0]
+dna_seq[-1]
+print(dna_seq[:10])
+
+#把DNA序列当成普通字符串，用循环依次输出其字符
+for a in dna_seq:
+    print(a)
+
+#查看DNA序列对象的属性和方法
+dir(dna_seq)
+
+#计算DNA序列中G的含量
+G_num = dna_seq.count('G')
+print('G content is :', G_num/len(dna_seq))
+
+  
+#得到DNA序列的互补序列
+c_dna_seq = dna_seq.complement()
+c_dna_seq
+
+#得到DNA序列的反向互补序列
+rc_dna_seq = dna_seq.reverse_complement()
+rc_dna_seq
+
+#调用转录方法，得到RNA序列
+rna_seq = dna_seq.transcribe()
+rna_seq
+
+#调用翻译方法，得到Protein序列
+pro_seq = dna_seq.translate()
+pro_seq
+
+#计算蛋白序列中氨基酸T出现的次数
+pro_seq.count('T')
+
+#查看蛋白序列对象的属性和方法
+dir(pro_seq)
+
+```
 
 ### PDB模块
 
@@ -941,7 +1170,7 @@ for model in struct.get_iterator():
            for residue in chain.get_iterator():
                for atom in residue.get_iterator():
                    print(atom)
-                 
+           
 atomcord = [0, 0, 0]; atomnum = 0
 
 for model in struct.get_iterator():
@@ -953,7 +1182,7 @@ for model in struct.get_iterator():
                     atomcord[1] += atom.get_coord()[1]
                     atomcord[2] += atom.get_coord()[2] 
                     atomnum += 1
-                                 
+                           
 geomcenter = (atomcord[0]/atomnum, atomcord[1]/atomnum, atomcord[2]/atomnum)
 
 print('geometric center is:', geomcenter)
