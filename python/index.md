@@ -897,6 +897,104 @@ child.say_goodbye()
 
 Python中，可以在两个不相干的类中定义同样的方法接口，从而实现多态
 
+
+Ø定义分子类（Molecule）作为基类，包含集合elements和weight作为其属性，用初始化函数，将elements初始化为空集，weight初始化为None；定义show_weight方法，该方法用print函数打印输出分子量weight；定义show_elements方法，用print函数打印输出元素集合。
+
+Ø定义AminoAcid类，继承Molecule类，包含composition属性，并初始化为下面的元素字典：{‘C’:
+0, ‘H’: 0, ‘O’: 0, ‘N’: 0, ‘S’: 0}；定义calc_mw方法，根据根据字典的元素组成，计算其分子量（需要用到每种原子的质量，自己去查），并给继承自父类的weight属性赋值；重载show_weight方法，在其中调用calc_mw方法，计算氨基酸的分子量，再调用父类的show_weight方法，打印输出weight值；重载show_elements方法，用元素字典中的非零值的键生成元素集合，再打印输出元素集合。
+
+Ø分别定义亮氨酸（Leucine）、异亮氨酸（Isoleucine）、半胱氨酸（Cysteine）类，均继承自AminoAcid类，在初始化方法中，根据这三种氨基酸的元素组成（这个要自己去查），为其继承来的元素字典的各元素对应赋值；定义show_composition方法，打印输出氨基酸的元素字典；在Leucine类中定义is_isoform方法，接受一个氨基酸对象作为参数，根据氨基酸的元素组成，判断是否为当前氨基酸的同分异构体，返回布尔值（True或者False）。
+
+Ø分别生成Leucine、Isoleucine、Cysteine类的实例leu、iso、cys，通过该实例，调用其show_weight、show_elements、show_composition等方法，查看当前氨基酸的分子量、元素集合、元素字典；通过leu，调用其is_isoform方法，分别以实例iso和cys为参数，查看各自的返回值，以判定是否同分异构体。
+
+```python
+#
+class Molecule:
+    def __init__(self):
+        self.elements = set()
+        self.weight = None
+
+    def show_weight(self):
+        print(self.weight)
+
+    def show_elements(self):
+        print(self.elements)
+
+
+class AminoAcid(Molecule):
+    def __init__(self):
+        super().__init__()
+        self.composition = {'C': 0, 'H': 0, 'O': 0, 'N': 0, 'S': 0}
+
+    def calc_mw(self):
+        self.weight = self.composition['C']*12.01 + self.composition['H']*1.008 + self.composition['O']*16.00 + self.composition['N']*14.01 + self.composition['S']*32.07
+
+    def show_weight(self):
+        self.calc_mw()
+        super().show_weight()
+
+    def show_elements(self):
+        self.elements = {k for k, v in self.composition.items() if v != 0}
+        super().show_elements()
+    
+class Leucine(AminoAcid):
+    def __init__(self):
+        super().__init__()
+        self.composition = {'C': 6, 'H': 13, 'O': 1, 'N': 1, 'S': 0}
+
+    def show_composition(self):
+        print(self.composition)
+
+    def is_isoform(self, other):
+        return self.composition == other.composition
+
+
+class Isoleucine(AminoAcid):
+    def __init__(self):
+        super().__init__()
+        self.composition = {'C': 6, 'H': 13, 'O': 1, 'N': 1, 'S': 0}
+
+    def show_composition(self):
+        print("Isoleucine composition: ", self.composition)
+
+
+class Cysteine(AminoAcid):
+    def __init__(self):
+        super().__init__()
+        self.composition = {'C': 3, 'H': 7, 'O': 2, 'N': 1, 'S': 1}
+
+    def show_composition(self):
+        print("Cysteine composition: ", self.composition)
+
+
+leu = Leucine()
+iso = Isoleucine()
+cys = Cysteine()
+
+print("Leucine weight: ")
+leu.show_weight()
+print("Leucine elements: ")
+leu.show_elements()
+print("Leucine composition: ")
+leu.show_composition()
+print("Is Isoleucine an isoform of Leucine? ", leu.is_isoform(iso))
+print("Is Cysteine an isoform of Leucine? ", leu.is_isoform(cys))
+
+print("Isoleucine weight: ")
+iso.show_weight()
+print("Isoleucine elements: ")
+iso.show_elements()
+print("Isoleucine composition: ")
+iso.show_composition()
+
+print("Cysteine weight: ")
+cys.show_weight()
+print("Cysteine elements: ")
+cys.show_elements()
+print("Cysteine composition: ")
+cys.show_composition()
+```
+
 ## 动态语法、异常处理
 
 ### 求值函数eval()
