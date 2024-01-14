@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/python\/"
-        },"genre": "posts","wordcount":  9593 ,
+        },"genre": "posts","wordcount":  10459 ,
         "url": "http:\/\/griedzx.github.io\/python\/","datePublished": "2023-12-29T22:53:14+08:00","dateModified": "2023-12-29T22:53:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">python基础知识复习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 9593 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 20 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-29">2023-12-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 10459 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 21 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -183,7 +183,11 @@
         <li><a href="#文件操作">文件操作</a></li>
       </ul>
     </li>
-    <li><a href="#函数定义">函数定义</a></li>
+    <li><a href="#函数定义">函数定义</a>
+      <ul>
+        <li><a href="#函数参数">函数参数</a></li>
+      </ul>
+    </li>
     <li><a href="#面对对象编程oop">面对对象编程(OOP)</a>
       <ul>
         <li><a href="#类定义封装与组合">类定义、封装与组合</a>
@@ -216,6 +220,7 @@
       <ul>
         <li><a href="#求值函数eval">求值函数eval()</a></li>
         <li><a href="#执行函数exec">执行函数exec()</a></li>
+        <li><a href="#动态代码生成表达式">动态代码生成（表达式）</a></li>
         <li><a href="#代码对象">代码对象</a></li>
         <li><a href="#异常处理">异常处理</a></li>
       </ul>
@@ -247,7 +252,7 @@
     </li>
     <li><a href="#biopython使用实例">Biopython使用实例</a>
       <ul>
-        <li><a href="#bioseq">Bio.Seq</a></li>
+        <li><a href="#bioseq模块">Bio.Seq模块</a></li>
         <li><a href="#pdb模块">PDB模块</a></li>
       </ul>
     </li>
@@ -347,7 +352,11 @@
 <li>右移（&raquo;）：把&raquo;左边的数据的各二进制位全部右移若干位，左边空出位用0的填充或者用符号位填充，具体情况取决于语言规定。</li>
 </ol>
 <ul>
-<li>码值转换</li>
+<li>
+<p>码值转换</p>
+<p><code>chr(10)</code> 数字编码转换成Unicode字符</p>
+<p><code>ord(&quot;中&quot;)</code> 将Unicode字符转换成数字编码</p>
+</li>
 </ul>
 <h5 id="布尔型">布尔型</h5>
 <ul>
@@ -1126,8 +1135,6 @@
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#This is a demo script for &#34;with&#34; and &#34;file&#34; context manager.</span>
@@ -1150,9 +1157,7 @@
 </span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;DNAfrq.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ofl</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ofl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">#using f-string to format output</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ofl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">A_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">C_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">G_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">T_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done! (^_^)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ofl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">A_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">C_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">G_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">T_frq</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="文件操作">文件操作</h3>
@@ -1162,9 +1167,15 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pass
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">write_sequence_to_file</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">),</span> <span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">10</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -1173,18 +1184,160 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pass
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">split_file_into_parts</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_file_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">output_directory</span><span class="si">}</span><span class="se">\\</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.txt&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">new_file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">new_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">new_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="n">p</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>将拆分的文件合并</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">merge_files</span><span class="p">(</span><span class="n">input_directory</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_directory</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">input_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 <h2 id="函数定义">函数定义</h2>
-<p>pass</p>
+<p>定义函数，读取fasta文件至列表中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">readIntoList</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ifl</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;rt&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iflst</span><span class="o">=</span><span class="n">ifl</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ifl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>   
+</span></span><span class="line"><span class="cl">    <span class="n">iflstlen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">iflst</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seqlist</span><span class="o">=</span><span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aseq</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">titstr</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seqstr</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iflst</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;&gt;&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">titstr</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">seqstr</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">aseq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pretitstr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">aseq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seqstr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">seqlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aseq</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl">                <span class="n">seqstr</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">aseq</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">seqstr</span> <span class="o">+=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pretitstr</span> <span class="o">=</span> <span class="n">titstr</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aseq</span> <span class="o">=</span> <span class="p">[</span><span class="n">titstr</span><span class="p">,</span> <span class="n">seqstr</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">seqlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aseq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">seqlist</span>  
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl"><span class="n">faflname</span> <span class="o">=</span> <span class="s1">&#39;Seqs.fasta&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seqlst</span> <span class="o">=</span> <span class="n">readIntoList</span><span class="p">(</span><span class="n">faflname</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">seqlst</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">15</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">15</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="函数参数">函数参数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">theRestTuple</span><span class="p">,</span> <span class="o">**</span><span class="n">theRestDict</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum is&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="nb">sum</span><span class="p">(</span><span class="n">theRestTuple</span><span class="p">)</span><span class="o">+</span><span class="nb">sum</span><span class="p">(</span><span class="n">theRestDict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">调用</span><span class="err">：</span><span class="n">get_sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>*args</code>和 <code>**kwargs</code>是两种特殊的参数，它们允许你在定义函数时接收任意数量的位置参数和关键字参数。</p>
+<p><code>*args</code>用于收集传递给函数的位置参数，这些参数被打包成一个元组。</p>
+<p><code>**kwargs</code>用于收集传递给函数的关键字参数，这些参数被打包成一个字典。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#变长参数组（元组或字典）：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#非关键字参数（元组）：</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">theRest</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The sum is &#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">theRest</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#调用：&gt;&gt;&gt; get_sum(1,2,3,4)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#关键字参数（字典）：</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">theRest</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The sum is &#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="nb">sum</span><span class="p">(</span><span class="n">theRest</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">调用</span><span class="err">：</span><span class="n">get_sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>逆向使用：在函数调用时,<code>*</code>和 <code>**</code>操作符也可以在函数调用时使用，用于解包序列和字典。</p>
+<p><code>*</code>操作符可以用于解包序列（如列表或元组），<code>**</code>操作符可以用于解包字典。</p>
 <h2 id="面对对象编程oop">面对对象编程(OOP)</h2>
 <p>一切皆对象，每个对象有属性（数据）、方法（行为）</p>
 <p>三个核心概念：封装、继承、多态</p>
@@ -1345,7 +1498,6 @@
 <li>
 <p><code>Dog.__class__</code>: 所属的类型</p>
 </li>
-<li></li>
 <li>
 <p><code>xiaohei.__sizeof__()</code>: 对象内存大小  实例方法</p>
 <div class="highlight"><div class="chroma">
@@ -1502,7 +1654,51 @@
 <h4 id="继承">继承</h4>
 <p>定义子类</p>
 <p><code>super()</code>函数是用来调用父类（超类）的一个方法，即可以在不关心对象具体类型的情况下编写代码，只需要关心对象是否有你需要的方法或属性</p>
-<h4 id="多态">多态</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Parent</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Hello, I&#39;m </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">say_goodbye</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Goodbye, I&#39;m </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个Child对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">child</span> <span class="o">=</span> <span class="n">Child</span><span class="p">(</span><span class="s2">&#34;Tom&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 调用从Parent类继承的say_hello方法</span>
+</span></span><span class="line"><span class="cl"><span class="n">child</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 调用Child类自己的say_goodbye方法</span>
+</span></span><span class="line"><span class="cl"><span class="n">child</span><span class="o">.</span><span class="n">say_goodbye</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="多态">多态</h4>
 <p>多态是指不同的对象可以响应相同的方法调用</p>
 <p>Python中，可以在两个不相干的类中定义同样的方法接口，从而实现多态</p>
 <h2 id="动态语法异常处理">动态语法、异常处理</h2>
@@ -1538,6 +1734,57 @@
 </span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a_scope</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">exec</span><span class="p">(</span><span class="n">astr</span><span class="p">,</span> <span class="n">a_scope</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="mi">81</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="动态代码生成表达式">动态代码生成（表达式）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">funstr</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="n">funstr</span> <span class="o">+=</span> <span class="s1">&#39;sin(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;*x)&#39;</span> <span class="o">+</span> <span class="s1">&#39;+&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">funstr</span> <span class="o">=</span> <span class="n">funstr</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">f_val_lst</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">eval</span><span class="p">(</span><span class="n">funstr</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">f_val_lst</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">126.6596615979565</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">funlst</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#函数列表</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="n">exec</span><span class="p">(</span><span class="s1">&#39;def sin_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;(x): return sin(&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;*x)&#39;</span><span class="p">)</span> <span class="c1">#定义函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">funlst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;sin_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="c1">#把函数名添加为列表元素</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">()</span> <span class="c1">#查看名字空间，看是否存在sin_i形式的函数名</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">funlst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#查看函数列表的第一个元素，看是否是sin_1</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">function</span> <span class="n">sin_1</span> <span class="n">at</span> <span class="mh">0x000000000339BCF8</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">f_val_lst</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">funlst</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">f_val_lst</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">126.6596615979565</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="代码对象">代码对象</h3>
@@ -1790,12 +2037,14 @@
 </div>
 </div><h2 id="模块与程序库">模块与程序库</h2>
 <p>在Python中，模块和包是用来组织代码的两种主要方式。</p>
-<p><strong>模块</strong> ：模块是一个包含Python代码的.py文件。你可以在一个模块中定义函数、类和变量，然后在其他模块中使用 <code>import</code>语句来导入这个模块，使用这些函数、类和变量。例如，如果你有一个名为 <code>mymodule.py</code>的文件，你可以使用 <code>import mymodule</code>来导入这个模块。</p>
-<p><strong>包</strong> ：包是一个包含多个模块的目录，这个目录必须包含一个 <code>__init__.py</code>文件（在Python 3.3及以后的版本中，这个文件可以为空）。你可以使用 <code>.</code>来导入包中的模块。例如，如果你有一个名为 <code>mypackage</code>的包，这个包中有一个名为 <code>mymodule</code>的模块，你可以使用 <code>import mypackage.mymodule</code>来导入这个模块。</p>
-<pre><code>➢`__init__.py`文件中的内容，主要是定义一些全局对象（包括变量、函数、类等），检测系统的运行环境，包括操作系统环境和Python安装程序的版本等信息。
-➢ __init__.py文件在包被第一次导入时，会被编译成.pyc文件；之后，若无改动，则不再编译，否则，		重新编译。
-
-使用模块和包可以帮助你组织代码，使代码更易于理解和维护。你可以将相关的代码放在同一个模块中，将相关的模块放在同一个包中。
+<p><strong>模块</strong></p>
+<p>模块是一个包含Python代码的.py文件。你可以在一个模块中定义函数、类和变量，然后在其他模块中使用 <code>import</code>语句来导入这个模块，使用这些函数、类和变量。例如，如果你有一个名为 <code>mymodule.py</code>的文件，你可以使用 <code>import mymodule</code>来导入这个模块。</p>
+<p><strong>包</strong></p>
+<p>包是一个包含多个模块的目录，这个目录必须包含一个 <code>__init__.py</code>文件（在Python 3.3及以后的版本中，这个文件可以为空）。你可以使用 <code>.</code>来导入包中的模块。例如，如果你有一个名为 <code>mypackage</code>的包，这个包中有一个名为 <code>mymodule</code>的模块，你可以使用 <code>import mypackage.mymodule</code>来导入这个模块。</p>
+<p><code>__init__.py</code>文件中的内容，主要是定义一些全局对象（包括变量、函数、类等），检测系统的运行环境，包括操作系统环境和Python安装程序的版本等信息。</p>
+<p><code>__init__.py</code>文件在包被第一次导入时，会被编译成.pyc文件；之后，若无改动，则不再编译</p>
+<pre><code>使用模块和包可以帮助你组织代码，使代码更易于理解和维护
+可以将相关的代码放在同一个模块中，将相关的模块放在同一个包中。
 </code></pre>
 <h3 id="模块">模块</h3>
 <p>模块的搜索路径可以通过sys.path列表进行查看和修改</p>
@@ -1944,8 +2193,9 @@
 <p><code>\S</code>：匹配任何非空白字符，等价于 <code>[^\t\n\r\f\v]</code>。</p>
 <p><code>\w</code>：匹配任何字母数字字符，等价于 <code>[a-zA-Z0-9_]</code>。</p>
 <p><code>\W</code>：匹配任何非字母数字字符，等价于 <code>[^a-zA-Z0-9_]</code>。</p>
+<div align=center><img src="image/index/1705243772167.png" width="95%"></div>
 <h2 id="biopython使用实例">Biopython使用实例</h2>
-<h3 id="bioseq">Bio.Seq</h3>
+<h3 id="bioseq模块">Bio.Seq模块</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2107,7 +2357,7 @@
 </span></span><span class="line"><span class="cl">           <span class="k">for</span> <span class="n">residue</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
 </span></span><span class="line"><span class="cl">               <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">residue</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
 </span></span><span class="line"><span class="cl">                   <span class="nb">print</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">           
+</span></span><span class="line"><span class="cl">       
 </span></span><span class="line"><span class="cl"><span class="n">atomcord</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span> <span class="n">atomnum</span> <span class="o">=</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
@@ -2119,7 +2369,7 @@
 </span></span><span class="line"><span class="cl">                    <span class="n">atomcord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">atom</span><span class="o">.</span><span class="n">get_coord</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">atomcord</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">atom</span><span class="o">.</span><span class="n">get_coord</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span> 
 </span></span><span class="line"><span class="cl">                    <span class="n">atomnum</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">                           
+</span></span><span class="line"><span class="cl">                       
 </span></span><span class="line"><span class="cl"><span class="n">geomcenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">atomcord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">atomnum</span><span class="p">,</span> <span class="n">atomcord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">atomnum</span><span class="p">,</span> <span class="n">atomcord</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">atomnum</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;geometric center is:&#39;</span><span class="p">,</span> <span class="n">geomcenter</span><span class="p">)</span>

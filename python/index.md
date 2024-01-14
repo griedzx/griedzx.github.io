@@ -64,6 +64,10 @@ Fraction(4, 25)
 
 * 码值转换
 
+  `chr(10)` 数字编码转换成Unicode字符
+
+  `ord("中")` 将Unicode字符转换成数字编码
+
 ##### 布尔型
 
 * `bool()` 求布尔值
@@ -564,33 +568,111 @@ print('T_frq =', T_frq)
 with open('DNAfrq.txt', 'wt') as ofl:
     ofl.write('\t'.join(['A', 'C', 'G', 'T'])+'\n')
     #using f-string to format output
-    ofl.write(f'{A_frq: .3f}\t{C_frq: .3f}\t{G_frq: .3f}\t{T_frq: .3f}\n')
-
-print('done! (^_^)')
-
-
-
-
-
+    ofl.write(f'{A_frq: .3f}\t{C_frq: .3f}\t{G_frq: .3f}\t{T_frq: .3f}\n'
 ```
+
 
 ### 文件操作
 
 1. 序列每十个字符放在一行输出至文件中
 
-   ```
-   pass
+   ```python
+   def write_sequence_to_file(sequence, file_path):
+       with open(file_path, 'w') as f:
+           for i in range(0, len(sequence), 10):
+               f.write(sequence[i:i+10] + '\n')
    ```
 2. 将生成文件每行拆分成一个文件，以数字命名
 
-   ```
-   pass
+   ```python
+   def split_file_into_parts(file_path, output_directory):
+       with open(file_path, 'r') as f:
+           for i, line in enumerate(f, start=1):
+               new_file_path = f"{output_directory}\\{i}.txt"
+               with open(new_file_path, 'w') as new_file:
+                   new_file.write(line)p
    ```
 3. 将拆分的文件合并
 
+   ```python
+   import os
+
+   def merge_files(input_directory, output_file_path):
+       with open(output_file_path, 'w') as output_file:
+           for filename in sorted(os.listdir(input_directory), key=lambda x: int(x.split('.')[0])):
+               file_path = os.path.join(input_directory, filename)
+               with open(file_path, 'r') as input_file:
+                   output_file.write(input_file.read())
+   ```
+
 ## 函数定义
 
-pass
+定义函数，读取fasta文件至列表中：
+
+```python
+def readIntoList(filename):
+    ifl=open(filename,'rt')
+    iflst=ifl.readlines()
+    ifl.close()   
+    iflstlen=len(iflst)
+    seqlist=[]
+    aseq = []
+    titstr = ''
+    seqstr=''
+    for i in iflst:
+        i = i.strip()
+        if i[0]=='>':
+            titstr = i
+            if seqstr!='':
+                aseq.append(pretitstr)
+                aseq.append(seqstr)
+                seqlist.append(aseq)    
+                seqstr = ''
+                aseq = []
+        else:
+            seqstr += i
+            pretitstr = titstr
+    aseq = [titstr, seqstr] 
+    seqlist.append(aseq)
+    return seqlist  
+   
+faflname = 'Seqs.fasta'
+
+seqlst = readIntoList(faflname)
+for s in seqlst:
+    print(s[0][:15], s[1][:15])
+```
+
+### 函数参数
+
+```python
+def get_sum(a, b=2, *theRestTuple, **theRestDict): 
+	print('Sum is', a+b+sum(theRestTuple)+sum(theRestDict.values()) )
+调用：get_sum(1,2,3,4,c=5,d=6)
+```
+
+`*args`和 `**kwargs`是两种特殊的参数，它们允许你在定义函数时接收任意数量的位置参数和关键字参数。
+
+`*args`用于收集传递给函数的位置参数，这些参数被打包成一个元组。
+
+`**kwargs`用于收集传递给函数的关键字参数，这些参数被打包成一个字典。
+
+```python
+#变长参数组（元组或字典）：
+#非关键字参数（元组）：
+def get_sum(a, b=2, *theRest):
+	print('The sum is ', a + b + sum(theRest) )
+#调用：>>> get_sum(1,2,3,4)
+#关键字参数（字典）：
+def get_sum(a, b=2, **theRest):
+	print('The sum is ', a+b+sum(theRest.values()) )
+调用：get_sum(1,2,c=3,d=4)
+```
+
+
+逆向使用：在函数调用时,`*`和 `**`操作符也可以在函数调用时使用，用于解包序列和字典。
+
+`*`操作符可以用于解包序列（如列表或元组），`**`操作符可以用于解包字典。
 
 ## 面对对象编程(OOP)
 
@@ -688,7 +770,6 @@ print(xiaobai.paw)
 * `Dog.__dict__`: 类的所有属性
 * `Dog.__module__`: 类所在模块
 * `Dog.__class__`: 所属的类型
-* 
 * `xiaohei.__sizeof__()`: 对象内存大小  实例方法
 
   ```python
@@ -788,6 +869,28 @@ adog.show_jaw()
 
 `super()`函数是用来调用父类（超类）的一个方法，即可以在不关心对象具体类型的情况下编写代码，只需要关心对象是否有你需要的方法或属性
 
+```python
+class Parent:
+    def __init__(self, name):
+        self.name = name
+
+    def say_hello(self):
+        print(f"Hello, I'm {self.name}")
+
+class Child(Parent):
+    def say_goodbye(self):
+        print(f"Goodbye, I'm {self.name}")
+
+# 创建一个Child对象
+child = Child("Tom")
+
+# 调用从Parent类继承的say_hello方法
+child.say_hello()
+
+# 调用Child类自己的say_goodbye方法
+child.say_goodbye()
+```
+
 #### 多态
 
 多态是指不同的对象可以响应相同的方法调用
@@ -818,6 +921,35 @@ Python中，可以在两个不相干的类中定义同样的方法接口，从�
 >>> a_scope = {'x': 3, 'y': 4}
 >>> exec(astr, a_scope)
 81
+```
+
+### 动态代码生成（表达式）
+
+```python
+>>> from math import sin
+>>> funstr = ''
+>>> for i in range(1,100):
+funstr += 'sin(' + str(i) + '*x)' + '+'
+>>> funstr = funstr.rstrip('+')
+>>> f_val_lst = map(lambda x: eval(funstr), range(100))
+>>> sum(f_val_lst)
+126.6596615979565
+```
+
+
+
+```python
+>>> from math import sin
+>>> funlst = [] #函数列表
+>>> for i in range(1,100):
+exec('def sin_'+str(i)+'(x): return sin('+str(i)+'*x)') #定义函数
+funlst.append(eval('sin_'+str(i))) #把函数名添加为列表元素
+>>> dir() #查看名字空间，看是否存在sin_i形式的函数名
+>>> funlst[0] #查看函数列表的第一个元素，看是否是sin_1
+<function sin_1 at 0x000000000339BCF8>
+>>> f_val_lst = [sum(map(lambda y: y(i), funlst)) for i in range(100)]
+>>> sum(f_val_lst)
+126.6596615979565
 ```
 
 ### 代码对象
@@ -942,8 +1074,6 @@ ti = TestIterator()
 list(ti)#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-
-
 可以使用 `next()`函数来获取迭代器的下一个元素。例如：
 
 __`__next__()`__
@@ -974,14 +1104,20 @@ __`__next__()`__
 
 在Python中，模块和包是用来组织代码的两种主要方式。
 
-**模块** ：模块是一个包含Python代码的.py文件。你可以在一个模块中定义函数、类和变量，然后在其他模块中使用 `import`语句来导入这个模块，使用这些函数、类和变量。例如，如果你有一个名为 `mymodule.py`的文件，你可以使用 `import mymodule`来导入这个模块。
+**模块**
 
-**包** ：包是一个包含多个模块的目录，这个目录必须包含一个 `__init__.py`文件（在Python 3.3及以后的版本中，这个文件可以为空）。你可以使用 `.`来导入包中的模块。例如，如果你有一个名为 `mypackage`的包，这个包中有一个名为 `mymodule`的模块，你可以使用 `import mypackage.mymodule`来导入这个模块。
+模块是一个包含Python代码的.py文件。你可以在一个模块中定义函数、类和变量，然后在其他模块中使用 `import`语句来导入这个模块，使用这些函数、类和变量。例如，如果你有一个名为 `mymodule.py`的文件，你可以使用 `import mymodule`来导入这个模块。
 
-    ➢`__init__.py`文件中的内容，主要是定义一些全局对象（包括变量、函数、类等），检测系统的运行环境，包括操作系统环境和Python安装程序的版本等信息。
-	➢ __init__.py文件在包被第一次导入时，会被编译成.pyc文件；之后，若无改动，则不再编译，否则，		重新编译。
+**包**
 
-    使用模块和包可以帮助你组织代码，使代码更易于理解和维护。你可以将相关的代码放在同一个模块中，将相关的模块放在同一个包中。
+包是一个包含多个模块的目录，这个目录必须包含一个 `__init__.py`文件（在Python 3.3及以后的版本中，这个文件可以为空）。你可以使用 `.`来导入包中的模块。例如，如果你有一个名为 `mypackage`的包，这个包中有一个名为 `mymodule`的模块，你可以使用 `import mypackage.mymodule`来导入这个模块。
+
+ `__init__.py`文件中的内容，主要是定义一些全局对象（包括变量、函数、类等），检测系统的运行环境，包括操作系统环境和Python安装程序的版本等信息。
+
+`__init__.py`文件在包被第一次导入时，会被编译成.pyc文件；之后，若无改动，则不再编译
+
+    使用模块和包可以帮助你组织代码，使代码更易于理解和维护
+    可以将相关的代码放在同一个模块中，将相关的模块放在同一个包中。
 
 ### 模块
 
@@ -1092,9 +1228,11 @@ __`__next__()`__
 
 `\W`：匹配任何非字母数字字符，等价于 `[^a-zA-Z0-9_]`。
 
+<div align=center><img src="image/index/1705243772167.png" width="95%"></div>
+
 ## Biopython使用实例
 
-### Bio.Seq
+### Bio.Seq模块
 
 ```python
 #从Biopython中引入序列类
@@ -1170,7 +1308,7 @@ for model in struct.get_iterator():
            for residue in chain.get_iterator():
                for atom in residue.get_iterator():
                    print(atom)
-           
+       
 atomcord = [0, 0, 0]; atomnum = 0
 
 for model in struct.get_iterator():
@@ -1182,7 +1320,7 @@ for model in struct.get_iterator():
                     atomcord[1] += atom.get_coord()[1]
                     atomcord[2] += atom.get_coord()[2] 
                     atomnum += 1
-                           
+                       
 geomcenter = (atomcord[0]/atomnum, atomcord[1]/atomnum, atomcord[2]/atomnum)
 
 print('geometric center is:', geomcenter)
