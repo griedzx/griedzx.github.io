@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>生物信息原理复习 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="生物信息原理复习" />
-<meta property="og:description" content="测序技术 代表 测序基础 优点 缺点 一代测序 sanger(合成终止测序) ddNTP为测序反应的链终止剂 准确率高 读长较长 可达1000bp 电泳分离速度低" />
+<meta property="og:description" content="人类基因组计划（HGP） 目标：整体上破解人类遗传信息的奥秘 测序数据：30亿个碱基对，2~3万个基因，约3个G 四个图：遗传图、物理图、序列图、" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://griedzx.github.io/intro/" /><meta property="og:image" content="http://griedzx.github.io/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-01-11T23:49:14+08:00" />
@@ -13,7 +13,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="http://griedzx.github.io/logo.png" /><meta name="twitter:title" content="生物信息原理复习"/>
-<meta name="twitter:description" content="测序技术 代表 测序基础 优点 缺点 一代测序 sanger(合成终止测序) ddNTP为测序反应的链终止剂 准确率高 读长较长 可达1000bp 电泳分离速度低"/>
+<meta name="twitter:description" content="人类基因组计划（HGP） 目标：整体上破解人类遗传信息的奥秘 测序数据：30亿个碱基对，2~3万个基因，约3个G 四个图：遗传图、物理图、序列图、"/>
 <meta name="twitter:site" content="@xxxx"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/intro\/"
-        },"genre": "posts","wordcount":  6849 ,
+        },"genre": "posts","wordcount":  7164 ,
         "url": "http:\/\/griedzx.github.io\/intro\/","datePublished": "2024-01-11T23:49:14+08:00","dateModified": "2024-01-11T23:49:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">生物信息原理复习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-11">2024-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6849 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-11">2024-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7164 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -231,7 +231,23 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="测序技术">测序技术</h2>
+            </div><div class="content" id="content"><p><strong>人类基因组计划（HGP）</strong></p>
+<p>目标：整体上破解人类遗传信息的奥秘</p>
+<p>测序数据：30亿个碱基对，2~3万个基因，约3个G</p>
+<p>四个图：遗传图、物理图、序列图、基因图</p>
+<h2 id="测序技术">测序技术</h2>
+<p>sanger测序步骤</p>
+<ol>
+<li>分离待测核酸样本</li>
+<li>在反应体系中加入适当引物、模板、DNA聚合酶、dNTP、带荧光标记的ddNTP</li>
+<li>DNA合成</li>
+<li>凝胶电泳分离反应产物</li>
+<li>放影自显影</li>
+</ol>
+<p>Illumina</p>
+<p>在小型芯片上进行桥式PCR反应,每次只合成一个碱基，并标记荧光基团,再利用相应的激光激发荧光基团，捕获激发光，从而读碱基信息</p>
+<p>可以很好解决同聚物长度的准确测量问题</p>
+<p>碱基的替换会造成测序错误且读取序列较短给de novo sequencing拼接带来困难</p>
 <table>
 <thead>
 <tr>
@@ -259,8 +275,8 @@
 </tr>
 <tr>
 <td>三代测序</td>
-<td>PacBio-SMRT </td>
-<td>单分子测序技术</td>
+<td>PacBio-SMRT<br />Oxford-Nanopore</td>
+<td>单分子测序技术<br />DNA聚合酶和模板结合,4色荧光标记 4 种碱基<br />在碱基配对阶段,不同碱基的加入,会发出不同光</td>
 <td>读长较长，减少拼接成本<br />降低内存和计算时间<br />原理长避免pcr扩增引入错误</td>
 <td>依赖DNA聚合酶活性<br />成本昂贵</td>
 </tr>
@@ -378,6 +394,14 @@
 </ul>
 <h3 id="pssm">PSSM</h3>
 <h3 id="信息熵">信息熵</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/intro/image/index/1705591131715.png"
+        data-srcset="/intro/image/index/1705591131715.png, /intro/image/index/1705591131715.png 1.5x, /intro/image/index/1705591131715.png 2x"
+        data-sizes="auto"
+        alt="/intro/image/index/1705591131715.png"
+        title="1705591131715" width="721" height="83" /></p>
 <h3 id="重测序">重测序</h3>
 <p>重测序分析是对已知基因组序列的物种进行DNA测序，并在此基础上完成个体或群体基因组层面上的分析。</p>
 <h2 id="序列拼接基因组装和短序列比对">序列拼接（基因组装）和短序列比对</h2>
