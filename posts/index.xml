@@ -5,12 +5,12 @@
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
             <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 11 Jan 2024 23:49:14 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>习题</title>
+    <title>生物信息原理复习</title>
     <link>http://griedzx.github.io/intro/</link>
     <pubDate>Thu, 11 Jan 2024 23:49:14 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/intro/</guid>
-    <description><![CDATA[数据库 TrEMBL是自动化翻译获得的蛋白质数据库，不含二级结构信息 双序列比对 打分矩阵的构建以及异同 PAM-n中，n 越小，表示氨基酸变异的可能]]></description>
+    <description><![CDATA[测序技术 代表 优点 缺点 一代测序 sanger(合成终止测序) 准确率高 读长较长 分离速度低 成本难以降低 二代测序 较一代测序 降低成本 准确率较高 测序时间较]]></description>
 </item>
 <item>
     <title>python基础知识复习</title>
