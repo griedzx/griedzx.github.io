@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>习题 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:title" content="习题" />
+<meta property="og:description" content="数据库 TrEMBL是自动化翻译获得的蛋白质数据库，不含二级结构信息 双序列比对 打分矩阵的构建以及异同 PAM-n中，n 越小，表示氨基酸变异的可能" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://griedzx.github.io/intro/" /><meta property="og:image" content="http://griedzx.github.io/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-11T23:49:14+08:00" />
+<meta property="article:modified_time" content="2024-01-11T23:49:14+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png" /><meta name="twitter:title" content="习题"/>
+<meta name="twitter:description" content="数据库 TrEMBL是自动化翻译获得的蛋白质数据库，不含二级结构信息 双序列比对 打分矩阵的构建以及异同 PAM-n中，n 越小，表示氨基酸变异的可能"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/intro/" /><link rel="prev" href="http://griedzx.github.io/python/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "习题",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/intro\/"
+        },"genre": "posts","wordcount":  3737 ,
+        "url": "http:\/\/griedzx.github.io\/intro\/","datePublished": "2024-01-11T23:49:14+08:00","dateModified": "2024-01-11T23:49:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">习题</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-11">2024-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3737 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据库">数据库</a></li>
+    <li><a href="#双序列比对">双序列比对</a>
+      <ul>
+        <li><a href="#打分矩阵的构建以及异同">打分矩阵的构建以及异同</a></li>
+        <li><a href="#blast比对">BLAST比对</a>
+          <ul>
+            <li><a href="#基本原理">基本原理</a></li>
+          </ul>
+        </li>
+        <li><a href="#pssm">PSSM</a></li>
+        <li><a href="#信息熵">信息熵</a></li>
+      </ul>
+    </li>
+    <li><a href="#序列拼接基因组装和短序列比对">序列拼接（基因组装）和短序列比对</a>
+      <ul>
+        <li><a href="#如何获得全基因组组装的序列">如何获得全基因组（组装）的序列</a></li>
+        <li><a href="#基因组序列组装的主要步骤">基因组序列组装的主要步骤</a></li>
+        <li><a href="#二三代测序数据在组装中的应用和各自优势">二、三代测序数据在组装中的应用和各自优势</a></li>
+        <li><a href="#基于三代长片段测序数据的从头组装流程">基于三代长片段测序数据的从头组装流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#隐马科夫模型hmm和基因组注释">隐马科夫模型（HMM）和基因组注释</a></li>
+    <li><a href="#基因定位和全基因组关联分析">基因定位和全基因组关联分析</a>
+      <ul>
+        <li><a href="#qtl">QTL</a>
+          <ul>
+            <li><a href="#qtl定位原理">QTL定位原理</a></li>
+            <li><a href="#qtl基本步骤">QTL基本步骤</a></li>
+            <li><a href="#lod值与阈值确定">LOD值与阈值确定</a>
+              <ul>
+                <li><a href="#lod">LOD</a></li>
+              </ul>
+            </li>
+            <li><a href="#lod置信区间">LOD置信区间</a></li>
+            <li><a href="#显著性阈值的确定">显著性阈值的确定</a></li>
+          </ul>
+        </li>
+        <li><a href="#permutation-test">Permutation test</a></li>
+        <li><a href="#gwas">GWAS</a>
+          <ul>
+            <li><a href="#原理">原理</a></li>
+            <li><a href="#优点">优点</a></li>
+          </ul>
+        </li>
+        <li><a href="#缺点">缺点</a>
+          <ul>
+            <li><a href="#群体结构">群体结构</a></li>
+            <li><a href="#混合线性模型">混合线性模型</a></li>
+            <li><a href="#亲缘关系矩阵kinship">亲缘关系矩阵（Kinship）</a></li>
+            <li><a href="#ld-连锁不平衡">LD 连锁不平衡</a></li>
+            <li><a href="#曼哈顿图--qq-plot">曼哈顿图 &amp; QQ-plot</a></li>
+          </ul>
+        </li>
+        <li><a href="#缺失基因型填补">缺失基因型填补</a></li>
+        <li><a href="#决定gwas和qtl定位精度的因素">决定GWAS和QTL定位精度的因素</a></li>
+      </ul>
+    </li>
+    <li><a href="#基因芯片和表达谱分析"><strong>基因芯片和表达谱分析</strong></a>
+      <ul>
+        <li><a href="#差异表达分析">差异表达分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#蛋白质结构和功能预测">蛋白质结构和功能预测</a>
+      <ul>
+        <li><a href="#蛋白质结构">蛋白质结构</a></li>
+        <li><a href="#二级结构预测">二级结构预测</a>
+          <ul>
+            <li><a href="#预测方法">预测方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#三级结构预测方法">三级结构预测方法</a></li>
+        <li><a href="#膜蛋白"><strong>膜蛋白</strong></a></li>
+        <li><a href="#糖基化修饰">糖基化修饰</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="数据库">数据库</h2>
+<p>TrEMBL是自动化翻译获得的蛋白质数据库，不含二级结构信息</p>
+<h2 id="双序列比对">双序列比对</h2>
+<h3 id="打分矩阵的构建以及异同">打分矩阵的构建以及异同</h3>
+<p>PAM-n中，n 越小，表示氨基酸变异的可能性越小；相似的序列之间比较应该选用n值小的矩阵，不太相似的序列之间比较应该选用n值大的矩阵（PAM-250用于约20%相同序列之间的比较）。</p>
+<p>BLOSUM-n中，n越小，表示氨基酸相似的可能性越小；相似的序列之间比较应该选用 n 值大的矩阵，不太相似的序列之间比较应该选用n值小的矩阵（BLOSUM62用于约62%相同序列之间的比较）</p>
+<ul>
+<li>一致性(identity)：两条序列在同一位点上的核苷酸或者氨基酸残基完全相同</li>
+<li>同源性(homoogy)：两条序列存在进化方面的关系，它们从一条共同的祖先序列进化而来。同源可以分为直系同源和旁系同源</li>
+<li>相似性：两条序列在同一位点上的氨基酸残基的化学性质相似。相似性可以用百分比描述，但同源性不可以</li>
+</ul>
+<h3 id="blast比对">BLAST比对</h3>
+<h4 id="基本原理">基本原理</h4>
+<ol>
+<li>为序列A构建一个k-mer/k-tuple哈希表</li>
+<li>扫描序列B，找到hits(比对后得分大于t的片段)</li>
+<li>扩展hits(使用SW算法扩展高得分片段对HSPS，这些片段的分值不会因为片段的延申而进一步升高)</li>
+</ol>
+<h3 id="pssm">PSSM</h3>
+<h3 id="信息熵">信息熵</h3>
+<h2 id="序列拼接基因组装和短序列比对">序列拼接（基因组装）和短序列比对</h2>
+<h3 id="如何获得全基因组组装的序列">如何获得全基因组（组装）的序列</h3>
+<ul>
+<li>BAC by BAC</li>
+</ul>
+<h3 id="基因组序列组装的主要步骤">基因组序列组装的主要步骤</h3>
+<h3 id="二三代测序数据在组装中的应用和各自优势">二、三代测序数据在组装中的应用和各自优势</h3>
+<h3 id="基于三代长片段测序数据的从头组装流程">基于三代长片段测序数据的从头组装流程</h3>
+<h2 id="隐马科夫模型hmm和基因组注释">隐马科夫模型（HMM）和基因组注释</h2>
+<p>学习问题：向前向后算法（EM）</p>
+<p>原核生物和真核生物基因组的特点及异同</p>
+<p>对基因预测影响</p>
+<h2 id="基因定位和全基因组关联分析">基因定位和全基因组关联分析</h2>
+<p>QTL,数量性状:在一个群体内表现为连续变异的形状，相对性状间没有质的差异</p>
+<p>分子标记：以个体间遗传物质的核苷酸序列变异为基础的遗传标记，优点在于不变，稳定可靠以及数量丰富</p>
+<ul>
+<li>southern杂交</li>
+<li>PCR扩增</li>
+<li>单核苷酸多态性</li>
+</ul>
+<h3 id="qtl">QTL</h3>
+<p>代表染色体上影响数量性状的某个区段，区段内可能有一个甚至多个影响数量性状的功能基因</p>
+<h4 id="qtl定位原理">QTL定位原理</h4>
+<p>当标记和控制特定性状基因连锁时，不同标记基因型的表型值存在显著差异，通过表型与标记间关联分析，来确定控制数量性状的基因在染色体上的位置和效应</p>
+<pre><code>目的：定位影响数量性状的功能基因
+</code></pre>
+<h4 id="qtl基本步骤">QTL基本步骤</h4>
+<ol>
+<li>分离世代群体建立</li>
+<li>遗传标记检测和表型测定</li>
+<li>QTL统计分析
+<ol>
+<li>单标记分析</li>
+<li>区间作图法</li>
+<li>复合区间作图法</li>
+</ol>
+</li>
+<li>候选基因鉴定</li>
+</ol>
+<h4 id="lod值与阈值确定">LOD值与阈值确定</h4>
+<h5 id="lod">LOD</h5>
+<p>log10(L1/L0)，L1是该位点有QTL的概率，L0是该位点无QTL的概率。如果LOD=2，则意味着这个位点有QTL的概率是无QTL的概率的10^2倍。</p>
+<h4 id="lod置信区间">LOD置信区间</h4>
+<p>QTL定位的结果是1个LOD值在染色体上变化的波形图，QTL区域的LOD值会形成一个信号峰，功能基因通常是位于这个区间内</p>
+<pre><code>为了便于后续研究中筛选候选基因，我们通常会设置一个范围筛选候选基因。一般经验值会使用2-LOD置信区间
+</code></pre>
+<p>2-LOD置信区间就是LOD波动曲线从峰的最大值降低2的时候(Y轴), 对应在遗传图谱上跨越的区域(X轴)。2-LOD置信区间大概对应99.8%的置信区间，即功能基因有99.8%概率已经落在这个区域内了</p>
+<h4 id="显著性阈值的确定">显著性阈值的确定</h4>
+<h3 id="permutation-test">Permutation test</h3>
+<p>无放回的数据重复抽样方法</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/intro/image/index/1705562660054.png"
+        data-srcset="/intro/image/index/1705562660054.png, /intro/image/index/1705562660054.png 1.5x, /intro/image/index/1705562660054.png 2x"
+        data-sizes="auto"
+        alt="/intro/image/index/1705562660054.png"
+        title="1705562660054" width="895" height="569" /></p>
+<p>不做permutation test时可以用人为给定的阈值：LOD &gt; 2-3</p>
+<h3 id="gwas">GWAS</h3>
+<h4 id="原理">原理</h4>
+<p>SNP与表型的相关联，如果SNP与表现型两个维度协同变化，就可以推测这个SNP位点极有可能与表型相关</p>
+<h4 id="优点">优点</h4>
+<ol>
+<li><strong>标记密度高</strong>，理论上可获得群体中所有的变异，并能利用历史上的重组，因而具有较高的定位精度</li>
+<li><strong>具有丰富的变异</strong>，与人工构建的群体变异来源两个或少数几个亲本相比，自然群体中的变异来自于几百上千乃至数十万的个体</li>
+<li><strong>快速简便</strong>，无需构建群体耗时</li>
+</ol>
+<h3 id="缺点">缺点</h3>
+<ol>
+<li>标记数目多，运算量较大</li>
+<li>较复杂的遗传背景，造成较高的假阳性和假阴性</li>
+<li>不同频率的变异检出效率不同，只能检出常见变异</li>
+</ol>
+<h4 id="群体结构">群体结构</h4>
+<p>由于个体之间非随机交配而导致的群体中亚群之间等位基因频率的系统差异。即：存在大量物理位置上离得远的LD位点</p>
+<p>影响：由于等位基因频率在亚群中可能不同，因此群体分层可能导致假阳性关联，会降低克隆基因定位的精度</p>
+<h4 id="混合线性模型">混合线性模型</h4>
+<p>在方差分析模型中既包括固定效应，还包括随机效应的模型</p>
+<p>GWAS使用混合线性模型：</p>
+<p>一般的简单线性模型只能分析表型受某一基因影响，但实际上大多数表型都受到许多不同的基因影响。</p>
+<ul>
+<li>混合线性模型添加了<strong>随机效应</strong>以校正遗传背景，能判断表型受多个基因影响，更符合多基因假说。</li>
+<li>混合线性模型通过<strong>校正群体结构和群体内复杂的亲缘关系</strong>来分析标记和表型的相关性，有效控制人口结构和近交效应的影响</li>
+</ul>
+<h4 id="亲缘关系矩阵kinship">亲缘关系矩阵（Kinship）</h4>
+<p>量化群体结构的矩阵，用来校正群体内复杂的亲缘关系</p>
+<p>(1)控制人口结构和近交效应</p>
+<p>(2)估计随机效应</p>
+<p>(3)处理缺失数据</p>
+<h4 id="ld-连锁不平衡">LD 连锁不平衡</h4>
+<p>群体中不同位点的等位基因间的非随机关联现象</p>
+<pre><code>连锁是指位于同一染色体上的基因具有一起遗传的倾向（物理上接近）
+
+连锁不平衡（LD）是指分属两个或两个以上基因座位的等位基因同时出现的几率，高于随机出现的频率
+
+LD（不一定物理上接近，不同染色体上的位点由于遗传漂变等可产生连锁不平衡）
+</code></pre>
+<h4 id="曼哈顿图--qq-plot">曼哈顿图 &amp; QQ-plot</h4>
+<p>曼哈顿图</p>
+<p>GWAS分析之后的所有SNP位点的p-value在整个基因组上展示出来，一般Y轴使用-log10(p-value)，Y轴的高度就对应了表型和位点的关联程度。Y轴值越大，p-value越小，位点和表型的关联程度越大。</p>
+<p>qq-plot</p>
+<p>评估GWAS结果中的关联统计量是否偏离了预期的分布</p>
+<p>因为可能存在自然选择和遗传漂变导致基因位点突变。如果不存在突变情况，则p-value的分布和均匀分布结果应该集中在同一条直线上；如果存在突变，那么当p-value越小时两种概率分布的分离程度越高，QQ图会翘起来。</p>
+<h3 id="缺失基因型填补">缺失基因型填补</h3>
+<p>基因型缺失一般分为两种，</p>
+<ul>
+<li>遗传性缺失：个体遗传信息的变异（例如，位点DNA片段真实缺失）导致的基因型缺失，</li>
+<li>检测性缺失：由于检测技术的局限、错误等导致的信息丢失，</li>
+</ul>
+<p>基于参考群体已有的基因型，预测目标个体未进行基因分型的位点的基因型</p>
+<h3 id="决定gwas和qtl定位精度的因素">决定GWAS和QTL定位精度的因素</h3>
+<p><strong>最根本的因素：重组事件的数目：重组事件越多，最小重组片段越小，定位精度越高</strong></p>
+<p>可推及的其他因素：</p>
+<ul>
+<li>分级标记的密度：当分子标记数比重组事件多时才能更好的检出重组</li>
+<li>群体大小：群体越大包含的重组事件越多</li>
+<li>群体结构：群体隔离与自然选择都会降低重组率</li>
+<li>群体的类型：不同的群体重组率差别很大，是否有杂合基因型也有影响</li>
+<li>表型的遗传率和测量误差以及检测方法</li>
+<li>模型的选择（线性模型/混合模型）</li>
+<li>位点之间是否存在复杂的互作</li>
+</ul>
+<h2 id="基因芯片和表达谱分析"><strong>基因芯片和表达谱分析</strong></h2>
+<h3 id="差异表达分析">差异表达分析</h3>
+<p>多重检验假设</p>
+<h2 id="蛋白质结构和功能预测">蛋白质结构和功能预测</h2>
+<h3 id="蛋白质结构">蛋白质结构</h3>
+<ul>
+<li>一级结构：氨基酸的排列顺序</li>
+<li>二级结构：主要由氢键维系的结果（α-helix、β-sheet、转角、环、无规则卷）</li>
+<li>三级结构：二级结构进一步折叠形成的结构域</li>
+<li>四级结构：多个亚基之间的空间结构</li>
+</ul>
+<h3 id="二级结构预测">二级结构预测</h3>
+<ul>
+<li>每一段相邻的氨基酸残基具有形成一定二级结构的倾向</li>
+<li>各种二级结构非均匀分布在蛋白质中</li>
+<li>二级结构预测问题时模式分类问题</li>
+</ul>
+<h4 id="预测方法">预测方法</h4>
+<p>第一代：统计学方法</p>
+<p>1.基于单个氨基酸残基统计分析</p>
+<p>根据每种氨基酸出现在各种二级结构中倾向或者频率是不同的，通过统计分析，获得的<strong>每个残基出现于特定二级结构构象的倾向性因子</strong>利用倾向性因子预测蛋白质的二级结构</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/intro/image/index/1705568602644.png"
+        data-srcset="/intro/image/index/1705568602644.png, /intro/image/index/1705568602644.png 1.5x, /intro/image/index/1705568602644.png 2x"
+        data-sizes="auto"
+        alt="/intro/image/index/1705568602644.png"
+        title="1705568602644" width="878" height="566" /></p>
+<p>2.基于氨基酸片段的统计分析（GOR）</p>
+<p>如通过疏水氨基出现的周期性规律预测蛋白质的二级结构</p>
+<ul>
+<li>当在一段序列中发现第i，i+3，i+4是疏水氨基酸时，这一片段可以被预测为α-helix</li>
+<li>埋藏的β-sheet通常由连续的疏水残基组成，一侧暴露的β-sheet通常由亲水-疏水的两残基重复模式</li>
+</ul>
+<p>第二代：基于立体化学原则的物理化学方法——Lim法</p>
+<p>第三代：神经网络与人工智能</p>
+<p>**
+运用了长程信息和蛋白质序列的进化信息**</p>
+<h3 id="三级结构预测方法">三级结构预测方法</h3>
+<ol>
+<li><em><strong>同源建模法（homology modeling）</strong></em>
+<ul>
+<li>也称为比较建模法，是一种基于知识的蛋白质结构预测方法</li>
+<li>根据对蛋白质结构数据库PDB中的蛋白质结构比较分析研究得知，<strong>任何一对蛋白质，只要它们序列的长度达到一定程度，序列相似性超过30%，就可以保证他们具有相似的三维结构</strong></li>
+<li>主要步骤：模版搜寻、序列比对、结构保守区寻找、目标模型搭建、结构优化和评估</li>
+</ul>
+</li>
+<li><em><strong>折叠识别法（fold recognition）</strong></em>
+<ul>
+<li>蛋白质结构分类可以包括不同层次（ <strong>折叠类型</strong> 、拓扑结构、家族、超家族、结构域、二级结构、超二级结构）</li>
+</ul>
+</li>
+<li><em><strong>从头预测法（ab initio prediction）</strong></em>
+<ul>
+<li>从蛋白质的一级结构出发，根据物理化学、量子化学、量子物理的基本原理，利用各种理论方法计算蛋白质肽链所有可能构象的能量，然后从中找到能量最低的构象，作为蛋白质的天然构象</li>
+<li>组成部分
+<ul>
+<li>表示蛋白质几何结构的方法</li>
+<li>能量函数及其参数，或者一个合理的构象得分函数，以便计算各种构象的能量</li>
+<li>构象空间搜索技术：对构象空间进行快速搜索，找到全局最小能量相对应的构象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="膜蛋白"><strong>膜蛋白</strong></h3>
+<ul>
+<li>整合膜蛋白 （跨膜膜蛋白）</li>
+<li>锚定蛋白</li>
+<li>外周蛋白</li>
+</ul>
+<h3 id="糖基化修饰">糖基化修饰</h3>
+<p>先决条件：信号肽序列</p>
+<p>特征：</p>
+<ul>
+<li>20-35 AA</li>
+<li>富含疏水氨基酸片段</li>
+<li>至少含有一个带正电荷的氨基酸</li>
+</ul>
+<p>糖苷键类型：</p>
+<ul>
+<li>O—糖苷键类型：丝氨酸、苏氨酸、羟赖氨酸、羟脯氨酸</li>
+<li>N—糖苷键类型：天冬酰胺、赖氨酸、精氨酸</li>
+<li>脂糖苷键：天冬氨酸、谷氨酸</li>
+<li>糖肽键：半胱氨酸</li>
+</ul>
+<p>训练预测蛋白质亚细胞定位的模型需要标注数据，数据来源于Swiss-prot</p>
+<p>训练预测蛋白质三维结构的模型需要标注数据，数据来源于PDB</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-01-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/intro/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/intro/" data-title="习题" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/intro/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/intro/" data-title="习题"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/intro/" data-title="习题"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/intro/" data-title="习题"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/python/" class="prev" rel="prev" title="python基础知识复习"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>python基础知识复习</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

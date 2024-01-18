@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 11 Jan 2024 23:49:14 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>习题</title>
+    <link>http://griedzx.github.io/intro/</link>
+    <pubDate>Thu, 11 Jan 2024 23:49:14 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/intro/</guid>
+    <description><![CDATA[数据库 TrEMBL是自动化翻译获得的蛋白质数据库，不含二级结构信息 双序列比对 打分矩阵的构建以及异同 PAM-n中，n 越小，表示氨基酸变异的可能]]></description>
+</item>
+<item>
     <title>python基础知识复习</title>
     <link>http://griedzx.github.io/python/</link>
     <pubDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
     <description><![CDATA[通过vscode的remote-ssh插件可以在vscode上远程登陆服务器，登录和打开工作文件夹时都需要输入密码，可以通过配置ssh免密登]]></description>
-</item>
-<item>
-    <title>Dairy</title>
-    <link>http://griedzx.github.io/dairy/</link>
-    <pubDate>Fri, 10 Nov 2023 23:54:43 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/dairy/</guid>
-    <description><![CDATA[2023.11.10 好多事压得喘不过气，以致于感叹时间不够用，希望一个良好的睡眠可以解决一些些压力🙏]]></description>
 </item>
 </channel>
 </rss>
