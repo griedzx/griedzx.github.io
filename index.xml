@@ -12,7 +12,7 @@
     <pubDate>Thu, 11 Jan 2024 23:49:14 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/intro/</guid>
-    <description><![CDATA[测序技术 代表 优点 缺点 一代测序 sanger(合成终止测序) 准确率高 读长较长 分离速度低 成本难以降低 二代测序 较一代测序 降低成本 准确率较高 测序时间较]]></description>
+    <description><![CDATA[测序技术 代表 测序基础 优点 缺点 一代测序 sanger(合成终止测序) ddNTP为测序反应的链终止剂 准确率高 读长较长 可达1000bp 电泳分离速度低]]></description>
 </item>
 <item>
     <title>python基础知识复习</title>
