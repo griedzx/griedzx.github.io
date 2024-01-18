@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/intro\/"
-        },"genre": "posts","wordcount":  7164 ,
+        },"genre": "posts","wordcount":  7995 ,
         "url": "http:\/\/griedzx.github.io\/intro\/","datePublished": "2024-01-11T23:49:14+08:00","dateModified": "2024-01-11T23:49:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">生物信息原理复习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-11">2024-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7164 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-11">2024-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7995 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 16 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -127,6 +127,7 @@
         <li><a href="#blast比对">BLAST比对</a>
           <ul>
             <li><a href="#基本原理">基本原理</a></li>
+            <li><a href="#blast比对搜库的期望值e-value">BLAST比对/搜库的期望值（E-value）</a></li>
           </ul>
         </li>
         <li><a href="#pssm">PSSM</a></li>
@@ -376,9 +377,21 @@
 <h4 id="基本原理">基本原理</h4>
 <ol>
 <li>为序列A构建一个k-mer/k-tuple哈希表</li>
-<li>扫描序列B，找到hits(比对后得分大于t的片段)</li>
-<li>扩展hits(使用SW算法扩展高得分片段对HSPS，这些片段的分值不会因为片段的延申而进一步升高)</li>
+<li>扫描序列B，找到hits(比对后得分大于t的片段)
+<ul>
+<li>目标数据库中所有包含与上述词列表中词完全一样的序列(hit)</li>
+</ul>
+</li>
+<li>扩展hits(使用SW算法扩展高得分片段对HSP（<strong>高得分联配对</strong>），这些片段的分值不会因为片段的延申而进一步升高)</li>
 </ol>
+<h4 id="blast比对搜库的期望值e-value">BLAST比对/搜库的期望值（E-value）</h4>
+<p>期望值（E-value）是用来评估比对结果的<strong>统计显著性</strong>的指标。它表示在随机情况下，期望有多少次能够观察到与给定比对结果相同或更好的比对</p>
+<ol>
+<li>BLAST首先计算比对结果的原始得分（raw score），该得分是根据比对序列的相似性和匹配程度计算得出的</li>
+<li>BLAST将原始得分转换为比对的位点期望得分（expectation score）。这一步骤使用Karlin-Altschul统计模型，考虑了比对得分的分布以及数据库的大小</li>
+<li>BLAST使用期望得分计算E-value，较小的E-value表示比对结果具有更高的显著性</li>
+</ol>
+<p>Karlin-Altschul模型参数</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -387,12 +400,39 @@
         data-sizes="auto"
         alt="/intro/image/index/1705584557477.png"
         title="1705584557477" width="393" height="278" /></p>
+<table>
+<thead>
+<tr>
+<th>程序</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MegaBLAST</td>
+<td>适用于在较大的基因组数据库中搜索高度相似的序列，通过使用较大的初始字典（word size）和较大的不匹配惩罚（mismatch penalty）来提高敏感性和比对速度。</td>
+</tr>
+<tr>
+<td>Discontiguous megaBLAST</td>
+<td>能够识别具有间隔的相似区域，在比对过程中允许较大的间隔，在研究具有结构重复或间隔重复的基因组区域时非常有用。</td>
+</tr>
+<tr>
+<td>PSI-BLAST</td>
+<td>用位置特异权重矩阵(Position-Specific Scoring Matrix，PSSM)搜索数据库后再利用搜索的结果重新构建PSSM，然后用新的PSSM再次搜索数据库，反复迭代，这种迭代过程有助于发现较远的序列相似性。</td>
+</tr>
+<tr>
+<td>PHI-BLAST</td>
+<td>专门用于搜索与序列模式（pattern）相匹配的蛋白质序列，这种序列特征模式可能代表某个翻译后修饰的发生位点，也可以代表一个酶的活性位点，或者一个蛋白质家族的结构域、功能域。</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>一致性(identity)：两条序列在同一位点上的核苷酸或者氨基酸残基完全相同</li>
 <li>同源性(homoogy)：两条序列存在进化方面的关系，它们从一条共同的祖先序列进化而来。同源可以分为直系同源和旁系同源</li>
 <li>相似性：两条序列在同一位点上的氨基酸残基的化学性质相似。相似性可以用百分比描述，但同源性不可以</li>
 </ul>
 <h3 id="pssm">PSSM</h3>
+<p>PSSM（Position-Specific Scoring Matrix）是一种用于描述蛋白质或核酸序列中每个位置上残基的频率和保守性的矩阵。PSSM是通过进行多序列比对并计算每个位置上残基出现的频率来构建的。PSSM中的每个元素表示特定残基在该位置上出现的相对频率，通常使用得分表示。</p>
 <h3 id="信息熵">信息熵</h3>
 <p><img
         class="lazyload"
@@ -407,8 +447,15 @@
 <h2 id="序列拼接基因组装和短序列比对">序列拼接（基因组装）和短序列比对</h2>
 <h3 id="如何获得全基因组组装的序列">如何获得全基因组（组装）的序列</h3>
 <ul>
-<li>BAC by BAC</li>
-<li>shotgun</li>
+<li>BAC by BAC
+<ul>
+<li>构建BAC文库</li>
+<li>打碎成DNA片段</li>
+<li>subclone 测序</li>
+<li>DNA测序、组装</li>
+</ul>
+</li>
+<li>whole geneme shotgun</li>
 </ul>
 <h3 id="基于kmer分析评估基因组大小"><strong>基于Kmer分析，评估基因组大小</strong></h3>
 <p>设基因组大小为G，测序获得N条read，且每条长度均为L</p>
