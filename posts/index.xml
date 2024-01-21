@@ -4,7 +4,15 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 11 Jan 2024 23:49:14 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 20 Jan 2024 16:40:46 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>现代分子生物</title>
+    <link>http://griedzx.github.io/molecular-biology/</link>
+    <pubDate>Sat, 20 Jan 2024 16:40:46 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/molecular-biology/</guid>
+    <description><![CDATA[molecular bioogy 1953年，DNA双螺旋结构模型的提出作为现代分子生物学诞生的里程碑 传统PCR主要步骤 变性（Denaturation） : 对双链DNA模板]]></description>
+</item>
+<item>
     <title>生物信息原理复习</title>
     <link>http://griedzx.github.io/intro/</link>
     <pubDate>Thu, 11 Jan 2024 23:49:14 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
     <description><![CDATA[感知机 x是输入信号，y是输出信号，w(weight)是权重 输入信号分别乘以固定的权重(w*x)，传输至下一个神经元，超过某一个阈值(thet]]></description>
-</item>
-<item>
-    <title>Vscode密钥远程连接</title>
-    <link>http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
-    <pubDate>Mon, 20 Nov 2023 19:58:51 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/vscode%E5%AF%86%E9%92%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
-    <description><![CDATA[通过vscode的remote-ssh插件可以在vscode上远程登陆服务器，登录和打开工作文件夹时都需要输入密码，可以通过配置ssh免密登]]></description>
 </item>
 </channel>
 </rss>
