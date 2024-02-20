@@ -5,7 +5,7 @@
         <description>Categories - 分类 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
             <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>python</title>
+    <title>Python</title>
     <link>http://griedzx.github.io/categories/python/</link>
     <pubDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</pubDate>
     <author>griedzx</author>
@@ -29,7 +29,7 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Deep Learning from Scratch 学习笔记</title>
+    <title>Deep Learning From Scratch 学习笔记</title>
     <link>http://griedzx.github.io/categories/deep-learning-from-scratch-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
     <pubDate>Tue, 28 Nov 2023 15:38:25 &#43;0800</pubDate>
     <author>griedzx</author>
@@ -37,7 +37,7 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>vscode配置</title>
+    <title>Vscode配置</title>
     <link>http://griedzx.github.io/categories/vscode%E9%85%8D%E7%BD%AE/</link>
     <pubDate>Mon, 20 Nov 2023 19:58:51 &#43;0800</pubDate>
     <author>griedzx</author>

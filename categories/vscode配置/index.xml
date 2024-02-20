@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>vscode配置 - 分类 - 欢迎来到我的空间🎈</title>
+        <title>Vscode配置 - 分类 - 欢迎来到我的空间🎈</title>
         <link>http://griedzx.github.io/categories/vscode%E9%85%8D%E7%BD%AE/</link>
-        <description>vscode配置 - 分类 - 欢迎来到我的空间🎈</description>
+        <description>Vscode配置 - 分类 - 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
             <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Mon, 20 Nov 2023 19:58:51 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/vscode%E9%85%8D%E7%BD%AE/" rel="self" type="application/rss+xml" /><item>
     <title>Vscode密钥远程连接</title>
