@@ -4,9 +4,17 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 20 Jan 2024 16:40:46 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Mon, 11 Mar 2024 00:25:06 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>生信进展-ATAC数据处理</title>
+    <link>http://griedzx.github.io/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
+    <pubDate>Sat, 09 Mar 2024 16:56:43 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</guid>
+    <description><![CDATA[实验材料 SRR5748809 : Run Browser : SRA Archive : NCBI (nih.gov) 关于玉米（Zea mays）叶肉细胞（leaf mesophyll）的ATAC-seq数据，用于研究染色质可及性的高]]></description>
+</item>
+<item>
     <title>现代分子生物</title>
     <link>http://griedzx.github.io/molecular-biology/</link>
     <pubDate>Sat, 20 Jan 2024 16:40:46 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/sakurafrp/</guid>
     <description><![CDATA[首页 | SakuraFrp 帮助文档 (natfrp.com)]]></description>
-</item>
-<item>
-    <title>学习记录(1)</title>
-    <link>http://griedzx.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</link>
-    <pubDate>Tue, 28 Nov 2023 15:38:25 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
-    <description><![CDATA[感知机 x是输入信号，y是输出信号，w(weight)是权重 输入信号分别乘以固定的权重(w*x)，传输至下一个神经元，超过某一个阈值(thet]]></description>
 </item>
 </channel>
 </rss>
