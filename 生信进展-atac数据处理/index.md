@@ -126,59 +126,6 @@ Trimmomatic SE -phred33 -threads 3 /Bioinfo/bio_2023_2024_2/bio_zxdai/ATAC-seq/d
 #### 序列比对
 
 
-参考基因组下载
-
-```shell
-wget --quiet  -c https://download.maizegdb.org/Zm-B73-REFERENCE-NAM-5.0/Zm-B73-REFERENCE-NAM-5.0.fa.gz
-#解压压缩文件
-gunzip *gz
-```
-
-检查基因组下载是否完整
-
-使用 `md5sum`命令来检查文件的完整性。这个命令会计算文件的MD5哈希值，可以将这个值与你从下载页面得到的MD5哈希值进行比较
-
-```shell
-md5sum Zm-B73-REFERENCE-NAM-5.0.fa
-```
-
-BWA建立索引、匹配
-
-```shell
-#建立索引
-nohup bwa index ./ref/Zm*.fa & 
-#cd回上一级路径
-cd ..
-```
-
-```shell
-#align
-#mem algorithm
-bwa mem ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./data/fastq/SRR5748809.fastq 1>./align/SRR5748809.sam 2>./align/bwa_mem.log &
-
-#ALN algorithm
-bwa aln -t 5 ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./data/fastq/SRR5748809.fastq 1>./align/SRR5748809.sai 2>./align/bwa_aln.log &
-bwa samse ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./align/SRR5748809.sai ./data/fastq/SRR5748809.fastq 1>./align/SRR5748809.aln.sam &
-```
-
-`bwa mem`是BWA的默认算法，适用于长度70bp-1Mbp的序列。它比 `bwa aln`更快，更准确，尤其是对于较长的序列。`bwa mem`也支持gapped alignment（允许插入和删除），并且可以处理paired-end reads。
-
-`bwa aln`是BWA的旧算法，适用于长度up to ~100bp的序列。它使用回溯法（backtracking）进行比对，对于较短的序列效果较好。然而，`bwa aln`不支持gapped alignment，因此对于包含插入和删除的序列，其比对效果可能不如 `bwa mem`。推荐使用 `bwa mem`
-
-可以使用-t多线程并行
-
-比对结果的统计
-
-```shell
-echo $! > bwa.pid
-wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flagstat - > ./align/flagstat.txt
-```
-
-```shell
-(while ps -p 116953 > /dev/null; do sleep 1; done; samtools view -bS ./align/SRR5748809.sam | samtools flagstat - > ./align/flagstat.txt) &
-```
-
-
 ## 实验结果
 
 原始SRR5748809 QC
@@ -218,4 +165,58 @@ wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flags
 [都8102年了，还用fastq-dump，快换fasterq-dump吧 - 简书 (jianshu.com)](https://www.jianshu.com/p/5c97a34cc1ad)
 
 [转录组之序列剪切（Trimmomatic）[学习笔记通俗易懂版] - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/642000061)
+
+参考基因组下载
+
+```shell
+wget --quiet  -c https://download.maizegdb.org/Zm-B73-REFERENCE-NAM-5.0/Zm-B73-REFERENCE-NAM-5.0.fa.gz
+#解压压缩文件
+gunzip *gz
+```
+
+检查基因组下载是否完整
+
+使用 `md5sum`命令来检查文件的完整性。这个命令会计算文件的MD5哈希值，可以将这个值与你从下载页面得到的MD5哈希值进行比较
+
+```shell
+md5sum Zm-B73-REFERENCE-NAM-5.0.fa
+```
+
+BWA建立索引、匹配
+
+```shell
+#建立索引
+nohup bwa index ./ref/Zm*.fa & 
+#cd回上一级路径
+cd ..
+```
+
+```shell
+#align
+#mem algorithm
+bwa mem ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./data/fastq/SRR5748809.fastq 1>./align/SRR5748809.sam 2>./align/bwa_mem.log &
+
+#ALN algorithm
+bwa aln -t 5 ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./data/fastq/SRR5748809.fastq 1>./align/SRR5748809.sai 2>./align/bwa_aln.log &
+bwa samse ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./align/SRR5748809.sai ./data/fastq/SRR5748809.fastq 1>./align/SRR5748809.aln.sam &
+```
+
+`bwa mem`是BWA的默认算法，适用于长度70bp-1Mbp的序列。它比 `bwa aln`更快，更准确，尤其是对于较长的序列。`bwa mem`也支持gapped alignment（允许插入和删除），并且可以处理paired-end reads。
+
+`bwa aln`是BWA的旧算法，适用于长度up to ~100bp的序列。它使用回溯法（backtracking）进行比对，对于较短的序列效果较好。然而，`bwa aln`不支持gapped alignment，因此对于包含插入和删除的序列，其比对效果可能不如 `bwa mem`。推荐使用 `bwa mem`
+
+
+可以使用-t多线程并行
+
+
+比对结果的统计
+
+```shell
+echo $! > bwa.pid
+wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flagstat - > ./align/flagstat.txt
+```
+
+```shell
+(while ps -p 116953 > /dev/null; do sleep 1; done; samtools view -bS ./align/SRR5748809.sam | samtools flagstat - > ./align/flagstat.txt) &
+```
 
