@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86\/"
-        },"genre": "posts","wordcount":  1886 ,
+        },"genre": "posts","wordcount":  2631 ,
         "url": "http:\/\/griedzx.github.io\/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86\/","datePublished": "2024-03-09T16:56:43+08:00","dateModified": "2024-03-09T16:56:43+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,9 +102,9 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">生信进展-ATAC数据处理</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-09">2024-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1886 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90%E9%AB%98%E9%80%9A%E9%87%8F%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>处理和分析高通量测序数据</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-09">2024-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2631 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -302,6 +302,7 @@
 <li><code>-trimlog log.txt</code>：记录每个读取的剪切信息，输出到 <code>log.txt</code>文件。</li>
 </ul>
 <h4 id="序列比对">序列比对</h4>
+<p>agstat.txt</p>
 <p>参考基因组下载</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -340,7 +341,8 @@
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><p>使用 <code>bwa index</code> 建立索引，索引文件会以 <code>Zm*.fa</code>所匹配到的表达式为文件名前缀</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -360,9 +362,14 @@
 </span></span><span class="line"><span class="cl">bwa samse ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./align/SRR5748809.sai ./data/fastq/SRR5748809.fastq 1&gt;./align/SRR5748809.aln.sam <span class="p">&amp;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>bwa mem</code>是BWA的默认算法，适用于长度70bp-1Mbp的序列。它比 <code>bwa aln</code>更快，更准确，尤其是对于较长的序列。<code>bwa mem</code>也支持gapped alignment（允许插入和删除），并且可以处理paired-end reads。</p>
+</div><p><code>bwa mem</code>是BWA的默认算法，适用于长度70bp-1Mbp的序列。它比 <code>bwa aln</code>更快，更准确，尤其是对于较长的序列。<code>bwa mem</code>也支持gapped alignment（允许插入和删除），并且可以处理paired-end reads</p>
+<ul>
+<li><code>-t 多线程并行</code></li>
+<li><code>1&gt;./align/SRR5748809.sam</code>:  将标准输出（对齐结果）重定向到SAM文件。</li>
+<li><code>2&gt;./align/bwa_mem.log</code>:  将标准错误输出（如错误和警告信息）重定向到日志文件。</li>
+</ul>
 <p><code>bwa aln</code>是BWA的旧算法，适用于长度up to ~100bp的序列。它使用回溯法（backtracking）进行比对，对于较短的序列效果较好。然而，<code>bwa aln</code>不支持gapped alignment，因此对于包含插入和删除的序列，其比对效果可能不如 <code>bwa mem</code>。推荐使用 <code>bwa mem</code></p>
-<p>可以使用-t多线程并行</p>
+<p>aln算法会先生成 <code>.sai</code> BWA-backtrack算法的对齐结果文件,然后使用 <code>bwa samse</code>&ndash;BWA的一个模块，将BWA-backtrack算法的对齐结果转换为SAM格式</p>
 <p>比对结果的统计</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -374,15 +381,13 @@
 </span></span><span class="line"><span class="cl"><span class="nb">wait</span> <span class="k">$(</span>cat bwa.pid<span class="k">)</span> <span class="o">&amp;&amp;</span> samtools view -bS ./align/SRR5748809.sam <span class="p">|</span> samtools flagstat - &gt; ./align/flagstat.txt
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">(</span><span class="k">while</span> ps -p <span class="m">116953</span> &gt; /dev/null<span class="p">;</span> <span class="k">do</span> sleep 1<span class="p">;</span> <span class="k">done</span><span class="p">;</span> samtools view -bS ./align/SRR5748809.sam <span class="p">|</span> samtools flagstat - &gt; ./align/flagstat.txt<span class="o">)</span> <span class="p">&amp;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="实验结果">实验结果</h2>
+</div><p>将测序数据比对回基因组需要花费一定时间，可以使用上述命令或者写成一个脚本以连贯执行命令</p>
+<ul>
+<li><code>-b</code>: samtools将输出转换为BAM格式</li>
+<li><code>-S</code>: 指定samtools输入文件SAM格式</li>
+<li><code>-</code>: 表示从标准输入（stdin）读取数据，数据来自于前一个命令的输出</li>
+</ul>
+<h2 id="实验结果">实验结果</h2>
 <p>原始SRR5748809 QC</p>
 <p><figure><a class="lightgallery" href="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1710343095852.png" title="1710343095852" data-thumbnail="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1710343095852.png" data-sub-html="<h2>原始数据FastQC summary</h2><p>1710343095852</p>">
         <img
@@ -444,13 +449,56 @@
         data-sizes="auto"
         alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1710343744796.png"
         title="1710343744796" width="1119" height="796" /></p>
-<h2 id="实验总结">实验总结</h2>
+<p>序列比对数据结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>bio_zxdai@bioinfo-01 align<span class="o">]</span>$ cat flagstat.txt
+</span></span><span class="line"><span class="cl"><span class="m">27933221</span> + <span class="m">0</span> in total <span class="o">(</span>QC-passed reads + QC-failed reads<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> secondary
+</span></span><span class="line"><span class="cl"><span class="m">34</span> + <span class="m">0</span> supplementary
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> duplicates
+</span></span><span class="line"><span class="cl"><span class="m">27376162</span> + <span class="m">0</span> mapped <span class="o">(</span>98.01% : N/A<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> paired in sequencing
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> read1
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> read2
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> properly paired <span class="o">(</span>N/A : N/A<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> with itself and mate mapped
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> singletons <span class="o">(</span>N/A : N/A<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> with mate mapped to a different chr
+</span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> with mate mapped to a different chr <span class="o">(</span>mapQ&gt;<span class="o">=</span>5<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实验总结">实验总结</h2>
 <p>原始测序数据不错，使用FastQC质量控制查看一下，保证</p>
 <ol>
 <li>序列质量合格</li>
 <li>没有过表达的primer adaptor</li>
 <li>序列长度不是很短 即可</li>
 </ol>
+<p>序列比对数据结果分析</p>
+<ul>
+<li><code>27933221 + 0 in total (QC-passed reads + QC-failed reads)</code>: 总共有27933221个reads，其中没有QC失败的reads。测序数据的质量应该是相当好的</li>
+<li><code>0 + 0 secondary</code>: 没有secondary（次要的）对齐，这些通常是由于reads可以对齐到多个位置。</li>
+<li><code>34 + 0 supplementary</code>: 有34个补充的对齐，这些通常是由于reads可以对齐到多个位置。</li>
+<li><code>27376162 + 0 mapped (98.01% : N/A)</code>: 有27376162个reads被映射到参考序列，占总reads的98.01%。非常高的映射率，说明大部分reads都能找到参考序列上的对应位置</li>
+<li><code>0 + 0 paired in sequencing</code>、<code>0 + 0 read1</code>、<code>0 + 0 read2</code>、<code>0 + 0 properly paired (N/A : N/A)</code>、<code>0 + 0 with itself and mate mapped</code>、<code>0 + 0 singletons (N/A : N/A)</code>、<code>0 + 0 with mate mapped to a different chr</code>、<code>0 + 0 with mate mapped to a different chr (mapQ&gt;=5)</code>: 这些统计信息都是关于配对的reads的，但在这个数据集中，所有的reads都是单端的，所以这些统计信息都是0</li>
+</ul>
 <h2 id="参考">参考</h2>
 <p><a href="https://www.cnblogs.com/djx571/p/9493934.html" target="_blank" rel="noopener noreffer ">fasta/fastq格式解读 - 发那个太丢人 - 博客园 (cnblogs.com)</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1772411" target="_blank" rel="noopener noreffer ">生信软件 | Sratools (操作SRA文件)-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
