@@ -126,46 +126,6 @@ Trimmomatic SE -phred33 -threads 3 /Bioinfo/bio_2023_2024_2/bio_zxdai/ATAC-seq/d
 #### 序列比对
 
 
-## 实验结果
-
-原始SRR5748809 QC
-
-![1710343095852](image/index/1710343095852.png "原始数据FastQC summary")
-
-![1710343119909](image/index/1710343119909.png "原始数据 Bsic Statistics")
-
-![1710343138678](image/index/1710343138678.png "原始数据质量箱线图分布")
-
-![1710343385005](image/index/1710343385005.png "原始数据无过表达序列和接头")
-
-使用上述Trimmomatic命令剪切后，质量没有之前好
-
-![1710343706916](image/index/1710343706916.png "剪切数据质量summary")
-
-其中per base sequence content有些许改变，似乎可以通过 `HEADCROP:14`参数删除前14个碱基，但序列本身不是很长，便没有尝试
-
-![1710343744796](image/index/1710343744796.png)
-
-## 实验总结
-
-原始测序数据不错，使用FastQC质量控制查看一下，保证
-
-1. 序列质量合格
-2. 没有过表达的primer adaptor
-3. 序列长度不是很短 即可
-
-## 参考
-
-[fasta/fastq格式解读 - 发那个太丢人 - 博客园 (cnblogs.com)](https://www.cnblogs.com/djx571/p/9493934.html)
-
-[生信软件 | Sratools (操作SRA文件)-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1772411)
-
-[转录组分析——三、sra转换成fastq - 简书 (jianshu.com)](https://www.jianshu.com/p/bdfa8f7e5a61)
-
-[都8102年了，还用fastq-dump，快换fasterq-dump吧 - 简书 (jianshu.com)](https://www.jianshu.com/p/5c97a34cc1ad)
-
-[转录组之序列剪切（Trimmomatic）[学习笔记通俗易懂版] - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/642000061)
-
 参考基因组下载
 
 ```shell
@@ -205,9 +165,7 @@ bwa samse ./data/ref/Zm-B73-REFERENCE-NAM-5.0.fa ./align/SRR5748809.sai ./data/f
 
 `bwa aln`是BWA的旧算法，适用于长度up to ~100bp的序列。它使用回溯法（backtracking）进行比对，对于较短的序列效果较好。然而，`bwa aln`不支持gapped alignment，因此对于包含插入和删除的序列，其比对效果可能不如 `bwa mem`。推荐使用 `bwa mem`
 
-
 可以使用-t多线程并行
-
 
 比对结果的统计
 
@@ -219,4 +177,45 @@ wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flags
 ```shell
 (while ps -p 116953 > /dev/null; do sleep 1; done; samtools view -bS ./align/SRR5748809.sam | samtools flagstat - > ./align/flagstat.txt) &
 ```
+
+
+## 实验结果
+
+原始SRR5748809 QC
+
+![1710343095852](image/index/1710343095852.png "原始数据FastQC summary")
+
+![1710343119909](image/index/1710343119909.png "原始数据 Bsic Statistics")
+
+![1710343138678](image/index/1710343138678.png "原始数据质量箱线图分布")
+
+![1710343385005](image/index/1710343385005.png "原始数据无过表达序列和接头")
+
+使用上述Trimmomatic命令剪切后，质量没有之前好
+
+![1710343706916](image/index/1710343706916.png "剪切数据质量summary")
+
+其中per base sequence content有些许改变，似乎可以通过 `HEADCROP:14`参数删除前14个碱基，但序列本身不是很长，便没有尝试
+
+![1710343744796](image/index/1710343744796.png)
+
+## 实验总结
+
+原始测序数据不错，使用FastQC质量控制查看一下，保证
+
+1. 序列质量合格
+2. 没有过表达的primer adaptor
+3. 序列长度不是很短 即可
+
+## 参考
+
+[fasta/fastq格式解读 - 发那个太丢人 - 博客园 (cnblogs.com)](https://www.cnblogs.com/djx571/p/9493934.html)
+
+[生信软件 | Sratools (操作SRA文件)-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1772411)
+
+[转录组分析——三、sra转换成fastq - 简书 (jianshu.com)](https://www.jianshu.com/p/bdfa8f7e5a61)
+
+[都8102年了，还用fastq-dump，快换fasterq-dump吧 - 简书 (jianshu.com)](https://www.jianshu.com/p/5c97a34cc1ad)
+
+[转录组之序列剪切（Trimmomatic）[学习笔记通俗易懂版] - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/642000061)
 
