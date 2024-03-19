@@ -208,9 +208,7 @@ wait $(cat bwa.pid) && samtools view -bS ./align/SRR5748809.sam | samtools flags
 
 ![1710343744796](image/index/1710343744796.png)
 
-
-
-序列比对数据结果
+[序列比对数据结果](/2024_spring_ATAC/flagstat.txt)
 
 ```shell
 [bio_zxdai@bioinfo-01 align]$ cat flagstat.txt
