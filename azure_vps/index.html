@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/azure_vps\/"
-        },"genre": "posts","wordcount":  796 ,
+        },"genre": "posts","wordcount":  1042 ,
         "url": "http:\/\/griedzx.github.io\/azure_vps\/","datePublished": "2023-12-27T00:41:11+08:00","dateModified": "2023-12-27T00:41:11+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">新建Azure's VPS</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/azure-vps/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Azure VPS</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-27">2023-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 796 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-27">2023-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1042 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -121,6 +121,11 @@
             <li><a href="#修改密码">修改密码</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#一些服务器使用设置">一些服务器使用设置</a>
+      <ul>
+        <li><a href="#简化命令行登录">简化命令行登录</a></li>
       </ul>
     </li>
   </ul>
@@ -193,6 +198,72 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>重启实例后 <code>Reboot</code>再ssh连接</p>
+<h2 id="一些服务器使用设置">一些服务器使用设置</h2>
+<h3 id="简化命令行登录">简化命令行登录</h3>
+<p>密钥+脚本ssh登录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;griedzx@foxmail.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Enter file in which to save the key <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Your identification has been saved in /root/.ssh/id_rsa.
+</span></span><span class="line"><span class="cl">Your public key has been saved in /root/.ssh/id_rsa.pub.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>公钥直接将其添加到远程服务器的 <code>~/.ssh/authorized_keys</code>文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/id_rsa.pub -p <span class="m">26518</span> user@hostname
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或者</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;your_public_key&#39;</span> &gt;&gt; ~/.ssh/authorized_keys
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>形成脚本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">bash-4.2# cat &gt; yuanhx <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">&gt; #!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="s">&gt; ssh -i /root/.ssh/id_rsa -p 26518 yuanhx@218.199.69.6
+</span></span></span><span class="line"><span class="cl"><span class="s">&gt; EOF</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">chmod +x /path/to/your/script.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>还可以将脚本父目录加入环境变量</p>
+<p>在Unix和Linux系统中，当你尝试运行一个命令时，shell会在环境变量 <code>PATH</code>中列出的目录中查找该命令。默认情况下，<code>PATH</code>变量通常不包含当前目录（<code>.</code>），这是出于安全考虑</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

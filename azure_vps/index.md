@@ -59,6 +59,54 @@ Retype new password:
 passwd: all authentication tokens updated successfully.
 ```
 
-
 重启实例后 `Reboot`再ssh连接
+
+
+
+## 一些服务器使用设置
+
+### 简化命令行登录
+
+密钥+脚本ssh登录
+
+```shell
+ssh-keygen -t rsa -b 4096 -C "griedzx@foxmail.com"
+```
+
+```shell
+Enter file in which to save the key (/root/.ssh/id_rsa)
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+```
+
+公钥直接将其添加到远程服务器的 `~/.ssh/authorized_keys`文件中
+
+```shell
+ssh-copy-id -i ~/.ssh/id_rsa.pub -p 26518 user@hostname
+```
+
+
+或者
+
+```shell
+echo 'your_public_key' >> ~/.ssh/authorized_keys
+```
+
+
+形成脚本
+
+```shell
+bash-4.2# cat > yuanhx <<EOF
+> #!/bin/bash
+> ssh -i /root/.ssh/id_rsa -p 26518 yuanhx@218.199.69.6
+> EOF
+```
+
+```shell
+chmod +x /path/to/your/script.sh
+```
+
+还可以将脚本父目录加入环境变量
+
+在Unix和Linux系统中，当你尝试运行一个命令时，shell会在环境变量 `PATH`中列出的目录中查找该命令。默认情况下，`PATH`变量通常不包含当前目录（`.`），这是出于安全考虑
 
