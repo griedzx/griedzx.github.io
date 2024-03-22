@@ -1,6 +1,6 @@
-# 新建Azure's VPS
+# VPS设置
 
-整Azure教育优惠，为期一年的超级自制VPS之旅 开整！！！
+整Azure教育优惠，为期一年的自制VPS之旅 开整！！！
 
 ## 创建Azure实例
 
@@ -67,11 +67,17 @@ passwd: all authentication tokens updated successfully.
 
 ### 简化命令行登录
 
-密钥+脚本ssh登录
+一些服务器ip登录需要校园网，在校外可以通过使用学校的itc平台使用逸夫楼网络环境下的虚拟机ssh远程连接服务器。
+
+为简化命令行 `ssh`命令以及输入密码的步骤，可以使用上述密钥配对并将 `ssh`命令包装进一个可执行脚本中，以实现命令行一键登录
+
+本地生成密钥
 
 ```shell
 ssh-keygen -t rsa -b 4096 -C "griedzx@foxmail.com"
 ```
+
+公钥和私钥存储位置
 
 ```shell
 Enter file in which to save the key (/root/.ssh/id_rsa)
@@ -85,15 +91,13 @@ Your public key has been saved in /root/.ssh/id_rsa.pub.
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p 26518 user@hostname
 ```
 
-
 或者
 
 ```shell
 echo 'your_public_key' >> ~/.ssh/authorized_keys
 ```
 
-
-形成脚本
+`ssh`命令脚本
 
 ```shell
 bash-4.2# cat > yuanhx <<EOF
@@ -103,10 +107,10 @@ bash-4.2# cat > yuanhx <<EOF
 ```
 
 ```shell
-chmod +x /path/to/your/script.sh
+chmod +x /path/to/your/script
 ```
 
-还可以将脚本父目录加入环境变量
+在Unix和Linux系统中，你尝试运行一个命令时，shell会在环境变量 `PATH`中列出的目录中查找该命令。默认情况下，`PATH`变量通常不包含当前目录（`.`），这是出于安全考虑
 
-在Unix和Linux系统中，当你尝试运行一个命令时，shell会在环境变量 `PATH`中列出的目录中查找该命令。默认情况下，`PATH`变量通常不包含当前目录（`.`），这是出于安全考虑
+为了方便还可以把常用自己写的命令放在一个路径下，并加入环境变量
 

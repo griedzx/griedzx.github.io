@@ -64,7 +64,7 @@ for org_path in /home/yuanhx/dzx/230612_encher_data/0*; do
 done
 ```
 
-![1698597014422](image/index/1698597014422.png)
+<img src="image/index/1698597014422.png" alt="测序数据峰值图展示" style="width:80%">
 
 ## 对甲基化测序数据画图
 
@@ -114,7 +114,7 @@ for id in /home/yh/dzx/work/231017_methylation/methylation_bigwig_data/*;do
 done
 ```
 
-![1698597143255](image/index/1698597143255.png "甲基化热图")
+<img src="image/index/1698597143255.png" alt="甲基化数据峰值图展示" style="width:50%; display: block; margin-left: auto; margin-right: auto;">
 
 ## 分表达水平高低绘制信号富集谱图
 
@@ -182,7 +182,7 @@ done
 
 处理后文件存放格式如此
 
-![1698598281509](image/index/1698598281509.png)
+<img src="image/index/1698598281509.png" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
 
 画图
 

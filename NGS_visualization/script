@@ -1,0 +1,35 @@
+#! /bin/bash
+
+while IFS= read -r line; do
+  # tissue、omic、file_path
+  file_path="$line"
+  omic=$(echo "$file_path" | awk -F'/' '{gsub(/[0-9]+\.|_/, "", $(NF-2)); print $(NF-2)}')
+  tissue=$(echo "$file_path" | awk -F'/' '{gsub(/[0-9]+\.|_/, "", $(NF-4)); print $(NF-4)}')
+
+  # mkdir
+  target_dir="./$tissue/$omic/bam"
+  echo "$target_dir"
+  mkdir -p "$target_dir"
+
+  # ln -s
+  if [ "$omic" == "Chip_seq" ]; then
+    # Chip_seq
+    link_name=$(basename "$file_path" | grep -oP 'H[123]K[1-9]*(me[123]|ac)|RNA11')
+  else
+    #omic
+    link_name="$omic.bam"
+  fi
+  ln -s "$file_path" "$target_dir/$link_name"
+done < all_bam.txt
+
+
+#divide the bam files into positive and negative
+bam_files=$(find ./ -type l)
+for bam in $bam_files; do
+    #remove the .bam which is the last 4 characters
+    file_name=${bam::-4}
+    samtools view -f 16 $bam > ${file_name}_negative.bam
+    samtools view -F 16 $bam > ${file_name}_positive.bam
+    bamCoverage -b ${file_name}_negative.bam -o ${file_name}_negative.bw --binSize 10 --normalizeUsing RPKM --scaleFactor 1 --numberOfProcessors 10
+    bamCoverage -b ${file_name}_positive.bam -o ${file_name}_positive.bw --binSize 10 --normalizeUsing RPKM --scaleFactor 1 --numberOfProcessors 10
+done
