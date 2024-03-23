@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: 定义输出文件名
-set "outputFile=history.txt"
+set "outputFile=E:\my_website\static\blog.log"
 
 :: 打印日期并重定向到文件
 echo %date% >> %outputFile%
