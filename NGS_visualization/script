@@ -28,8 +28,45 @@ bam_files=$(find ./ -type l)
 for bam in $bam_files; do
     #remove the .bam which is the last 4 characters
     file_name=${bam::-4}
-    samtools view -f 16 $bam > ${file_name}_negative.bam
-    samtools view -F 16 $bam > ${file_name}_positive.bam
+    samtools view -@ 9 -f 16 -b -o ${file_name}_negative.bam $bam
+    samtools view -@ 9 -F 16 -b -o ${file_name}_positive.bam $bam
+    samtools index ${file_name}_negative.bam ${file_name}_negative.bam.bai
+    samtools index ${file_name}_positive.bam ${file_name}_positive.bam.bai
     bamCoverage -b ${file_name}_negative.bam -o ${file_name}_negative.bw --binSize 10 --normalizeUsing RPKM --scaleFactor 1 --numberOfProcessors 10
     bamCoverage -b ${file_name}_positive.bam -o ${file_name}_positive.bw --binSize 10 --normalizeUsing RPKM --scaleFactor 1 --numberOfProcessors 10
+done
+
+#divide gene.bed into positive and negative
+bed="./gene.bed"
+awk '{if($5=="+") print $0}' $bed > gene_positive.bed
+awk '{if($5=="-") print $0}' $bed > gene_negative.bed
+
+#! /bin/bash
+# Path: static/NGS_visualization/script
+
+#sbatch --dependency=afterok:31482 ./run.slurm
+
+#using computeMatrix to calculate the matrix
+bam_files=$(find ./ -type l| grep "bam$")
+for bam in $bam_files; do
+    file_path=${dirname(dirname($bam))}
+    mkdir -p $file_path/matrix
+    omic=${basename(bam::-4)}
+    file_name=${bam::-4}
+    computeMatrix scale-regions -p 12 \
+      -S ${file_name}_positive.bw \
+      -R gene_positive.bed \
+      -b 1000 -a 1000 \
+      -o $file_path/matrix/${omic}_positive.gz \
+      --binSize 10 --missingDataAsZero \
+      --skipZeros \
+      --outFileNameMatrix $file_path/matrix/${omic}_positive.tab
+    computeMatrix scale-regions -p 12 \
+      -S ${file_name}_negative.bw \
+      -R gene_negative.bed \
+      -b 1000 -a 1000 \
+      -o $file_path/matrix/${omic}_negative.gz
+      --binSize 10 --missingDataAsZero \
+      --skipZeros \
+      --outFileNameMatrix $file_path/matrix/${omic}_negative.tab
 done

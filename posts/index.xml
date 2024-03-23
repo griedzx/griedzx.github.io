@@ -4,7 +4,23 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 22 Mar 2024 17:19:12 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 23 Mar 2024 23:10:38 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>博客设置</title>
+    <link>http://griedzx.github.io/blog_settings/</link>
+    <pubDate>Sat, 23 Mar 2024 23:10:38 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/blog_settings/</guid>
+    <description><![CDATA[使用Windows的任务计划程序来实现定时推送博客内容至Github 创建一个批处理脚本（.bat文件）来执行git命令，然后在任务计划程序中]]></description>
+</item>
+<item>
+    <title>NGS可视化</title>
+    <link>http://griedzx.github.io/ngs_visualization/</link>
+    <pubDate>Fri, 22 Mar 2024 17:19:12 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/ngs_visualization/</guid>
+    <description><![CDATA[数据准备 创建合适的文件结构，使用软连接连接对应bam文件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 #all_bam.txt /home/data/yuanh/work_data/230612_encher_data/00.shoot_1/result/00.DNase/bam/shoot_DNase-seq.bam /home/data/yuanh/work_data/230612_encher_data/00.shoot_1/result/01.ATAC_seq/bam/shoot_ATAC-seq.bam /home/data/yuanh/work_data/230612_encher_data/00.shoot_1/result/02.Chip_seq/bam/H3K9ac_Chip-seq.bam /home/data/yuanh/work_data/230612_encher_data/00.shoot_1/result/02.Chip_seq/bam/shoot_1_H3K27ac.rmdup.bam /home/data/yuanh/work_data/230612_encher_data/00.shoot_1/result/02.Chip_seq/bam/shoot_1_H3K4me3.rmdup.bam /home/data/yuanh/work_data/230612_encher_data/00.shoot_1/result/03.methylation/bam/output-prefix.bsmap.mkdup.bam /home/data/yuanh/work_data/230612_encher_data/01.ear_1/result/01.ATAC_seq/bam/Zmays_ear_small.bam /home/data/yuanh/work_data/230612_encher_data/01.ear_1/result/02.Chip_seq/bam/ear_1_H3K27ac.rmdup.bam /home/data/yuanh/work_data/230612_encher_data/01.ear_1/result/02.Chip_seq/bam/ear_1_H3K4me3.rmdup.bam /home/data/yuanh/work_data/230612_encher_data/02_ear_2/result/01.ATAC_seq/bam/ear_ATAC-seq.bam /home/data/yuanh/work_data/230612_encher_data/02_ear_2/result/02.Chip_seq/bam/ear_2_H3K27me3.rmdup.bam /home/data/yuanh/work_data/230612_encher_data/02_ear_2/result/02.Chip_seq/bam/ear_2_H3K4me3.rmdup.bam]]></description>
+</item>
+<item>
     <title>生信进展-ATAC数据处理</title>
     <link>http://griedzx.github.io/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
     <pubDate>Sat, 09 Mar 2024 16:56:43 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</guid>
     <description><![CDATA[生物信息软件综合实践实验报告 实验题目 ：基因预测和基因结构分析 实验日期：2023年12月5日 星期二 实验者：生物信息2102代子希 实验目的： 1.]]></description>
-</item>
-<item>
-    <title>Mamba</title>
-    <link>http://griedzx.github.io/mamba/</link>
-    <pubDate>Thu, 07 Dec 2023 00:07:53 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/mamba/</guid>
-    <description><![CDATA[mamba安装 推荐安装方式 1 2 curl -L -O &#34;https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh&#34; bash Miniforge3-$(uname)-$(uname -m).sh curl -L -O &quot;https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh&quot;：这条命令使用 curl 工具从 GitHub 上下载 Miniforge 的最新版本。-L 参数让 curl 能够处]]></description>
-</item>
-<item>
-    <title>SakuraFrp</title>
-    <link>http://griedzx.github.io/sakurafrp/</link>
-    <pubDate>Wed, 29 Nov 2023 23:39:51 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/sakurafrp/</guid>
-    <description><![CDATA[首页 | SakuraFrp 帮助文档 (natfrp.com)]]></description>
 </item>
 </channel>
 </rss>
