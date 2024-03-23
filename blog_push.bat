@@ -16,7 +16,7 @@ if !lineCount! geq 5 (
     echo %date% > %outputFile%
 )
 
-cd E:\my_website\
-git add .
-git commit -m "Daily update %date%"
+cd E:\my_website\ >> %outputFile% 2>&1
+git add . >> %outputFile% 2>&1
+git commit -m "Daily update %date%" >> %outputFile% 2>&1
 git push origin source >> %outputFile% 2>&1
