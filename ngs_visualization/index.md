@@ -94,7 +94,6 @@ SAM/BAM文件中，每个读取都有一个FLAG字段，这个字段是一个位
 
 对于链特异性，我们关注的是第5位，如果这一位是1，那么读取比对到参考序列的负链，如果是0，那么读取比对到参考序列的正链。这一位的值是16，所以使用16作为参数
 
-
 ```shell
 #divide the bam files into positive and negative
 bam_files=$(find ./ -type l)
@@ -110,7 +109,7 @@ for bam in $bam_files; do
 done
 ```
 
-ben基因文件区分正负链
+bed基因文件区分正负链
 
 ```shell
 #divide gene.bed into positive and negative
@@ -119,6 +118,7 @@ awk '{if($5=="+") print $0}' $bed > gene_positive.bed
 awk '{if($5=="-") print $0}' $bed > gene_negative.bed
 ```
 
+分正负链基因计算reads富集分数
 
 ```shell
 #! /bin/bash
@@ -150,5 +150,64 @@ for bam in $bam_files; do
       --skipZeros \
       --outFileNameMatrix $file_path/matrix/${omic}_negative.tab
 done
+```
+
+合并正负链tab文件
+
+```shell
+#合并正负链tab文件
+bam_files=$(find ./ -type l| grep "bam$")
+for bam in $bam_files; do
+    file_path=$(dirname "$(dirname "$bam")")
+    omic=$(basename "${bam::-4}")
+    #根据两个文件表头确定新表头
+    #first line
+    group_boundaries_positive=$(zcat $file_path/matrix/${omic}_positive.gz | head -n 1 | grep -oP '"group_boundaries":\[\K[^\]]*')
+    group_boundaries_negative=$(zcat $file_path/matrix/${omic}_negative.gz | head -n 1 | grep -oP '"group_boundaries":\[\K[^\]]*')
+    # 计算新的 group_boundaries 的值
+    num1=$(echo $group_boundaries_positive | awk -F ',' '{print $2}')
+    num2=$(echo $group_boundaries_negative | awk -F ',' '{print $2}')
+    new_group_boundaries="0,$((num1+num2))"
+    # 从 positive 文件中提取 JSON 数据，并将 group_boundaries 和 sample_labels 的值进行修改
+    new_json=$(zcat $file_path/matrix/${omic}_positive.gz | head -n 1 | sed "s/\"group_boundaries\":\[[^]]*\]/\"group_boundaries\":[$new_group_boundaries]/g" | sed "s/\"sample_labels\":\[[^]]*\]/\"sample_labels\":[\"$omic\"]/g")
+    # 输出新的 JSON 数据
+    echo $new_json > $file_path/matrix/${omic}.tab
+
+    #每个gz文件去除第一行行合并
+    zcat $file_path/matrix/${omic}_positive.gz | tail -n +2 >> $file_path/matrix/${omic}.tab
+    zcat $file_path/matrix/${omic}_negative.gz | tail -n +2 >> $file_path/matrix/${omic}.tab
+    #gzip the tab file
+    gzip -c $file_path/matrix/${omic}.tab > $file_path/matrix/${omic}.tab.gz
+done
+```
+
+
+画图
+
+```shell
+#plotHeatmap
+#! /bin/bash
+
+bam_files=$(find ./ -type l| grep "bam$")
+for bam in $bam_files; do
+    file_path=$(dirname "$(dirname "$bam")")
+    omic=$(basename "${bam::-4}")
+    mkdir -p $file_path/plotheatmap
+    plotHeatmap -m $file_path/matrix/${omic}.tab.gz \
+      -out $file_path/plotheatmap/${omic}.pdf \
+      --dpi 300 \
+      --colorMap YlGnBu  \
+      --missingDataColor "#FFF6EB"\
+      --heatmapHeight 21 \
+      --startLabel "TSS" \
+      --endLabel "TTS" \
+      --regionsLabel "gene" \
+      --legendLocation "none" \
+      --plotTitle $omic 
+done
+```
+
+```
+
 ```
 

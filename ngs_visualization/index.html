@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/ngs_visualization\/"
-        },"genre": "posts","wordcount":  937 ,
+        },"genre": "posts","wordcount":  1241 ,
         "url": "http:\/\/griedzx.github.io\/ngs_visualization\/","datePublished": "2024-03-22T17:19:12+08:00","dateModified": "2024-03-22T17:19:12+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">NGS可视化</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-22">2024-03-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 937 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-22">2024-03-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1241 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -299,7 +299,7 @@
 </span></span><span class="line"><span class="cl"><span class="k">done</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>ben基因文件区分正负链</p>
+</div><p>bed基因文件区分正负链</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -314,7 +314,8 @@
 </span></span><span class="line"><span class="cl">awk <span class="s1">&#39;{if($5==&#34;-&#34;) print $0}&#39;</span> <span class="nv">$bed</span> &gt; gene_negative.bed
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><p>分正负链基因计算reads富集分数</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -377,6 +378,114 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --outFileNameMatrix <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>_negative.tab
 </span></span><span class="line"><span class="cl"><span class="k">done</span>
 </span></span></code></pre></td></tr></table>
+</div>
+</div><p>合并正负链tab文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#合并正负链tab文件</span>
+</span></span><span class="line"><span class="cl"><span class="nv">bam_files</span><span class="o">=</span><span class="k">$(</span>find ./ -type l<span class="p">|</span> grep <span class="s2">&#34;bam</span>$<span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> bam in <span class="nv">$bam_files</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">file_path</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$bam</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">omic</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">&#34;</span><span class="si">${</span><span class="nv">bam</span><span class="p">:</span><span class="k">:-</span><span class="nv">4</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#根据两个文件表头确定新表头</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#first line</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">group_boundaries_positive</span><span class="o">=</span><span class="k">$(</span>zcat <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>_positive.gz <span class="p">|</span> head -n <span class="m">1</span> <span class="p">|</span> grep -oP <span class="s1">&#39;&#34;group_boundaries&#34;:\[\K[^\]]*&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">group_boundaries_negative</span><span class="o">=</span><span class="k">$(</span>zcat <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>_negative.gz <span class="p">|</span> head -n <span class="m">1</span> <span class="p">|</span> grep -oP <span class="s1">&#39;&#34;group_boundaries&#34;:\[\K[^\]]*&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 计算新的 group_boundaries 的值</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">num1</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$group_boundaries_positive</span> <span class="p">|</span> awk -F <span class="s1">&#39;,&#39;</span> <span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">num2</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$group_boundaries_negative</span> <span class="p">|</span> awk -F <span class="s1">&#39;,&#39;</span> <span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">new_group_boundaries</span><span class="o">=</span><span class="s2">&#34;0,</span><span class="k">$((</span>num1+num2<span class="k">))</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 从 positive 文件中提取 JSON 数据，并将 group_boundaries 和 sample_labels 的值进行修改</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">new_json</span><span class="o">=</span><span class="k">$(</span>zcat <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>_positive.gz <span class="p">|</span> head -n <span class="m">1</span> <span class="p">|</span> sed <span class="s2">&#34;s/\&#34;group_boundaries\&#34;:\[[^]]*\]/\&#34;group_boundaries\&#34;:[</span><span class="nv">$new_group_boundaries</span><span class="s2">]/g&#34;</span> <span class="p">|</span> sed <span class="s2">&#34;s/\&#34;sample_labels\&#34;:\[[^]]*\]/\&#34;sample_labels\&#34;:[\&#34;</span><span class="nv">$omic</span><span class="s2">\&#34;]/g&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出新的 JSON 数据</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="nv">$new_json</span> &gt; <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>.tab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#每个gz文件去除第一行行合并</span>
+</span></span><span class="line"><span class="cl">    zcat <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>_positive.gz <span class="p">|</span> tail -n +2 &gt;&gt; <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>.tab
+</span></span><span class="line"><span class="cl">    zcat <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>_negative.gz <span class="p">|</span> tail -n +2 &gt;&gt; <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>.tab
+</span></span><span class="line"><span class="cl">    <span class="c1">#gzip the tab file</span>
+</span></span><span class="line"><span class="cl">    gzip -c <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>.tab &gt; <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>.tab.gz
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>画图</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#plotHeatmap</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#! /bin/bash</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">bam_files</span><span class="o">=</span><span class="k">$(</span>find ./ -type l<span class="p">|</span> grep <span class="s2">&#34;bam</span>$<span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> bam in <span class="nv">$bam_files</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">file_path</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$bam</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">omic</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">&#34;</span><span class="si">${</span><span class="nv">bam</span><span class="p">:</span><span class="k">:-</span><span class="nv">4</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    mkdir -p <span class="nv">$file_path</span>/plotheatmap
+</span></span><span class="line"><span class="cl">    plotHeatmap -m <span class="nv">$file_path</span>/matrix/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>.tab.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -out <span class="nv">$file_path</span>/plotheatmap/<span class="si">${</span><span class="nv">omic</span><span class="si">}</span>.pdf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --dpi <span class="m">300</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --colorMap YlGnBu  <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --missingDataColor <span class="s2">&#34;#FFF6EB&#34;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --heatmapHeight <span class="m">21</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --startLabel <span class="s2">&#34;TSS&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --endLabel <span class="s2">&#34;TTS&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --regionsLabel <span class="s2">&#34;gene&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --legendLocation <span class="s2">&#34;none&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --plotTitle <span class="nv">$omic</span> 
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
