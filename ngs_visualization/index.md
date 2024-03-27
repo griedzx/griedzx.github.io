@@ -181,7 +181,6 @@ for bam in $bam_files; do
 done
 ```
 
-
 画图
 
 ```shell
@@ -205,9 +204,5 @@ for bam in $bam_files; do
       --legendLocation "none" \
       --plotTitle $omic 
 done
-```
-
-```
-
 ```
 
