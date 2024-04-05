@@ -155,7 +155,7 @@ done
 合并正负链tab文件
 
 ```shell
-#合并正负链tab文件
+ #合并正负链tab文件
 bam_files=$(find ./ -type l| grep "bam$")
 for bam in $bam_files; do
     file_path=$(dirname "$(dirname "$bam")")

@@ -408,7 +408,7 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#合并正负链tab文件</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> <span class="c1">#合并正负链tab文件</span>
 </span></span><span class="line"><span class="cl"><span class="nv">bam_files</span><span class="o">=</span><span class="k">$(</span>find ./ -type l<span class="p">|</span> grep <span class="s2">&#34;bam</span>$<span class="s2">&#34;</span><span class="k">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> bam in <span class="nv">$bam_files</span><span class="p">;</span> <span class="k">do</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">file_path</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$bam</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="k">)</span>
