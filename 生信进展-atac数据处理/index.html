@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86\/"
-        },"genre": "posts","wordcount":  2631 ,
+        },"genre": "posts","wordcount":  5076 ,
         "url": "http:\/\/griedzx.github.io\/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86\/","datePublished": "2024-03-09T16:56:43+08:00","dateModified": "2024-03-09T16:56:43+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">生信进展-ATAC数据处理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90%E9%AB%98%E9%80%9A%E9%87%8F%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>处理和分析高通量测序数据</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-09">2024-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2631 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-09">2024-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5076 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -120,11 +120,26 @@
           <ul>
             <li><a href="#数据预处理">数据预处理</a></li>
             <li><a href="#序列比对">序列比对</a></li>
+            <li><a href="#peak-calling">Peak calling</a></li>
+            <li><a href="#生成bwbigwig文件">生成bw/bigwig文件</a></li>
+            <li><a href="#下游分析">下游分析</a>
+              <ul>
+                <li><a href="#peak注释">Peak注释</a></li>
+                <li><a href="#峰基因go富集分析">峰基因GO富集分析</a></li>
+              </ul>
+            </li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#实验结果">实验结果</a></li>
+    <li><a href="#实验结果">实验结果</a>
+      <ul>
+        <li><a href="#数据预处理-1">数据预处理</a></li>
+        <li><a href="#序列比对-1">序列比对</a></li>
+        <li><a href="#peak-calling-1">peak calling</a></li>
+        <li><a href="#下游分析-1">下游分析</a></li>
+      </ul>
+    </li>
     <li><a href="#实验总结">实验总结</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
@@ -387,7 +402,394 @@
 <li><code>-S</code>: 指定samtools输入文件SAM格式</li>
 <li><code>-</code>: 表示从标准输入（stdin）读取数据，数据来自于前一个命令的输出</li>
 </ul>
-<h2 id="实验结果">实验结果</h2>
+<h4 id="peak-calling">Peak calling</h4>
+<p>筛选比对结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">sample</span><span class="o">=</span><span class="s2">&#34;SRR5748809&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#去除PCR重复</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$picard</span> MarkDuplicates -I ../align/<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.bam 
+</span></span><span class="line"><span class="cl">    -O<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.bam -M <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.metric --REMOVE_DUPLICATES <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#去除低质量reads(-q 30)以及未必对到同一条染色体(-f 2)的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$samtools</span> view -h -f <span class="m">2</span> -q <span class="m">30</span> <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.rmdup.bam <span class="p">|</span> grep -v chrM <span class="p">|</span> <span class="nv">$samtools</span> sort -O bam -@ <span class="m">20</span> -o - &gt;<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bam
+</span></span><span class="line"><span class="cl">bedtools bamtobed -i <span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.last.bam &gt;<span class="si">${</span><span class="nv">sample</span><span class="si">}</span>.bed
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>call peak</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir peaks 
+</span></span><span class="line"><span class="cl">macs2 callpeak -t ./align/*bed -g <span class="m">14300719022</span> --nomodel --shift -100 --extsize <span class="m">200</span> -n SRR5748809 --outdir ./peaks
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参数的解析：</p>
+<ul>
+<li><code>-t</code>：指定处理组的文件，这里是 BED 格式的文件</li>
+<li><code>-g</code>：指定基因组的大小</li>
+<li><code>--nomodel</code>：这个选项告诉 MACS2 不要构建移位模型，这对于 ATAC-seq 数据是必要的，因为 ATAC-seq 数据的片段大小不代表转录因子结合位点。</li>
+<li><code>--shift</code>：移动读取的中心位置。对于 ATAC-seq 数据，通常会设置为 -100，表示向 5&rsquo; 方向移动 100 bp</li>
+<li><code>--extsize</code>：设置读取的延伸大小。对于 ATAC-seq 数据，通常会设置为 200，表示每个读取都会向 3&rsquo; 方向延伸 200 bp</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1 tag size is determined as 51 bps 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1 tag size = 51.0 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1  total tags in treatment: 27376162 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1 user defined the maximum tags... 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1  tags after filtering in treatment: 15521232 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1  Redundant rate of treatment: 0.43 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #1 finished! 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #2 Build Peak Model... 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #2 Skipped... 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #2 Use 200 as fragment length 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #2 Sequencing ends will be shifted towards 5&#39; by 100 bp(s) 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #3 Call peaks... 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:32:03: #3 Pre-compute pvalue-qvalue table... 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:33:16: #3 Call peaks for each chromosome... 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:33:56: #4 Write output xls file... SRR5748809_peaks.xls 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:33:56: #4 Write peak in narrowPeak format file... SRR5748809_peaks.narrowPeak 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:33:57: #4 Write summits bed file... SRR5748809_summits.bed 
+</span></span><span class="line"><span class="cl">INFO  @ Thu, 28 Mar 2024 15:33:57: Done! 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不使用nomodel参数可以获得model_plot.r，用于绘制片段大小的分布图，反映了开放染色质的区域</p>
+<h4 id="生成bwbigwig文件">生成bw/bigwig文件</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712560424603.png"
+        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712560424603.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712560424603.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712560424603.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712560424603.png"
+        title="1712560424603" width="551" height="435" /></p>
+<p>通过路径 bam -&gt; bedGraph -&gt; bigwig/bw</p>
+<p>获取 <code>chrom.sizes</code> 文件，其中包含了每个染色体的名称和大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">samtools faidx data/ref/*fa
+</span></span><span class="line"><span class="cl">cut -f1,2 data/ref/*.fa.fai &gt; data/ref/chrom.sizes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">bedtools genomecov -bg -i peaks/*summits.bed -g data/ref/chrom.sizes &gt; peaks/SRR5748809.bedGraph
+</span></span><span class="line"><span class="cl">bedGraphToBigWig peaks/SRR5748809.bedGraph data/ref/chrom.sizes peaks/SRR5748809.bw
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>bio_zxdai@bioinfo-01 ATAC-seq<span class="o">]</span>$ ll peaks
+</span></span><span class="line"><span class="cl">total <span class="m">12524</span>
+</span></span><span class="line"><span class="cl">-rw-rw-r--. <span class="m">1</span> bio_zxdai bio_zxdai <span class="m">1288417</span> Apr  <span class="m">8</span> 15:22 SRR5748809.bedGraph
+</span></span><span class="line"><span class="cl">-rw-rw-r--. <span class="m">1</span> bio_zxdai bio_zxdai  <span class="m">559174</span> Apr  <span class="m">8</span> 15:22 SRR5748809.bw
+</span></span><span class="line"><span class="cl">-rw-rw-r--. <span class="m">1</span> bio_zxdai bio_zxdai   <span class="m">25600</span> Apr  <span class="m">8</span> 14:33 SRR5748809_model.pdf
+</span></span><span class="line"><span class="cl">-rw-rw-r--. <span class="m">1</span> bio_zxdai bio_zxdai   <span class="m">99228</span> Mar <span class="m">28</span> 15:47 SRR5748809_model.r
+</span></span><span class="line"><span class="cl">-rw-rw-r--. <span class="m">1</span> bio_zxdai bio_zxdai <span class="m">3919519</span> Mar <span class="m">28</span> 15:49 SRR5748809_peaks.narrowPeak
+</span></span><span class="line"><span class="cl">-rw-rw-r--. <span class="m">1</span> bio_zxdai bio_zxdai <span class="m">4257998</span> Mar <span class="m">28</span> 15:49 SRR5748809_peaks.xls
+</span></span><span class="line"><span class="cl">-rw-rw-r--. <span class="m">1</span> bio_zxdai bio_zxdai <span class="m">2660699</span> Mar <span class="m">28</span> 15:49 SRR5748809_summits.bed
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上游分析结束</p>
+<h4 id="下游分析">下游分析</h4>
+<h5 id="peak注释">Peak注释</h5>
+<p>只考虑玉米染色体1-10</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#BiocManager::install(&#34;GenomicFeatures&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#BiocManager::install(&#34;ChIPseeker&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;ggupset&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ChIPseeker</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#install.packages(&#34;RMariaDB&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">RMariaDB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggimage</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">maize_TxDb</span> <span class="o">&lt;-</span> <span class="nf">makeTxDbFromGFF</span><span class="p">(</span><span class="s">&#34;D:/seq_project/seq_project/work_data/Zma_B73_V4.gff3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">wd</span> <span class="o">&lt;-</span> <span class="s">&#34;F:/course/生物信息学进展/ATAC-seq/ATAC&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">tissue</span> <span class="o">&lt;-</span> <span class="s">&#34;Zea_mays&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bed_file</span> <span class="o">&lt;-</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="s">&#34;SRR5748809_summits.bed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bed_name</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;_summits.*&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nf">basename</span><span class="p">(</span><span class="n">bed_file</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">bed_file</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">bed_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bed</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="n">bed_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bed</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">bed</span><span class="p">,</span> <span class="n">bed</span><span class="o">$</span><span class="n">V1</span> <span class="o">%in%</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;chr&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">))</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">mutate</span><span class="p">(</span><span class="n">V1</span> <span class="o">=</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;chr&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">V1</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">write.table</span><span class="p">(</span><span class="n">bed</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">bed_name</span><span class="p">,</span> <span class="s">&#34;.bed&#34;</span><span class="p">)),</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bed_file</span> <span class="o">&lt;-</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">bed_name</span><span class="p">,</span> <span class="s">&#34;.bed&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">peak</span> <span class="o">&lt;-</span> <span class="nf">readPeakFile</span><span class="p">(</span><span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">bed_name</span><span class="p">,</span> <span class="s">&#34;.bed&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># # 将染色体名称的格式改为 &#34;chr&#34; 开头</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># seqlevelsStyle(maize_TxDb) &lt;- &#34;UCSC&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># # 检查改变后的染色体名称</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># seqlevels(maize_TxDb)s</span>
+</span></span><span class="line"><span class="cl"><span class="n">peakAnno</span> <span class="o">&lt;-</span> <span class="nf">annotatePeak</span><span class="p">(</span><span class="n">peak</span><span class="p">,</span> <span class="n">tssRegion</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1000</span><span class="p">,</span> <span class="m">1000</span><span class="p">),</span> <span class="n">TxDb</span><span class="o">=</span><span class="n">maize_TxDb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="nf">basename</span><span class="p">(</span><span class="n">bed_file</span><span class="p">),</span> <span class="s">&#34;_pie&#34;</span><span class="p">,</span> <span class="s">&#34;.pdf&#34;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">plotAnnoPie</span><span class="p">(</span><span class="n">peakAnno</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="nf">basename</span><span class="p">(</span><span class="n">bed_file</span><span class="p">),</span> <span class="s">&#34;_upset&#34;</span><span class="p">,</span> <span class="s">&#34;.pdf&#34;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">upsetplot</span><span class="p">(</span><span class="n">peakAnno</span><span class="p">,</span> <span class="n">vennpie</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;genebody_PeakProf&#34;</span><span class="p">,</span> <span class="s">&#34;.pdf&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p_1</span> <span class="o">&lt;-</span> <span class="nf">plotPeakProf2</span><span class="p">(</span><span class="n">bed_file</span><span class="p">,</span> <span class="n">upstream</span> <span class="o">=</span> <span class="m">1000</span><span class="p">,</span> <span class="n">downstream</span> <span class="o">=</span> <span class="m">1000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">conf</span> <span class="o">=</span> <span class="m">0.95</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;gene&#34;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&#34;body&#34;</span><span class="p">,</span> <span class="n">nbin</span> <span class="o">=</span> <span class="m">800</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TxDb</span> <span class="o">=</span> <span class="n">maize_TxDb</span><span class="p">,</span> <span class="n">facet</span> <span class="o">=</span> <span class="s">&#34;row&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">p_1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>TSS/gene body 位点peak plot展示</p>
+<p>deeptools</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">computeMatrix scale-regions -p <span class="m">12</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -S ./peaks/SRR5748809.bw <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -R ./peaks/SRR5748809_summits.bed <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -b <span class="m">100000</span> -a <span class="m">100000</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -o ./plot/SRR5748809.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --binSize <span class="m">10</span> --missingDataAsZero <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --skipZeros <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --outFileNameMatrix ./plot/SRR5748809_matrix.tab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">plotHeatmap -m ./plot/SRR5748809.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -out ./plot/SRR5748809.pdf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --dpi <span class="m">300</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --colorMap YlGnBu  <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --missingDataColor <span class="s2">&#34;#FFF6EB&#34;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --heatmapHeight <span class="m">21</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --startLabel <span class="s2">&#34;TSS&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --endLabel <span class="s2">&#34;TTS&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --regionsLabel <span class="s2">&#34;gene&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --legendLocation <span class="s2">&#34;none&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --plotTitle <span class="s2">&#34;Zea mays&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png"
+        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png"
+        title="1713284604918" width="300" height="1081" /></p>
+<h5 id="峰基因go富集分析">峰基因GO富集分析</h5>
+<p>Gene Ontology</p>
+<p>使用 <code>ChIPseeker</code>包将峰值注释到最近的基因，GO富集分析</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">peakAnno</span> <span class="o">&lt;-</span> <span class="nf">annotatePeak</span><span class="p">(</span><span class="n">peak</span><span class="p">,</span> <span class="n">tssRegion</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1000</span><span class="p">,</span> <span class="m">1000</span><span class="p">),</span> <span class="n">TxDb</span><span class="o">=</span><span class="n">maize_TxDb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#annotated peaks to gene and clusterProfiler</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">clusterProfiler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">AnnotationHub</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">hub</span> <span class="o">&lt;-</span> <span class="nf">AnnotationHub</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">maize</span> <span class="o">&lt;-</span> <span class="n">hub[[</span><span class="s">&#34;AH114308&#34;</span><span class="n">]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">entrez_gene_id</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;D:/motif_project/16.tss_maxmotif_GO/data/entrez_Zm_gene_v4.csv&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_ids</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">peakAnno</span><span class="p">)</span><span class="o">$</span><span class="n">geneId</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">as.data.frame</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">gene_ids</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&#34;geneId&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">genes</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="n">gene_ids</span><span class="p">,</span> <span class="n">entrez_gene_id</span><span class="p">,</span> <span class="n">by.x</span> <span class="o">=</span> <span class="s">&#34;geneId&#34;</span><span class="p">,</span> <span class="n">by.y</span> <span class="o">=</span> <span class="s">&#34;gene_name&#34;</span><span class="p">,</span> <span class="n">all.x</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">na.omit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ego</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">gene</span>         <span class="o">=</span> <span class="n">genes</span><span class="o">$</span><span class="n">ENTREZID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">OrgDb</span>        <span class="o">=</span> <span class="n">maize</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">keyType</span>      <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">pAdjustMethod</span> <span class="o">=</span> <span class="s">&#34;BH&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">readable</span>     <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">ego</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">write.table</span><span class="p">(</span><span class="n">ego</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="nf">basename</span><span class="p">(</span><span class="n">bed_file</span><span class="p">),</span> <span class="s">&#34;_GO.tsv&#34;</span><span class="p">)),</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="nf">basename</span><span class="p">(</span><span class="n">bed_file</span><span class="p">),</span> <span class="s">&#34;_GO_barplot.pdf&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">dotp</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">ego</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="nf">aes</span><span class="p">(</span><span class="n">GeneRatio</span><span class="p">,</span> <span class="nf">fct_reorder</span><span class="p">(</span><span class="n">Description</span><span class="p">,</span> <span class="n">GeneRatio</span><span class="p">)))</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">        <span class="nf">geom_segment</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">xend</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">yend</span> <span class="o">=</span> <span class="n">Description</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">p.adjust</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Count</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">scale_color_viridis_c</span><span class="p">(</span><span class="n">guide</span><span class="o">=</span><span class="nf">guide_colorbar</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">scale_size_continuous</span><span class="p">(</span><span class="n">range</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">        <span class="nf">ylab</span><span class="p">(</span><span class="kc">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">dotp</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实验结果">实验结果</h2>
+<h3 id="数据预处理-1">数据预处理</h3>
 <p>原始SRR5748809 QC</p>
 <p><figure><a class="lightgallery" href="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1710343095852.png" title="1710343095852" data-thumbnail="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1710343095852.png" data-sub-html="<h2>原始数据FastQC summary</h2><p>1710343095852</p>">
         <img
@@ -449,6 +851,7 @@
         data-sizes="auto"
         alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1710343744796.png"
         title="1710343744796" width="1119" height="796" /></p>
+<h3 id="序列比对-1">序列比对</h3>
 <p><a href="/2024_spring_ATAC/flagstat.txt" rel="">序列比对数据结果</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -484,7 +887,105 @@
 </span></span><span class="line"><span class="cl"><span class="m">0</span> + <span class="m">0</span> with mate mapped to a different chr <span class="o">(</span>mapQ&gt;<span class="o">=</span>5<span class="o">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="实验总结">实验总结</h2>
+</div><h3 id="peak-calling-1">peak calling</h3>
+<p>peak calling结果分析</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1 tag size is determined as 51 bps </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1 tag size = 51.0 </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1  total tags in treatment: 27376162 </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1 user defined the maximum tags... </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1  tags after filtering in treatment: 15521232 </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1  Redundant rate of treatment: 0.43 </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#1 finished! </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#2 Build Peak Model... </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#2 Skipped... </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#2 Use 200 as fragment length </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#2 Sequencing ends will be shifted towards 5&#39; by 100 bp(s) </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#3 Call peaks... </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:32:03: <span class="c1">#3 Pre-compute pvalue-qvalue table... </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:33:16: <span class="c1">#3 Call peaks for each chromosome... </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:33:56: <span class="c1">#4 Write output xls file... SRR5748809_peaks.xls </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:33:56: <span class="c1">#4 Write peak in narrowPeak format file... SRR5748809_peaks.narrowPeak </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:33:57: <span class="c1">#4 Write summits bed file... SRR5748809_summits.bed </span>
+</span></span><span class="line"><span class="cl">INFO  @ Thu, <span class="m">28</span> Mar <span class="m">2024</span> 15:33:57: Done! 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>tag size is determined as 51 bps</code>：reads的大小为51个碱基对</li>
+<li><code>filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s)</code>：同一位置和同一链上的冗余标签被过滤掉</li>
+<li><code>tags after filtering in treatment: 15521232</code>：过滤后，处理的样本中有15521232个tags</li>
+<li><code>Redundant rate of treatment: 0.43</code>：处理的样本中的冗余率为0.43</li>
+</ul>
+<p><a href="/2024_spring_ATAC/SRR5748809_model.pdf" rel="">SRR5748809_model.pdf</a></p>
+<p>反映了开放染色质的区域，这个图显示出多个峰值，这些峰值对应于不同的核小体状态</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559028672.png"
+        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559028672.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559028672.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559028672.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559028672.png"
+        title="1712559028672" width="796" height="698" /></p>
+<p>交叉相关性（Cross-correlation）图，x轴代表着滞后（lag），也就是读取的移位量，y轴代表着交叉相关性，也就是在给定的滞后下，正向和反向读取的相关性，峰值的位置表示了最佳的滞后，也就是最佳的片段大小</p>
+<p>只有一个明显的峰值，这表示大部分的读取都集中在结合位点附近</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559047974.png"
+        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559047974.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559047974.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559047974.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712559047974.png"
+        title="1712559047974" width="793" height="787" /></p>
+<h3 id="下游分析-1">下游分析</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728314927.png"
+        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728314927.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728314927.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728314927.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728314927.png"
+        title="1712728314927" width="999" height="308" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728353944.png"
+        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728353944.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728353944.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728353944.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1712728353944.png"
+        title="1712728353944" width="835" height="832" /></p>
+<p>GO富集分析</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284842478.png"
+        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284842478.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284842478.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284842478.png 2x"
+        data-sizes="auto"
+        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284842478.png"
+        title="1713284842478" width="740" height="654" /></p>
+<h2 id="实验总结">实验总结</h2>
 <p>原始测序数据不错，使用FastQC质量控制查看一下，保证</p>
 <ol>
 <li>序列质量合格</li>
@@ -499,12 +1000,19 @@
 <li><code>27376162 + 0 mapped (98.01% : N/A)</code>: 有27376162个reads被映射到参考序列，占总reads的98.01%。非常高的映射率，说明大部分reads都能找到参考序列上的对应位置</li>
 <li><code>0 + 0 paired in sequencing</code>、<code>0 + 0 read1</code>、<code>0 + 0 read2</code>、<code>0 + 0 properly paired (N/A : N/A)</code>、<code>0 + 0 with itself and mate mapped</code>、<code>0 + 0 singletons (N/A : N/A)</code>、<code>0 + 0 with mate mapped to a different chr</code>、<code>0 + 0 with mate mapped to a different chr (mapQ&gt;=5)</code>: 这些统计信息都是关于配对的reads的，但在这个数据集中，所有的reads都是单端的，所以这些统计信息都是0</li>
 </ul>
+<p>基因富集分析结论</p>
+<p>GO富集分析结果显示了&quot;protein-containing complex binding&quot;、&ldquo;cytoskeletal motor activity&quot;和&quot;microtubule motor activity&quot;这三个GO项。这可能意味着在叶肉细胞中，有一些基因的调控区域是开放的，这些基因可能参与到蛋白质复合物的结合和细胞骨架的运动中。这些过程可能与叶肉细胞的一些重要功能有关，例如光合作用、物质运输等</p>
+<ol>
+<li>&ldquo;protein-containing complex binding&rdquo;：涉及到的基因编码的蛋白质能够与包含多种蛋白质的复合物结合。这可能意味着ATAC峰值附近基因可能参与到一些需要多种蛋白质共同作用的生物过程中，例如信号转导、基因转录调控等。</li>
+<li>&ldquo;cytoskeletal motor activity&quot;和&quot;microtubule motor activity&rdquo;：这两个GO项都与细胞骨架和微管运动有关，参与到许多重要的细胞过程中，例如细胞分裂、物质运输等。</li>
+</ol>
 <h2 id="参考">参考</h2>
 <p><a href="https://www.cnblogs.com/djx571/p/9493934.html" target="_blank" rel="noopener noreffer ">fasta/fastq格式解读 - 发那个太丢人 - 博客园 (cnblogs.com)</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1772411" target="_blank" rel="noopener noreffer ">生信软件 | Sratools (操作SRA文件)-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
 <p><a href="https://www.jianshu.com/p/bdfa8f7e5a61" target="_blank" rel="noopener noreffer ">转录组分析——三、sra转换成fastq - 简书 (jianshu.com)</a></p>
 <p><a href="https://www.jianshu.com/p/5c97a34cc1ad" target="_blank" rel="noopener noreffer ">都8102年了，还用fastq-dump，快换fasterq-dump吧 - 简书 (jianshu.com)</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/642000061" target="_blank" rel="noopener noreffer ">转录组之序列剪切（Trimmomatic）[学习笔记通俗易懂版] - 知乎 (zhihu.com)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/415718382" target="_blank" rel="noopener noreffer ">「与国同庆，万字长文」ATAC-seq实战教程：从SRA数据下载到高分辨率论文主图绘制 - 知乎 (zhihu.com)</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
