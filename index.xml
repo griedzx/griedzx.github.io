@@ -7,6 +7,14 @@
             <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 05 Apr 2024 22:27:10 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>xampp集成软件包配置</title>
+    <link>http://griedzx.github.io/xampp/</link>
+    <pubDate>Sun, 31 Mar 2024 15:53:21 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/xampp/</guid>
+    <description><![CDATA[XAMPP VPS(Linux)下使用 下载 Download xampp-linux-x64-8.2.12-0-installer.run (XAMPP) (sourceforge.net) 没有找到直接下载的地址，在本地下载安装脚本，scp上传至服务器/VPS上 修改端口号 服务器上通常会有一]]></description>
+</item>
+<item>
     <title>博客设置</title>
     <link>http://griedzx.github.io/blog_settings/</link>
     <pubDate>Sat, 23 Mar 2024 23:10:38 &#43;0800</pubDate>
@@ -45,14 +53,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/intro/</guid>
     <description><![CDATA[人类基因组计划（HGP） 目标：整体上破解人类遗传信息的奥秘 测序数据：30亿个碱基对，2~3万个基因，约3个G 四个图：遗传图、物理图、序列图、]]></description>
-</item>
-<item>
-    <title>python基础知识复习</title>
-    <link>http://griedzx.github.io/python/</link>
-    <pubDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/python/</guid>
-    <description><![CDATA[python常用知识点复习 数字与序列 数据类型 数值类型： 整数 分数 浮点数 复数 布尔型 字符串 序列类型： 字符串 列表(list) 元组(tuple) 映射和]]></description>
 </item>
 <item>
     <title>密码管理器vaultwarden</title>

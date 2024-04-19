@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>xampp集成软件包配置 - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:url" content="http://griedzx.github.io/xampp/">
+  <meta property="og:site_name" content="欢迎来到我的空间🎈">
+  <meta property="og:title" content="xampp集成软件包配置">
+  <meta property="og:description" content="XAMPP VPS(Linux)下使用 下载 Download xampp-linux-x64-8.2.12-0-installer.run (XAMPP) (sourceforge.net) 没有找到直接下载的地址，在本地下载安装脚本，scp上传至服务器/VPS上 修改端口号 服务器上通常会有一">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-31T15:53:21+08:00">
+    <meta property="article:modified_time" content="2024-03-31T15:53:21+08:00">
+    <meta property="og:image" content="http://griedzx.github.io/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://griedzx.github.io/logo.png"><meta name="twitter:title" content="xampp集成软件包配置">
+<meta name="twitter:description" content="XAMPP VPS(Linux)下使用 下载 Download xampp-linux-x64-8.2.12-0-installer.run (XAMPP) (sourceforge.net) 没有找到直接下载的地址，在本地下载安装脚本，scp上传至服务器/VPS上 修改端口号 服务器上通常会有一">
+      <meta name="twitter:site" content="@xxxx">
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://griedzx.github.io/xampp/" /><link rel="prev" href="http://griedzx.github.io/blog_settings/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "xampp集成软件包配置",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/griedzx.github.io\/xampp\/"
+        },"genre": "posts","wordcount":  1903 ,
+        "url": "http:\/\/griedzx.github.io\/xampp\/","datePublished": "2024-03-31T15:53:21+08:00","dateModified": "2024-03-31T15:53:21+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "griedzx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">🤴 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="https://upptime.daizixi.space/" rel="noopener noreffer" target="_blank"> Uptime-Status </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到我的空间🎈">griedzx 的空间<span class="header-title-post">⚽</span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">🤴文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="https://upptime.daizixi.space/" title="" rel="noopener noreffer" target="_blank">Uptime-Status</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade"><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">xampp集成软件包配置</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/web%E7%BD%91%E7%AB%99/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Web网站</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-31">2024-03-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1903 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#xampp-vpslinux下使用">XAMPP VPS(Linux)下使用</a>
+      <ul>
+        <li><a href="#下载">下载</a></li>
+        <li><a href="#修改端口号">修改端口号</a></li>
+        <li><a href="#其他报错">其他报错</a></li>
+        <li><a href="#通过ip域名访问报错">通过ip/域名访问报错</a></li>
+      </ul>
+    </li>
+    <li><a href="#xampp-windows下使用">XAMPP windows下使用</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="xampp-vpslinux下使用">XAMPP VPS(Linux)下使用</h2>
+<h3 id="下载">下载</h3>
+<p><a href="https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.2.12/xampp-linux-x64-8.2.12-0-installer.run/download" target="_blank" rel="noopener noreffer ">Download xampp-linux-x64-8.2.12-0-installer.run (XAMPP) (sourceforge.net)</a></p>
+<p>没有找到直接下载的地址，在本地下载安装脚本，scp上传至服务器/VPS上</p>
+<h3 id="修改端口号">修改端口号</h3>
+<p>服务器上通常会有一些其他的常见web应用占用了端口号，会和xampp下软件默认端口冲突</p>
+<ol>
+<li>
+<p>Another web server is already running</p>
+<p>说明apache端口号被占用</p>
+<p>进入/opt/lampp/etc目录下，找到文件httpd.conf，此文件中有两个地方需要修改</p>
+<p>a.找到Listen行修改，如：1211</p>
+<p>b.找到ServerName行修改，如：10.0.0.251:1211</p>
+</li>
+<li>
+<p>Another web server with SSL is already running</p>
+<p>说明SSL端口号被占用</p>
+<p>进入/opt/lampp/etc/extra目录下，找到文件httpd-ssl.conf，此文件中有三个地方需要修改</p>
+<p>a.找到Listen行修改，如：1212</p>
+<p>b.找到ServerName行修改，如：10.0.0.251:1212</p>
+<p>c.找到节点VirtualHost行修改，如：<em>default</em>:1212</p>
+</li>
+<li>
+<p>Another MySQL daemon is already running</p>
+<p>说明MySQL端口号被占用</p>
+<p>进入/opt/lampp/etc目录下，找到文件my.cnf，此文件中有两个地方需要修改</p>
+<p>a.分别找到port行修改，如：1213</p>
+</li>
+<li>
+<p>Another FTP daemon is already running</p>
+<p>说明FTP端口号被占用</p>
+<p>进入/opt/lampp/etc目录下，找到文件proftpd.conf，此文件中有一个地方需要修改</p>
+<p>a.找到Port行修改，如：1214</p>
+</li>
+</ol>
+<p>修改完上面各自的配置文件端口号后，再修改xampp中的配置端口号</p>
+<p>进入/opt/lampp目录下，找到文件xampp，此文件中有四个地方需要修改
+找到testport，总共有四个，分别对应apache、SSL、MySql、FTP的端口号根据上面修改的端口号，对应修改此配置文件中的端口号（上面没有修改的端口，则对应的不需要改动）</p>
+<h3 id="其他报错">其他报错</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(base) [root@dzx lampp]# ./xampp start
+</span></span><span class="line"><span class="cl">Starting XAMPP for Linux 8.2.12-0...
+</span></span><span class="line"><span class="cl">XAMPP: Starting Apache...fail.
+</span></span><span class="line"><span class="cl">httpd: Syntax error on line 522 of /opt/lampp/etc/httpd.conf: Syntax error on line 6 of /opt/lampp/etc/extra/httpd-xampp.conf: Cannot load modules/mod_perl.so into server: libnsl.so.1: cannot open shared object file: No such file or directory
+</span></span><span class="line"><span class="cl">XAMPP: Starting MySQL...ok.
+</span></span><span class="line"><span class="cl">XAMPP: Starting ProFTPD...already running.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>XAMPP启动失败，主要是因为Apache无法加载mod_perl.so模块，因为它依赖的libnsl.so.1库文件找不到，在某些Linux发行版中，libnsl.so.1库可能不再默认安装。<code>sudo yum install libnsl</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2024-03-29 6:32:00 0 [ERROR] Can&#39;t start server: Bind on TCP/IP port. Got error: 98: Address already in use 
+</span></span><span class="line"><span class="cl">2024-03-29 6:32:00 0 [ERROR] Do you already have another mysqld server running on port: 3306 ? 
+</span></span><span class="line"><span class="cl">2024-03-29 6:32:00 0 [ERROR] Aborting 2024-03-29 06:32:01 51844 mysqld_safe mysqld from pid file /opt/lampp/var/mysql/dzx.pid ended 
+</span></span><span class="line"><span class="cl">2024-03-29 06:32:13 52226 mysqld_safe Starting mysqld daemon with databases from /opt/lampp/var/mysql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>检查xampp 安装目录中 /opt/lampp/var/mysql/*.err 一个错误日志，在底部会有具体的问题信息，我的问题是映射到了一个其他的docker应用使用的mysql</p>
+<p><a href="https://askubuntu.com/questions/1102355/mysql-is-not-working-in-xampp-7-3-0-0-opt-lampp-bin-mysql-server-260-kill-n" target="_blank" rel="noopener noreffer ">MySQL is not working in XAMPP 7.3.0-0 &quot;/opt/lampp/bin/mysql.server: 260: kill: No such process&quot; - Ask Ubuntu</a></p>
+<p>上述问题解决后运行 <code>xampp</code>还是有报错，但是不影响xampp使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(base) [root@dzx lampp]# /opt/lampp/bin/mysql.server: line 262: log_success_msg: command not found
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到是一个日志输出，/opt/lampp/bin/mysql.server脚本中一个命令没有找到</p>
+<p><a href="https://stackoverflow.com/questions/72753116/how-to-fix-opt-lampp-bin-mysql-server-line-261-log-success-msg-command-not-f" target="_blank" rel="noopener noreffer ">php - 如何修复 /opt/lampp/bin/mysql.server：第 261 行：log_success_msg：找不到命令？- 堆栈溢出 (stackoverflow.com)</a></p>
+<p>可以直接删除对应函数，也可以更新下载对应命令  <code>sudo yum install redhat-lsb-core</code></p>
+<h3 id="通过ip域名访问报错">通过ip/域名访问报错</h3>
+<p>网页报错</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">griedzx: Access forbidden!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">New XAMPP security concept:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Access to the requested directory is only available from the local network.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This setting can be configured in the file &#34;httpd-xampp.conf&#34;.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个错误信息表明，正在尝试从非本地网络访问XAMPP，但是XAMPP的安全设置不允许这样做。默认情况下，XAMPP只允许从本地网络访问。根据提示可以修改 <code>httpd-xampp.conf</code>文件来改变这个设置。这个文件通常位于 <code>/opt/lampp/etc/extra/</code>目录下。</p>
+<p>在 <code>httpd-xampp.conf</code>文件中，找到以下部分：</p>
+<p>通过vim可以在底层命令行通过 <code>/&lt;text&gt;</code>快速查找相关内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-apache" data-lang="apache"><span class="line"><span class="cl"><span class="nt">&lt;LocationMatch</span> <span class="s">&#34;^/(?i:(?:xampp|security|licenses|phpmyadmin|webalizer|server-status|server-info))&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Require</span> local
+</span></span><span class="line"><span class="cl">    <span class="nb">ErrorDocument</span> <span class="m">403</span> <span class="sx">/error/XAMPP_FORBIDDEN.html.var</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/LocationMatch&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将 <code>Require local</code>改为 <code>Require all granted</code>，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-apache" data-lang="apache"><span class="line"><span class="cl"><span class="nt">&lt;LocationMatch</span> <span class="s">&#34;^/(?i:(?:xampp|security|licenses|phpmyadmin|webalizer|server-status|server-info))&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Require</span> <span class="k">all</span> granted
+</span></span><span class="line"><span class="cl">    <span class="nb">ErrorDocument</span> <span class="m">403</span> <span class="sx">/error/XAMPP_FORBIDDEN.html.var</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/LocationMatch&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>保存文件并重启XAMPP，就可以从非本地网络访问XAMPP了。</p>
+<p>这样做可能会增加安全风险，因为任何人都可以访问这个XAMPP</p>
+<p>注意， 当访问一个目录（例如 <code>http://xampp.daizixi.space:1080/2021317210202/</code>）而不是具体的文件时，Web服务器会查看该目录下是否存在这些默认文件 <code>（index.html</code>，<code>index.php</code>等）。如果存在，服务器就会自动返回这个文件的内容</p>
+<p>类似的，正在使用的hugo框架也是相应的规则 <a href="https://www.jianshu.com/p/0b9aecff290c" target="_blank" rel="noopener noreffer ">hugo主题框架中文经验贴</a></p>
+<h2 id="xampp-windows下使用">XAMPP windows下使用</h2>
+<p><a href="https://sourceforge.net/projects/xampp/" target="_blank" rel="noopener noreffer ">XAMPP download | SourceForge.net</a></p>
+<p>window下本地使用类似，且没什么其他应用也不存在端口冲突，并且网上window下教程很多，不像linux，让我折腾了将近一天</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://www.cnblogs.com/gangzi2013/p/6030157.html" target="_blank" rel="noopener noreffer ">linux下用xampp安装php集成环境，并修改各自端口号 - 刚子2013 - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://askubuntu.com/questions/1102355/mysql-is-not-working-in-xampp-7-3-0-0-opt-lampp-bin-mysql-server-260-kill-n" target="_blank" rel="noopener noreffer ">MySQL is not working in XAMPP 7.3.0-0 &quot;/opt/lampp/bin/mysql.server: 260: kill: No such process&quot; - Ask Ubuntu</a></p>
+<p><a href="https://stackoverflow.com/questions/72753116/how-to-fix-opt-lampp-bin-mysql-server-line-261-log-success-msg-command-not-f" target="_blank" rel="noopener noreffer ">php - How to fix /opt/lampp/bin/mysql.server: line 261: log_success_msg: command not found? - Stack Overflow</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-31</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/xampp/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://griedzx.github.io/xampp/" data-title="xampp集成软件包配置" data-via="xxxx"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://griedzx.github.io/xampp/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://griedzx.github.io/xampp/" data-title="xampp集成软件包配置"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://griedzx.github.io/xampp/" data-title="xampp集成软件包配置"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://griedzx.github.io/xampp/" data-title="xampp集成软件包配置"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/blog_settings/" class="prev" rel="prev" title="博客设置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>博客设置</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.125.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+        
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
