@@ -4,10 +4,10 @@
         <link>http://griedzx.github.io/posts/</link>
         <description>所有文章 | 欢迎来到我的空间🎈</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 05 Apr 2024 22:27:10 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 18 Apr 2024 15:53:21 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>xampp集成软件包配置</title>
     <link>http://griedzx.github.io/xampp/</link>
-    <pubDate>Sun, 31 Mar 2024 15:53:21 &#43;0800</pubDate>
+    <pubDate>Thu, 18 Apr 2024 15:53:21 &#43;0800</pubDate>
     <author>griedzx</author>
     <guid>http://griedzx.github.io/xampp/</guid>
     <description><![CDATA[XAMPP VPS(Linux)下使用 下载 Download xampp-linux-x64-8.2.12-0-installer.run (XAMPP) (sourceforge.net) 没有找到直接下载的地址，在本地下载安装脚本，scp上传至服务器/VPS上 修改端口号 服务器上通常会有一]]></description>
@@ -53,6 +53,14 @@
     <description><![CDATA[人类基因组计划（HGP） 目标：整体上破解人类遗传信息的奥秘 测序数据：30亿个碱基对，2~3万个基因，约3个G 四个图：遗传图、物理图、序列图、]]></description>
 </item>
 <item>
+    <title>python基础知识复习</title>
+    <link>http://griedzx.github.io/python/</link>
+    <pubDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/python/</guid>
+    <description><![CDATA[python常用知识点复习 数字与序列 数据类型 数值类型： 整数 分数 浮点数 复数 布尔型 字符串 序列类型： 字符串 列表(list) 元组(tuple) 映射和]]></description>
+</item>
+<item>
     <title>密码管理器vaultwarden</title>
     <link>http://griedzx.github.io/vaultwarden/</link>
     <pubDate>Wed, 27 Dec 2023 18:25:16 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
     <description><![CDATA[生物信息软件综合实践实验报告 实验题目 ：表达谱基本分析及查询 实验日期：2023年12月19日 星期二 实验者：生物信息2102 代子希 实验目的： 熟悉]]></description>
-</item>
-<item>
-    <title>基因预测和基因结构分析</title>
-    <link>http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</link>
-    <pubDate>Sun, 24 Dec 2023 17:09:12 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/%E5%9F%BA%E5%9B%A0%E9%A2%84%E6%B5%8B%E5%92%8C%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</guid>
-    <description><![CDATA[生物信息软件综合实践实验报告 实验题目 ：基因预测和基因结构分析 实验日期：2023年12月5日 星期二 实验者：生物信息2102代子希 实验目的： 1.]]></description>
 </item>
 </channel>
 </rss>

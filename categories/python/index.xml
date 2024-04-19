@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python - 分类 - 欢迎来到我的空间🎈</title>
+        <link>http://griedzx.github.io/categories/python/</link>
+        <description>Python - 分类 - 欢迎来到我的空间🎈</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</lastBuildDate><atom:link href="http://griedzx.github.io/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>python基础知识复习</title>
+    <link>http://griedzx.github.io/python/</link>
+    <pubDate>Fri, 29 Dec 2023 22:53:14 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/python/</guid>
+    <description><![CDATA[python常用知识点复习 数字与序列 数据类型 数值类型： 整数 分数 浮点数 复数 布尔型 字符串 序列类型： 字符串 列表(list) 元组(tuple) 映射和]]></description>
+</item>
+</channel>
+</rss>
