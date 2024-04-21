@@ -32,7 +32,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/griedzx.github.io\/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86\/"
-        },"genre": "posts","wordcount":  5076 ,
+        },"genre": "posts","wordcount":  5130 ,
         "url": "http:\/\/griedzx.github.io\/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86\/","datePublished": "2024-03-09T16:56:43+08:00","dateModified": "2024-03-09T16:56:43+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -107,7 +107,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">生信进展-ATAC数据处理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>griedzx</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%A4%84%E7%90%86%E5%92%8C%E5%88%86%E6%9E%90%E9%AB%98%E9%80%9A%E9%87%8F%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>处理和分析高通量测序数据</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-09">2024-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5076 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-09">2024-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5130 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -119,7 +119,7 @@
     <li><a href="#实验材料">实验材料</a></li>
     <li><a href="#实验流程">实验流程</a>
       <ul>
-        <li><a href="#软件">软件：</a></li>
+        <li><a href="#软件">软件</a></li>
         <li><a href="#分析步骤">分析步骤</a>
           <ul>
             <li><a href="#数据预处理">数据预处理</a></li>
@@ -152,9 +152,14 @@
 <p><a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR5748809&amp;display=analysis" target="_blank" rel="noopener noreffer ">SRR5748809 : Run Browser : SRA Archive : NCBI (nih.gov)</a></p>
 <p>关于玉米（Zea mays）叶肉细胞（leaf mesophyll）的ATAC-seq数据，用于研究染色质可及性的高通量测序数据</p>
 <h2 id="实验流程">实验流程</h2>
-<h3 id="软件">软件：</h3>
+<h3 id="软件">软件</h3>
 <p>SRA-tools <a href="https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/" target="_blank" rel="noopener noreffer ">Index of /sra/sdk (nih.gov)</a></p>
 <p>FastQC <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank" rel="noopener noreffer ">Babraham Bioinformatics - FastQC A Quality Control tool for High Throughput Sequence Data</a></p>
+<p>BWA <a href="https://github.com/lh3/bwa" target="_blank" rel="noopener noreffer ">lh3/bwa: Burrow-Wheeler Aligner for short-read alignment (see minimap2 for long-read alignment) (github.com)</a></p>
+<p>samtools <a href="https://github.com/samtools/samtools" target="_blank" rel="noopener noreffer ">samtools/samtools: Tools (written in C using htslib) for manipulating next-generation sequencing data (github.com)</a></p>
+<p>bedtools <a href="https://bedtools.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener noreffer ">bedtools: a powerful toolset for genome arithmetic — bedtools 2.31.0 documentation</a></p>
+<p>deeptools <a href="https://bedtools.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener noreffer ">bedtools: a powerful toolset for genome arithmetic — bedtools 2.31.0 documentation</a></p>
+<p>R-clusterPro <a href="https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html" target="_blank" rel="noopener noreffer ">Bioconductor - clusterProfiler</a></p>
 <h3 id="分析步骤">分析步骤</h3>
 <h4 id="数据预处理">数据预处理</h4>
 <p>通过itc平台使用逸夫楼网络环境ssh登录</p>
@@ -701,14 +706,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --plotTitle <span class="s2">&#34;Zea mays&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png"
-        data-srcset="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png 1.5x, /%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png 2x"
-        data-sizes="auto"
-        alt="/%E7%94%9F%E4%BF%A1%E8%BF%9B%E5%B1%95-atac%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/image/index/1713284604918.png"
-        title="1713284604918" width="300" height="1081" /></p>
+</div><img src="image/index/1713284604918.png" alt="ATAC-seq峰值图&热图" height=800>
 <h5 id="峰基因go富集分析">峰基因GO富集分析</h5>
 <p>Gene Ontology</p>
 <p>使用 <code>ChIPseeker</code>包将峰值注释到最近的基因，GO富集分析</p>

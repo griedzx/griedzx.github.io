@@ -8,11 +8,22 @@
 
 ## 实验流程
 
-### 软件：
+### 软件
 
 SRA-tools [Index of /sra/sdk (nih.gov)](https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/)
 
 FastQC [Babraham Bioinformatics - FastQC A Quality Control tool for High Throughput Sequence Data](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
+BWA [lh3/bwa: Burrow-Wheeler Aligner for short-read alignment (see minimap2 for long-read alignment) (github.com)](https://github.com/lh3/bwa)
+
+samtools [samtools/samtools: Tools (written in C using htslib) for manipulating next-generation sequencing data (github.com)](https://github.com/samtools/samtools)
+
+bedtools [bedtools: a powerful toolset for genome arithmetic — bedtools 2.31.0 documentation](https://bedtools.readthedocs.io/en/latest/index.html)
+
+deeptools [bedtools: a powerful toolset for genome arithmetic — bedtools 2.31.0 documentation](https://bedtools.readthedocs.io/en/latest/index.html)
+
+R-clusterPro [Bioconductor - clusterProfiler](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
+
 
 ### 分析步骤
 
@@ -329,8 +340,6 @@ print(p_1)
 dev.off()
 ```
 
-
-
 TSS/gene body 位点peak plot展示
 
 deeptools
@@ -358,7 +367,7 @@ plotHeatmap -m ./plot/SRR5748809.gz \
       --plotTitle "Zea mays"
 ```
 
-![1713284604918](image/index/1713284604918.png)
+<img src="image/index/1713284604918.png" alt="ATAC-seq峰值图&热图" height=800>
 
 
 ##### 峰基因GO富集分析
@@ -406,7 +415,6 @@ dotp <- ggplot(ego,
 print(dotp) 
 dev.off()
 ```
-
 
 ## 实验结果
 
@@ -500,8 +508,6 @@ INFO  @ Thu, 28 Mar 2024 15:33:57: Done!
 
 ![1712728353944](image/index/1712728353944.png)
 
-
-
 GO富集分析
 
 ![1713284842478](image/index/1713284842478.png)
@@ -521,7 +527,6 @@ GO富集分析
 * `34 + 0 supplementary`: 有34个补充的对齐，这些通常是由于reads可以对齐到多个位置。
 * `27376162 + 0 mapped (98.01% : N/A)`: 有27376162个reads被映射到参考序列，占总reads的98.01%。非常高的映射率，说明大部分reads都能找到参考序列上的对应位置
 * `0 + 0 paired in sequencing`、`0 + 0 read1`、`0 + 0 read2`、`0 + 0 properly paired (N/A : N/A)`、`0 + 0 with itself and mate mapped`、`0 + 0 singletons (N/A : N/A)`、`0 + 0 with mate mapped to a different chr`、`0 + 0 with mate mapped to a different chr (mapQ>=5)`: 这些统计信息都是关于配对的reads的，但在这个数据集中，所有的reads都是单端的，所以这些统计信息都是0
-
 
 基因富集分析结论
 
