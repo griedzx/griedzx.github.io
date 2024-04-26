@@ -7,10 +7,10 @@
         <title>PubTator - 欢迎来到我的空间🎈</title><meta name="Description" content="欢迎来到griedzx的空间"><meta property="og:url" content="http://griedzx.github.io/pubtator/">
   <meta property="og:site_name" content="欢迎来到我的空间🎈">
   <meta property="og:title" content="PubTator">
-  <meta property="og:description" content="API调用 1 2 3 4 5 6 7 8 9 10 11 12 13 #! /bin/bash id_list=&amp;#39;/home/yh/dzx/work/BioNLP/EntityAnnotation/pmid.txt&amp;#39; #读取id时跳过pmid.txt第一行列名 while read line do if [ $line != &amp;#39;pmid&amp;#39; ] then curl https://www.ncbi.nlm.nih.gov/research/pubtator-api/publications/export/pubtator?pmids=$line &amp;gt;&amp;gt; /home/yh/dzx/work/BioNLP/EntityAnnotation/abstract_pubtator.txt echo &amp;gt;&amp;gt; /home/yh/dzx/work/BioNLP/EntityAnnotation/abstract_pubtator.txt fi sleep 2 done &amp;lt; $id_list 1 cat abstract_pubtator.txt|grep -v">
+  <meta property="og:description" content="API调用 1 2 3 4 5 6 7 8 9 10 11 12 13 #! /bin/bash id_list=&#39;/home/yh/dzx/work/BioNLP/EntityAnnotation/pmid.txt&#39; #读取id时跳过pmid.txt第一行列名 while read line do if [ $line != &#39;pmid&#39; ] then curl https://www.ncbi.nlm.nih.gov/research/pubtator-api/publications/export/pubtator?pmids=$line &gt;&gt; /home/yh/dzx/work/BioNLP/EntityAnnotation/abstract_pubtator.txt echo &gt;&gt; /home/yh/dzx/work/BioNLP/EntityAnnotation/abstract_pubtator.txt fi sleep 2 done &lt; $id_list 1 cat abstract_pubtator.txt|grep -v">
   <meta property="og:locale" content="zh-CN">
   <meta property="og:type" content="article">
-  <meta property="article:section" content="posts">
+    <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-10-17T00:25:14+08:00">
     <meta property="article:modified_time" content="2023-10-17T00:25:14+08:00">
     <meta property="og:image" content="http://griedzx.github.io/logo.png">
@@ -188,7 +188,7 @@
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.125.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.125.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=lOf88frw4aSip6TU5eW69-v5" target="_blank">griedzx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
 
