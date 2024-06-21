@@ -4,9 +4,17 @@
         <link>http://griedzx.github.io/</link>
         <description>欢迎来到griedzx的空间</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2719323380@qq.com (griedzx)</managingEditor>
-            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Thu, 18 Apr 2024 15:53:21 &#43;0800</lastBuildDate>
+            <webMaster>2719323380@qq.com (griedzx)</webMaster><lastBuildDate>Sat, 27 Apr 2024 00:21:52 &#43;0800</lastBuildDate>
             <atom:link href="http://griedzx.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>R绘图颜色配置ggsci</title>
+    <link>http://griedzx.github.io/ggsci/</link>
+    <pubDate>Tue, 23 Apr 2024 00:53:21 &#43;0800</pubDate>
+    <author>griedzx</author>
+    <guid>http://griedzx.github.io/ggsci/</guid>
+    <description><![CDATA[ggsci 是一个 R 包，提供了一些科学期刊、科学软件和科学网站的颜色主题。这些颜色主题可以直接用于 ggplot2 图形。 以下是如何使用 ggsci 的一些基本示例： 加载 ggsci 包： 1]]></description>
+</item>
+<item>
     <title>xampp集成软件包配置</title>
     <link>http://griedzx.github.io/xampp/</link>
     <pubDate>Thu, 18 Apr 2024 15:53:21 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>griedzx</author>
     <guid>http://griedzx.github.io/azure_vps/</guid>
     <description><![CDATA[整Azure教育优惠，为期一年的自制VPS之旅 开整！！！ 创建Azure实例 创建linux虚拟机 区域是服务器所在的数据中心位置，这个选项会影响]]></description>
-</item>
-<item>
-    <title>表达谱分析</title>
-    <link>http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
-    <pubDate>Sun, 24 Dec 2023 17:09:12 &#43;0800</pubDate>
-    <author>griedzx</author>
-    <guid>http://griedzx.github.io/%E8%A1%A8%E8%BE%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
-    <description><![CDATA[生物信息软件综合实践实验报告 实验题目 ：表达谱基本分析及查询 实验日期：2023年12月19日 星期二 实验者：生物信息2102 代子希 实验目的： 熟悉]]></description>
 </item>
 </channel>
 </rss>
